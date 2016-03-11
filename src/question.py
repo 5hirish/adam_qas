@@ -4,6 +4,7 @@
 
 import re
 import nltk
+#from nltk.tag.stanford import StanfordPOSTagger
 
 # -----------------------------
 
@@ -22,8 +23,11 @@ pos = nltk.pos_tag(que_list)
 
 print pos
 
-#from nltk.tag.stanford import StanfordPOSTagger
-#st = StanfordPOSTagger('english-bidirectional-distsim.tagger')
+st = StanfordPOSTagger(r'/home/amit/stanford-postagger/models/english-bidirectional-distsim.tagger',r'/home/amit/stanford-postagger/stanford-postagger.jar')
+''' error comes here in st.tag instruction  '''
+
 #print st.tag('What is the airspeed of an unladen swallow ?'.split())
-#[(u'What', u'WP'), (u'is', u'VBZ'), (u'the', u'DT'), (u'airspeed', u'NN'), (u'of', u'IN'), (u'an', u'DT'), (u'unladen', u'JJ'), (u'swallow', u'VB'), (u'?', u'.')]
+
+
+#forget about this ----> this is output--->[(u'What', u'WP'), (u'is', u'VBZ'), (u'the', u'DT'), (u'airspeed', u'NN'), (u'of', u'IN'), (u'an', u'DT'), (u'unladen', u'JJ'), (u'swallow', u'VB'), (u'?', u'.')]
 
