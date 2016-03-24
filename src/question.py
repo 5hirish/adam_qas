@@ -22,8 +22,11 @@ print(que_list)
 pos = nltk.pos_tag(que_list)
 
 print pos
+print nltk.chunk.conlltags2tree(question)
+print nltk.ne_chunk(question)
 
-st = StanfordPOSTagger(r'/home/amit/stanford-postagger/models/english-bidirectional-distsim.tagger',r'/home/amit/stanford-postagger/stanford-postagger.jar')
+
+#st = StanfordPOSTagger(r'/home/amit/stanford-postagger/models/english-bidirectional-distsim.tagger',r'/home/amit/stanford-postagger/stanford-postagger.jar')
 ''' error comes here in st.tag instruction  '''
 
 #print st.tag('What is the airspeed of an unladen swallow ?'.split())
