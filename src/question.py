@@ -14,12 +14,21 @@ def word_is_in_entity(word):
     return word.ent_type != 0
 
 
+def dependency_labels_to_root(token):
+    '''Walk up the syntactic tree, collecting the arc labels.'''
+    dep_labels = []
+    while token.head is not token:
+        dep_labels.append(token.dep)
+        token = token.head
+    return dep_labels
+
+
 def print_coarse_pos(token):
     print(token.pos_)
 
 
 def print_fine_pos(token):
-    print token, ":", token.tag_
+    print token, ":", token.tag_, "(Lemma:", token.lemma_, ")"
 
 
 def is_adverb(token):
@@ -42,17 +51,27 @@ nlp = spacy.en.English()
 start_time = time.time()
 
 question = "Who is Linus Torvalds and where is he now?"
-
+print "\n\t", question
 doc = nlp(u"" + question)
 
-print "Names entities recognition:"
+print "\nNamed entities recognition:"
 
 for token in doc.ents:
     print token.orth_, ":", token.label_
 
-print "Fine Part Of Speech Tagging:"
+print "\nFine Part of Speech Tagging:"
 for token in doc:
     print_fine_pos(token)
+
+print "\nSyntactic dependencies:"
+for token in doc:
+    #print dependency_labels_to_root(token)
+    print(token.orth_, token.dep_, token.head.orth_, [t.orth_ for t in token.lefts], [t.orth_ for t in token.rights])
+
+print "\nNoun Chunks:"
+for chunk in doc.noun_chunks:
+    print(chunk.label_, chunk.orth_, '<--', chunk.root.head.orth_)
+
 
 """print "Coarse POS"
 for token in doc:
