@@ -1,0 +1,376 @@
+
+-------------------------------- Possible Questions NLP processed ------------------------
+
+1)	When was Linus born?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+When  : WRB (Lemma: when )
+was  : VBD (Lemma: be )
+Linus  : NNP (Lemma: linus )
+born : VBN (Lemma: bear )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'When', u'advmod', u'born', [], [])
+(u'was', u'auxpass', u'born', [], [])
+(u'Linus', u'npadvmod', u'born', [], [])
+(u'born', u'ROOT', u'born', [u'When', u'was', u'Linus'], [u'?'])
+(u'?', u'punct', u'born', [], [])
+
+
+2)	Who is Linus Torvalds?
+
+Named entities recognition:
+Linus Torvalds : PERSON
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+is  : VBZ (Lemma: be )
+Linus  : NNP (Lemma: linus )
+Torvalds : NNP (Lemma: torvalds )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'attr', u'is', [], [])
+(u'is', u'ROOT', u'is', [u'Who'], [u'Torvalds', u'?'])
+(u'Linus', u'compound', u'Torvalds', [], [])
+(u'Torvalds', u'nsubj', u'is', [u'Linus'], [])
+(u'?', u'punct', u'is', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'is')
+(u'NP', u'Linus Torvalds', '<--', u'is')
+
+3)	Who created Git?
+
+Named entities recognition:
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+created  : VBD (Lemma: create )
+Git : NNP (Lemma: git )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'nsubj', u'created', [], [])
+(u'created', u'ROOT', u'created', [u'Who'], [u'Git', u'?'])
+(u'Git', u'dobj', u'created', [], [])
+(u'?', u'punct', u'created', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'created')
+(u'NP', u'Git', '<--', u'created')
+
+
+4)	Where was Linus born?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+Where  : WRB (Lemma: where )
+was  : VBD (Lemma: be )
+Linus  : NNP (Lemma: linus )
+born : VBN (Lemma: bear )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Where', u'advmod', u'was', [], [])
+(u'was', u'auxpass', u'born', [u'Where'], [])
+(u'Linus', u'npadvmod', u'born', [], [])
+(u'born', u'ROOT', u'born', [u'was', u'Linus'], [u'?'])
+(u'?', u'punct', u'born', [], [])
+
+Noun Chunks:
+
+
+5)	Who are Linus's parents?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+are  : VBP (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+parents : NNS (Lemma: parent )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'nsubj', u'are', [], [])
+(u'are', u'ROOT', u'are', [u'Who'], [u'parents', u'?'])
+(u'Linus', u'poss', u'parents', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'parents', u'nsubj', u'are', [u'Linus'], [])
+(u'?', u'punct', u'are', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'are')
+(u'NP', u"Linus's parents", '<--', u'are')
+
+
+6)	Who was Linus named after?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+was  : VBD (Lemma: be )
+Linus  : NNP (Lemma: linus )
+named  : VBN (Lemma: name )
+after : IN (Lemma: after )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'attr', u'was', [], [])
+(u'was', u'auxpass', u'named', [u'Who'], [])
+(u'Linus', u'nsubjpass', u'named', [], [])
+(u'named', u'ROOT', u'named', [u'was', u'Linus'], [u'after', u'?'])
+(u'after', u'prep', u'named', [], [])
+(u'?', u'punct', u'named', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'was')
+(u'NP', u'Linus', '<--', u'named')
+
+
+7)	Which university Linus attended?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+Which  : WDT (Lemma: which )
+university  : NN (Lemma: university )
+Linus  : NNP (Lemma: linus )
+attended : VBD (Lemma: attend )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Which', u'det', u'university', [], [])
+(u'university', u'nsubj', u'attended', [u'Which'], [])
+(u'Linus', u'nsubj', u'attended', [], [])
+(u'attended', u'ROOT', u'attended', [u'university', u'Linus'], [u'?'])
+(u'?', u'punct', u'attended', [], [])
+
+Noun Chunks:
+(u'NP', u'Which university', '<--', u'attended')
+(u'NP', u'Linus', '<--', u'attended')
+
+
+8)	What was Linus's role in army?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+was  : VBD (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+role  : NN (Lemma: role )
+in  : IN (Lemma: in )
+army : NN (Lemma: army )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'was', [], [])
+(u'was', u'ROOT', u'was', [u'What'], [u'role', u'?'])
+(u'Linus', u'poss', u'role', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'role', u'nsubj', u'was', [u'Linus'], [u'in'])
+(u'in', u'prep', u'role', [], [u'army'])
+(u'army', u'pobj', u'in', [], [])
+(u'?', u'punct', u'was', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'was')
+(u'NP', u"Linus's role", '<--', u'was')
+(u'NP', u'army', '<--', u'in')
+
+9)	Which brigade Linus joined in the army?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+Which  : WDT (Lemma: which )
+brigade  : NN (Lemma: brigade )
+Linus  : NNP (Lemma: linus )
+joined  : VBD (Lemma: join )
+in  : IN (Lemma: in )
+the  : DT (Lemma: the )
+army : NN (Lemma: army )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Which', u'det', u'brigade', [], [])
+(u'brigade', u'dobj', u'joined', [u'Which'], [])
+(u'Linus', u'nsubj', u'joined', [], [])
+(u'joined', u'ROOT', u'joined', [u'brigade', u'Linus'], [u'in', u'?'])
+(u'in', u'prep', u'joined', [], [u'army'])
+(u'the', u'det', u'army', [], [])
+(u'army', u'pobj', u'in', [u'the'], [])
+(u'?', u'punct', u'joined', [], [])
+
+Noun Chunks:
+(u'NP', u'Which brigade', '<--', u'joined')
+(u'NP', u'Linus', '<--', u'joined')
+(u'NP', u'the army', '<--', u'in')
+
+
+10)	What was Linus's thesis titled?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+was  : VBD (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+thesis  : NN (Lemma: thesis )
+titled : VBN (Lemma: title )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'was', [], [])
+(u'was', u'ROOT', u'was', [u'What'], [u'thesis', u'?'])
+(u'Linus', u'poss', u'thesis', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'thesis', u'attr', u'was', [u'Linus'], [u'titled'])
+(u'titled', u'acl', u'thesis', [], [])
+(u'?', u'punct', u'was', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'was')
+(u'NP', u"Linus's thesis", '<--', u'was')
+
+
+11)	How Linus's interest in computers began and at what age?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+How  : WRB (Lemma: how )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+interest  : NN (Lemma: interest )
+in  : IN (Lemma: in )
+computers  : NNS (Lemma: computer )
+began  : VBD (Lemma: begin )
+and  : CC (Lemma: and )
+at  : IN (Lemma: at )
+what  : WDT (Lemma: what )
+age : NN (Lemma: age )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'How', u'advmod', u'began', [], [])
+(u'Linus', u'poss', u'interest', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'interest', u'nsubj', u'began', [u'Linus'], [u'in'])
+(u'in', u'prep', u'interest', [], [u'computers'])
+(u'computers', u'pobj', u'in', [], [])
+(u'began', u'ROOT', u'began', [u'How', u'interest'], [u'and', u'at', u'?'])
+(u'and', u'cc', u'began', [], [])
+(u'at', u'prep', u'began', [], [u'age'])
+(u'what', u'det', u'age', [], [])
+(u'age', u'pobj', u'at', [u'what'], [])
+(u'?', u'punct', u'began', [], [])
+
+Noun Chunks:
+(u'NP', u"Linus's interest", '<--', u'began')
+(u'NP', u'computers', '<--', u'in')
+(u'NP', u'what age', '<--', u'at')
+
+
+12)	What is the name of pac-man clone written by Linus?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+is  : VBZ (Lemma: be )
+the  : DT (Lemma: the )
+name  : NN (Lemma: name )
+of  : IN (Lemma: of )
+pac : NN (Lemma: pac )
+- : HYPH (Lemma: - )
+man  : NN (Lemma: man )
+clone  : NN (Lemma: clone )
+written  : VBN (Lemma: write )
+by  : IN (Lemma: by )
+Linus : NNP (Lemma: linus )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'is', [], [])
+(u'is', u'ROOT', u'is', [u'What'], [u'name', u'?'])
+(u'the', u'det', u'name', [], [])
+(u'name', u'nsubj', u'is', [u'the'], [u'of'])
+(u'of', u'prep', u'name', [], [u'clone'])
+(u'pac', u'compound', u'man', [], [])
+(u'-', u'punct', u'man', [], [])
+(u'man', u'compound', u'clone', [u'pac', u'-'], [])
+(u'clone', u'pobj', u'of', [u'man'], [u'written'])
+(u'written', u'acl', u'clone', [], [u'by'])
+(u'by', u'agent', u'written', [], [u'Linus'])
+(u'Linus', u'pobj', u'by', [], [])
+(u'?', u'punct', u'is', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'is')
+(u'NP', u'the name', '<--', u'is')
+(u'NP', u'pac-man clone', '<--', u'of')
+(u'NP', u'Linus', '<--', u'by')
+
+
+13)	When did Linus purchased an Intel 80386 based clone of IBM pc?
+
+Named entities recognition:
+Linus : ORG
+Intel : ORG
+IBM : ORG
+
+Fine Part of Speech Tagging:
+When  : WRB (Lemma: when )
+did  : VBD (Lemma: do )
+Linus  : NNP (Lemma: linus )
+purchased  : VBD (Lemma: purchase )
+an  : DT (Lemma: an )
+Intel  : NNP (Lemma: intel )
+80386  : CD (Lemma: 80386 )
+based  : VBN (Lemma: base )
+clone  : NN (Lemma: clone )
+of  : IN (Lemma: of )
+IBM  : NNP (Lemma: ibm )
+pc : NN (Lemma: pc )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'When', u'advmod', u'purchased', [], [])
+(u'did', u'aux', u'purchased', [], [])
+(u'Linus', u'nsubj', u'purchased', [], [])
+(u'purchased', u'ROOT', u'purchased', [u'When', u'did', u'Linus'], [u'clone', u'?'])
+(u'an', u'det', u'clone', [], [])
+(u'Intel', u'nmod', u'clone', [], [])
+(u'80386', u'nummod', u'clone', [], [])
+(u'based', u'amod', u'clone', [], [])
+(u'clone', u'dobj', u'purchased', [u'an', u'Intel', u'80386', u'based'], [u'of'])
+(u'of', u'prep', u'clone', [], [u'pc'])
+(u'IBM', u'compound', u'pc', [], [])
+(u'pc', u'pobj', u'of', [u'IBM'], [])
+(u'?', u'punct', u'purchased', [], [])
+
+Noun Chunks:
+(u'NP', u'Linus', '<--', u'purchased')
+(u'NP', u'an Intel 80386 based clone', '<--', u'purchased')
+(u'NP', u'IBM pc', '<--', u'of')
