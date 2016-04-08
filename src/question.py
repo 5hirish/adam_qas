@@ -76,4 +76,4 @@ for chunk in doc.noun_chunks:
 for token in doc:
     print_coarse_pos(token)"""
 
-print("--- %s seconds ---" % (time.time() - start_time))
+print("\n--- %s seconds ---" % (time.time() - start_time))

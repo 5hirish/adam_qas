@@ -374,3 +374,447 @@ Noun Chunks:
 (u'NP', u'Linus', '<--', u'purchased')
 (u'NP', u'an Intel 80386 based clone', '<--', u'purchased')
 (u'NP', u'IBM pc', '<--', u'of')
+
+
+14)	When was Linux version 1 released?
+
+Named entities recognition:
+Linux : PRODUCT
+
+Fine Part of Speech Tagging:
+When  : WRB (Lemma: when )
+was  : VBD (Lemma: be )
+Linux  : NNP (Lemma: linux )
+version  : NN (Lemma: version )
+1  : CD (Lemma: 1 )
+released : VBN (Lemma: release )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'When', u'advmod', u'was', [], [])
+(u'was', u'auxpass', u'released', [u'When'], [])
+(u'Linux', u'compound', u'version', [], [])
+(u'version', u'dep', u'released', [u'Linux'], [u'1'])
+(u'1', u'nummod', u'version', [], [])
+(u'released', u'ROOT', u'released', [u'was', u'version'], [u'?'])
+(u'?', u'punct', u'released', [], [])
+
+Noun Chunks:
+
+15)	Which GPL version Linus used for Linux?
+
+Named entities recognition:
+Linus : ORG
+Linux : PRODUCT
+
+Fine Part of Speech Tagging:
+Which  : WDT (Lemma: which )
+GPL  : NNP (Lemma: gpl )
+version  : NN (Lemma: version )
+Linus  : NNP (Lemma: linus )
+used  : VBD (Lemma: use )
+for  : IN (Lemma: for )
+Linux : NNP (Lemma: linux )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Which', u'det', u'version', [], [])
+(u'GPL', u'compound', u'version', [], [])
+(u'version', u'ROOT', u'version', [u'Which', u'GPL'], [u'used', u'?'])
+(u'Linus', u'nsubj', u'used', [], [])
+(u'used', u'acl', u'version', [u'Linus'], [u'for'])
+(u'for', u'prep', u'used', [], [u'Linux'])
+(u'Linux', u'pobj', u'for', [], [])
+(u'?', u'punct', u'version', [], [])
+
+Noun Chunks:
+(u'NP', u'Linus', '<--', u'used')
+(u'NP', u'Linux', '<--', u'for')
+
+16)	Who took Linus to the University of Technology and for what?
+
+Named entities recognition:
+Linus : ORG
+the University of Technology : ORG
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+took  : VBD (Lemma: take )
+Linus  : NNP (Lemma: linus )
+to  : IN (Lemma: to )
+the  : DT (Lemma: the )
+University  : NNP (Lemma: university )
+of  : IN (Lemma: of )
+Technology  : NNP (Lemma: technology )
+and  : CC (Lemma: and )
+for  : IN (Lemma: for )
+what : WP (Lemma: what )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'nsubj', u'took', [], [])
+(u'took', u'ROOT', u'took', [u'Who'], [u'Linus', u'to', u'and', u'for', u'?'])
+(u'Linus', u'dobj', u'took', [], [])
+(u'to', u'prep', u'took', [], [u'University'])
+(u'the', u'det', u'University', [], [])
+(u'University', u'pobj', u'to', [u'the'], [u'of'])
+(u'of', u'prep', u'University', [], [u'Technology'])
+(u'Technology', u'pobj', u'of', [], [])
+(u'and', u'cc', u'took', [], [])
+(u'for', u'prep', u'took', [], [u'what'])
+(u'what', u'pobj', u'for', [], [])
+(u'?', u'punct', u'took', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'took')
+(u'NP', u'Linus', '<--', u'took')
+(u'NP', u'the University', '<--', u'to')
+(u'NP', u'Technology', '<--', u'of')
+(u'NP', u'what', '<--', u'for')
+
+
+17)	Why Red Hat and VA Linux presented Trovalds with stock options?
+
+Named entities recognition:
+Linux : PRODUCT
+Trovalds : ORG
+
+Fine Part of Speech Tagging:
+Why  : WRB (Lemma: why )
+Red  : NNP (Lemma: red )
+Hat  : NN (Lemma: hat )
+and  : CC (Lemma: and )
+VA  : NNP (Lemma: va )
+Linux  : NNP (Lemma: linux )
+presented  : VBD (Lemma: present )
+Trovalds  : NNP (Lemma: trovalds )
+with  : IN (Lemma: with )
+stock  : NN (Lemma: stock )
+options : NNS (Lemma: option )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Why', u'advmod', u'presented', [], [])
+(u'Red', u'amod', u'Hat', [], [])
+(u'Hat', u'nsubj', u'presented', [u'Red'], [u'and', u'VA'])
+(u'and', u'cc', u'Hat', [], [])
+(u'VA', u'conj', u'Hat', [], [])
+(u'Linux', u'nsubj', u'presented', [], [])
+(u'presented', u'ROOT', u'presented', [u'Why', u'Hat', u'Linux'], [u'Trovalds', u'with', u'?'])
+(u'Trovalds', u'dobj', u'presented', [], [])
+(u'with', u'prep', u'presented', [], [u'options'])
+(u'stock', u'compound', u'options', [], [])
+(u'options', u'pobj', u'with', [u'stock'], [])
+(u'?', u'punct', u'presented', [], [])
+
+Noun Chunks:
+(u'NP', u'Red Hat', '<--', u'presented')
+(u'NP', u'VA', '<--', u'Hat')
+(u'NP', u'Linux', '<--', u'presented')
+(u'NP', u'Trovalds', '<--', u'presented')
+(u'NP', u'stock options', '<--', u'with')
+
+
+18)	What is Linus's personal mascot?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+is  : VBZ (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+personal  : JJ (Lemma: personal )
+mascot : NN (Lemma: mascot )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'is', [], [])
+(u'is', u'ROOT', u'is', [u'What'], [u'mascot', u'?'])
+(u'Linus', u'poss', u'mascot', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'personal', u'amod', u'mascot', [], [])
+(u'mascot', u'nsubj', u'is', [u'Linus', u'personal'], [])
+(u'?', u'punct', u'is', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'is')
+(u'NP', u"Linus's personal mascot", '<--', u'is')
+
+
+19)	Who sponsors Linus Torvalds?
+
+Named entities recognition:
+Linus Torvalds : PERSON
+
+Fine Part of Speech Tagging:
+Who  : WP (Lemma: who )
+sponsors  : VBZ (Lemma: sponsor )
+Linus  : NNP (Lemma: linus )
+Torvalds : NNP (Lemma: torvalds )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Who', u'nsubj', u'sponsors', [], [])
+(u'sponsors', u'ROOT', u'sponsors', [u'Who'], [u'Torvalds', u'?'])
+(u'Linus', u'compound', u'Torvalds', [], [])
+(u'Torvalds', u'dobj', u'sponsors', [u'Linus'], [])
+(u'?', u'punct', u'sponsors', [], [])
+
+Noun Chunks:
+(u'NP', u'Who', '<--', u'sponsors')
+(u'NP', u'Linus Torvalds', '<--', u'sponsors')
+
+
+20)	What was Linux kernel originally called?
+
+Named entities recognition:
+Linux : PRODUCT
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+was  : VBD (Lemma: be )
+Linux  : JJ (Lemma: linux )
+kernel  : NN (Lemma: kernel )
+originally  : RB (Lemma: originally )
+called : VBN (Lemma: call )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'nsubj', u'was', [], [])
+(u'was', u'ROOT', u'was', [u'What'], [u'kernel'])
+(u'Linux', u'amod', u'kernel', [], [])
+(u'kernel', u'attr', u'was', [u'Linux'], [u'called'])
+(u'originally', u'advmod', u'called', [], [])
+(u'called', u'acl', u'kernel', [u'originally'], [u'?'])
+(u'?', u'punct', u'called', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'was')
+(u'NP', u'Linux kernel', '<--', u'was')
+
+
+21)	What is Linus's contribution to Linux kernel?
+
+Named entities recognition:
+Linus : ORG
+Linux : PRODUCT
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+is  : VBZ (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+contribution  : NN (Lemma: contribution )
+to  : IN (Lemma: to )
+Linux  : NNP (Lemma: linux )
+kernel : NN (Lemma: kernel )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'is', [], [])
+(u'is', u'ROOT', u'is', [u'What'], [u'contribution', u'?'])
+(u'Linus', u'poss', u'contribution', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'contribution', u'nsubj', u'is', [u'Linus'], [u'to'])
+(u'to', u'prep', u'contribution', [], [u'kernel'])
+(u'Linux', u'compound', u'kernel', [], [])
+(u'kernel', u'pobj', u'to', [u'Linux'], [])
+(u'?', u'punct', u'is', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'is')
+(u'NP', u"Linus's contribution", '<--', u'is')
+(u'NP', u'Linux kernel', '<--', u'to')
+
+
+22)	Whom Linus Torvalds married?
+
+Named entities recognition:
+
+Fine Part of Speech Tagging:
+Whom  : WP (Lemma: whom )
+Linus  : NNP (Lemma: linus )
+Torvalds  : NNPS (Lemma: torvalds )
+married : VBD (Lemma: marry )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'Whom', u'dobj', u'married', [], [])
+(u'Linus', u'compound', u'Torvalds', [], [])
+(u'Torvalds', u'nsubj', u'married', [u'Linus'], [])
+(u'married', u'ROOT', u'married', [u'Whom', u'Torvalds'], [u'?'])
+(u'?', u'punct', u'married', [], [])
+
+Noun Chunks:
+(u'NP', u'Whom', '<--', u'married')
+(u'NP', u'Linus Torvalds', '<--', u'married')
+
+
+23)	What are Linus's daughters names?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+are  : VBP (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+daughters  : NNS (Lemma: daughter )
+names : NNS (Lemma: name )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'are', [], [])
+(u'are', u'ROOT', u'are', [u'What'], [u'names', u'?'])
+(u'Linus', u'poss', u'daughters', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'daughters', u'compound', u'names', [u'Linus'], [])
+(u'names', u'nsubj', u'are', [u'daughters'], [])
+(u'?', u'punct', u'are', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'are')
+(u'NP', u"Linus's daughters names", '<--', u'are')
+
+
+24)	How Linus describes himself in terms of religion?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+How  : WRB (Lemma: how )
+Linus  : NNP (Lemma: linus )
+describes  : VBZ (Lemma: describe )
+himself  : PRP (Lemma: himself )
+in  : IN (Lemma: in )
+terms  : NNS (Lemma: term )
+of  : IN (Lemma: of )
+religion : NN (Lemma: religion )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'How', u'advmod', u'describes', [], [])
+(u'Linus', u'nsubj', u'describes', [], [])
+(u'describes', u'ROOT', u'describes', [u'How', u'Linus'], [u'himself', u'in', u'?'])
+(u'himself', u'dobj', u'describes', [], [])
+(u'in', u'prep', u'describes', [], [u'terms'])
+(u'terms', u'pobj', u'in', [], [u'of'])
+(u'of', u'prep', u'terms', [], [u'religion'])
+(u'religion', u'pobj', u'of', [], [])
+(u'?', u'punct', u'describes', [], [])
+
+Noun Chunks:
+(u'NP', u'Linus', '<--', u'describes')
+(u'NP', u'himself', '<--', u'describes')
+(u'NP', u'terms', '<--', u'in')
+(u'NP', u'religion', '<--', u'of')
+
+
+25)	What are Linus's views regarding religion?
+
+Named entities recognition:
+Linus : ORG
+
+Fine Part of Speech Tagging:
+What  : WP (Lemma: what )
+are  : VBP (Lemma: be )
+Linus : NNP (Lemma: linus )
+'s  : POS (Lemma: 's )
+views  : NNS (Lemma: view )
+regarding  : VBG (Lemma: regard )
+religion : NN (Lemma: religion )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'What', u'attr', u'are', [], [])
+(u'are', u'ROOT', u'are', [u'What'], [u'views', u'?'])
+(u'Linus', u'poss', u'views', [], [u"'s"])
+(u"'s", u'case', u'Linus', [], [])
+(u'views', u'attr', u'are', [u'Linus'], [u'regarding'])
+(u'regarding', u'acl', u'views', [], [u'religion'])
+(u'religion', u'pobj', u'regarding', [], [])
+(u'?', u'punct', u'are', [], [])
+
+Noun Chunks:
+(u'NP', u'What', '<--', u'are')
+(u'NP', u"Linus's views", '<--', u'are')
+(u'NP', u'religion', '<--', u'regarding')
+
+
+26)	When did Linus become a US citizen?
+
+Named entities recognition:
+Linus : ORG
+US : GPE
+
+Fine Part of Speech Tagging:
+When  : WRB (Lemma: when )
+did  : VBD (Lemma: do )
+Linus  : NNP (Lemma: linus )
+become  : VB (Lemma: become )
+a  : DT (Lemma: a )
+US  : NNP (Lemma: u )
+citizen : NN (Lemma: citizen )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'When', u'advmod', u'become', [], [])
+(u'did', u'aux', u'become', [], [])
+(u'Linus', u'nsubj', u'become', [], [])
+(u'become', u'ROOT', u'become', [u'When', u'did', u'Linus'], [u'citizen', u'?'])
+(u'a', u'det', u'citizen', [], [])
+(u'US', u'compound', u'citizen', [], [])
+(u'citizen', u'attr', u'become', [u'a', u'US'], [])
+(u'?', u'punct', u'become', [], [])
+
+Noun Chunks:
+(u'NP', u'Linus', '<--', u'become')
+(u'NP', u'a US citizen', '<--', u'become')
+
+
+27)	How is Linus known to other developers on the Linux kernel mailing list?
+
+Named entities recognition:
+Linus : ORG
+Linux : PRODUCT
+
+Fine Part of Speech Tagging:
+How  : WRB (Lemma: how )
+is  : VBZ (Lemma: be )
+Linus  : NNP (Lemma: linus )
+known  : VBN (Lemma: know )
+to  : IN (Lemma: to )
+other  : JJ (Lemma: other )
+developers  : NNS (Lemma: developer )
+on  : IN (Lemma: on )
+the  : DT (Lemma: the )
+Linux  : NNP (Lemma: linux )
+kernel  : NN (Lemma: kernel )
+mailing  : NN (Lemma: mailing )
+list : NN (Lemma: list )
+? : . (Lemma: ? )
+
+Syntactic dependencies:
+(u'How', u'advmod', u'is', [], [])
+(u'is', u'auxpass', u'known', [u'How'], [])
+(u'Linus', u'nsubjpass', u'known', [], [])
+(u'known', u'ROOT', u'known', [u'is', u'Linus'], [u'to', u'on', u'?'])
+(u'to', u'prep', u'known', [], [u'developers'])
+(u'other', u'amod', u'developers', [], [])
+(u'developers', u'pobj', u'to', [u'other'], [])
+(u'on', u'prep', u'known', [], [u'list'])
+(u'the', u'det', u'list', [], [])
+(u'Linux', u'compound', u'kernel', [], [])
+(u'kernel', u'compound', u'list', [u'Linux'], [])
+(u'mailing', u'compound', u'list', [], [])
+(u'list', u'pobj', u'on', [u'the', u'kernel', u'mailing'], [])
+(u'?', u'punct', u'known', [], [])
+
+Noun Chunks:
+(u'NP', u'Linus', '<--', u'known')
+(u'NP', u'other developers', '<--', u'to')
+(u'NP', u'the Linux kernel mailing list', '<--', u'on')
