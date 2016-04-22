@@ -14,11 +14,11 @@ import spacy.parts_of_speech
 # -----------------------------
 
 
-# question = raw_input("Q:")
+question = raw_input("Q:")
 
 start_time = time.time()
 
-question = "Who is Linus Torvalds and where is he now?"
+# question = "Who is Linus Torvalds and where is he now?"
 print "\n\t", question
 doc = textblob.TextBlob(question)
 
