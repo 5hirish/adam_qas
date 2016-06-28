@@ -7,7 +7,7 @@ import os
 # -----------------------------
 
 path = os.path.dirname(os.path.realpath(__file__))
-path = path.replace("/src", "/corpus/")
+path = path.replace("/src", "/corpora/")
 fp = open(path+"regdata.txt", "r")
 
 # print classifications[class_type.lower()]
