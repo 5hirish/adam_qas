@@ -6,6 +6,12 @@ import os
 
 # -----------------------------
 
+"""
+
+This script is specifically targeted to the Linus Torvalds topic in the corpus linus_torvalds.txt
+The Anaphora resolution is done manually.
+
+"""
 def sent_split(sent):
 
     sent = sent.lower()                                             # Convert to lower case
@@ -26,7 +32,7 @@ classifications = {"what": "action", "when": "time", "where": "place", "who": "p
 # test = "Hi Shirish how are you?"
 
 path = os.path.dirname(os.path.realpath(__file__))
-path = path.replace("/src", "/corpus/")
+path = path.replace("/src", "/corpora/")
 fp = open(path+"linus_torvalds.txt", "r")
 
 # print classifications[class_type.lower()]

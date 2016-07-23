@@ -1,6 +1,15 @@
 
 -------------------------------- Possible Questions NLP processed ------------------------
 
+/*******************************************
+
+WH Questions Grammatical Structure :
+
+WH + Auxiliary Verb + Subject + Main Verb
+WH + Modal Verb + Subject + Main Verb
+
+*******************************************/
+
 1)	When was Linus born?
 
 Named entities recognition:
