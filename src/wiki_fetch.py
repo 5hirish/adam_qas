@@ -1,11 +1,30 @@
 import requests
-import json
+import bs4
 
-# search_term = input("Enter Search term")
-search_term = 'tiger'
-wiki_rest_api = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srnamespace=0&srprop=timestamp&&srsearch=intitle:tiger'
-print(wiki_rest_api)
-wiki_response = requests.get(wiki_rest_api)
-wiki_json_response = wiki_response.json()
-print(wiki_json_response)
+html_respose = requests.get('https://en.wikipedia.org/wiki/Terra')
+# print(html_respose.content)
 
+soup = bs4.BeautifulSoup(html_respose.content, 'lxml')
+soup.find('div', class_='toc').decompose()
+
+# print(soup.prettify())
+
+# content = soup.find_all("div", class_="mw-body")
+# print(content)
+
+content = soup.find_all('div', class_='mw-content-ltr')
+content_html = ''
+
+for elements in content:
+    content_html = content_html.join(str(elements))
+
+disambiguation = bs4.BeautifulSoup(content_html, 'lxml')
+candidates = disambiguation.find_all('p')
+for elements in candidates:
+    print(elements)
+
+categories = disambiguation.find_all('span', class_='mw-headline')
+categories_content = disambiguation.find_all('ul')
+for elements, elements_content in zip(categories, categories_content):
+    print(elements)
+    print(elements_content)
