@@ -1,16 +1,13 @@
 import requests
 import bs4
 
-html_respose = requests.get('https://en.wikipedia.org/wiki/Terra')
+html_response = requests.get('https://en.wikipedia.org/wiki/Terra')
 # print(html_respose.content)
 
-soup = bs4.BeautifulSoup(html_respose.content, 'lxml')
+soup = bs4.BeautifulSoup(html_response.content, 'lxml')
 soup.find('div', class_='toc').decompose()
 
 # print(soup.prettify())
-
-# content = soup.find_all("div", class_="mw-body")
-# print(content)
 
 content = soup.find('div', class_='mw-content-ltr')
 
@@ -24,18 +21,13 @@ for i in range(len(candidates)):
     else:
         print(candidates[i].get_text())
 
-categories = disambiguation.find_all('span', class_='mw-headline')
-categories_content = disambiguation.find_all('ul')
-"""for elements, elements_content in zip(categories, categories_content):
-    print(elements)
-    # print(elements_content)"""
-
-"""test = disambiguation.find('h2')
-print(test.find_next())
-print(test.find_next_sibling())"""
-
-test = disambiguation.find_all('h2')
-for i in range(len(test)):
-    if test[i].find_next().get_text() != "References" or test[i].find_next().get_text() != "See also":
-        print("[", i + 1, "]",test[i].find_next().get_text(), ":")
-        print(test[i].find_next_sibling().get_text())
+categories = disambiguation.find_all('h2')
+for i in range(len(categories)):
+    if categories[i].find_next().get_text() != "References" or categories[i].find_next().get_text() != "See also":
+        print("[", i + 1, "]", categories[i].find_next().get_text(), ":")
+        # print(categories[i].find_next_sibling().get_text())
+        category_content = categories[i].find_next_sibling()
+        category_content_item = category_content.find_all('li')
+        for j in range(len(category_content_item)):
+            print(i + 1, ".", j + 1, ")", category_content_item[j].get_text())
+            # print("https://en.wikipedia.org"+category_content_item[j].find('a').get('href'))
