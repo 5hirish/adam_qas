@@ -4,7 +4,7 @@ import bs4
 
 search_term = input("Enter Search Term:")
 search_term.replace("", "_")
-wiki_url = "https://en.wikipedia.org/wiki/"+search_term
+wiki_url = "https://en.wikipedia.org/wiki/"+search_term+"_(disambiguation)"  # Force disambiguation url
 # wiki_url = "https://en.wikipedia.org/wiki/Terra"
 
 html_response = requests.get(wiki_url)
@@ -13,7 +13,13 @@ html_response = requests.get(wiki_url)
 search_results = {}
 
 soup = bs4.BeautifulSoup(html_response.content, 'lxml')
-soup.find('div', class_='toc').decompose()
+
+if soup.find('div', class_='noarticletext mw-content-ltr'):                   # If no disambiguation possible disable it
+    wiki_url = "https://en.wikipedia.org/wiki/"+search_term
+    html_response = requests.get(wiki_url)
+    soup = bs4.BeautifulSoup(html_response.content, 'lxml')
+
+soup.find('div', class_='toc').decompose()                                     # Remove Table Of Contents
 
 # print(soup.prettify())
 
