@@ -12,19 +12,24 @@ soup.find('div', class_='toc').decompose()
 # content = soup.find_all("div", class_="mw-body")
 # print(content)
 
-content = soup.find_all('div', class_='mw-content-ltr')
-content_html = ''
+content = soup.find('div', class_='mw-content-ltr')
 
-for elements in content:
-    content_html = content_html.join(str(elements))
-
-disambiguation = bs4.BeautifulSoup(content_html, 'lxml')
+disambiguation = bs4.BeautifulSoup(str(content), 'lxml')
 candidates = disambiguation.find_all('p')
 for elements in candidates:
     print(elements)
 
 categories = disambiguation.find_all('span', class_='mw-headline')
 categories_content = disambiguation.find_all('ul')
-for elements, elements_content in zip(categories, categories_content):
+"""for elements, elements_content in zip(categories, categories_content):
     print(elements)
-    print(elements_content)
+    # print(elements_content)"""
+
+"""test = disambiguation.find('h2')
+print(test.find_next())
+print(test.find_next_sibling())"""
+
+test = disambiguation.find_all('h2')
+for i in range(len(test)):
+    print(test[i].find_next())
+    print(test[i].find_next_sibling())
