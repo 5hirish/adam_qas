@@ -1,7 +1,13 @@
 import requests
 import bs4
 
-html_response = requests.get('https://en.wikipedia.org/wiki/Terra')
+
+search_term = input("Enter Search Term:")
+search_term.replace("", "_")
+wiki_url = "https://en.wikipedia.org/wiki/"+search_term
+# wiki_url = "https://en.wikipedia.org/wiki/Terra"
+
+html_response = requests.get(wiki_url)
 # print(html_respose.content)
 
 search_results = {}
@@ -39,4 +45,8 @@ for i in range(len(categories)):
             url = "https://en.wikipedia.org"+category_content_item[j].find('a').get('href')
             search_results[index] = url
 
-
+result_index = input("Select a search result:")
+if search_results[float(result_index)]:
+    print(search_results[float(result_index)])
+else:
+    print("Error Not Found")
