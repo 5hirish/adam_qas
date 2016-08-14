@@ -4,6 +4,8 @@ import bs4
 html_response = requests.get('https://en.wikipedia.org/wiki/Terra')
 # print(html_respose.content)
 
+search_results = {}
+
 soup = bs4.BeautifulSoup(html_response.content, 'lxml')
 soup.find('div', class_='toc').decompose()
 
@@ -16,14 +18,16 @@ candidates = disambiguation.find_all('p')
 for i in range(len(candidates)):
 
     if candidates[i].find('a'):
-        print("https://en.wikipedia.org"+candidates[i].find('a').get('href'))
+        # print("https://en.wikipedia.org"+candidates[i].find('a').get('href'))
+        url = "https://en.wikipedia.org"+candidates[i].find('a').get('href')
+        search_results[i] = url
         print("[", i, "]", candidates[i].get_text())
     else:
         print(candidates[i].get_text())
 
 categories = disambiguation.find_all('h2')
 for i in range(len(categories)):
-    if categories[i].find_next().get_text() != "References" or categories[i].find_next().get_text() != "See also":
+    if categories[i].find_next().get_text() != "References" and categories[i].find_next().get_text() != "See also":
         print("[", i + 1, "]", categories[i].find_next().get_text(), ":")
         # print(categories[i].find_next_sibling().get_text())
         category_content = categories[i].find_next_sibling()
@@ -31,3 +35,8 @@ for i in range(len(categories)):
         for j in range(len(category_content_item)):
             print(i + 1, ".", j + 1, ")", category_content_item[j].get_text())
             # print("https://en.wikipedia.org"+category_content_item[j].find('a').get('href'))
+            index = float(str(i+1)+"."+str(j+1))
+            url = "https://en.wikipedia.org"+category_content_item[j].find('a').get('href')
+            search_results[index] = url
+
+
