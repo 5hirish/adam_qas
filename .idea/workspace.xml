@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Adam$wiki_fetch.coverage" NAME="wiki_fetch Coverage Results" MODIFIED="1471211254996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Adam$wiki_fetch.coverage" NAME="wiki_fetch Coverage Results" MODIFIED="1471211732187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Adam$question.coverage" NAME="question Coverage Results" MODIFIED="1469279986806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -62,8 +62,8 @@
       <file leaf-file-name="wiki_fetch.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/wiki_fetch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+            <state relative-caret-position="72">
+              <caret line="38" column="100" selection-start-line="38" selection-start-column="100" selection-end-line="38" selection-end-column="100" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -1104,7 +1104,7 @@
       <workItem from="1469280947726" duration="8506000" />
       <workItem from="1469773997057" duration="148000" />
       <workItem from="1471104451742" duration="12110000" />
-      <workItem from="1471204520962" duration="4366000" />
+      <workItem from="1471204520962" duration="4790000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1455044963802</created>
@@ -1218,11 +1218,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471210607955</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Link of Primary Search result shown">
+      <created>1471211347422</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1471211347422</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89889000" />
+    <option name="totallyTimeSpent" value="90313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1347,7 +1354,8 @@
     <MESSAGE value="Added Wikipedia API" />
     <MESSAGE value="Removed WikiMedia APi instead choose Web Scrapping like the Pirates." />
     <MESSAGE value="Fixed Issue #2 of conflicting nested &lt;ul&gt; tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Issue #2 of conflicting nested &lt;ul&gt; tags" />
+    <MESSAGE value="Link of Primary Search result shown" />
+    <option name="LAST_COMMIT_MESSAGE" value="Link of Primary Search result shown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1712,8 +1720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wiki_fetch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        <state relative-caret-position="72">
+          <caret line="38" column="100" selection-start-line="38" selection-start-column="100" selection-end-line="38" selection-end-column="100" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
