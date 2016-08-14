@@ -16,8 +16,10 @@ content = soup.find('div', class_='mw-content-ltr')
 
 disambiguation = bs4.BeautifulSoup(str(content), 'lxml')
 candidates = disambiguation.find_all('p')
-for elements in candidates:
-    print(elements)
+for i in range(len(candidates)):
+    print(candidates[i].get_text())
+    if candidates[i].find('a'):
+        print("https://en.wikipedia.org"+candidates[i].find('a').get('href'))
 
 categories = disambiguation.find_all('span', class_='mw-headline')
 categories_content = disambiguation.find_all('ul')
@@ -31,5 +33,5 @@ print(test.find_next_sibling())"""
 
 test = disambiguation.find_all('h2')
 for i in range(len(test)):
-    print(test[i].find_next())
-    print(test[i].find_next_sibling())
+    print(test[i].find_next().get_text(), ":")
+    print(test[i].find_next_sibling().get_text())
