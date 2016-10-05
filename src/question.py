@@ -27,7 +27,7 @@ def print_coarse_pos(token):
 
 
 def print_fine_pos(token):
-    print token, ":", token.tag_, "(Lemma:", token.lemma_, ")"
+    print(token, ":", token.tag_, "(Lemma:", token.lemma_, ")")
 
 
 def is_adverb(token):
@@ -45,29 +45,29 @@ def iter_products(docs):
 
 nlp = spacy.en.English()
 
-question = raw_input("Q:")
+question = input("Q:")
 
 start_time = time.time()
 
 # question = "Who is Linus Torvalds and where is he now?"
-print "\n\t", question
+print("\n\t", question)
 doc = nlp(u"" + question)
 
-print "\nNamed entities recognition:"
+print("\nNamed entities recognition:")
 
 for token in doc.ents:
-    print token.orth_, ":", token.label_
+    print(token.orth_, ":", token.label_)
 
-print "\nFine Part of Speech Tagging:"
+print("\nFine Part of Speech Tagging:")
 for token in doc:
     print_fine_pos(token)
 
-print "\nSyntactic dependencies:"
+print("\nSyntactic dependencies:")
 for token in doc:
     #print dependency_labels_to_root(token)
     print(token.orth_, token.dep_, token.head.orth_, [t.orth_ for t in token.lefts], [t.orth_ for t in token.rights])
 
-print "\nNoun Chunks:"
+print("\nNoun Chunks:")
 for chunk in doc.noun_chunks:
     print(chunk.label_, chunk.orth_, '<--', chunk.root.head.orth_)
 

@@ -18,7 +18,7 @@ for line in fp:
     sentence = line.split(". ")
     #sentence = nltk.tokenize.sent_tokenize(line)
     for sent in sentence:
-        print sent
+        print(sent)
 
 
 fp.close()

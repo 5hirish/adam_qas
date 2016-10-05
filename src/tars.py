@@ -24,9 +24,9 @@ def sent_split(sent):
 
     return sent_list
 
-focus = raw_input("Focus:")
-action = raw_input("Action: ")
-class_type = raw_input("Type:")
+focus = input("Focus:")
+action = input("Action: ")
+class_type = input("Type:")
 classifications = {"what": "action", "when": "time", "where": "place", "who": "person", "whom": "object", "which": "choice", "whose": "possession", "why": "reason", "how": "manner"}
 
 # test = "Hi Shirish how are you?"
@@ -48,13 +48,13 @@ for line in fp:
     for sent in sentence:
         if sent.lower().find(focus.lower()) != -1:
             confidence += 1
-            print "Candidates: "+sent
+            print("Candidates: "+sent)
             if sent.lower().find(action.lower()) != -1:
-                print "Final Answer: ", sent
+                print("Final Answer: ", sent)
                 confidence += 1
                 print("Confidence rate: ", confidence)
                 sent_list = sent_split(sent)
                 pos = nltk.pos_tag(sent_list)
-                print pos
+                print(pos)
 
 fp.close()
