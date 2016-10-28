@@ -2,7 +2,7 @@ import os
 from collections import Counter
 
 path = os.path.dirname(os.path.realpath(__file__))
-path = path.replace("/src", "/corpus/")
+path = path.replace("/src", "/corpora/")
 fp = open(path+"linus_torvalds.txt", "r")
 fpw = open(path+"stop_words.txt", "w")
 
