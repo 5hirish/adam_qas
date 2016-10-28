@@ -1,12 +1,12 @@
 # ADAM - A Question Answering System
-## By *Alleviate*
+## *Alleviate*
 Inspired by *IBM Watson* and *START*
 
 ### System Requirements :
 * [Python v3.5](https://docs.python.org/3/)
 * [spaCy v1.0](https://spacy.io/)
 * [NLTK v3.0](https://www.nltk.org/)
-* [TextBlob](https://textblob.readthedocs.io/en/dev/)
+* [TextBlob v0.1](https://textblob.readthedocs.io/en/dev/)
 
 #### Dependencies :
 * [scikit-learn](http://scikit-learn.org/)
@@ -15,8 +15,8 @@ Inspired by *IBM Watson* and *START*
 * scipy
 
 ## System Architecture :
-![alt text](https://www.dropbox.com/s/dr7lrv8enxotmrj/ADAM%20Architechture_mini.png "ADAM Architecture")
-> (c) 2016, Shirish Kadam
+![alt text](adam_arch.png "ADAM Architecture")
+> (c) 2016, Shirish Kadam;
 > (c) 2016, Amit Gunjal
 
 ## Reference Material
@@ -44,9 +44,12 @@ Inspired by *IBM Watson* and *START*
 Follow these coding style for [Python](http://docs.python-guide.org/en/latest/writing/style/)
 Appropriate comments necessary at that relevant code
 
-## CopyRight License :
+## Copyright License :
 ![alt text](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png "CC BY-NC-ND")
+
 Attribution-NonCommercial-NoDerivs 
+
 CC BY-NC-ND
+
 Visit [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
