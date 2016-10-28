@@ -15,7 +15,7 @@ Inspired by *IBM Watson* and *START*
 * scipy
 
 ## System Architecture :
-![alt text](https://www.dropbox.com/s/dr7lrv8enxotmrj/ADAM%20Architechture_mini.png?dl=0 "ADAM Architecture")
+![alt text](https://www.dropbox.com/s/dr7lrv8enxotmrj/ADAM%20Architechture_mini.png "ADAM Architecture")
 > (c) 2016, Shirish Kadam
 > (c) 2016, Amit Gunjal
 
@@ -45,7 +45,7 @@ Follow these coding style for [Python](http://docs.python-guide.org/en/latest/wr
 Appropriate comments necessary at that relevant code
 
 ## CopyRight License :
-[!alt text](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png "CC BY-NC-ND")
+![alt text](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png "CC BY-NC-ND")
 Attribution-NonCommercial-NoDerivs 
 CC BY-NC-ND
 Visit [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/4.0/)
