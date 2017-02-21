@@ -18,7 +18,6 @@ What sprawling U.S. state boasts the most airports ?|What sprawling|WP|VBG|VBZ|L
 What did the only repealed amendment to the U.S. Constitution deal with ?|What did|WP|VBD|VBD|DESC
 How many Jews were executed in concentration camps during WWII ?|How many|WRB|JJ|VBN|NUM
 What is '' Nine Inch Nails '' ?|What is|WP|VBZ|VBZ|DESC
-What is '' Nine Inch Nails '' ?||||NNS|DESC
 What is an annotated bibliography ?|What is|WP|VBZ|VBZ|DESC
 What is the date of Boxing Day ?|What is|WP|VBZ|VBZ|NUM
 What articles of clothing are tokens in Monopoly ?|What articles|WDT|NNS|VBP|ENTY
@@ -39,7 +38,6 @@ What do Mormons believe ?|What do|WP|VBP|VB|DESC
 When did the neanderthal man live ?|When did|WRB|VBD|VB|NUM
 In what religion was Isis the nature goddess ?|what religion|WP|NN|VBD|ENTY
 Where do the adventures of '' The Swiss Family Robinson '' take place ?|Where do|WRB|VBP|WRB|LOC
-Where do the adventures of '' The Swiss Family Robinson '' take place ?||||VB|LOC
 What relative of the racoon is sometimes known as the cat-bear ?|What relative|WDT|NN|VBN|ENTY
 How can I register my website in Yahoo for free ?|How can|WRB|MD|VB|DESC
 What was cash-conscious Colonel Edwin L. Drake the first to drill ?|What was|WP|VBD|VBD|ENTY
@@ -48,7 +46,6 @@ How many inches over six feet is the Venus de Milo ?|How many|WRB|JJ|VBZ|NUM
 How do they find or choose witnesses to an execution ?|How do|WRB|VBP|VB|DESC
 What 1920s cowboy star rode Tony the Wonder Horse ?|What 1920s|WP|CD|VBD|HUM
 What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|What cocktail|WP|NN|VBD|ENTY
-What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?||||VBN|ENTY
 What ISPs exist in the Caribbean ?|What ISPs|WP|NNS|VBP|HUM
 How do you ask a total stranger out on a date ?|How do|WRB|VBP|VB|DESC
 What weapon is the mythological character Apollo most proficient with ?|What weapon|WP|NN|VBZ|ENTY
@@ -175,14 +172,11 @@ How many months does it take the moon to revolve around the Earth ?|How many|WRB
 Where are the 49 steps ?|Where are|WRB|VBP|VBP|LOC
 In what year was De Gaulle elected president of France ?|what year|WP|NN|VBD|NUM
 Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?|Who sings|WP|VBZ|VBZ|HUM
-Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?||||NNP|HUM
 Who directed '' Jaws '' ?|Who directed|WP|VBD|VBD|HUM
-Who directed '' Jaws '' ?||||NNP|HUM
 On what T.V. show could Tom Terrific be found ?|what T.V.|WP|NNP|VBN|ENTY
 What Indian tribe is F Troop perpetually doing battle with ?|What Indian|WP|JJ|VBZ|HUM
 Where did Indian Pudding come from ?|Where did|WRB|VBD|VBN|DESC
 Why do some clothing labels say '' Use a nonchlorine bleach '' ?|Why do|WRB|VBP|VBP|DESC
-Why do some clothing labels say '' Use a nonchlorine bleach '' ?||||VB|DESC
 How many colonies were involved in the American Revolution ?|How many|WRB|JJ|VBN|NUM
 What is the name of the city that Maurizio Pellegrin lives in ?|What is that Maurizio|WDT|NNP|VBZ|LOC
 Where can I find pictorial directions on how to build a very simple treehouse ?|Where can how to|WRB|TO|VB|LOC
@@ -210,7 +204,6 @@ What is Eagle's syndrome styloid process ?|What is|WP|VBZ|VBZ|DESC
 How did Jayne Mansfield die ?|How did|WRB|VBD|VB|DESC
 When did the royal wedding of Prince Andrew and Fergie take place ?|When did|WRB|VBD|VB|NUM
 What actor said in A Day at the Races : '' Either he's dead or my watch has stopped '' ?|What actor|WP|NN|VBD|HUM
-What actor said in A Day at the Races : '' Either he's dead or my watch has stopped '' ?||||VBZ|HUM
 What explorer was nicknamed Iberia's Pilot ?|What explorer|WP|NN|VBN|HUM
 CNN began broadcasting in what year ?|what year|WP|NN|VBD|NUM
 What is a ball that hits the foul pole called ?|What is that hits|WDT|VBZ|VBZ|ENTY
@@ -223,7 +216,6 @@ How can I find out which cities have cable-modem access ?|How can which cities|W
 What is Betsy Ross famous for ?|What is|WP|VBZ|VBZ|DESC
 How many species of sharks are there ?|How many|WRB|JJ|VBP|NUM
 What is '' snoogans '' ?|What is|WP|VBZ|VBZ|DESC
-What is '' snoogans '' ?||||NNS|DESC
 How many people are there in the world ?|How many|WRB|JJ|VBP|NUM
 What shrubs can be planted that will be safe from deer ?|What shrubs that will|WDT|MD|VBN|ENTY
 What organization's offices were broken into at Watergate in 1972 ?|What organization|WP|NN|VBN|HUM
@@ -371,9 +363,7 @@ Who are the Challengers of the Unknown ?|Who are|WP|VBP|VBP|HUM
 Define the Pheonix Club ?||||VB|DESC
 Which city did Christian Crusaders fight to recapture from the Muslims ?|Which city|WDT|NN|VBP|LOC
 What does it mean '' Rupee Depreciates '' ?|What does|WP|VBZ|VB|DESC
-What does it mean '' Rupee Depreciates '' ?||||NNPS|DESC
 What gaming devices were dubbed '' Mississippi marbles '' and '' Memphis dominoes '' ?|What gaming|WP|NN|VBN|ENTY
-What gaming devices were dubbed '' Mississippi marbles '' and '' Memphis dominoes '' ?||||NN|ENTY
 Who was the first coach of the Cleveland Browns ?|Who was|WP|VBD|VBD|HUM
 How successful is arometherapy ?|How successful|WRB|JJ|VBZ|DESC
 What Jewish holiday saw the start of the 1973 Mideast War ?|What Jewish|WP|JJ|VBD|ENTY
@@ -408,7 +398,6 @@ What time of day did Emperor Hirohito die ?|What time|WDT|NN|VB|NUM
 What is dry ice ?|What is|WP|VBZ|VBZ|DESC
 What's the most powerful card in Euchre ?|What 's|WP|VBZ|VBZ|ENTY
 What does '' intractable plantar keratoma '' mean ?|What does|WP|VBZ|VBZ|DESC
-What does '' intractable plantar keratoma '' mean ?||||VB|DESC
 How many years did it take James Joyce to write Ulysses ?|How many|WRB|JJ|VB|NUM
 What crop failure caused the Irish Famine ?|What crop|WP|NN|VBD|ENTY
 What South Korean city is served by Kimpo International Airport ?|What South|WDT|JJ|VBN|LOC
@@ -486,12 +475,10 @@ What's the most commonly-spoken language in Belgium ?|What 's|WP|VBZ|VBZ|ENTY
 Who has more DNA - a man or a woman ?|Who has|WP|VBZ|VBZ|HUM
 What are Maid-Rites ?|What are|WP|VBP|VBP|DESC
 What children's tale contains the line : '' Come , Cinderslut , and hold this skein of wool for me '' ?|What children|WP|NNS|VBZ|ENTY
-What children's tale contains the line : '' Come , Cinderslut , and hold this skein of wool for me '' ?||||VB|ENTY
 What level of government or governmental agency is responsible for dealing with racism ?|What level|WDT|NN|VBZ|HUM
 How many referees work a soccer game ?|How many|WRB|JJ|VBP|NUM
 What cocktail do you concoct with whisky and sweet vermouth ?|What cocktail|WDT|NN|VB|ENTY
 How do you say '' fresh '' in Spanish ?|How do|WRB|VBP|VB|ENTY
-How do you say '' fresh '' in Spanish ?||||JJ|ENTY
 What do bee hives do in cranberry bogs ?|What do|WP|VBP|VBP|DESC
 What caused the Lynmouth floods ?|What caused|WP|VBD|VBD|DESC
 When is the Tulip Festival in Michigan ?|When is|WRB|VBZ|VBZ|NUM
@@ -500,7 +487,6 @@ What movie did Madilyn Kahn star in with Gene Wilder ?|What movie|WP|NN|NN|ENTY
 What type of bridge is the Golden Gate Bridge ?|What type|WDT|NN|VBZ|ENTY
 What dictator has the nickname '' El Maximo '' ?|What dictator|WP|NN|VBZ|HUM
 What stereo manufacturer is '' Slightly ahead of its time '' ?|What stereo|WP|NN|VBZ|HUM
-What stereo manufacturer is '' Slightly ahead of its time '' ?||||RB|HUM
 What U.S. city is The Queen of the Pacific ?|What U.S.|WP|NNP|VBZ|LOC
 What TV sitcom character had the maiden name Ethel Potter ?|What TV|WP|NN|VBD|HUM
 What was the first Lifesaver flavor ?|What was|WP|VBD|VBD|ENTY
@@ -552,7 +538,6 @@ What product on the market is good for hiding facial scars ?|What product|WP|NN|
 How long is the Coney Island boardwalk ?|How long|WRB|RB|VBZ|NUM
 What city gained renown for its pea-soup fogs ?|What city|WP|NN|VBD|LOC
 What does '' Janelle '' mean ?|What does|WP|VBZ|WP|DESC
-What does '' Janelle '' mean ?||||VB|DESC
 How do I get another city's newspaper ?|How do|WRB|VBP|VB|DESC
 Name a movie about the Sioux Indians starring Kevin Costner .||||VB|ENTY
 Who was shot in the back during a Poker game in Deadwood , the Dakota territory ?|Who was|WP|VBD|VBN|HUM
@@ -585,7 +570,6 @@ Where did the myth of Santa Claus originate ?|Where did|WRB|VBD|VB|LOC
 What does a chairbound basophobic fear ?|What does|WP|VBZ|NN|ENTY
 What city is served by Logan International Airport ?|What city|WP|NN|VBN|LOC
 What wrestling star became '' The Incredible Hulk '' ?|What wrestling|WP|VBG|VBD|HUM
-What wrestling star became '' The Incredible Hulk '' ?||||NNP|HUM
 What attracts tourists to Reims ?|What attracts|WP|VBZ|VBZ|LOC
 What game do Steve McQueen and Edward G. Robinson play in The Cincinnati Kid ?|What game|WDT|NN|VB|ENTY
 What fastener did Whitcomb Judson patent in 1893 ?|What fastener|WDT|NN|VBD|ENTY
@@ -661,7 +645,6 @@ What is white chocolate ?|What is|WP|VBZ|VBZ|DESC
 Where is Trinidad ?|Where is|WRB|VBZ|VBZ|LOC
 Name the organization that is presided by a Security Council .|that is|WDT|VBZ|VB|HUM
 Who graced the airwaves with such pearls as '' Do ya lo-o-ove me ? Get naked , baby ! '' ?|Who graced|WP|VBD|VBD|HUM
-Who graced the airwaves with such pearls as '' Do ya lo-o-ove me ? Get naked , baby ! '' ?||||VB|HUM
 What kind of wine is Spumante ?|What kind|WDT|NN|VBZ|ENTY
 Who portrayed portly criminologist Carl Hyatt on Checkmate ?|Who portrayed|WP|VBD|VBD|HUM
 How do you say I love you in Spanish ?|How do|WRB|VBP|VB|ENTY
@@ -734,10 +717,8 @@ What kind of animals are Dorsets , Lincolns , Oxfords and Southdowns ?|What kind
 What are the shortest and the longest songs ever produced ?|What are|WP|VBP|VBP|ENTY
 What letter is to the right of K on a typewriter keyboard ?|What letter|WP|NN|VBZ|ENTY
 What is the origin and the meaning of the name , '' Hajo ? ''|What is|WP|VBZ|VBZ|DESC
-What is the origin and the meaning of the name , '' Hajo ? ''||||NNP|DESC
 What is the plural of gulf ?|What is|WP|VBZ|VBZ|ENTY
 Whose autobiography is titled Yes I Can ?|Whose autobiography|WP$|NN|VBN|HUM
-Whose autobiography is titled Yes I Can ?||||MD|HUM
 What year did the United States pass the Copyright law ?|What year|WDT|NN|VB|NUM
 What percentage of Americans own their homes ?|What percentage|WP|NN|VBP|NUM
 What's the first day of the week ?|What 's|WP|VBZ|VBZ|NUM
@@ -774,7 +755,6 @@ What lawyer won the largest divorce settlement , $85 million , in U.S. history f
 What do you call a group of geese ?|What do|WP|VBP|VB|ENTY
 Who delivered his last newscast on March 6 , 1981 ?|Who delivered|WP|VBD|VBD|HUM
 How many times has '' Louie , Louie '' been recorded ?|How many|WRB|JJ|VBZ|NUM
-How many times has '' Louie , Louie '' been recorded ?||||VBN|NUM
 How is Answers.com different from KnowPost.com ?|How is|WRB|VBZ|VBZ|DESC
 What is the longest place name in the U.S. ?|What is|WP|VBZ|VBZ|LOC
 What percent liked Thatcher after she had been in power for a decade ?|What percent|WP|NN|VBD|NUM
@@ -810,10 +790,8 @@ When was '' the Great Depression '' ?|When was|WRB|VBD|VBD|NUM
 What language is mostly spoken in Brazil ?|What language|WP|NN|VBN|ENTY
 What college produced the most winning Super Bowl quarterbacks ?|What college|WP|NN|VBD|HUM
 How do you solve '' Rubik's Cube '' ?|How do|WRB|VBP|VB|DESC
-How do you solve '' Rubik's Cube '' ?||||NNP|DESC
 What is prepared mustard ?|What is|WP|VBZ|JJ|DESC
 What classical Spanish writer warned : '' All that glitters is not gold '' ?|What classical|WP|JJ|VBD|HUM
-What classical Spanish writer warned : '' All that glitters is not gold '' ?||||PDT|HUM
 What does '' antidisestablishmentarianism '' mean ?|What does|WP|VBZ|VB|DESC
 What actor married John F. Kennedy's sister ?|What actor|WP|NN|VBD|HUM
 What does a topophobic actor suffer from ?|What does|WP|VBZ|VB|ENTY
@@ -831,7 +809,6 @@ What fictional character is known as the '' melancholy Dane '' ?|What fictional|
 Italy is the largest producer of what ?|what ?|WP|.|VBZ|ENTY
 What longtime game show host dropped dead while jogging in Central Park in 1984 ?|What longtime|WP|JJ|VBN|HUM
 What is the meaning of W.B. Yeat's poem , '' The Three Hermits ? ''|What is|WP|VBZ|VBZ|DESC
-What is the meaning of W.B. Yeat's poem , '' The Three Hermits ? ''||||NNPS|DESC
 Who were the '' filthiest people alive ? ''|Who were|WP|VBD|VBD|HUM
 What infectious disease is the world's deadliest ?|What infectious|WP|JJ|VBZ|ENTY
 What is Spumante ?|What is|WP|VBZ|VBZ|DESC
@@ -846,7 +823,6 @@ How many months does a normal human pregnancy last ?|How many|WRB|JJ|JJ|NUM
 How do fuel injectors work ?|How do|WRB|VBP|VBP|DESC
 How can your school march in the Macy's Thanksgiving Parade ?|How can|WRB|MD|NN|DESC
 What is the real name of disc jockey '' Wolfman Jack '' ?|What is|WP|VBZ|VBZ|HUM
-What is the real name of disc jockey '' Wolfman Jack '' ?||||NNP|HUM
 What Italian liner was hijacked in 1985 ?|What Italian|WP|JJ|VBN|ENTY
 What city houses the U.S. headquarters of Procter and Gamble ?|What city|WP|NN|NNS|LOC
 What soap was touted as being '' for people who like people '' ?|What soap who like|WP|VBP|VBN|ENTY
@@ -866,7 +842,6 @@ On average , how many miles are there to the moon ?|how many|WRB|JJ|VBP|NUM
 Who created private detective Philip Marlowe ?|Who created|WP|VBD|VBD|HUM
 What Boris Pasternak book sold 5 , 0 copies to become the fiction best-seller of 1958 ?|What Boris|WP|NNP|VB|ENTY
 What is the origin of the expression '' tout de suite '' ?|What is|WP|VBZ|VBZ|DESC
-What is the origin of the expression '' tout de suite '' ?||||VB|DESC
 What is the longest English word ?|What is|WP|VBZ|VBZ|ENTY
 What is the purpose of a car bra ?|What is|WP|VBZ|VBZ|DESC
 What is D.B. Cooper known for ?|What is|WP|VBZ|VBZ|DESC
@@ -933,7 +908,6 @@ How many double-word-score spaces are there on a Scrabble Crossword Game board ?
 What year did Germany sign its nonaggression pact with the Soviet Union ?|What year|WDT|NN|VB|NUM
 What mountain range is traversed by the highest railroad in the world ?|What mountain|WP|NN|VBN|LOC
 Why were the American soldiers in WWI called '' Doughboys ''|Why were|WRB|VBD|VBN|DESC
-Why were the American soldiers in WWI called '' Doughboys ''||||NNP|DESC
 Who was nicknamed The Little Corporal ?|Who was|WP|VBD|VBN|HUM
 How many CDs has Garth Brooks sold ?|How many|WRB|JJ|VBD|NUM
 Name the vessel used by the Atari Force in the DC comics .||||VB|ENTY
@@ -960,7 +934,6 @@ What U.S. state records the least rainfall ?|What U.S.|WP|NNP|VBZ|LOC
 Why did the world enter a global depression in 1929 ?|Why did|WRB|VBD|VB|DESC
 What was archy , and mehitabel ?|What was|WP|VBD|VBD|DESC
 What Texas city got its name from the Spanish for '' yellow '' ?|What Texas|WP|NNP|VBD|LOC
-What Texas city got its name from the Spanish for '' yellow '' ?||||JJ|LOC
 What are the chemicals used in glowsticks ?|What are|WP|VBP|VBP|ENTY
 What country did the Nile River originate in ?|What country|WP|NN|VB|LOC
 What color are tennis balls ?|What color|WP|NN|VBP|ENTY
@@ -1026,7 +999,6 @@ Where is the actress , Marion Davies , buried ?|Where is|WRB|VBZ|VBN|LOC
 What is an example of an actual case of using the Fourteenth Amendment ?|What is|WP|VBZ|VBZ|DESC
 Who was the Charlie perfume woman ?|Who was|WP|VBD|VBD|HUM
 Who portrayed '' Rosanne Rosanna-Dana '' on the television show '' Saturday Night Live '' ?|Who portrayed|WP|VBD|VBD|HUM
-Who portrayed '' Rosanne Rosanna-Dana '' on the television show '' Saturday Night Live '' ?||||NNP|HUM
 What singer became despondent over the death of Freddie Prinze , quit show business , and then quit the business ?|What singer|WP|NN|VBD|HUM
 When did Iraqi troops invade Kuwait ?|When did|WRB|VBD|VBP|NUM
 What was Mark Johnson referring to when he said : '' I still can 't believe it- we beat the Russians ? ''|What was when he|WRB|PRP|VBD|ENTY
@@ -1069,7 +1041,6 @@ What Japanese manufacturer is known for both its pianos and its motorcycles ?|Wh
 What is the chemical reactivity of argon ?|What is|WP|VBZ|VBZ|NUM
 How many engines does a Boeing 737 have ?|How many|WRB|JJ|VB|NUM
 What is the origin of the term '' The Brooklyn Side '' in bowling ?|What is|WP|VBZ|VBZ|DESC
-What is the origin of the term '' The Brooklyn Side '' in bowling ?||||NNP|DESC
 What is a fear of being cold ?|What is|WP|VBZ|VBZ|ENTY
 How long was Mao's 1930s Long March ?|How long|WRB|RB|VBD|NUM
 What net game sees its women's world amateur champions receive the Uber Cup ?|What net|WP|JJ|VBZ|ENTY
@@ -1143,14 +1114,12 @@ What are the lengths of pearl necklaces ?|What are|WP|VBP|VBP|NUM
 Who said : '' Soldiers win the battles and generals get the credit '' ?|Who said|WP|VBD|VBD|HUM
 What is the proof that houseplants metabolize carcinogens ?|What is|WP|VBZ|VBZ|DESC
 What prompted the co-pilot of the Enola Gay to enter only '' My God '' in his log ?|What prompted|WP|VBD|VBD|DESC
-What prompted the co-pilot of the Enola Gay to enter only '' My God '' in his log ?||||NNP|DESC
 How long does it take the typical hen to lay 19 dozen eggs ?|How long|WRB|RB|VB|NUM
 What Colorado city owns its own glacier ?|What Colorado|WP|NNP|VBZ|LOC
 What is the history of '' the toast '' ?|What is|WP|VBZ|VBZ|DESC
 What was the name of the Protestant revolt against the supremacy of the Pope ?|What was|WP|VBD|VBD|ENTY
 What is an arab strap ?|What is|WP|VBZ|VBZ|DESC
 How much does it cost , average or whatever is available , to produce and send junk mail catalogues in the US ? , DT CD NN NN ,|How much whatever is|WDT|VBZ|VB|NUM
-How much does it cost , average or whatever is available , to produce and send junk mail catalogues in the US ? , DT CD NN NN ,||||NNP|NUM
 Who is the current UN Secretary General ?|Who is|WP|VBZ|VBZ|HUM
 Who provides telephone service in Orange County , California ?|Who provides|WP|VBZ|VBZ|HUM
 Where did guinea pigs originate ?|Where did|WRB|VBD|VBP|LOC
@@ -1206,7 +1175,6 @@ What continent's name appears on the upper left corner of a Budweiser label ?|Wh
 Who was the Secretary of War in the Civil War during the Battle of Gettysburg ?|Who was|WP|VBD|VBD|HUM
 Who did Bobby Fischer beat to win the world chess championship ?|Who did|WP|VBD|VBD|HUM
 How do you exterminate bees that are in the walls of your home ? Will bee eggs remain over winter ?|How do that are|WDT|VBP|VB|DESC
-How do you exterminate bees that are in the walls of your home ? Will bee eggs remain over winter ?||||VBP|DESC
 Where can I get information and statistics on countries and nations ?|Where can|WRB|MD|VB|LOC
 Name a Gaelic language .||||VB|ENTY
 What day is August 13 , 1971 ?||||VBZ|NUM
@@ -1228,7 +1196,6 @@ What are the Twin Cities ?|What are|WP|VBP|VBP|DESC
 What is Beethoven's 9th symphony called ?|What is|WP|VBZ|VBZ|ENTY
 Name the lawyer for Randy Craft .||||VB|HUM
 Which breakfast cereal brought you '' the best each morning '' ?|Which breakfast|WDT|NN|VBD|ENTY
-Which breakfast cereal brought you '' the best each morning '' ?||||NN|ENTY
 What does Ms. , Miss , and Mrs. stand for ?|What does|WP|VBZ|VB|ABBR
 What is the Homelite Inc. home page ?|What is|WP|VBZ|VBZ|LOC
 What explosive do you get by mixing charcoal , sulfur and saltpeter ?|What explosive|WDT|NN|VB|ENTY
@@ -1266,7 +1233,6 @@ Where does the U.S. rank among world countries in area ?|Where does|WRB|VBZ|WRB|
 What novel did Ian Fleming introduce James Bond in ?|What novel|WDT|NN|VBP|ENTY
 What was the target rate for M3 growth in 1992 ?|What was|WP|VBD|VBD|NUM
 What baseball team was routinely called '' dem bums '' by its frustrated fans ?|What baseball|WP|NN|VBN|HUM
-What baseball team was routinely called '' dem bums '' by its frustrated fans ?||||NNS|HUM
 Name of scholar on whose literal translations from the Chinese and Japanese Ezra Pound depended ?|whose literal|WP$|JJ|VBD|HUM
 When did Israel begin turning the Gaza Strip and Jericho over to the PLO ?|When did|WRB|VBD|VB|NUM
 What are the major differences in the Catholic and Methodist religions ?|What are|WP|VBP|VBP|DESC
@@ -1339,7 +1305,6 @@ What magazine gives us the cream , not the skim ?|What magazine|WP|NN|VBZ|ENTY
 What does the technique called '' cold fusion '' produce ?|What does|WP|VBZ|VBZ|ENTY
 What costume designer decided that Michael Jackson should only wear one glove ?|What costume|WP|NN|VBD|HUM
 What meter did Shakespeare use in writing : '' To be , or not to be , that is the question.. . '' ?|What meter|WP|NN|NN|ENTY
-What meter did Shakespeare use in writing : '' To be , or not to be , that is the question.. . '' ?||||VBZ|ENTY
 How many rows of sprocket holes does a roll of 35-millimeter film have ?|How many|WRB|JJ|VBP|NUM
 What is the goat population of the world ?|What is|WP|VBZ|VBZ|NUM
 What company was the original sponsor of TV's Superman ?|What company|WP|NN|VBD|HUM
@@ -1349,7 +1314,6 @@ How many lawyers are there in the state of New Jersey ?|How many|WRB|JJ|VBP|NUM
 What are the most common elements in seawater ?|What are|WP|VBP|VBP|ENTY
 Describe the Finnish music personality Salonen's appearance .||||VB|DESC
 What is the origin of the ethnic category '' caucasian '' ?|What is|WP|VBZ|VBZ|DESC
-What is the origin of the ethnic category '' caucasian '' ?||||JJ|DESC
 What is a stratocaster ?|What is|WP|VBZ|VBZ|DESC
 What kind of science is cosmology ?|What kind|WDT|NN|VBZ|ENTY
 Name the blind sculptress in love with the Fantastic Four's Thing .||||VBP|HUM
@@ -1393,7 +1357,6 @@ What two baseball players make up the battery ?|What two|WP|CD|VB|HUM
 What's the largest letter in Salvador Dali's signature ?|What 's|WP|VBZ|VBZ|ENTY
 What does an irate car owner call iron oxide ?|What does|WP|VBZ|VB|ENTY
 Of children between the ages of two and eleven , what percentage watch '' The Simpsons '' ?|what percentage|WP|NN|IN|NUM
-Of children between the ages of two and eleven , what percentage watch '' The Simpsons '' ?||||NNPS|NUM
 What's the northernmost U.S. state apart from Alaska ?|What 's|WP|VBZ|VBZ|LOC
 Name an art gallery in New York .||||VB|LOC
 Who sells Viagra ?|Who sells|WP|VBZ|VBZ|HUM
@@ -1447,7 +1410,6 @@ Name the food company that traveled to Soviet Georgia to film a series of ads .|
 What country was Sir Edmund Hillary born in ?|What country|WP|NN|VBN|LOC
 What's an infant seal called ?|What 's|WP|VBZ|VBZ|ENTY
 What was the proper Laugh-In respones to : '' Say goodnight , Dick '' ?|What was|WP|VBD|VBD|DESC
-What was the proper Laugh-In respones to : '' Say goodnight , Dick '' ?||||VB|DESC
 What city was John F. Kennedy nominated for president in ?|What city|WP|NN|VBD|LOC
 How long does a dog sleep ?|How long|WRB|RB|VBZ|NUM
 What 1963 Joseph L. Mankiewicz film cost $28 million ?|What 1963|WP|CD|VBD|ENTY
@@ -1456,7 +1418,6 @@ What can you be fined for having a dog on a beach ?|What can|WP|MD|VBN|NUM
 Where did the Battle of the Bulge take place ?|Where did|WRB|VBD|VB|LOC
 How much will the California be in the year 2000 ?|How much|WRB|JJ|VB|NUM
 What mystery writer penned '' ...the glory that was Greece , and the grandeur that was Rome '' ?|What mystery|WP|NN|VBN|HUM
-What mystery writer penned '' ...the glory that was Greece , and the grandeur that was Rome '' ?|that was that was|WDT|VBD|NN|HUM
 What state full of milk and honey was the destination in The Grapes of Wrath ?|What state|WP|NN|VBD|LOC
 What is the tallest building in Japan ?|What is|WP|VBZ|VBZ|LOC
 Where is Sinn Fein's headquarters ?|Where is|WRB|VBZ|VBZ|LOC
@@ -1477,7 +1438,6 @@ What U.S. state is Dixville Notch in ?|What U.S.|WP|NNP|VBZ|LOC
 Where was the Cisalpine Republic , 1797-185 , ?|Where was|WRB|VBD|VBD|LOC
 What is the largest shopping mall in the world ?|What is|WP|VBZ|VBZ|LOC
 What is the protagonist's name in Dostoevski's '' The Idiot '' ?|What is|WP|VBZ|VBZ|HUM
-What is the protagonist's name in Dostoevski's '' The Idiot '' ?||||NNP|HUM
 What penalty space lies between Baltic Avenue and Reading Railroad on a Monopoly board ?|What penalty|WP|NN|VBZ|ENTY
 What presidential press secretary dismissed Watergate as a third-rate burglary attempt ?|What presidential|WP|JJ|VBD|HUM
 What is a meerkat ?|What is|WP|VBZ|VBZ|DESC
@@ -1512,7 +1472,6 @@ What two commanders directed the forces in the Battle of El Alamein ?|What two|W
 Name the creator of '' The Muppets '' .||||VB|HUM
 How do I e-mail someone at aol.com from yahoo.com ?|How do|WRB|VBP|VB|DESC
 Who replies '' I know '' to Princess Leia's confession '' I love you '' in The Empire Strikes Back ?|Who replies|WP|VBZ|VBZ|HUM
-Who replies '' I know '' to Princess Leia's confession '' I love you '' in The Empire Strikes Back ?||||VBP|HUM
 What is the meaning of the name Ella ?|What is|WP|VBZ|VBZ|DESC
 What's the home of the Rockettes ?|What 's|WP|VBZ|VBZ|LOC
 Where can I find all the information I need to know about the English Civil War , 1642-1649 , ?|Where can|WRB|MD|VB|LOC
@@ -1523,7 +1482,6 @@ What is after death ?|What is|WP|VBZ|VBZ|ENTY
 Name the first private citizen to fly in space .||||VB|HUM
 What was football star Elroy Hirsch's nickname ?|What was|WP|VBD|VBD|HUM
 What singer sings '' Oh Boy '' ?|What singer|WP|NN|VBZ|HUM
-What singer sings '' Oh Boy '' ?||||NNP|HUM
 How much pizza do Americans eat in a day ?|How much|WRB|JJ|VB|NUM
 What is the website for the USA journal ?|What is|WP|VBZ|VBZ|LOC
 What army's motto is Blood and Fire ?|What army|WP|NN|VBZ|HUM
@@ -1710,7 +1668,6 @@ Where are all European and American eels born ?|Where are|WRB|VBP|VBP|LOC
 Who was the author of the novel '' Far From the Madding Crowd '' ?|Who was|WP|VBD|VBD|HUM
 What is the definition of ' graphic details ' ?|What is|WP|VBZ|VBZ|DESC
 What was '' America's recessed-filter cigarette '' ?|What was|WP|VBD|VBD|ENTY
-What was '' America's recessed-filter cigarette '' ?||||NN|ENTY
 What kind of dog is Scooby Doo ?|What kind|WDT|NN|VBZ|ENTY
 What is the function of the appendix ?|What is|WP|VBZ|VBZ|DESC
 What department store heir is responsible for raising a three-ton safe from the underwater wreckage of the Andrea Doria ?|What department|WP|NN|VBZ|HUM
@@ -1826,7 +1783,6 @@ What do you call a Poker hand with five cards of the same suit ?|What do|WP|VBP|
 What New York Yankee was known as The Iron Horse ?|What New|WP|NNP|VBN|HUM
 Who is considered The First Lady of the American Stage ?|Who is|WP|VBZ|VBN|HUM
 Who penned : '' Neither a borrower nor a lender be '' ?|Who penned|WP|VBD|VBD|HUM
-Who penned : '' Neither a borrower nor a lender be '' ?||||VB|HUM
 What is moxie ?|What is|WP|VBZ|VBZ|DESC
 What was the first Sam Spade novel ?|What was|WP|VBD|VBD|ENTY
 What song did Patti Page set people dancing to in 1950 ?|What song|WDT|NN|VBD|ENTY
@@ -1841,10 +1797,6 @@ What is the best way to overcome a fear ?|What is|WP|VBZ|VBZ|ENTY
 Name a South African diamond producer ?||||NN|HUM
 Who made the musical plea Be True to Your School ?|Who made|WP|VBD|VBD|HUM
 What French designer declared : '' The jean is the destructor ! It is a dictator ! It is destroying creativity. The jean must be stopped ! '' ?|What French|WP|JJ|VBD|HUM
-What French designer declared : '' The jean is the destructor ! It is a dictator ! It is destroying creativity. The jean must be stopped ! '' ?||||VBZ|HUM
-What French designer declared : '' The jean is the destructor ! It is a dictator ! It is destroying creativity. The jean must be stopped ! '' ?||||VBZ|HUM
-What French designer declared : '' The jean is the destructor ! It is a dictator ! It is destroying creativity. The jean must be stopped ! '' ?||||VBG|HUM
-What French designer declared : '' The jean is the destructor ! It is a dictator ! It is destroying creativity. The jean must be stopped ! '' ?||||VBN|HUM
 What season is the setting for Shakespeare's Midsummer Night's Dream ?|What season|WP|NN|VBZ|NUM
 Name a band which was famous in the 1960's .|which was|WDT|VBD|VB|HUM
 What comedian was banned from the Ed Sullivan Show for allegedly making an obscene gesture at the show's host ?|What comedian|WP|NN|VBN|HUM
@@ -1896,7 +1848,6 @@ What is Michael Jackson's middle name ?|What is|WP|VBZ|VBZ|HUM
 Who was the first woman to fly solo across the Atlantic ?|Who was|WP|VBD|VBD|HUM
 How long is human gestation ?|How long|WRB|RB|VBZ|NUM
 What does '' Semper Fidelis '' mean ?|What does|WP|VBZ|VBZ|DESC
-What does '' Semper Fidelis '' mean ?||||VB|DESC
 What kind of suit did true hepcats wear in 1942 ?|What kind|WDT|NN|VBP|ENTY
 Where does Mother Angelica live ?|Where does|WRB|VBZ|VBP|LOC
 How can I find out my Moon sign ?|How can|WRB|MD|VB|DESC
@@ -2018,7 +1969,6 @@ What was paper made of in the late 16th century ?|What was|WP|VBD|VBD|ENTY
 Who was William Henry Harrison ?|Who was|WP|VBD|VBD|HUM
 What was the outcome of the 1945 Yalta Conference ?|What was|WP|VBD|VBD|DESC
 What is '' flintknapping '' ?|What is|WP|VBZ|VBZ|DESC
-What is '' flintknapping '' ?||||VBG|DESC
 What's the most popular contact lens color ?|What 's|WP|VBZ|VBZ|ENTY
 What were the cities of Dickens's A Tale of Two Cities ?|What were|WP|VBD|VBD|LOC
 What causes canker sores in the mouth ?|What causes|WP|VBZ|VBZ|DESC
@@ -2035,7 +1985,6 @@ What's another name for aspartame ?|What 's|WP|VBZ|VBZ|ENTY
 What did John F. Kennedy consider his greatest blunder in office ?|What did|WP|VBD|VB|DESC
 What's the abbreviation for trinitrotoluene ?|What 's|WP|VBZ|VBZ|ABBR
 What creature is the absolute fastest in moving in the world , birds , mammals , etc. , ?|What creature|WP|NN|VBZ|ENTY
-What creature is the absolute fastest in moving in the world , birds , mammals , etc. , ?||||,|ENTY
 What is the date of Bastille Day ?|What is|WP|VBZ|VBZ|NUM
 What is IOC an abbreviation of ?|What is|WP|VBZ|VBZ|ABBR
 What's the proud claim to fame of the young women who formed Kappa Alpha Theta ?|What 's who formed|WP|VBD|VBZ|DESC
@@ -2071,7 +2020,6 @@ What TV series featured Neal , a martini-drinking St. Bernard ?|What TV|WP|NN|VB
 What developed a crack in 1835 while tolling the death of U.S. Chief Justice John Marshall ?|What developed|WP|VBD|VBD|ENTY
 How many fiddlers did Old King Cole have ?|How many|WRB|JJ|VB|NUM
 What poet wrote : '' ... I have promises to keep , and miles to go before I sleep '' ?|What poet|WP|NN|VBD|HUM
-What poet wrote : '' ... I have promises to keep , and miles to go before I sleep '' ?||||VBP|HUM
 What is ethylene ?|What is|WP|VBZ|VBZ|DESC
 What Irwin Allen bomb has Richard Widmark saying he 'll be '' the first officer in history to get his butt kicked by a mess of bugs ! '' ?|What Irwin|WP|NNP|VBZ|ENTY
 What is a fear of clouds ?|What is|WP|VBZ|VBZ|ENTY
@@ -2090,7 +2038,6 @@ What is deadrise , nautical , ?|What is|WP|VBZ|VBZ|DESC
 What's the official language of Algeria ?|What 's|WP|VBZ|VBZ|ENTY
 What took first prize in Omni magazine's contest to find the '' ultimate unanswerable question '' ?|What took|WP|VBD|VBD|ENTY
 What six words follow the line : '' From a jack to a king.. . '' ?|What six|WP|CD|VBP|ENTY
-What six words follow the line : '' From a jack to a king.. . '' ?||||IN|ENTY
 How do I find a city if I have the area code ?|How do|WRB|VBP|VB|DESC
 What author of the Days of Our Lives Cookbook signed on in 198 as Liz Chandler in TV's Days of Our Lives ?|What author|WP|NN|VBD|HUM
 What foods contain the most protein ?|What foods|WP|NNS|VBP|ENTY
@@ -2109,7 +2056,6 @@ How many Superbowls have the ers won ?|How many|WRB|JJ|VBD|NUM
 What do you do when your mouse is n't working as fast as it's supposed to ?|What do when your|WRB|PRP$|VB|DESC
 What is a gandy dancer ?|What is|WP|VBZ|VBZ|DESC
 Who is the creator of '' The Muppets '' ?|Who is|WP|VBZ|VBZ|HUM
-Who is the creator of '' The Muppets '' ?||||NNPS|HUM
 Which of the following celebrities started his show-biz career as a disc jockey ?|Which of|WDT|IN|VBD|HUM
 What Triple Crown-winning horse took the 1973 Belmont Stakes by 31 lengths ?|What Triple|WP|JJ|VBD|ENTY
 What's a perfect score in a gymnastics exercise ?|What 's|WP|VBZ|VBZ|NUM
@@ -2149,7 +2095,6 @@ What's the hardest substance in the human body ?|What 's|WP|VBZ|VBZ|ENTY
 Who was the first woman governor of Wyoming ?|Who was|WP|VBD|VBD|HUM
 How many more weeks of winter are there if a ground hog sees his shadow ?|How many|WRB|JJ|VBP|NUM
 What Green Bay Packers coach philosophized : '' There's nothing that stokes the fire like hate '' ?|What Green|WP|NNP|NN|HUM
-What Green Bay Packers coach philosophized : '' There's nothing that stokes the fire like hate '' ?|that stokes|WDT|VBZ|VBZ|HUM
 How do birds find their way back to the same place every year ?|How do|WRB|VBP|VB|DESC
 Where is the Henry Ford Museum ?|Where is|WRB|VBZ|VBZ|LOC
 Name a film that has won the Golden Bear in the Berlin Film Festival ?|that has|WDT|VBZ|VB|ENTY
@@ -2228,7 +2173,6 @@ What is a fear of motion ?|What is|WP|VBZ|VBZ|ENTY
 What pseudonym did William Sydney Porter use in writing The Gift of the Magi ?|What pseudonym|WP|NN|VBP|HUM
 What is a fear of glass ?|What is|WP|VBZ|VBZ|ENTY
 In Waugh's '' A Handful of Dust , '' what does the mad old man force the hero to do every afternoon ?||||IN|DESC
-In Waugh's '' A Handful of Dust , '' what does the mad old man force the hero to do every afternoon ?|what does|WP|VBZ|NN|DESC
 What is the last name of Lucy and Linus from the Peanut's comic strip ?|What is|WP|VBZ|VBZ|HUM
 What cheery fellow got the ZIP code 9971 from the U.S. Postal Service in 1963 ?|What cheery|WP|JJ|VBD|HUM
 How many layers does a bottle of Yoo-Hoo settle into ?|How many|WRB|JJ|VB|NUM
@@ -2240,7 +2184,6 @@ What does Choo Choo Charlie say ?|What does|WP|VBZ|VB|DESC
 How do I register a trade name in North Carolina ?|How do|WRB|VBP|VB|DESC
 What was the number of assassinations and attempts to assassinate in the U.S. since 1865 ?|What was|WP|VBD|VBD|NUM
 How many stations do you shoot from in the basketball game '' Around the World '' ?|How many|WRB|JJ|VB|NUM
-How many stations do you shoot from in the basketball game '' Around the World '' ?||||IN|NUM
 What is a Jake brake ?|What is|WP|VBZ|VBZ|DESC
 What sign is the best love match for a horoscope sign ?|What sign|WP|NN|VBZ|ENTY
 Who was the Russian ambassador to Hungary during the 1956 uprising ?|Who was|WP|VBD|VBD|HUM
@@ -2292,7 +2235,6 @@ How long is Camptown Racetrack ?|How long|WRB|RB|VBZ|NUM
 Name the two blob members of the animated Herculoids .||||VB|HUM
 Where did Luther display his '' Ninety-Five Theses '' ?|Where did|WRB|VBD|VB|LOC
 What are '' inkhorn terms '' ?|What are|WP|VBP|VBP|DESC
-What are '' inkhorn terms '' ?||||NNS|DESC
 What is the difference between pop music and rock and roll ?|What is|WP|VBZ|VBZ|DESC
 What river is Pocahontas buried along ?|What river|WP|NN|VBN|LOC
 What does hazmat stand for ?|What does|WP|VBZ|VB|DESC
@@ -2336,7 +2278,6 @@ Which ear can most people hear better with ?|Which ear|WDT|NN|VBP|ENTY
 Where have the most dinosaur remains been found ?|Where have|WRB|VBP|VBN|LOC
 What letter appears on the cold-water tap in Spain ?|What letter|WP|NN|VBZ|ENTY
 How do you say '' Grandma '' in Irish ?|How do|WRB|VBP|VB|ENTY
-How do you say '' Grandma '' in Irish ?||||NNP|ENTY
 Who shoplifts ?|Who shoplifts|WP|NNS|NNS|HUM
 What is a camel hair brush actually made out of ?|What is|WP|VBZ|VBZ|ENTY
 What is the Socratic method ?|What is|WP|VBZ|VBZ|DESC
@@ -2349,7 +2290,6 @@ Shea and Gould closed their Los Angeles office for what reason ?|what reason|WP|
 What Peter Blatty novel recounts the horrors of Regan MacNeil's possession by the devil ?|What Peter|WP|NNP|VBZ|ENTY
 What is the all-time stock high of Apple Computer , and where can I find this information ?|What is where can|WRB|MD|VBZ|NUM
 Why are lions called '' King of the Jungle '' ?|Why are|WRB|VBP|VBP|DESC
-Why are lions called '' King of the Jungle '' ?||||NNP|DESC
 What non-alcoholic syrup is made from pomegranate juice ?|What non|WP|AFX|VBN|ENTY
 What meter was invented by C.C. Magee in 1935 ?|What meter|WP|NN|VBN|ENTY
 When was Calypso music invented ?|When was|WRB|VBD|VBN|NUM
@@ -2384,7 +2324,6 @@ Saddam Hussein was compared to whom by President Bush ?|whom by|WP|IN|VBN|HUM
 What year was the NAACP founded ?|What year|WDT|NN|VBN|NUM
 In what year did Thatcher gain power ?|what year|WDT|NN|VB|NUM
 Who wrote the book , '' The Grinch Who Stole Christmas '' ?|Who wrote|WP|VBD|VBD|HUM
-Who wrote the book , '' The Grinch Who Stole Christmas '' ?|Who Stole|WP|VBD|NNP|HUM
 Where can I learn about Samuel Gompers ?|Where can|WRB|MD|VB|LOC
 What jockey won 17 Triple Crown races ?|What jockey|WP|NN|VBD|HUM
 What U.S. state's biggest lake is Lake Sam Rayburn ?|What U.S.|WP|NNP|VBZ|LOC
@@ -2406,7 +2345,6 @@ What is the size of Argentina ?|What is|WP|VBZ|VBZ|NUM
 What would you add to the clay mixture to produce bone china ?|What would|WP|MD|VB|ENTY
 What is leukemia ?|What is|WP|VBZ|VBZ|DESC
 What Stephen Sondheim ballad ends : '' Well , maybe next year.. . '' ?|What Stephen|WP|NNP|VBZ|ENTY
-What Stephen Sondheim ballad ends : '' Well , maybe next year.. . '' ?||||NN|ENTY
 How does the tail affect the flight of a kite ?|How does|WRB|VBZ|VBP|DESC
 What date is Richard Nixon's birthday ?|What date|WDT|NN|VBZ|NUM
 What film canine is buried in Pere-Lachaise cemetery in Paris ?|What film|WP|NN|VBN|ENTY
@@ -2426,7 +2364,6 @@ How many different types of skunks are there ?|How many|WRB|JJ|VBP|NUM
 Who is the Prophet of Medina ?|Who is|WP|VBZ|VBZ|HUM
 What is the name of a Salt Lake City newspaper ?|What is|WP|VBZ|VBZ|ENTY
 What year did Spielberg make '' Jaws '' ?|What year|WDT|NN|VB|NUM
-What year did Spielberg make '' Jaws '' ?||||VB|NUM
 What's the meaning of the zoological term ruminant ?|What 's|WP|VBZ|VBZ|DESC
 What is the name of the woman who was with John Belushi when he died ?|What is who was when he|WRB|PRP|VBZ|HUM
 What is hyperopia ?|What is|WP|VBZ|VBZ|DESC
@@ -2436,7 +2373,6 @@ Which produces the longer sperm - an elephant or a mouse ?|Which produces|WDT|VB
 In what book can I find the story of Aladdin ?|what book|WP|NN|VB|ENTY
 What United States city produces the most oil ?|What United|WP|NNP|VBZ|LOC
 How do you pronounce '' Tzimisce '' ?|How do|WRB|VBP|VB|DESC
-How do you pronounce '' Tzimisce '' ?||||NNP|DESC
 What's the name of the Tokyo Stock Exchange ?|What 's|WP|VBZ|VBZ|ENTY
 What's the percentage of children aged two through eleven who watch ' 'The Simpsons ' ?|What 's who watch|WP|VBP|VBZ|NUM
 What TV show premiered on January 15 , 1981 ?|What TV|WP|NN|VBD|ENTY
@@ -2449,14 +2385,12 @@ How did names come about ?|How did|WRB|VBD|VB|DESC
 What's the better-known identity of John Merrick , the noble ogre of Victorian England ?|What 's|WP|VBZ|VBZ|HUM
 What is her husband's name ?|What is|WP|VBZ|VBZ|HUM
 What cigarette company urged us , '' Come to where the flavor is ? ''|What cigarette|WP|NN|VBD|HUM
-What cigarette company urged us , '' Come to where the flavor is ? ''|where the|WRB|DT|VB|HUM
 Which of the following did not receive a 1983 '' Outstanding Mother Award '' from the National Mother's Day Committee ?|Which of|WDT|IN|VB|HUM
 What Dynasty star made her 2th Century-Fox debut in The Virgin Queen ?|What Dynasty|WP|NNP|VBD|HUM
 Where is Poe's birthplace ?|Where is|WRB|VBZ|VBZ|LOC
 What actress holds the record for the most appearances on the cover of Life ?|What actress|WP|NN|VBZ|HUM
 What was the first TV set to include a remote control ?|What was|WP|VBD|VBD|ENTY
 Name the company that used the line , '' Even your best friend won 't tell you '' in its ad ?|that used|WDT|VBD|VBD|HUM
-Name the company that used the line , '' Even your best friend won 't tell you '' in its ad ?||||VBD|HUM
 What first-aid product '' Helps the hurt stop hurting '' ?|What first|WP|RB|VBZ|ENTY
 How does ultraviolet light damage the DNA of skin cells ?|How does|WRB|VBZ|VB|DESC
 What was the verdict in the trial of Lizzie Borden ?|What was|WP|VBD|VBD|DESC
@@ -2487,7 +2421,6 @@ How many equal sides are there on a scalene triangle ?|How many|WRB|JJ|VBP|NUM
 Where did Bill Gates go to college ?|Where did|WRB|VBD|VB|LOC
 What constellation is known as The Water Bearer ?|What constellation|WP|NN|VBN|LOC
 What tale has the moral : '' He who wants everything gets nothing '' ?|What tale|WP|NN|VBZ|ENTY
-What tale has the moral : '' He who wants everything gets nothing '' ?|who wants|WP|VBZ|VBZ|ENTY
 What U.S. university boasts the largest library ?|What U.S.|WP|NNP|VBZ|HUM
 In which year was the cartoon character Chilly Willy created ?|which year|WDT|NN|VBD|NUM
 What do Japanese school uniforms look like ?|What do|WP|VBP|VBP|DESC
@@ -2506,7 +2439,6 @@ Which organization is the Security Council a part of ?|Which organization|WDT|NN
 When was the internal combustion engine developed ?|When was|WRB|VBD|VBN|NUM
 How can I find out my biorhythm ?|How can|WRB|MD|VB|DESC
 Who painted '' Soft Self-Portrait with Grilled Bacon '' ?|Who painted|WP|VBD|VBD|HUM
-Who painted '' Soft Self-Portrait with Grilled Bacon '' ?||||NNP|HUM
 What company markets a shampoo '' for brunettes only '' ?|What company|WP|NN|VBZ|HUM
 What is a fear of touching ?|What is|WP|VBZ|VBZ|ENTY
 What is the name of the largest water conservancy project in China ?|What is|WP|VBZ|VBZ|ENTY
@@ -2532,12 +2464,10 @@ Which Beatles disc cover honors the Rolling Stones ?|Which Beatles|WDT|VBZ|VBZ|E
 Why does it snow ?|Why does|WRB|VBZ|VB|DESC
 What is the average life expectancy of a male in Ireland in 1996 ?|What is|WP|VBZ|VBZ|NUM
 What is '' Vocal Sampling '' ?|What is|WP|VBZ|VBZ|DESC
-What is '' Vocal Sampling '' ?||||NNP|DESC
 How do windmills work ?|How do|WRB|VBP|VB|DESC
 What ocean liner burned and sank in Hong Kong harbor ?|What ocean|WP|NN|VBN|ENTY
 What city is near the mouth of the Amazon ?|What city|WP|NN|VBZ|LOC
 What U.S. vice-president once declared : '' If you 've seen one slum , you 've seen them all '' ?|What U.S.|WP|NNP|VBD|HUM
-What U.S. vice-president once declared : '' If you 've seen one slum , you 've seen them all '' ?||||VBN|HUM
 Who wrote The Red Badge of Courage ?|Who wrote|WP|VBD|VBD|HUM
 What money was used by them ?|What money|WP|NN|VBN|ENTY
 What color , s , appear on boxes of Kodak film ?|What color|WP|NN|VBP|ENTY
@@ -2571,7 +2501,6 @@ What book opens : '' At a certain village in La Mancha , which I shall not name.
 Who is Stephen Hawking ?|Who is|WP|VBZ|VBZ|HUM
 What does SHIELD stand for ?|What does|WP|VBZ|VB|ABBR
 How do you say , '' I love you '' in other languages ?|How do|WRB|VBP|VB|ENTY
-How do you say , '' I love you '' in other languages ?||||VBP|ENTY
 What is The Gay Science ?|What is|WP|VBZ|VBZ|DESC
 Why is Jane Goodall famous ?|Why is|WRB|VBZ|VBZ|DESC
 What is the chemical reactivity of helium ?|What is|WP|VBZ|VBZ|NUM
@@ -2581,13 +2510,11 @@ What is the difference between optical and digital video ?|What is|WP|VBZ|VBZ|DE
 What clause in the U.S. Constitution may not be changed , altered or amended ?|What clause|WP|NN|VBN|DESC
 What's new in the postal world in 1999 ?|What 's|WP|VBZ|VBZ|DESC
 What actor came to dinner in Guess Who's Coming to Dinner ?|What actor|WP|NN|VBD|HUM
-What actor came to dinner in Guess Who's Coming to Dinner ?|Who 's|WP|VBZ|VBG|HUM
 What is the difference between the anus and the rectum ?|What is|WP|VBZ|VBZ|DESC
 What is a Guild ?|What is|WP|VBZ|VBZ|DESC
 What is the difference between college and graduate school ?|What is|WP|VBZ|VBZ|DESC
 How do I change a file from an ART file to a JPEG or Bitmap file ?|How do|WRB|VBP|VB|DESC
 What is Franz Kafka's short story '' A Country Doctor '' trying to tell us ?|What is|WP|VBZ|VBZ|DESC
-What is Franz Kafka's short story '' A Country Doctor '' trying to tell us ?||||NN|DESC
 What engineer invented the pull-tab can ?|What engineer|WP|NN|VBD|HUM
 What South American capital is the world's highest ?|What South|WDT|JJ|VBZ|LOC
 What are the lyrics to the Star Spangled Banner ?|What are|WP|VBP|VBP|DESC
@@ -2599,8 +2526,6 @@ Which college did Dikembe Mutombo attend ?|Which college|WDT|NN|VBP|HUM
 Who was the first actress to appear on a postage stamp ?|Who was|WP|VBD|VBD|HUM
 Who was the first black woman to star in the Folies Bergeres ?|Who was|WP|VBD|VBD|HUM
 What Aesop's fable has the moral : '' The race is not always to the swift. Slow and steady is bound to win '' ?|What Aesop|WP|NNP|VBZ|ENTY
-What Aesop's fable has the moral : '' The race is not always to the swift. Slow and steady is bound to win '' ?||||VBZ|ENTY
-What Aesop's fable has the moral : '' The race is not always to the swift. Slow and steady is bound to win '' ?||||VBN|ENTY
 What famed strip of land is a 15-minute boat trip across the Venetian Lagoon from Venice ?|What famed|WP|VBD|VBZ|LOC
 How is water treated to make it safe to drink ?|How is|WRB|VBZ|VBN|DESC
 What is a hydrogen bond ?|What is|WP|VBZ|VBZ|DESC
@@ -2636,7 +2561,6 @@ What country was Brian Boru an 11th-century king of ?|What country|WP|NN|VBD|LOC
 What happens when a body part falls asleep ?|What happens when a|WRB|DT|VBZ|DESC
 What English word has the most letters ?|What English|WP|JJ|VBZ|ENTY
 What film ends with the line : '' This is Mrs. Norman Maine '' ?|What film|WP|NN|VBZ|ENTY
-What film ends with the line : '' This is Mrs. Norman Maine '' ?||||VBZ|ENTY
 Who asked the musical question : '' Have you ever been to electric lady land ? ''|Who asked|WP|VBD|VBD|HUM
 Who wrote : '' Poems are made by fools like me but only God can make a tree '' ?|Who wrote|WP|VBD|VBD|HUM
 What is June's birthstone ?|What is|WP|VBZ|VBZ|DESC
@@ -2655,7 +2579,6 @@ How long does it take for your blood to make one complete trip through the body 
 Who owns the St. Louis Rams ?|Who owns|WP|VBZ|VBZ|HUM
 Where is former Pro wrestler Johnny '' Rubber Man '' Walker ?|Where is|WRB|VBZ|VBZ|LOC
 What beer tells us , '' Grab all the gusto you can get . '' ?|What beer|WP|NN|VBZ|ENTY
-What beer tells us , '' Grab all the gusto you can get . '' ?||||VB|ENTY
 What is the geographical center of the US including Alaska and Hawaii ?|What is|WP|VBZ|VBZ|LOC
 Which side of the face do most artists tend to show more of in self-portraits ?|Which side|WDT|NN|VBP|ENTY
 What is diabetes ?|What is|WP|VBZ|VBZ|DESC
@@ -2715,7 +2638,6 @@ Who was the supreme god of Germanic religion ?|Who was|WP|VBD|VBD|HUM
 How do you handle a hungry man ?|How do|WRB|VBP|VB|DESC
 Who's played the most games for the New York Yankees ?|Who 's|WP|VBZ|VBN|HUM
 What TV character said ; '' One of these days , Alice , pow , right in the kisser '' ?|What TV|WP|NN|VBD|HUM
-What TV character said ; '' One of these days , Alice , pow , right in the kisser '' ?||||CD|HUM
 What is the name of the Indian who became prime minister by beating Mrs. Gandhi in the 1977 election ?|What is who became|WP|VBD|VBZ|HUM
 What are the conjugations of wake and woke ?|What are|WP|VBP|VBP|ENTY
 What Chilean president was killed in a 1973 coup d 'etat ?|What Chilean|WP|JJ|VBN|HUM
@@ -2749,7 +2671,6 @@ How did the war of 1812 affect Delaware ?|How did|WRB|VBD|VB|DESC
 Where is the human skin least sensitive ?|Where is|WRB|VBZ|VBZ|ENTY
 What President was meant for , but never placed in , the empty crypt beneath the capital's rotunda ?|What President|WP|NNP|VBN|HUM
 What is the biggest '' thing '' humans have made ?|What is|WP|VBZ|VBZ|ENTY
-What is the biggest '' thing '' humans have made ?||||VBN|ENTY
 What are all the rivers in Europe ?|What are|WP|VBP|VBP|LOC
 Who won the Superbowl in ?|Who won|WP|VBD|VBD|HUM
 What five cards make up a perfect Cribbage hand ?|What five|WP|CD|VBP|ENTY
@@ -2886,7 +2807,6 @@ How is thalassemia defined ?|How is|WRB|VBZ|VBN|DESC
 What's the name of the Tampa newspaper ?|What 's|WP|VBZ|VBZ|ENTY
 What is a storm surge ?|What is|WP|VBZ|VBZ|DESC
 How do you use '' farther '' as opposed to '' further '' ?|How do|WRB|VBP|VB|DESC
-How do you use '' farther '' as opposed to '' further '' ?||||JJR|DESC
 What was the alternate to VHS ?|What was|WP|VBD|VBD|ENTY
 What is one of the languages of the Sioux ?|What is|WP|VBZ|VBZ|ENTY
 What Pulitzer Prize-winning novelist ran for mayor of New York City ?|What Pulitzer|WP|NNP|VBD|HUM
@@ -2929,12 +2849,10 @@ What motto ended Merrie Melodies cartoons ?|What motto|WP|NN|VBD|DESC
 Who reports the weather on the '' Good Morning America '' television show ?|Who reports|WP|VBZ|VBZ|HUM
 How many emperors were there in the Roman Empire ?|How many|WRB|JJ|VBD|NUM
 What was the name of '' The Muppets '' creator ?|What was|WP|VBD|VBD|HUM
-What was the name of '' The Muppets '' creator ?||||NN|HUM
 What is Cabarnet Sauvignon ?|What is|WP|VBZ|VBZ|DESC
 What is a virtual IP address ?|What is|WP|VBZ|VBZ|DESC
 What's the name of the tiger that advertises for Frosted Flakes cereal ?|What 's that advertises|WDT|VBZ|VBZ|ENTY
 Who sent the brief message '' I came , I saw , I conquered '' ?|Who sent|WP|VBD|VBD|HUM
-Who sent the brief message '' I came , I saw , I conquered '' ?||||VBD|HUM
 What color is Mr. Spock's blood ?|What color|WP|NN|VBZ|ENTY
 What U.S. Air Force general led the first bombing raid over Tokyo ?|What U.S.|WP|NNP|VBD|HUM
 What U.S. vice-president said : '' Some newspapers dispose of their garbage by printing it '' ?|What U.S.|WP|NNP|VBD|HUM
@@ -2953,7 +2871,6 @@ Who won a Pulitzer Prize for his novel The Caine Mutiny ?|Who won|WP|VBD|VBD|HUM
 What's the best way to lose the flab under your chin and around your face ?|What 's|WP|VBZ|VBZ|ENTY
 Where is your corpus callosum ?|Where is|WRB|VBZ|VBZ|LOC
 What Broadway musical featured the song , '' If I were a rich man ? ''|What Broadway|WP|NNP|VBD|ENTY
-What Broadway musical featured the song , '' If I were a rich man ? ''||||VBD|ENTY
 Who portrayed Sherlock Holmes in 14 films between 1939 and 1946 ?|Who portrayed|WP|VBD|VBD|HUM
 Why is the development of space so important ?|Why is|WRB|VBZ|VBZ|DESC
 What is the nursery rhyme Rock-a-by Baby about ?|What is|WP|VBZ|VBZ|DESC
@@ -3050,9 +2967,6 @@ Who is the prime minister of Japan ?|Who is|WP|VBZ|VBZ|HUM
 What player squats an average of 3 times during a baseball doubleheader ?|What player|WP|NN|VBZ|HUM
 What's the most common name in nursery rhymes ?|What 's|WP|VBZ|VBZ|HUM
 How many '' No '' answers was the What's My Line ? panel allowed ?|How many|WRB|JJ|JJ|NUM
-How many '' No '' answers was the What's My Line ? panel allowed ?||||VBD|NUM
-How many '' No '' answers was the What's My Line ? panel allowed ?|What 's|WP|VBZ|VBZ|NUM
-How many '' No '' answers was the What's My Line ? panel allowed ?||||VBD|NUM
 What is the fine for having a dog on a beach ?|What is|WP|VBZ|VBZ|NUM
 Who wrote the book , '' Song of Solomon '' ?|Who wrote|WP|VBD|VBD|HUM
 Where can one find information on religion and health , the brain and nutrition ?|Where can|WRB|MD|VB|LOC
@@ -3154,7 +3068,6 @@ What 1956 Grace Metalious novel was on the best-seller list for two years ?|What
 Name the three races unleashed by the Celestials in Marvel comics .||||VB|HUM
 How old is the Italian artist Maurizio Pellegrin ?|How old|WRB|JJ|VBZ|NUM
 What President hit the jogging paths to enhance his athletic image and , sporting No. 39 , almost collapsed during the road race ?|What President|WP|NNP|VBD|HUM
-What President hit the jogging paths to enhance his athletic image and , sporting No. 39 , almost collapsed during the road race ?||||VBD|HUM
 What is the distinction of Erle Stanley Gardner's The Case of the Terrified Typist ?|What is|WP|VBZ|VBZ|DESC
 What North American city would you visit to see Cleopatra's Needle ?|What North|WP|NNP|VB|LOC
 When was the NFL established ?|When was|WRB|VBD|VBN|NUM
@@ -3203,7 +3116,6 @@ What New York City landmark has 168 steps to its crown ?|What New|WP|NNP|VBZ|LOC
 Where is the Bulls basketball team based ?|Where is|WRB|VBZ|VBZ|LOC
 What is the recomended age to switch a child from a crib to a bed ?|What is|WP|VBZ|VBZ|NUM
 Which Rockefeller was sometimes called '' JDR3 '' ?|Which Rockefeller|WDT|NNP|VBN|HUM
-Which Rockefeller was sometimes called '' JDR3 '' ?||||NNP|HUM
 When is the Sun closest to the Earth ?|When is|WRB|VBZ|VBZ|NUM
 What are some chemical properties of mendelevium ?|What are|WP|VBP|VBP|DESC
 What is the average hours per months spent online by AOL users ?|What is|WP|VBZ|VBZ|NUM
@@ -3261,7 +3173,6 @@ What was the name of the lawyer who represented Randy Steven Craft ?|What was wh
 What happens to used motor oil ?|What happens|WP|VBZ|VBZ|DESC
 What is the most commonly used 1 letter word in the English language ?|What is|WP|VBZ|VBZ|ENTY
 What actress's autobiography is titled Shelley : Also Known as Shirley ?|What actress|WP|NN|VBN|HUM
-What actress's autobiography is titled Shelley : Also Known as Shirley ?||||VBN|HUM
 How many colors was the 1940s collectible called a Donald Duck Rubber Boat ?|How many|WRB|JJ|VBD|NUM
 How did the 7th inning stretch get started ?|How did|WRB|VBD|VBN|DESC
 Who lived on the shores of the Gitchee Gumee River ?|Who lived|WP|VBD|VBD|HUM
@@ -3543,7 +3454,6 @@ Who is Rocky's and Bullwinkle's ever-lost friend ?|Who is|WP|VBZ|VBZ|HUM
 Who is Robin Williams ?|Who is|WP|VBZ|VBZ|HUM
 Who thought he 'd never see a poem lovely as a tree ?|Who thought|WP|VBD|VBD|HUM
 Who created '' The Muppets '' ?|Who created|WP|VBD|VBD|HUM
-Who created '' The Muppets '' ?||||NNPS|HUM
 How do you make dumplings ?|How do|WRB|VBP|VB|DESC
 What celestial body has a diameter of 864 , 000 miles ?|What celestial|WP|JJ|VBZ|LOC
 The operating system that runs on IBM-compatible machines is called what ?|that runs what ?|WP|.|VBN|ENTY
@@ -3563,12 +3473,10 @@ What is thermal equilibrium ?|What is|WP|VBZ|VBZ|DESC
 What is a term for behavior , appearance , or expression that violates the accepted standards of sexual morality ?|What is that violates|WDT|VBZ|VBZ|ENTY
 What fast-food magnate's initials graced the left sleeve of the San Diego Padres ' baseball uniforms in 1984 ?|What fast|WP|JJ|VBD|HUM
 What is the origin of the typing practice sentence '' Now is the time for all good men to come to the aid of their country '' ?|What is|WP|VBZ|VBZ|DESC
-What is the origin of the typing practice sentence '' Now is the time for all good men to come to the aid of their country '' ?||||VBZ|DESC
 How many neurons are in the human brain ?|How many|WRB|JJ|VBP|NUM
 What is a fear of reptiles ?|What is|WP|VBZ|VBZ|ENTY
 What does Knight Ridder publish ?|What does|WP|VBZ|VB|ENTY
 What city is . KDGE Radio located in ?|What city|WP|NN|VBZ|LOC
-What city is . KDGE Radio located in ?||||NNP|LOC
 What can one see in Reims ?|What can|WP|MD|VB|ENTY
 How is an executioner determined ?|How is|WRB|VBZ|VBZ|DESC
 What city was Bobby Kennedy assassinated in ?|What city|WP|NN|VBD|LOC
@@ -3604,7 +3512,6 @@ Where is the Keck telescope ?|Where is|WRB|VBZ|VBZ|LOC
 What is the name of the kids ' show from Canadian Public TV with the singing pineapple ?|What is|WP|VBZ|VBZ|ENTY
 Where are the apartments in Saint John , New Brunswick ?|Where are|WRB|VBP|VBP|LOC
 Who wrote '' The Pit and the Pendulum '' ?|Who wrote|WP|VBD|VBD|HUM
-Who wrote '' The Pit and the Pendulum '' ?||||NNP|HUM
 What country did the Mau Mau Uprising take place in ?|What country|WP|NN|VB|LOC
 What are some good medical sites for information ?|What are|WP|VBP|VBP|LOC
 What does a resurrectionist steal ?|What does|WP|VBZ|VB|ENTY
@@ -3683,7 +3590,6 @@ What is the term that describes a word where only one usage has been recorded in
 Who made the first airplane ?|Who made|WP|VBD|VBD|HUM
 What measures did Clinton take to avoid the draft ?|What measures|WDT|NNS|VB|ENTY
 What are '' darning needles '' and '' horse stingers '' better known as ?|What are|WP|VBP|VBP|ENTY
-What are '' darning needles '' and '' horse stingers '' better known as ?||||NNS|ENTY
 How many points is a disk in the center hole worth in Crokinole ?|How many|WRB|JJ|VBZ|NUM
 How do websites like Yahoo and Excite make money ?|How do|WRB|VBP|VB|DESC
 What general direction does the journey in Around the World in 80 Days proceed in ?|What general|WP|JJ|VBP|LOC
@@ -3702,7 +3608,6 @@ Who is John Macarthur , 1767-1834 ?|Who is|WP|VBZ|VBZ|HUM
 What year did the War of 1812 begin ?|What year|WDT|NN|VB|NUM
 What racehorse won an Associated Press poll as the greatest horse of the 20th century ?|What racehorse|WP|NN|VBD|ENTY
 What are the words to the cd Eminem's , or slim shady , '' My Name Is '' ?|What are|WP|VBP|VBP|DESC
-What are the words to the cd Eminem's , or slim shady , '' My Name Is '' ?||||VBZ|DESC
 What does Final Four refer to in the sports world ?|What does|WP|VBZ|VBP|ENTY
 Who is Peter Weir ?|Who is|WP|VBZ|VBZ|HUM
 What medium is Stuart Hamblen the first singing cowboy in ?|What medium|WP|NN|VBZ|ENTY
@@ -3761,7 +3666,6 @@ Why do they call it a '' funny bone '' ?|Why do|WRB|VBP|VB|DESC
 Where can I find up-to-date coastal ocean surface temperature information , preferably along North America and the Caribbean ?|Where can|WRB|MD|VB|LOC
 What exactly is radiation ?|What exactly|WP|RB|VBZ|DESC
 What are the two cities in Dicken's '' A Tale of Two Cities '' ?|What are|WP|VBP|VBP|LOC
-What are the two cities in Dicken's '' A Tale of Two Cities '' ?||||NNP|LOC
 Who is Samuel F. Pickering ?|Who is|WP|VBZ|VBZ|HUM
 What English queen had six fingers on one hand ?|What English|WP|NNP|VBD|HUM
 What river runs through Liverpool ?|What river|WP|NN|VBZ|LOC
@@ -3947,7 +3851,6 @@ What drink contains as many types of rum as possible ?|What drink|WP|NN|VBZ|ENTY
 Where is the Virtual Desk Reference ?|Where is|WRB|VBZ|VBZ|LOC
 How loud is thunder ?|How loud|WRB|JJ|VBZ|NUM
 What California governor said : '' Inaction may be the highest form of action '' ?|What California|WP|NNP|VBD|HUM
-What California governor said : '' Inaction may be the highest form of action '' ?||||VB|HUM
 What is an ecological niche ?|What is|WP|VBZ|VBZ|DESC
 Who is Desmond Tutu ?|Who is|WP|VBZ|VBZ|HUM
 Who was the first person to study the stars ?|Who was|WP|VBD|VBD|HUM
@@ -4039,7 +3942,6 @@ How many people have died of tuberculosis ?|How many|WRB|JJ|VBN|NUM
 What is another name for nearsightedness ?|What is|WP|VBZ|VBZ|ENTY
 How many days does a typical mayfly live ?|How many|WRB|JJ|VB|NUM
 What famous New York City mayor wrote the hit song , '' Will You Love Me in December as You Do in May ? ''|What famous|WP|JJ|VBD|HUM
-What famous New York City mayor wrote the hit song , '' Will You Love Me in December as You Do in May ? ''||||VB|HUM
 What Russian city used to be called St. Petersburg and Petrograd ?|What Russian|WP|JJ|VBD|LOC
 What is the definition of a witch ?|What is|WP|VBZ|VBZ|DESC
 What are the cookies in Internet ?|What are|WP|VBP|VBP|DESC
@@ -4127,7 +4029,6 @@ Where can I find the schematics to the windshield wiper mechanism ?|Where can|WR
 What type is a snail ?|What type|WDT|NN|VBZ|ENTY
 Who was Sherlock Holmes's archenemy ?|Who was|WP|VBD|VBD|HUM
 Where is '' Global Schoolhouse '' ?|Where is|WRB|VBZ|VBZ|LOC
-Where is '' Global Schoolhouse '' ?||||NNP|LOC
 How many years of schooling after highschool does it take to become a neurosurgeon ?|How many|WRB|JJ|VB|NUM
 What are the top vegetable crops in the world ?|What are|WP|VBP|VBP|ENTY
 What volcano showers ash on Sicily ?|What volcano|WP|NN|NNS|LOC
@@ -4225,7 +4126,6 @@ What class of animals makes up more than two-thirds of known species ?|What clas
 What was the name of Sergeant Preston of the Yukon's lead dog ?|What was|WP|VBD|VBD|ENTY
 What film featured a snarly character named Kid Shelleen ?|What film|WP|NN|VBD|ENTY
 What company named one of its pens '' The Banana '' ?|What company|WP|NN|VBN|HUM
-What company named one of its pens '' The Banana '' ?||||NNP|HUM
 What's the capital of Monaco ?|What 's|WP|VBZ|VBZ|LOC
 What do Englishmen weigh themselves in ?|What do|WP|VBP|VB|NUM
 How big is the Electoral College ?|How big|WRB|JJ|VBZ|NUM
@@ -4338,7 +4238,6 @@ How many languages does the Pope speak ?|How many|WRB|JJ|VB|NUM
 What bay divides Maryland's Eastern and Western Shores ?|What bay|WP|NN|VBZ|LOC
 What is the real name of the singer , Madonna ?|What is|WP|VBZ|VBZ|HUM
 What Frenchman claimed the following ? If God did not exist , it would be necessary to invent him . ''|What Frenchman|WP|NNP|VBD|HUM
-What Frenchman claimed the following ? If God did not exist , it would be necessary to invent him . ''||||VB|HUM
 What color were Ernest Hemingway's eyes ?|What color|WP|NN|VBD|ENTY
 What is the origin of the expression '' four-letter word '' ?|What is|WP|VBZ|VBZ|DESC
 Who was the first woman in space ?|Who was|WP|VBD|VBD|HUM
@@ -4410,7 +4309,6 @@ Who is the director of the international group called the Human Genome Organizat
 What radio station did Paul Harvey work for ?|What radio|WP|NN|VB|HUM
 What character narrates Treasure Island ?|What character|WP|NN|VBZ|HUM
 What is the correct way to abbreviate cc. at the bottom of a business letter ?|What is|WP|VBZ|VBZ|ABBR
-What is the correct way to abbreviate cc. at the bottom of a business letter ?||||IN|ABBR
 Who starred with Charlie Chaplin in Modern Times and The Great Dictator ?|Who starred|WP|VBD|VBD|HUM
 What seven digits follow the area code in the number for long distance information ?|What seven|WP|CD|VBP|NUM
 What Catch-22 character is elected mayor of half a dozen Italian cities ?|What Catch-22|WP|NN|VBN|HUM
@@ -4430,7 +4328,6 @@ What is the '' fourth dimension '' ?|What is|WP|VBZ|VBZ|DESC
 What is the Homelite Inc. home page ?|What is|WP|VBZ|VBZ|LOC
 How old was Stevie Wonder when he signed with Motown Records ?|How old when he|WRB|PRP|VBD|NUM
 What is '' alternative '' anymore ?|What is|WP|VBZ|VBZ|DESC
-What is '' alternative '' anymore ?||||JJ|DESC
 Why do they call a hamburger a hamburger when there is no ham ?|Why do when there|WRB|EX|VB|DESC
 Who won two gold medals in skiing in the Olympic Games in Calgary ?|Who won|WP|VBD|VBD|HUM
 What year was the Avery Dennison company founded ?|What year|WDT|NN|VBD|NUM
@@ -4511,7 +4408,6 @@ What state in the United States covers the largest area ?|What state|WP|NN|VBZ|L
 How do you make a computer chip ?|How do|WRB|VBP|VB|DESC
 Who became president of the U.S. in 1789 ?|Who became|WP|VBD|VBD|HUM
 Who wrote '' The Scarlet Letter '' ?|Who wrote|WP|VBD|VBD|HUM
-Who wrote '' The Scarlet Letter '' ?||||NNP|HUM
 Who did Sara Jane Moore try to assassinate ?|Who did|WP|VBD|VB|HUM
 What is Linux ?|What is|WP|VBZ|VBZ|DESC
 How many dots make up the symbol for '' because '' ?|How many|WRB|JJ|VBP|NUM
@@ -4667,7 +4563,6 @@ What are the Baltic States ?|What are|WP|VBP|VBP|DESC
 How many endangered species are there in the world ?|How many|WRB|JJ|VBP|NUM
 Which large U.S. city had the highest murder rate for 1988 ?|Which large|WDT|JJ|VBD|LOC
 Who was the bandleader mentor of Ella Fitzgerald with whom she cowrote '' A_Tisket , A-Tasket '' ?|Who was whom she|WP|PRP|VBD|HUM
-Who was the bandleader mentor of Ella Fitzgerald with whom she cowrote '' A_Tisket , A-Tasket '' ?||||NNP|HUM
 Who invented basketball ?|Who invented|WP|VBD|VBD|HUM
 How has TV affected our society ?|How has|WRB|VBZ|VBN|DESC
 When was the last major eruption of Mount St. Helens ?|When was|WRB|VBD|VBD|NUM
@@ -4726,7 +4621,6 @@ How many of them are in sub-Saharan Africa ?|How many|WRB|JJ|VBP|NUM
 What is the history of Spartacus , the Roman slave and gladiator ?|What is|WP|VBZ|VBZ|DESC
 What famed wall supports the Badaling turret ?|What famed|WP|VBD|VBZ|LOC
 Who portrayed Fatman in the television show , '' Jake and the Fatman '' ?|Who portrayed|WP|VBD|VBD|HUM
-Who portrayed Fatman in the television show , '' Jake and the Fatman '' ?||||NNP|HUM
 What is object-oriented design ?|What is|WP|VBZ|VBZ|DESC
 What does Melissa mean ?|What does|WP|VBZ|VB|DESC
 What is form drag ?|What is|WP|VBZ|VBZ|DESC
@@ -4763,7 +4657,6 @@ What city was Martin Luther King Jr. assassinated in ?|What city|WP|NN|VBD|LOC
 What celebrity couple , when going through a divorce , divided their toilet paper into two equal piles ?|What celebrity when going|WRB|VBG|VBN|HUM
 Where's the Bernini-Bristol Hotel ?|Where 's|WRB|VBZ|VBZ|LOC
 Who said '' What contemptible scoundrel stole the cork from my lunch ? ''|Who said|WP|VBD|VBD|HUM
-Who said '' What contemptible scoundrel stole the cork from my lunch ? ''|What contemptible|WP|JJ|VBD|HUM
 What is the capital of Kosovo ?|What is|WP|VBZ|VBZ|LOC
 What kind of company is 7-Eleven ?|What kind|WDT|NN|VBZ|HUM
 How many letters appear with the numbers 2 to 9 on a telephone dial ?|How many|WRB|JJ|VBP|NUM
@@ -4813,7 +4706,6 @@ What was Suzy Parker doing to earn $1 , 000 in the early 1950's ?|What was|WP|VB
 How many people died in the Vietnam war ?|How many|WRB|JJ|VBD|NUM
 What year did Montana become a state ?|What year|WDT|NN|VB|NUM
 When was the USSR dissolved ?|When was|WRB|VBD|VBD|NUM
-Why are there letters on the telephone ? Why are there no Q or Z ?|Why are|WRB|VBP|VBP|DESC
 Why are there letters on the telephone ? Why are there no Q or Z ?|Why are|WRB|VBP|VBP|DESC
 What Japanese city was once called Edo ?|What Japanese|WP|JJ|VBN|LOC
 Who did the Seven Mules block for ?|Who did|WP|VBD|NN|HUM
@@ -4896,19 +4788,15 @@ What's the Fahrenheit equivalent of zero degrees centigrade ?|What 's|WP|VBZ|VBZ
 How many muscles does an oyster have ?|How many|WRB|JJ|VB|NUM
 What card game derived its name from biritch , or Russian Whist ?|What card|WP|NN|VBD|ENTY
 Who wrote '' Much Ado About Nothing '' ?|Who wrote|WP|VBD|VBD|HUM
-Who wrote '' Much Ado About Nothing '' ?||||NN|HUM
-Who wrote '' Much Ado About Nothing '' ?||||IN|HUM
 What is the collective noun for geese ?|What is|WP|VBZ|VBZ|ENTY
 What personality traits are Capricorns said to have ?|What personality|WP|NN|VBD|DESC
 Where can I get information concerning child custody files for the State of Utah ?|Where can|WRB|MD|VB|LOC
 What was John F. Kennedy's 1960 campaign song ?|What was|WP|VBD|VBD|ENTY
 What Louisiana Senator won a seat that had been held by his father and mother ?|What Louisiana that had|WDT|VBD|VBD|HUM
 What hymn did John Steinbeck get his title The Grapes of Wrath from ?|What hymn|WP|NN|VB|ENTY
-What hymn did John Steinbeck get his title The Grapes of Wrath from ?||||NNS|ENTY
 What invention does the principle of conservation of energy make impossible ?|What invention|WDT|NN|VB|ENTY
 What's the highest-ranking suit in bridge ?|What 's|WP|VBZ|VBZ|ENTY
 Who won Oscars for her roles in Gone with the Wind and A Streetcar Named Desire ?|Who won|WP|VBD|VBD|HUM
-Who won Oscars for her roles in Gone with the Wind and A Streetcar Named Desire ?||||NN|HUM
 What writer is famous for physically putting himself into the center of his subject matter ?|What writer|WP|NN|VBZ|HUM
 Who's the lead singer of the Led Zeppelin band ?|Who 's|WP|VBZ|VBZ|HUM
 In Dana's '' Two Years Before the Mast , '' what seafarers lived in an abandoned oven on the beach at San Diego ?|what seafarers|WP|NNS|VBD|HUM
@@ -5049,7 +4937,6 @@ How much do tuberculosis combatting drugs cost ?|How much|WRB|JJ|VBP|NUM
 President Bush compared Saddam Hussein to whom ?|whom ?|WP|.|VBD|HUM
 What's the name of Pittsburgh's baseball team ?|What 's|WP|VBZ|VBZ|HUM
 What Shakespeare play opens with the line : '' Now is the winter of our discontent.. . '' ?|What Shakespeare|WP|NNP|VBZ|ENTY
-What Shakespeare play opens with the line : '' Now is the winter of our discontent.. . '' ?||||VBZ|ENTY
 What TV comedian worked with White Fang , Black Tooth and Pookie the Lion ?|What TV|WP|NN|VBD|HUM
 Who created the character James Bond ?|Who created|WP|VBD|VBD|HUM
 What type of exercise burns the most calories ?|What type|WDT|NN|NNS|ENTY
@@ -5072,7 +4959,6 @@ Where is there information on the novel '' El Cid '' ?|Where is|WRB|VBZ|VBZ|LOC
 What is the chemical formula for napalm ?|What is|WP|VBZ|VBZ|ENTY
 What is yohimbine ?|What is|WP|VBZ|VBZ|DESC
 What is '' Chicago Hope '' ?|What is|WP|VBZ|VBZ|DESC
-What is '' Chicago Hope '' ?||||NNP|DESC
 How many members of a family could be drafted in the U.S. military during World War II ?|How many|WRB|JJ|VBN|NUM
 Who wrote the song , '' Silent Night '' ?|Who wrote|WP|VBD|VBD|HUM
 What company is the largest Japanese ship builder ?|What company|WP|NN|VBZ|HUM
@@ -5138,7 +5024,6 @@ What female faith healer wrote the inspirational book I Believe in Miracles ?|Wh
 Who was Jinnah ?|Who was|WP|VBD|VBD|HUM
 What did Esquire name Ash Hole of the Year for 1980 ?|What did|WP|VBD|NN|ENTY
 Where did King Francis I hang the '' Mona Lisa '' when he owned it ?|Where did|WRB|VBD|VBP|LOC
-Where did King Francis I hang the '' Mona Lisa '' when he owned it ?|when he|WRB|PRP|NNP|LOC
 What's been the ruin of many a poor boy in New Orleans ?|What 's|WP|VBZ|VBN|ENTY
 What is habeas corpus ?|What is|WP|VBZ|VBZ|DESC
 How do you use an intranet ?|How do|WRB|VBP|VB|DESC
@@ -5187,7 +5072,6 @@ How many miles of corridors are in The Pentagon ?|How many|WRB|JJ|VBP|NUM
 How do you find the area of a circle ?|How do|WRB|VBP|VB|DESC
 What U.S. state includes the San Juan Islands ?|What U.S.|WP|NNP|VBZ|LOC
 What English playwright penned : '' Where the bee sucks , so shall I '' ?|What English|WP|NNP|VBD|HUM
-What English playwright penned : '' Where the bee sucks , so shall I '' ?|Where the|WRB|DT|MD|HUM
 What do the red-and-white stripes on a barbershop pole stand for ?|What do|WP|VBP|VB|DESC
 Name the ship Beany and Cecil sailed .||||VBD|ENTY
 How deep is a fathom ?|How deep|WRB|JJ|VBZ|NUM
@@ -5264,7 +5148,6 @@ Who moderated the first Kennedy-Nixon TV debate ?|Who moderated|WP|VBD|VBD|HUM
 Who portrayed George M. Cohan in 1942's Yankee Doodle Dandy ?|Who portrayed|WP|VBD|VBD|HUM
 What is the S&P 500 used for ?|What is|WP|VBZ|VBN|DESC
 What does '' Philebus-like '' mean ?|What does|WP|VBZ|VBZ|DESC
-What does '' Philebus-like '' mean ?||||NN|DESC
 When was Nostradamus born ?|When was|WRB|VBD|VBN|NUM
 What are the ingredients of Coca-Cola ?|What are|WP|VBP|VBP|ENTY
 Who's the only U.S. president to have won a Pulitzer Prize ?|Who 's|WP|VBZ|VBZ|HUM
@@ -5272,12 +5155,10 @@ What is nuclear proliferation ?|What is|WP|VBZ|VBZ|DESC
 Who was Maria Theresa ?|Who was|WP|VBD|VBD|HUM
 What is the country of origin for the name Thomas ?|What is|WP|VBZ|VBZ|LOC
 Why do you say '' God bless you '' when people sneeze ?|Why do|WRB|VBP|VB|DESC
-Why do you say '' God bless you '' when people sneeze ?|when people|WRB|NNS|VBP|DESC
 What is the population of the largest Chilean city|What is|WP|VBZ|VBZ|NUM
 What country has the highest per capita consumption of cheese ?|What country|WP|NN|VBZ|LOC
 What is Larry King's occupation ?|What is|WP|VBZ|VBZ|HUM
 Who invented '' The Muppets '' ?|Who invented|WP|VBD|VBD|HUM
-Who invented '' The Muppets '' ?||||NNPS|HUM
 Why does a wheel , e.g. a car tire , appear to spin in the opposite direction as it slows down ?|Why does|WRB|VBZ|VB|DESC
 What sea is Bombay on ?|What sea|WP|NN|VBZ|LOC
 Who are cartoondom's Super Six ?|Who are|WP|VBP|VBP|HUM
@@ -5331,7 +5212,6 @@ What Pope inaugurated Vatican International Radio ?|What Pope|WP|NNP|VBD|HUM
 How many times more than 3|How many|WRB|JJ|NNS|NUM
 How many names are there for Eskimo people ?|How many|WRB|JJ|VBP|NUM
 What king is satirized in the line : '' The King was in the countinghouse , counting all his money '' ?|What king|WP|NN|VBN|HUM
-What king is satirized in the line : '' The King was in the countinghouse , counting all his money '' ?||||VBD|HUM
 What shape-shifting menace did Rom come to Earth to fight ?|What shape|WP|NN|VB|ENTY
 What is the nickname of Pennsylvania ?|What is|WP|VBZ|VBZ|LOC
 What causes headaches ?|What causes|WP|VBZ|VBZ|DESC
@@ -5482,7 +5362,6 @@ Who used AuH2O as an election slogan ?|Who used|WP|VBD|VBD|HUM
 How long do you have to pay back debt after claiming chapter 11 bankruptcy ?|How long|WRB|RB|VB|NUM
 What Shakespearean play featured Shylock ?|What Shakespearean|WP|JJ|VBN|ENTY
 Which magazine is '' fine entertainment for men '' ?|Which magazine|WDT|NN|VBZ|ENTY
-Which magazine is '' fine entertainment for men '' ?||||NN|ENTY
 Why do roosters sing at five o 'clock in the morning ?|Why do|WRB|VBP|VB|DESC
 What features of the African elephant are larger than those of the Indian elephant ?|What features|WDT|NNS|VBP|DESC
 What ocean surrounds the Maldive Islands ?|What ocean|WP|NN|VBZ|LOC
