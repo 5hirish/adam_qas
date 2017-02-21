@@ -16,9 +16,11 @@ def process_question(question, qclass, en_nlp):
     root_token = ""
     wh_pos = ""
     wh_nbor_pos = ""
+    wh_word = ""
     for token in sent:
         if token.tag_ == "WDT" or token.tag_ == "WP" or token.tag_ == "WP$" or token.tag_ == "WRB":
             wh_pos = token.tag_
+            wh_word = token.text
             wh_bi_gram.append(token.text)
             wh_bi_gram.append(str(en_doc[token.i + 1]))
             wh_nbor_pos = en_doc[token.i + 1].tag_
@@ -30,7 +32,7 @@ def process_question(question, qclass, en_nlp):
         # print(root_token)
     with open('corpus/qclassifier_trainer.csv', 'a', newline='') as csv_fp:
         csv_fp_writer = csv.writer(csv_fp, delimiter='|')
-        csv_fp_writer.writerow([question, " ".join(wh_bi_gram), wh_pos, wh_nbor_pos, root_token, qclass])
+        csv_fp_writer.writerow([question, wh_word, " ".join(wh_bi_gram), wh_pos, wh_nbor_pos, root_token, qclass])
         csv_fp.close()
 
 
@@ -49,7 +51,7 @@ def read_input_file(fp, en_nlp):
 def clean_old_data():
     with open('corpus/qclassifier_trainer.csv', 'w', newline='') as csv_fp:
         csv_fp_writer = csv.writer(csv_fp, delimiter='|')
-        csv_fp_writer.writerow(['Question', 'WH-Bigram', 'WH-POS', 'WH-NBOR-POS', 'Root-POS', 'Class'])
+        csv_fp_writer.writerow(['Question', 'WH', 'WH-Bigram', 'WH-POS', 'WH-NBOR-POS', 'Root-POS', 'Class'])
         csv_fp.close()
 
 
