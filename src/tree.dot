@@ -1,0 +1,16 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="WH_Who <= 0.5\ngini = 0.801\nsamples = 5452\nvalue = [86, 1162, 1250, 1223, 835, 896]"] ;
+1 [label="WH-POS_WRB <= 0.5\ngini = 0.7978\nsamples = 4923\nvalue = [86, 1162, 1248, 696, 835, 896]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.7725\nsamples = 3615\nvalue = [84, 764, 1226, 683, 578, 280]"] ;
+1 -> 2 ;
+3 [label="gini = 0.6466\nsamples = 1308\nvalue = [2, 398, 22, 13, 257, 616]"] ;
+1 -> 3 ;
+4 [label="Question_Who were John F. Kennedy's dogs ? <= 0.5\ngini = 0.0075\nsamples = 529\nvalue = [0, 0, 2, 527, 0, 0]"] ;
+0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+5 [label="gini = 0.0038\nsamples = 528\nvalue = [0, 0, 1, 527, 0, 0]"] ;
+4 -> 5 ;
+6 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]"] ;
+4 -> 6 ;
+}
