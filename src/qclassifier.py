@@ -102,8 +102,8 @@ X_train = pre_process(dta)
 
 # print(len(column_list))
 
-# question = 'Who is Linus Torvalds ?'
-question = 'What is the colour of apple ?'
+question = 'Who is Linus Torvalds ?'
+# question = 'What is the colour of apple ?'
 
 
 question_data = get_question_predict_data(question, en_nlp)
