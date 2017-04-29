@@ -25,6 +25,11 @@ def get_compound_nouns(token, token_text):
         if child.dep_ == "compound":
             token_text = child.text + " " + token_text
             token_text = get_compound_nouns(child, token_text)
+
+        if child.dep_ == "amod":
+            token_text = child.text + " " + token_text
+            token_text = get_compound_nouns(child, token_text)
+
     return token_text
 
 
@@ -35,16 +40,17 @@ def get_noun_chunk(sent):
             if token.dep_ != "compound":
                 token_text = get_compound_nouns(token, token.text)
                 keywords.append(token_text)
+
         if token.dep_ == "ROOT":
             root = token.text
     return root
 
 
-text = "What team did baseball's St. Louis Browns become ?"
+# text = "What team did baseball's St. Louis Browns become ?"
 # text = "What contemptible scoundrel stole the cork from my lunch ?"
 # text = "What fowl grabs the spotlight after the Chinese Year of the Monkey ?"
 # text = "What is an annotated bibliography ?"
-# text = "What is the origin of the name ' Scarlett ' ?"
+text = "What is the origin of the name ' Scarlett ' ?"
 
 
 en_nlp = spacy.load('en')
