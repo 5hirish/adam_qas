@@ -12,6 +12,7 @@ Scoring and selecting keywords: All candidates can be scored by either combining
 '''
 
 import spacy
+import csv
 
 
 def get_detail(sent):
@@ -41,13 +42,14 @@ def get_adj_phrase(token, token_text):
     return token_text
 
 
-def get_root_phrase(token):
+def get_root_phrase(token, keywords):
     for child in token.children:
         if child.dep_ == "acomp" or child.dep_ == "xcomp" or child.dep_ == "ccomp":
             keywords.append(child.text)
+    return keywords
 
 
-def get_noun_chunk(sent, en_doc):
+def get_noun_chunk(sent, en_doc, keywords):
     root = ""
     for token in sent:
         if token.tag_ == "NN" or token.tag_ == "NNP" or token.tag_ == "NNPS" or token.tag_ == "NNS":
@@ -61,35 +63,62 @@ def get_noun_chunk(sent, en_doc):
             if token.i > 0:
                 if en_doc[token.i - 1].tag_ == "JJ":
                     token_text = en_doc[token.i - 1].text + " " + token.text
-            if token.i < len(en_doc):
+            if token.i < len(en_doc) - 1:
                 if en_doc[token.i + 1].tag_ == "JJ":
                     token_text = token.text + " " + en_doc[token.i + 1].text
             keywords.append(token_text)
 
         if token.dep_ == "ROOT":
             root = token.text
-            get_root_phrase(token)
+            keywords = get_root_phrase(token, keywords)
 
-    return root
+    return root, keywords
 
 
-# text = "What team did baseball's St. Louis Browns become ?"
-# text = "What contemptible scoundrel stole the cork from my lunch ?"
-# text = "What fowl grabs the spotlight after the Chinese Year of the Monkey ?"
-# text = "What is an annotated bibliography ?"
-# text = "What is the origin of the name ' Scarlett ' ?"
-# text = "How much would it cost to purchase a 2-foot-square party tent , with sides , ?"
-text = input("Q:")
+def write_csv(question, qclass, keywords):
+    with open('corpus/feature_trainer.csv', 'a', newline='') as csv_fp:
+        csv_fp_writer = csv.writer(csv_fp, delimiter='|')
+        csv_fp_writer.writerow([question, qclass, keywords])
+        csv_fp.close()
 
+
+def process_question(question, qclass, en_nlp):
+
+    en_doc = en_nlp(u'' + question)
+    keywords = []
+
+    for sent in en_doc.sents:
+        # get_detail(sent)
+        root, keywords = get_noun_chunk(sent, en_doc, keywords)
+        keywords.append(root)
+
+    write_csv(question, qclass, keywords)
+    # print(keywords)
+    del keywords[:]
+
+
+def read_input_file(fp, en_nlp):
+    # question = "How did serfdom develop in and then leave Russia ?"
+    for line in fp:
+        list_line = line.split(" ")
+        qclass_list = list_line[0].split(":")
+        question = " ".join(list_line[1:len(list_line)])
+        question = question.strip("\n")
+        qclass = qclass_list[0]
+        # print(qclass, question)
+        process_question(question, qclass, en_nlp)
+
+
+def clean_old_data():
+    with open('corpus/feature_trainer.csv', 'w', newline='') as csv_fp:
+        csv_fp_writer = csv.writer(csv_fp, delimiter='|')
+        csv_fp_writer.writerow(['Question', 'Class', 'Keywords'])
+        csv_fp.close()
+
+clean_old_data()
 en_nlp = spacy.load('en_core_web_md')
-# print(spacy.info('en_core_web_md')) # core_web_sm         en_core_web_md
-en_doc = en_nlp(u'' + text)
-keywords = []
 
-for sent in en_doc.sents:
-    get_detail(sent)
-    root = get_noun_chunk(sent, en_doc)
-    keywords.append(root)
-
-
-print("\n", keywords)
+with open('corpus/qclassification_data.txt', 'r') as fp:
+    read_input_file(fp, en_nlp)
+    fp.close()
+    print("CSV Data Trained...")

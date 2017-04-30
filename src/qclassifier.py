@@ -88,7 +88,7 @@ def get_question_predict_data(question, en_nlp):
     return dta
 
 
-en_nlp = spacy.load("en")
+en_nlp = spacy.load("en_core_web_md")
 dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
 # get_data_info(dta)
 

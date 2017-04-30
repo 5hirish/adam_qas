@@ -56,7 +56,7 @@ def clean_old_data():
 
 
 clean_old_data()
-en_nlp = spacy.load("en")
+en_nlp = spacy.load("en_core_web_md")
 
 with open('corpus/qclassification_data.txt', 'r') as fp:
     read_input_file(fp, en_nlp)
