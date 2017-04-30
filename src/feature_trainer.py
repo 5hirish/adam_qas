@@ -81,8 +81,8 @@ def get_noun_chunk(sent, en_doc):
 # text = "How much would it cost to purchase a 2-foot-square party tent , with sides , ?"
 text = input("Q:")
 
-en_nlp = spacy.load('en')
-# print(spacy.info('en')) core_web_sm
+en_nlp = spacy.load('en_core_web_md')
+# print(spacy.info('en_core_web_md')) # core_web_sm         en_core_web_md
 en_doc = en_nlp(u'' + text)
 keywords = []
 
