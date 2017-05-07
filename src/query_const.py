@@ -47,18 +47,18 @@ def get_query(sent, features):
 
         if token.dep_ == "neg":
             if token.i > token.head.i:
-                neg_list.append(token.text+", "+token.head.text)
+                neg_list.append([token.text, token.head.text])
                 print(token.text, token.head.text)
             else:
-                neg_list.append(token.head.text+", "+token.text)
+                neg_list.append([token.head.text, token.text])
                 print(token.head.text, token.text)
 
         if token.dep_ == "mark":
             if token.i > token.head.i:
-                mark_list.append(token.text+", "+token.head.text)
+                mark_list.append([token.text, token.head.text])
                 print(token.text, token.head.text)
             else:
-                mark_list.append(token.head.text+", "+token.text)
+                mark_list.append([token.head.text, token.text])
                 print(token.head.text, token.text)
 
     return [features, conjunct_list, neg_list, mark_list]
