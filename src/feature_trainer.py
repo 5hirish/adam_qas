@@ -32,14 +32,13 @@ def get_compound_nouns(token, token_text, en_doc):
     while token.i > 0 and en_doc[token.i - 1].dep_ == "compound":
         token_text = en_doc[token.i - 1].text + " " + token_text
         token = en_doc[token.i - 1]
-        print("L", token_text, type(en_doc[token.i - 1]))
 
     token = ptoken
 
     while token.i < len(en_doc) - 1 and en_doc[token.i + 1].dep_ == "compound":
         token_text = token_text + " " + en_doc[token.i + 1].text
         token = en_doc[token.i + 1]
-        print("R", token_text)
+
     return token_text
 
 
