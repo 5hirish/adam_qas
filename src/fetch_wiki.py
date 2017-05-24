@@ -1,17 +1,12 @@
 import wikipedia
 from collections import OrderedDict
 
-keywords = ['species', 'Great White shark', 'are']
-wiki_pages = OrderedDict()
 
-number_of_search = 3
-suggestion = False
-
-
-def search_wiki(keywords):
+def search_wiki(keywords, number_of_search, wiki_pages):
+    suggestion = False
 
     for word in range(0, len(keywords) - 1):
-        print(keywords[word], ">>")
+        # print(keywords[word], ">>")
         result_set = wikipedia.search(keywords[word], number_of_search, suggestion)
         for term in result_set:
             page = wikipedia.page(term, preload=False)
@@ -21,10 +16,15 @@ def search_wiki(keywords):
 
             wiki_pages[page_title] = page_content
 
-            print(page_title, len(page_content), type(page_content))
+            # print(page_title, len(page_content), type(page_content))
 
-    print(wiki_pages)
+    return wiki_pages
 
 
-search_wiki(keywords)
-print("------")
+def fetch_wiki(keywords, number_of_search):
+
+    wiki_pages = OrderedDict()
+
+    search_wiki(keywords, number_of_search, wiki_pages)
+
+    return wiki_pages

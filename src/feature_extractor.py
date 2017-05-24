@@ -11,7 +11,7 @@ def get_compound_nouns(en_doc, token, token_text):
 
     ptoken = token
 
-    print(token.text, token.dep_)
+    # print(token.text, token.dep_)
     while token.i > 0 and en_doc[token.i - 1].dep_ == "compound":           # token.shape_ == Xxxx... or XXXX... token.ent_iob_
         token_text = en_doc[token.i - 1].text + " " + token_text
         token = en_doc[token.i - 1]
