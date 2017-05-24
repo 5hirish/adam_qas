@@ -1,8 +1,8 @@
 import wikipedia
-
+from collections import OrderedDict
 
 keywords = ['species', 'Great White shark', 'are']
-wiki_pages = {}
+wiki_pages = OrderedDict()
 
 number_of_search = 3
 suggestion = False
