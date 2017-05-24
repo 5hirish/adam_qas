@@ -27,6 +27,8 @@ input_question = "How many species of the Great White shark are there ?"
 # input_question_c = spell_check(input_question)
 input_question_c = input_question
 
+start_time = time.time()
+
 en_nlp = spacy.load('en_core_web_md')
 
 en_doc = en_nlp(u'' + input_question_c)
@@ -39,3 +41,6 @@ print("Question Features:", question_keywords)
 
 question_query = construct_query(question_keywords, en_doc)
 print("Question Query:", question_query)
+
+end_time = time.time()
+print("Total time :", end_time - start_time)
