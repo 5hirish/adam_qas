@@ -7,7 +7,7 @@ def get_detail(sent):
         print(token.text, token.lemma_, token.tag_, token.ent_type_, token.dep_, token.head)
 
 
-def get_compound_nouns(token, token_text):
+def get_compound_nouns(en_doc, token, token_text):
 
     ptoken = token
 
@@ -15,14 +15,14 @@ def get_compound_nouns(token, token_text):
     while token.i > 0 and en_doc[token.i - 1].dep_ == "compound":           # token.shape_ == Xxxx... or XXXX... token.ent_iob_
         token_text = en_doc[token.i - 1].text + " " + token_text
         token = en_doc[token.i - 1]
-        print("L", token_text, type(en_doc[token.i - 1]))
+        # print("L", token_text, type(en_doc[token.i - 1]))
 
     token = ptoken
 
     while token.i < len(en_doc) - 1 and en_doc[token.i + 1].dep_ == "compound":
         token_text = token_text + " " + en_doc[token.i + 1].text
         token = en_doc[token.i + 1]
-        print("R", token_text)
+        # print("R", token_text)
 
     return token_text
 
@@ -48,7 +48,7 @@ def get_noun_chunk(sent, en_doc, keywords):
     for token in sent:
         if token.tag_ == "NN" or token.tag_ == "NNP" or token.tag_ == "NNPS" or token.tag_ == "NNS":
             if token.dep_ != "compound":
-                token_text = get_compound_nouns(token, token.text)
+                token_text = get_compound_nouns(en_doc, token, token.text)
                 token_text = get_adj_phrase(token, token_text)
                 keywords.append(token_text)
 
@@ -68,7 +68,18 @@ def get_noun_chunk(sent, en_doc, keywords):
 
     return root, keywords
 
-question = "What's the American dollar equivalent for 8 pounds in the U.K. ?"
+
+def extract_features(qtype, en_doc):
+    keywords = []
+
+    for sent in en_doc.sents:
+        # get_detail(sent)
+        root, keywords = get_noun_chunk(sent, en_doc, keywords)
+        keywords.append(root)
+
+    return keywords
+
+"""question = "What's the American dollar equivalent for 8 pounds in the U.K. ?"
 
 en_nlp = spacy.load('en_core_web_md')
 
@@ -81,4 +92,4 @@ for sent in en_doc.sents:
     keywords.append(root)
 
 print(question)
-print(keywords)
+print(keywords)"""

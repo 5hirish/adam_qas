@@ -63,8 +63,7 @@ def support_vector_machine(X_train, y, X_predict):
     return prediction
 
 
-def get_question_predict_data(question, en_nlp):
-    en_doc = en_nlp(u'' + question)
+def get_question_predict_data(en_doc):
     sent_list = list(en_doc.sents)
     sent = sent_list[0]
     wh_bi_gram = []
@@ -88,6 +87,25 @@ def get_question_predict_data(question, en_nlp):
     return dta
 
 
+def classify_question(en_doc):
+
+    dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
+    # get_data_info(dta)
+
+    y = dta.pop('Class')
+    dta.pop('Question')
+    dta.pop('WH-Bigram')
+
+    X_train = pre_process(dta)
+
+    question_data = get_question_predict_data(en_doc)
+    X_predict = pre_process(question_data)
+
+    X_train, X_predict = transform_data_matrix(X_train, X_predict)
+
+    return str(support_vector_machine(X_train, y, X_predict))
+
+"""
 en_nlp = spacy.load("en_core_web_md")
 dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
 # get_data_info(dta)
@@ -104,9 +122,9 @@ X_train = pre_process(dta)
 
 question = 'Who is Linus Torvalds ?'
 # question = 'What is the colour of apple ?'
+en_doc = en_nlp(u'' + question)
 
-
-question_data = get_question_predict_data(question, en_nlp)
+question_data = get_question_predict_data(question, en_doc)
 X_predict = pre_process(question_data)
 # print(X_predict)
 # print(X_train)
@@ -115,8 +133,4 @@ X_train, X_predict = transform_data_matrix(X_train, X_predict)
 
 # print(naive_bayes_classifier(X_train, y, X_predict))
 print(support_vector_machine(X_train, y, X_predict))
-
-# ValueError: operands could not be broadcast together with shapes (1,4) (66,)
-# ValueError: X has 4 features per sample; expecting 1228
-# Training - [5452 rows x 66 columns]
-# Predict - [1 rows x 4 columns]
+"""

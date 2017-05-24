@@ -14,14 +14,6 @@ def get_detail(sent):
         print(token.text, token.lemma_, token.tag_, token.ent_type_, token.dep_, token.head)
 
 
-question = "What are Cushman or Wakefield known for ?"
-features = ['Cushman', 'known', 'Wakefield', 'are']
-
-en_nlp = spacy.load('en_core_web_md')
-
-en_doc = en_nlp(u'' + question)
-
-
 def get_conjuncts(token):
     parent = token.head
     conj = [parent.text]
@@ -63,10 +55,29 @@ def get_query(sent, features):
 
     return [features, conjunct_list, neg_list, mark_list]
 
+
+def construct_query(features, en_doc):
+    query = []
+
+    for sent in en_doc.sents:
+        # get_detail(sent)
+        query = get_query(sent, features)
+
+    return query
+
+"""
+
+question = "What are Cushman or Wakefield known for ?"
+features = ['Cushman', 'known', 'Wakefield', 'are']
+
+en_nlp = spacy.load('en_core_web_md')
+
+en_doc = en_nlp(u'' + question)
+
 query = []
 
 for sent in en_doc.sents:
     get_detail(sent)
     query = get_query(sent, features)
 
-    print(query)
+    print(query)"""
