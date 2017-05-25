@@ -93,12 +93,14 @@ def pre_process_doc(list_docs):
 def score_docs(documents, keywords):
 
     keywords = [keywords[feat].lower() for feat in range(0, len(keywords) - 1)]
+    whitespace = ' '
+    keywords_split = whitespace.join(keywords).split()
+    keywords = list(set(keywords_split + keywords))
     print(keywords)
-    list_docs = list(documents.values())
 
-    pre_process_doc(list_docs)
+    pre_process_doc(documents)
 
-    corpus, dictionary = doc2vec(list_docs)
+    corpus, dictionary = doc2vec(documents)
     query_corpus = query2vec(keywords, dictionary)
 
     corpus_tfidf, query_tfidf = transform_vec(corpus, query_corpus)
@@ -111,9 +113,15 @@ def score_docs(documents, keywords):
 keywords_ip = ['species', 'Great White shark', 'are']
 
 with open('corpus/know_corp_raw.txt', 'r') as fp:
-    documents_ordered = fp.read().split("\n")
-    del documents_ordered[len(documents_ordered) - 1]
+    documents_raw = fp.read().split("\n")
+    del documents_raw[len(documents_raw) - 1]
 
-    print(len(documents_ordered))
+    print(len(documents_raw))
+    documents = []
 
-score_docs(documents_ordered, keywords_ip)
+    for docs in documents_raw:
+        docs = docs[1:len(docs) - 1]
+        documents.append(docs)
+
+
+score_docs(documents, keywords_ip)
