@@ -1,8 +1,7 @@
 import gensim
 from collections import Counter
 from pprint import pprint
-from wikipedia import search
-import os
+
 """
 Question: How many species of the Great White shark are there ?
 Class: ['NUM']
@@ -66,6 +65,7 @@ def transform_vec(corpus, query_corpus):
 
 def similariy(corpus_tfidf, query_tfidf):
     index = gensim.similarities.SparseMatrixSimilarity(corpus_tfidf, num_features=12)
+    print(query_tfidf)
     simi = index[query_tfidf]
     simi_sorted = sorted(enumerate(simi), key=lambda item: -item[1])
     pprint(simi_sorted)

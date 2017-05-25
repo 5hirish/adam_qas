@@ -27,4 +27,6 @@ def fetch_wiki(keywords, number_of_search):
 
     search_wiki(keywords, number_of_search, wiki_pages)
 
+    # print(wiki_pages)
+
     return wiki_pages
