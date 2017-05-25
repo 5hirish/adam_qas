@@ -90,18 +90,40 @@ def pre_process_doc(list_docs):
             fp.write(str(op_doc) + "\n")
 
 
+def combine(sub_keys, keywords_splits, lb, mb, ub):
+    whitespace = ' '
+    while mb != ub:
+        keywords_splits.append(whitespace.join(sub_keys[lb: mb]))
+        keywords_splits.append(whitespace.join(sub_keys[mb: ub]))
+        mb += 1
+    del sub_keys[0]
+    if len(sub_keys) > 2:
+        combine(sub_keys, keywords_splits, 0, 1, len(sub_keys))
+
+
+def keywords_splitter(keywords, keywords_splits):
+
+    for key in keywords:
+        sub_keys = key.split()
+
+        if len(sub_keys) > 2:
+            combine(sub_keys, keywords_splits, 0, 1, len(sub_keys))
+
+
 def score_docs(documents, keywords):
 
     keywords = [keywords[feat].lower() for feat in range(0, len(keywords) - 1)]
     whitespace = ' '
-    keywords_split = whitespace.join(keywords).split()
-    keywords = list(set(keywords_split + keywords))
-    print(keywords)
+    keywords_splits = whitespace.join(keywords).split()
+
+    keywords_splitter(keywords, keywords_splits)
+    keywords_splits = list(set(keywords_splits + keywords))
+    print(keywords_splits)
 
     pre_process_doc(documents)
 
     corpus, dictionary = doc2vec(documents)
-    query_corpus = query2vec(keywords, dictionary)
+    query_corpus = query2vec(keywords_splits, dictionary)
 
     corpus_tfidf, query_tfidf = transform_vec(corpus, query_corpus)
 
