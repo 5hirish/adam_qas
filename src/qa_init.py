@@ -9,6 +9,7 @@ from src.feature_extractor import extract_features
 from src.query_const import construct_query
 from src.fetch_wiki import fetch_wiki
 
+
 def spell_check(input_question):
 
     pattern = "\W"
@@ -43,8 +44,11 @@ print("Question Features:", question_keywords)
 question_query = construct_query(question_keywords, en_doc)
 print("Question Query:", question_query)
 
+print("Fetching Knowledge source...")
 wiki_pages = fetch_wiki(question_keywords, number_of_search=3)
 print("Pages Fetched:", len(wiki_pages))
+
+
 
 end_time = time()
 print("Total time :", end_time - start_time)
