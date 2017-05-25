@@ -12,8 +12,8 @@ def query2vec(query, dictionary):
     """
 
     corpus = dictionary.doc2bow(query)
-    print("Q:")
-    print(corpus)
+    # print("Q:")
+    # print(corpus)
 
     return corpus
 
@@ -28,15 +28,15 @@ def doc2vec(documents):
             frequency[token] += 1
 
     texts = [[token for token in snipp if frequency[token] > 1]for snipp in texts]
-    print(texts)
+    # print(texts)
 
     dictionary = gensim.corpora.Dictionary(texts)
-    print(dictionary)
-    print(dictionary.token2id)
+    # print(dictionary)
+    # print(dictionary.token2id)
 
     corpus = [dictionary.doc2bow(snipp) for snipp in texts]
-    print("C:")
-    print(corpus)
+    # print("C:")
+    # print(corpus)
 
     return corpus, dictionary
 
@@ -47,10 +47,12 @@ def transform_vec(corpus, query_corpus):
     corpus_tfidf = tfidf[corpus]
     query_tfidf = tfidf[query_corpus]
 
+    """
     for doc in corpus_tfidf:
         print("C:", doc)
     for doc in query_tfidf:
         print("Q:", doc)
+    """
 
     return corpus_tfidf, query_tfidf
 
@@ -61,8 +63,8 @@ def similariy(corpus_tfidf, query_tfidf):
     simi = index[query_tfidf]
 
     simi_sorted = sorted(enumerate(simi), key=lambda item: -item[1])
-    print("Rank:")
-    pprint(simi_sorted)
+    # print("Rank:")
+    # pprint(simi_sorted)
     return simi_sorted
 
 
@@ -118,7 +120,7 @@ def score_docs(documents, keywords):
 
     keywords_splitter(keywords, keywords_splits)
     keywords_splits = list(set(keywords_splits + keywords))
-    print(keywords_splits)
+    # print(keywords_splits)
 
     pre_process_doc(documents)
 
@@ -129,21 +131,30 @@ def score_docs(documents, keywords):
 
     simi_sorted = similariy(corpus_tfidf, query_tfidf)
 
+    if len(simi_sorted) > 3:
+        return simi_sorted[0:3]
     return simi_sorted
 
 
+def rank_docs(keywords):
+
+    with open('corpus/know_corp_raw.txt', 'r') as fp:
+        documents_raw = fp.read().split("\n")
+        del documents_raw[len(documents_raw) - 1]
+
+        # print(len(documents_raw))
+        documents = []
+
+        for docs in documents_raw:
+            docs = docs[1:len(docs) - 1]
+            documents.append(docs)
+
+    ranked_docs = score_docs(documents, keywords)
+    return ranked_docs
+
+
+"""
 keywords_ip = ['species', 'Great White shark', 'are']
-
-with open('corpus/know_corp_raw.txt', 'r') as fp:
-    documents_raw = fp.read().split("\n")
-    del documents_raw[len(documents_raw) - 1]
-
-    print(len(documents_raw))
-    documents = []
-
-    for docs in documents_raw:
-        docs = docs[1:len(docs) - 1]
-        documents.append(docs)
-
-
-score_docs(documents, keywords_ip)
+rank_docs = rank_docs(keywords_ip)
+print(rank_docs)
+"""

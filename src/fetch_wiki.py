@@ -29,4 +29,9 @@ def fetch_wiki(keywords, number_of_search):
 
     # print(wiki_pages)
 
+    with open('corpus/know_corp_raw.txt', 'w') as fp:
+        for src_doc in wiki_pages.values():
+            split_wiki_docs = [src_doc]
+            fp.write(str(split_wiki_docs) + "\n")
+
     return wiki_pages

@@ -8,7 +8,7 @@ from src.qclassifier import classify_question
 from src.feature_extractor import extract_features
 from src.query_const import construct_query
 from src.fetch_wiki import fetch_wiki
-# from src.doc_scorer import score_docs
+from src.doc_scorer import rank_docs
 
 
 def spell_check(input_question):
@@ -49,13 +49,8 @@ print("Fetching Knowledge source...")
 wiki_pages = fetch_wiki(question_keywords, number_of_search=3)
 print("Pages Fetched:", len(wiki_pages))
 
-with open('corpus/know_corp_raw.txt', 'w') as fp:
-    for src_doc in wiki_pages.values():
-        split_wiki_docs = [src_doc]
-        fp.write(str(split_wiki_docs) + "\n")
-
-#score_docs(wiki_pages, question_keywords)
-print("Ranked Pages:")
+ranked_wiki_docs = rank_docs(question_keywords)
+print("Ranked Pages:", ranked_wiki_docs)
 
 end_time = time()
 print("Total time :", end_time - start_time)
