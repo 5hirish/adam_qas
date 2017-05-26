@@ -5,9 +5,6 @@ A conjunction is a part of speech that is used to connect words, phrases, clause
 
 '''
 
-import spacy
-import csv
-
 
 def get_detail(sent):
     for token in sent:
