@@ -28,11 +28,10 @@ def transform_data_matrix(X_train, X_predict):
 
     for col in X_trans_columns:
         if col not in X_train:
-            trans_data_train[col] = [0 * len(X_train.index)]
+            trans_data_train[col] = [0 for i in range(len(X_train.index))]
         else:
             trans_data_train[col] = list(X_train[col])
 
-    print(len(trans_data_train))
     XT_train = pandas.DataFrame(trans_data_train)
     # get_data_info(XT_train)
 
@@ -122,8 +121,8 @@ for token in sent:
     feat_data = get_feat_predict_data(token, qclass)
 
     X_predict = pre_process(feat_data)
-    print(X_predict)
-    print(X_train)
+    # print(X_predict)
+    # print(X_train)
 
     X_train, X_predict = transform_data_matrix(X_train, X_predict)
 

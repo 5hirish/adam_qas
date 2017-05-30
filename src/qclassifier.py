@@ -28,7 +28,7 @@ def transform_data_matrix(X_train, X_predict):
 
     for col in X_trans_columns:
         if col not in X_train:
-            trans_data_train[col] = [0 * len(X_train.index)]
+            trans_data_train[col] = [0 for i in range(len(X_train.index))]
         else:
             trans_data_train[col] = list(X_train[col])
 
