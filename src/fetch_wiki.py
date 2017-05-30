@@ -9,12 +9,16 @@ def search_wiki(keywords, number_of_search, wiki_pages):
         # print(keywords[word], ">>")
         result_set = wikipedia.search(keywords[word], number_of_search, suggestion)
         for term in result_set:
-            page = wikipedia.page(term, preload=False)
-            page_title = page.title
-            page_summary = page.summary
-            page_content = page.content
 
-            wiki_pages[page_title] = page_content
+            try:
+                page = wikipedia.page(term, preload=False)
+                page_title = page.title
+                page_summary = page.summary
+                page_content = page.content
+                wiki_pages[page_title] = page_content
+
+            except wikipedia.exceptions.DisambiguationError as error:
+                print(error.options)
 
             # print(page_title, len(page_content), type(page_content))
 

@@ -12,8 +12,8 @@ def query2vec(query, dictionary):
     """
 
     corpus = dictionary.doc2bow(query)
-    # print("Q:")
-    # print(corpus)
+    print("Q:")
+    print(corpus)
 
     return corpus
 
@@ -28,33 +28,33 @@ def doc2vec(documents):
             frequency[token] += 1
 
     texts = [[token for token in snipp if frequency[token] > 1]for snipp in texts]
-    # print(texts)
+    print(texts)
 
     dictionary = gensim.corpora.Dictionary(texts)
-    # print(dictionary)
-    # print(dictionary.token2id)
+    print(dictionary)
+    print(dictionary.token2id)
 
     corpus = [dictionary.doc2bow(snipp) for snipp in texts]
-    # print("C:")
-    # print(corpus)
+    print("C:")
+    print(corpus)
 
     return corpus, dictionary
 
 
 def transform_vec(corpus, query_corpus):
-    tfidf = gensim.models.TfidfModel(corpus)
+    lsi = gensim.models.LsiModel(corpus)
 
-    corpus_tfidf = tfidf[corpus]
-    query_tfidf = tfidf[query_corpus]
+    corpus_lsi = lsi[corpus]
+    query_lsi = lsi[query_corpus]
 
-    """
-    for doc in corpus_tfidf:
+
+    for doc in corpus_lsi:
         print("C:", doc)
-    for doc in query_tfidf:
+    for doc in query_lsi:
         print("Q:", doc)
-    """
 
-    return corpus_tfidf, query_tfidf
+
+    return corpus_lsi, query_lsi
 
 
 def similariy(corpus_tfidf, query_tfidf):
@@ -63,8 +63,8 @@ def similariy(corpus_tfidf, query_tfidf):
     simi = index[query_tfidf]
 
     simi_sorted = sorted(enumerate(simi), key=lambda item: -item[1])
-    # print("Rank:")
-    # pprint(simi_sorted)
+    print("Rank:")
+    pprint(simi_sorted)
     return simi_sorted
 
 
@@ -150,14 +150,9 @@ def rank_docs(keywords):
             documents.append(docs)
 
     ranked_docs = score_docs(documents, keywords)
-
-    # pprint(ranked_docs)
-
     return ranked_docs
 
 
-"""
 keywords_ip = ['species', 'Great White shark', 'are']
 rank_docs = rank_docs(keywords_ip)
 print(rank_docs)
-"""

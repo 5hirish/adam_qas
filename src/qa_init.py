@@ -25,7 +25,7 @@ def spell_check(input_question):
     return " ".join(input_question_word_list)
 
 # input_question = input("Q:>")
-input_question = "How many species of the Great White shark are there ?"
+input_question = "What's the only color Johnny Cash wears on stage ?"
 # input_question_c = spell_check(input_question)
 input_question_c = input_question
 print("Question:", input_question_c)

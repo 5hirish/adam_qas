@@ -51,7 +51,7 @@ def read_input_file(fp, en_nlp):
 def clean_old_data():
     with open('corpus/qclassifier_trainer.csv', 'w', newline='') as csv_fp:
         csv_fp_writer = csv.writer(csv_fp, delimiter='|')
-        csv_fp_writer.writerow(['Question', 'WH', 'WH-Bigram', 'WH-POS', 'WH-NBOR-POS', 'Root-POS', 'Class'])
+        csv_fp_writer.writerow(['#Question', 'WH', 'WH-Bigram', 'WH-POS', 'WH-NBOR-POS', 'Root-POS', 'Class'])
         csv_fp.close()
 
 
