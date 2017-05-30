@@ -32,6 +32,7 @@ def transform_data_matrix(X_train, X_predict):
         else:
             trans_data_train[col] = list(X_train[col])
 
+    print(len(trans_data_train))
     XT_train = pandas.DataFrame(trans_data_train)
     # get_data_info(XT_train)
 
@@ -63,74 +64,68 @@ def support_vector_machine(X_train, y, X_predict):
     return prediction
 
 
-def get_question_predict_data(en_doc):
-    sent_list = list(en_doc.sents)
-    sent = sent_list[0]
-    wh_bi_gram = []
-    root_token = ""
-    wh_pos = ""
-    wh_nbor_pos = ""
-    wh_word = ""
-    for token in sent:
-        if token.tag_ == "WDT" or token.tag_ == "WP" or token.tag_ == "WP$" or token.tag_ == "WRB":
-            wh_pos = token.tag_
-            wh_word = token.text
-            wh_bi_gram.append(token.text)
-            wh_bi_gram.append(str(en_doc[token.i + 1]))
-            wh_nbor_pos = en_doc[token.i + 1].tag_
-        if token.dep_ == "ROOT":
-            root_token = token.tag_
-    qdata_frame = [{'WH':wh_word, 'WH-POS':wh_pos, 'WH-NBOR-POS':wh_nbor_pos, 'Root-POS':root_token}]
-    # qdata_list = [wh_word, wh_pos, wh_nbor_pos, root_token]
-    # dta = pandas.DataFrame(qdata_list, columns=column_list)
-    dta = pandas.DataFrame(qdata_frame)
+def get_feat_predict_data(token, qclass):
+
+    feat = token.text
+    feat_pos = token.tag_
+    feat_dep = token.dep_
+    feat_ent_label = token.ent_type_
+    feat_shape = token.shape_
+
+    if feat_ent_label == "":
+        feat_ent_label = "NON"
+
+    fdata_frame = [{'QType': qclass, 'F-POS': feat_pos, 'F-DEP': feat_dep, 'F-ENT': feat_ent_label, 'F-SHAPE': feat_shape}]
+
+    dta = pandas.DataFrame(fdata_frame)
     return dta
 
 
 def classify_question(en_doc):
 
-    dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
+    dta = pandas.read_csv('corpus/semi_feature_trainer.csv', sep='|')
     # get_data_info(dta)
 
     y = dta.pop('Class')
-    dta.pop('#Question')
-    dta.pop('WH-Bigram')
+    dta.pop('Question')
+    dta.pop('F-TXT')
 
     X_train = pre_process(dta)
 
-    question_data = get_question_predict_data(en_doc)
+    question_data = get_feat_predict_data(en_doc)
     X_predict = pre_process(question_data)
 
     X_train, X_predict = transform_data_matrix(X_train, X_predict)
 
     return str(support_vector_machine(X_train, y, X_predict))
 
-"""
+
 en_nlp = spacy.load("en_core_web_md")
-dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
+dta = pandas.read_csv('corpus/semi_feature_trainer.csv', sep='|')
 # get_data_info(dta)
 
 y = dta.pop('Class')
-dta.pop('Question')
-dta.pop('WH-Bigram')
+dta.pop('#Question')
+dta.pop('F-TXT')
 
 X_train = pre_process(dta)
 
 # print(X_train.shape)
 
-# print(len(column_list))
-
-question = 'Who is Linus Torvalds ?'
-# question = 'What is the colour of apple ?'
+question = "What South American city has the world's highest commercial landing field ?"
+qclass = "LOC"
 en_doc = en_nlp(u'' + question)
+sent_list = list(en_doc.sents)
+sent = sent_list[0]
 
-question_data = get_question_predict_data(question, en_doc)
-X_predict = pre_process(question_data)
-# print(X_predict)
-# print(X_train)
+for token in sent:
+    feat_data = get_feat_predict_data(token, qclass)
 
-X_train, X_predict = transform_data_matrix(X_train, X_predict)
+    X_predict = pre_process(feat_data)
+    print(X_predict)
+    print(X_train)
 
-# print(naive_bayes_classifier(X_train, y, X_predict))
-print(support_vector_machine(X_train, y, X_predict))
-"""
+    X_train, X_predict = transform_data_matrix(X_train, X_predict)
+
+    # print(naive_bayes_classifier(X_train, y, X_predict))
+    print(token.text, support_vector_machine(X_train, y, X_predict))

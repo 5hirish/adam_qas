@@ -17,11 +17,11 @@ def process_question(question, qclass, en_nlp):
     sent_list = list(en_doc.sents)
     sent = sent_list[0]
 
-    feat_class = "NF"
+    feat_class = "F"
 
     for token in sent:
-        if token.pos_ == "NOUN" or token.pos_ == "PROPN" or token.pos_ == "VERB" or token.pos_ == "NUM" or token.pos_ == "ADJ":
-            if token.tag_ != "WDT" or token.tag_ != "WP" or token.tag_ != "WP$" or token.tag_ != "WRB":
+        if token.pos_ == "NOUN" or token.pos_ == "PROPN" or token.pos_ == "VERB" or token.pos_ == "NUM" or token.pos_ == "ADJ" or token.pos_ == "ADV":
+            if token.tag_ != "WDT" and token.tag_ != "WP" and token.tag_ != "WP$" and token.tag_ != "WRB" and token.dep_ != "ROOT":
                 feat = token.text
                 feat_pos = token.tag_
                 feat_dep = token.dep_
@@ -40,9 +40,9 @@ def process_question(question, qclass, en_nlp):
 
 
 def read_input_file(fp, en_nlp):
-    # question = "How did serfdom develop in and then leave Russia ?"
-    # qclass = "DESC"
-    # process_question(question, qclass, en_nlp)
+
+    for _ in range(200):
+        next(fp)
 
     for line in fp:
         line = line.strip("\n")

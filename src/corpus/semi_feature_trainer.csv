@@ -1,0 +1,817 @@
+#Question|QType|F-POS|F-DEP|F-ENT|F-SHAPE|F-TXT|Class
+How did serfdom develop in and then leave Russia ?|DESC|VBD|aux|NON|xxx|did|NF
+How did serfdom develop in and then leave Russia ?|DESC|NN|nsubj|NON|xxxx|serfdom|F
+How did serfdom develop in and then leave Russia ?|DESC|RB|advmod|NON|xxxx|then|NF
+How did serfdom develop in and then leave Russia ?|DESC|VB|conj|NON|xxxx|leave|F
+How did serfdom develop in and then leave Russia ?|DESC|NNP|dobj|GPE|Xxxxx|Russia|F
+What films featured the character Popeye Doyle ?|ENTY|NNS|nsubj|NON|xxxx|films|F
+What films featured the character Popeye Doyle ?|ENTY|NN|dobj|NON|xxxx|character|F
+What films featured the character Popeye Doyle ?|ENTY|NNP|compound|PERSON|Xxxxx|Popeye|F
+What films featured the character Popeye Doyle ?|ENTY|NNP|appos|PERSON|Xxxxx|Doyle|F
+How can I find a list of celebrities ' real names ?|DESC|MD|aux|NON|xxx|can|NF
+How can I find a list of celebrities ' real names ?|DESC|NN|dobj|NON|xxxx|list|F
+How can I find a list of celebrities ' real names ?|DESC|NNS|poss|NON|xxxx|celebrities|F
+How can I find a list of celebrities ' real names ?|DESC|JJ|amod|NON|xxxx|real|F
+How can I find a list of celebrities ' real names ?|DESC|NNS|pobj|NON|xxxx|names|F
+What fowl grabs the spotlight after the Chinese Year of the Monkey ?|ENTY|NN|dobj|NON|xxxx|spotlight|F
+What fowl grabs the spotlight after the Chinese Year of the Monkey ?|ENTY|NNP|compound|EVENT|Xxxxx|Chinese|F
+What fowl grabs the spotlight after the Chinese Year of the Monkey ?|ENTY|NNP|pobj|EVENT|Xxxx|Year|F
+What fowl grabs the spotlight after the Chinese Year of the Monkey ?|ENTY|NNP|pobj|EVENT|Xxxxx|Monkey|F
+What is the full form of .com ?|ABBR|JJ|amod|NON|xxxx|full|F
+What is the full form of .com ?|ABBR|NN|nsubj|NON|xxxx|form|F
+What is the full form of .com ?|ABBR|NNP|pobj|NON|.xxx|.com|F
+What contemptible scoundrel stole the cork from my lunch ?|HUM|JJ|amod|NON|xxxx|contemptible|F
+What contemptible scoundrel stole the cork from my lunch ?|HUM|JJ|nsubj|NON|xxxx|scoundrel|F
+What contemptible scoundrel stole the cork from my lunch ?|HUM|NN|dobj|NON|xxxx|cork|F
+What contemptible scoundrel stole the cork from my lunch ?|HUM|PRP$|poss|NON|xx|my|NF
+What contemptible scoundrel stole the cork from my lunch ?|HUM|NN|pobj|NON|xxxx|lunch|F
+What team did baseball's St. Louis Browns become ?|HUM|NN|nsubj|NON|xxxx|team|F
+What team did baseball's St. Louis Browns become ?|HUM|VBD|aux|NON|xxx|did|NF
+What team did baseball's St. Louis Browns become ?|HUM|NN|poss|NON|xxxx|baseball|F
+What team did baseball's St. Louis Browns become ?|HUM|NNP|compound|ORG|Xx.|St.|F
+What team did baseball's St. Louis Browns become ?|HUM|NNP|compound|ORG|Xxxxx|Louis|F
+What team did baseball's St. Louis Browns become ?|HUM|NNP|nsubj|ORG|Xxxxx|Browns|F
+What is the oldest profession ?|HUM|JJS|amod|NON|xxxx|oldest|F
+What is the oldest profession ?|HUM|NN|nsubj|NON|xxxx|profession|F
+What are liver enzymes ?|DESC|JJ|compound|NON|xxxx|liver|F
+What are liver enzymes ?|DESC|NNS|attr|NON|xxxx|enzymes|F
+Name the scar-faced bounty hunter of The Old West .|HUM|NN|npadvmod|NON|xxxx|scar|F
+Name the scar-faced bounty hunter of The Old West .|HUM|JJ|amod|NON|xxxx|faced|F
+Name the scar-faced bounty hunter of The Old West .|HUM|NN|compound|NON|xxxx|bounty|F
+Name the scar-faced bounty hunter of The Old West .|HUM|NN|dobj|NON|xxxx|hunter|F
+Name the scar-faced bounty hunter of The Old West .|HUM|NNP|compound|PERSON|Xxx|Old|F
+Name the scar-faced bounty hunter of The Old West .|HUM|NNP|pobj|PERSON|Xxxx|West|F
+When was Ozzy Osbourne born ?|NUM|VBD|auxpass|NON|xxx|was|NF
+When was Ozzy Osbourne born ?|NUM|NNP|compound|PERSON|Xxxx|Ozzy|F
+When was Ozzy Osbourne born ?|NUM|NNP|nsubjpass|PERSON|Xxxxx|Osbourne|F
+Why do heavier objects travel downhill faster ?|DESC|VBP|aux|NON|xx|do|NF
+Why do heavier objects travel downhill faster ?|DESC|JJR|amod|NON|xxxx|heavier|F
+Why do heavier objects travel downhill faster ?|DESC|NNS|nsubj|NON|xxxx|objects|F
+Why do heavier objects travel downhill faster ?|DESC|RB|advmod|NON|xxxx|downhill|F
+Why do heavier objects travel downhill faster ?|DESC|RBR|advmod|NON|xxxx|faster|F
+Who was The Pride of the Yankees ?|HUM|NNP|nsubj|PERSON|Xxxxx|Pride|F
+Who was The Pride of the Yankees ?|HUM|NNPS|pobj|ORG|Xxxxx|Yankees|F
+Who killed Gandhi ?|HUM|NNP|dobj|PERSON|Xxxxx|Gandhi|F
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|VBZ|auxpass|NON|xx|is|NF
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|JJS|amod|NON|xxxx|costliest|F
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|NN|oprd|NON|xxxx|disaster|F
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|NN|compound|NON|xxxx|insurance|F
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|NN|nsubj|NON|xxxx|industry|F
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|VBZ|aux|NON|xxx|has|NF
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|RB|advmod|NON|xxxx|ever|NF
+What is considered the costliest disaster the insurance industry has ever faced ?|ENTY|VBN|relcl|NON|xxxx|faced|F
+What sprawling U.S. state boasts the most airports ?|LOC|VBG|amod|NON|xxxx|sprawling|F
+What sprawling U.S. state boasts the most airports ?|LOC|NNP|compound|GPE|X.X.|U.S.|F
+What sprawling U.S. state boasts the most airports ?|LOC|NN|nsubj|NON|xxxx|state|F
+What sprawling U.S. state boasts the most airports ?|LOC|JJS|amod|NON|xxxx|most|F
+What sprawling U.S. state boasts the most airports ?|LOC|NNS|dobj|NON|xxxx|airports|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|RB|advmod|NON|xxxx|only|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|VBN|amod|NON|xxxx|repealed|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|NN|dobj|NON|xxxx|amendment|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|NNP|compound|ORG|X.X.|U.S.|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|NNP|pobj|ORG|Xxxxx|Constitution|F
+What did the only repealed amendment to the U.S. Constitution deal with ?|DESC|NN|advcl|NON|xxxx|deal|F
+How many Jews were executed in concentration camps during WWII ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many Jews were executed in concentration camps during WWII ?|NUM|NNPS|nsubjpass|NORP|Xxxx|Jews|F
+How many Jews were executed in concentration camps during WWII ?|NUM|VBD|auxpass|NON|xxxx|were|NF
+How many Jews were executed in concentration camps during WWII ?|NUM|NN|compound|NON|xxxx|concentration|F
+How many Jews were executed in concentration camps during WWII ?|NUM|NNS|pobj|NON|xxxx|camps|F
+How many Jews were executed in concentration camps during WWII ?|NUM|NNP|pobj|EVENT|XXXX|WWII|F
+What is an annotated bibliography ?|DESC|JJ|amod|NON|xxxx|annotated|F
+What is an annotated bibliography ?|DESC|NN|attr|NON|xxxx|bibliography|F
+What is the date of Boxing Day ?|NUM|NN|nsubj|NON|xxxx|date|F
+What is the date of Boxing Day ?|NUM|NNP|compound|EVENT|Xxxxx|Boxing|F
+What is the date of Boxing Day ?|NUM|NNP|pobj|EVENT|Xxx|Day|F
+What articles of clothing are tokens in Monopoly ?|ENTY|NNS|nsubj|NON|xxxx|articles|F
+What articles of clothing are tokens in Monopoly ?|ENTY|NN|pobj|NON|xxxx|clothing|F
+What articles of clothing are tokens in Monopoly ?|ENTY|NNS|attr|NON|xxxx|tokens|F
+What articles of clothing are tokens in Monopoly ?|ENTY|NNP|pobj|FAC|Xxxxx|Monopoly|F
+Name 11 famous martyrs .|HUM|CD|nummod|CARDINAL|dd|11|F
+Name 11 famous martyrs .|HUM|JJ|amod|NON|xxxx|famous|F
+Name 11 famous martyrs .|HUM|NNS|dobj|NON|xxxx|martyrs|F
+What's the Olympic motto ?|DESC|JJ|amod|NON|Xxxxx|Olympic|F
+What's the Olympic motto ?|DESC|NN|nsubj|NON|xxxx|motto|F
+What is the origin of the name ' Scarlett ' ?|DESC|NN|nsubj|NON|xxxx|origin|F
+What is the origin of the name ' Scarlett ' ?|DESC|NN|pobj|NON|xxxx|name|F
+What is the origin of the name ' Scarlett ' ?|DESC|NNP|appos|PERSON|Xxxxx|Scarlett|F
+What's the second-most-used vowel in English ?|ENTY|JJ|advmod|ORDINAL|xxxx|second|F
+What's the second-most-used vowel in English ?|ENTY|RBS|advmod|NON|xxxx|most|F
+What's the second-most-used vowel in English ?|ENTY|VBN|amod|NON|xxxx|used|F
+What's the second-most-used vowel in English ?|ENTY|NN|nsubj|NON|xxxx|vowel|F
+What's the second-most-used vowel in English ?|ENTY|NNP|pobj|LANGUAGE|Xxxxx|English|F
+Who was the inventor of silly putty ?|HUM|NN|attr|NON|xxxx|inventor|F
+Who was the inventor of silly putty ?|HUM|JJ|pobj|NON|xxxx|silly|F
+Who was the inventor of silly putty ?|HUM|RB|advmod|NON|xxxx|putty|F
+What is the highest waterfall in the United States ?|LOC|JJS|amod|NON|xxxx|highest|F
+What is the highest waterfall in the United States ?|LOC|NN|attr|NON|xxxx|waterfall|F
+What is the highest waterfall in the United States ?|LOC|NNP|compound|GPE|Xxxxx|United|F
+What is the highest waterfall in the United States ?|LOC|NNP|pobj|GPE|Xxxxx|States|F
+Name a golf course in Myrtle Beach .|ENTY|NN|compound|NON|xxxx|golf|F
+Name a golf course in Myrtle Beach .|ENTY|NN|dobj|NON|xxxx|course|F
+Name a golf course in Myrtle Beach .|ENTY|NNP|compound|GPE|Xxxxx|Myrtle|F
+Name a golf course in Myrtle Beach .|ENTY|NNP|pobj|GPE|Xxxxx|Beach|F
+Which two states enclose Chesapeake Bay ?|LOC|CD|nummod|CARDINAL|xxx|two|F
+Which two states enclose Chesapeake Bay ?|LOC|NNS|nsubj|NON|xxxx|states|F
+Which two states enclose Chesapeake Bay ?|LOC|NNP|compound|LOC|Xxxxx|Chesapeake|F
+Which two states enclose Chesapeake Bay ?|LOC|NNP|dobj|LOC|Xxx|Bay|F
+What does the abbreviation AIDS stand for ?|ABBR|VBZ|aux|NON|xxxx|does|NF
+What does the abbreviation AIDS stand for ?|ABBR|NN|nsubj|NON|xxxx|abbreviation|F
+What does the abbreviation AIDS stand for ?|ABBR|NNP|nsubj|NON|XXXX|AIDS|F
+What does a spermologer collect ?|ENTY|VBZ|aux|NON|xxxx|does|NF
+What does a spermologer collect ?|ENTY|NN|nsubj|NON|xxxx|spermologer|F
+How many points make up a perfect fivepin bowling score ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many points make up a perfect fivepin bowling score ?|NUM|NNS|nsubj|NON|xxxx|points|F
+How many points make up a perfect fivepin bowling score ?|NUM|JJ|amod|NON|xxxx|perfect|F
+How many points make up a perfect fivepin bowling score ?|NUM|NN|compound|NON|xxxx|fivepin|F
+How many points make up a perfect fivepin bowling score ?|NUM|NN|compound|NON|xxxx|bowling|F
+How many points make up a perfect fivepin bowling score ?|NUM|NN|dobj|NON|xxxx|score|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|NN|nsubj|NON|xxxx|company|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|VBZ|relcl|NON|xxxx|manufactures|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|NN|compound|NON|xxxx|video|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|NN|compound|NON|xxxx|game|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|NN|dobj|NON|xxxx|hardware|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|JJ|amod|NON|xxxx|super|F
+Which company that manufactures video-game hardware sells the '' super system '' ?|HUM|NN|dobj|NON|xxxx|system|F
+How many Community Chest cards are there in Monopoly ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many Community Chest cards are there in Monopoly ?|NUM|NNP|compound|NON|Xxxxx|Community|F
+How many Community Chest cards are there in Monopoly ?|NUM|NNP|compound|NON|Xxxxx|Chest|F
+How many Community Chest cards are there in Monopoly ?|NUM|NNS|nsubj|NON|xxxx|cards|F
+How many Community Chest cards are there in Monopoly ?|NUM|RB|advmod|NON|xxxx|there|NF
+How many Community Chest cards are there in Monopoly ?|NUM|NNP|pobj|NON|Xxxxx|Monopoly|F
+What do Mormons believe ?|DESC|VBP|aux|NON|xx|do|NF
+What do Mormons believe ?|DESC|NNS|nsubj|NORP|Xxxxx|Mormons|F
+When did the neanderthal man live ?|NUM|VBD|aux|NON|xxx|did|NF
+When did the neanderthal man live ?|NUM|NN|compound|NON|xxxx|neanderthal|F
+When did the neanderthal man live ?|NUM|NN|nsubj|NON|xxx|man|F
+In what religion was Isis the nature goddess ?|ENTY|NN|nsubj|NON|xxxx|religion|F
+In what religion was Isis the nature goddess ?|ENTY|VBD|pcomp|NON|xxx|was|NF
+In what religion was Isis the nature goddess ?|ENTY|NNP|prep|LOC|Xxxx|Isis|F
+In what religion was Isis the nature goddess ?|ENTY|NN|compound|NON|xxxx|nature|F
+In what religion was Isis the nature goddess ?|ENTY|NN|appos|NON|xxxx|goddess|F
+Where do the adventures of '' The Swiss Family Robinson '' take place ?|LOC|VBP|advmod|NON|xx|do|NF
+Where do the adventures of '' The Swiss Family Robinson '' take place ?|LOC|NNS|nsubj|NON|xxxx|adventures|F
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|NN|nsubjpass|NON|xxxx|relative|F
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|NN|pobj|NON|xxxx|racoon|F
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|VBZ|auxpass|NON|xx|is|NF
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|RB|advmod|NON|xxxx|sometimes|NF
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|NN|compound|NON|xxx|cat|F
+What relative of the racoon is sometimes known as the cat-bear ?|ENTY|NN|pobj|NON|xxxx|bear|F
+How can I register my website in Yahoo for free ?|DESC|MD|aux|NON|xxx|can|NF
+How can I register my website in Yahoo for free ?|DESC|PRP$|poss|NON|xx|my|NF
+How can I register my website in Yahoo for free ?|DESC|NN|dobj|NON|xxxx|website|F
+How can I register my website in Yahoo for free ?|DESC|NNP|pobj|GPE|Xxxxx|Yahoo|F
+How can I register my website in Yahoo for free ?|DESC|JJ|amod|NON|xxxx|free|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|NN|npadvmod|NON|xxxx|cash|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|JJ|acomp|NON|xxxx|conscious|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|NNP|compound|NON|Xxxxx|Colonel|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|NNP|compound|PERSON|Xxxxx|Edwin|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|NNP|compound|PERSON|X.|L.|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|NNP|nsubj|PERSON|Xxxxx|Drake|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|JJ|attr|ORDINAL|xxxx|first|F
+What was cash-conscious Colonel Edwin L. Drake the first to drill ?|ENTY|VB|relcl|NON|xxxx|drill|F
+How many people in the world speak French ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many people in the world speak French ?|NUM|NNS|nsubj|NON|xxxx|people|F
+How many people in the world speak French ?|NUM|NN|pobj|NON|xxxx|world|F
+How many people in the world speak French ?|NUM|NNP|dobj|LANGUAGE|Xxxxx|French|F
+How many inches over six feet is the Venus de Milo ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many inches over six feet is the Venus de Milo ?|NUM|NNS|nsubj|NON|xxxx|inches|F
+How many inches over six feet is the Venus de Milo ?|NUM|CD|nummod|NON|xxx|six|F
+How many inches over six feet is the Venus de Milo ?|NUM|NNS|pobj|NON|xxxx|feet|F
+How many inches over six feet is the Venus de Milo ?|NUM|NNP|compound|NON|Xxxxx|Venus|F
+How many inches over six feet is the Venus de Milo ?|NUM|NNP|compound|NON|xx|de|F
+How many inches over six feet is the Venus de Milo ?|NUM|NNP|attr|NON|Xxxx|Milo|F
+How do they find or choose witnesses to an execution ?|DESC|VBP|aux|NON|xx|do|NF
+How do they find or choose witnesses to an execution ?|DESC|VB|conj|NON|xxxx|choose|F
+How do they find or choose witnesses to an execution ?|DESC|NNS|dobj|NON|xxxx|witnesses|F
+How do they find or choose witnesses to an execution ?|DESC|NN|pobj|NON|xxxx|execution|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|CD|nummod|DATE|ddddx|1920s|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|JJ|amod|NON|xxxx|cowboy|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|NN|nsubj|NON|xxxx|star|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|NNP|dobj|PERSON|Xxxx|Tony|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|NNP|compound|NON|Xxxxx|Wonder|F
+What 1920s cowboy star rode Tony the Wonder Horse ?|HUM|NNP|dobj|NON|Xxxxx|Horse|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|NN|nsubj|NON|xxxx|cocktail|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|NNP|compound|PERSON|Xxxx|John|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|NNP|dobj|PERSON|Xxxxx|Doxat|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|VB|xcomp|NON|xxxx|write|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|NN|dobj|NON|xxxx|book|F
+What cocktail inspired John Doxat to write the book Stirred-Not Shaken ?|ENTY|VBN|acl|NON|Xxxxx|Stirred|F
+What ISPs exist in the Caribbean ?|HUM|VBZ|nsubj|NON|XXXx|ISPs|F
+What ISPs exist in the Caribbean ?|HUM|NNP|pobj|LOC|Xxxxx|Caribbean|F
+How do you ask a total stranger out on a date ?|DESC|VBP|aux|NON|xx|do|NF
+How do you ask a total stranger out on a date ?|DESC|JJ|amod|NON|xxxx|total|NF
+How do you ask a total stranger out on a date ?|DESC|NN|dobj|NON|xxxx|stranger|F
+How do you ask a total stranger out on a date ?|DESC|NN|pobj|NON|xxxx|date|F
+What weapon is the mythological character Apollo most proficient with ?|ENTY|NN|nsubj|NON|xxxx|weapon|F
+What weapon is the mythological character Apollo most proficient with ?|ENTY|JJ|amod|NON|xxxx|mythological|F
+What weapon is the mythological character Apollo most proficient with ?|ENTY|NN|attr|NON|xxxx|character|F
+What weapon is the mythological character Apollo most proficient with ?|ENTY|NNP|appos|ORG|Xxxxx|Apollo|F
+What weapon is the mythological character Apollo most proficient with ?|ENTY|RBS|advmod|NON|xxxx|most|NF
+What weapon is the mythological character Apollo most proficient with ?|ENTY|JJ|amod|NON|xxxx|proficient|F
+What country do the Galapagos Islands belong to ?|LOC|NN|dobj|NON|xxxx|country|F
+What country do the Galapagos Islands belong to ?|LOC|VBP|aux|NON|xx|do|NF
+What country do the Galapagos Islands belong to ?|LOC|NNP|compound|LOC|Xxxxx|Galapagos|F
+What country do the Galapagos Islands belong to ?|LOC|NNPS|nsubj|LOC|Xxxxx|Islands|F
+What is ethology ?|DESC|NN|nsubj|NON|xxxx|ethology|F
+Who was the prophet of the Muslim people ?|HUM|NN|attr|NON|xxxx|prophet|F
+Who was the prophet of the Muslim people ?|HUM|JJ|amod|NORP|Xxxxx|Muslim|F
+Who was the prophet of the Muslim people ?|HUM|NNS|pobj|NON|xxxx|people|F
+Where did the term '' 86ed '' come from ?|DESC|VBD|aux|NON|xxx|did|NF
+Where did the term '' 86ed '' come from ?|DESC|NN|nsubj|NON|xxxx|term|F
+Where did the term '' 86ed '' come from ?|DESC|NN|appos|NON|ddxx|86ed|F
+Who is Snoopy's arch-enemy ?|HUM|NNP|poss|ORG|Xxxxx|Snoopy|F
+Who is Snoopy's arch-enemy ?|HUM|NN|compound|NON|xxxx|arch|F
+Who is Snoopy's arch-enemy ?|HUM|NN|attr|NON|xxxx|enemy|F
+What is the nature of learning ?|DESC|NN|nsubj|NON|xxxx|nature|F
+What is the nature of learning ?|DESC|NN|pcomp|NON|xxxx|learning|F
+What's the only color Johnny Cash wears on stage ?|ENTY|VBZ|csubj|NON|'x|'s|NF
+What's the only color Johnny Cash wears on stage ?|ENTY|JJ|amod|NON|xxxx|only|NF
+What's the only color Johnny Cash wears on stage ?|ENTY|NN|compound|NON|xxxx|color|F
+What's the only color Johnny Cash wears on stage ?|ENTY|NNP|compound|PERSON|Xxxxx|Johnny|F
+What's the only color Johnny Cash wears on stage ?|ENTY|NNP|nsubj|PERSON|Xxxx|Cash|F
+What's the only color Johnny Cash wears on stage ?|ENTY|NN|pobj|NON|xxxx|stage|F
+What's the term for a young fox ?|ENTY|NN|nsubj|NON|xxxx|term|F
+What's the term for a young fox ?|ENTY|JJ|amod|NON|xxxx|young|F
+What's the term for a young fox ?|ENTY|NN|pobj|NON|xxx|fox|F
+What U.S. state lived under six flags ?|LOC|NNP|compound|GPE|X.X.|U.S.|F
+What U.S. state lived under six flags ?|LOC|NN|nsubj|NON|xxxx|state|F
+What U.S. state lived under six flags ?|LOC|CD|nummod|CARDINAL|xxx|six|F
+What U.S. state lived under six flags ?|LOC|NNS|pobj|NON|xxxx|flags|F
+What is the Kashmir issue ?|DESC|NNP|compound|LOC|Xxxxx|Kashmir|F
+What is the Kashmir issue ?|DESC|NN|nsubj|NON|xxxx|issue|F
+Where is the Loop ?|LOC|NNP|nsubj|NON|Xxxx|Loop|F
+What does '' extended definition '' mean and how would one write a paper on it ?|DESC|VBZ|aux|NON|xxxx|does|NF
+What does '' extended definition '' mean and how would one write a paper on it ?|DESC|NN|dobj|NON|xxxx|definition|F
+What country's capital is Tirana ?|LOC|NN|poss|NON|xxxx|country|F
+What country's capital is Tirana ?|LOC|NN|nsubj|NON|xxxx|capital|F
+What country's capital is Tirana ?|LOC|NNP|attr|PERSON|Xxxxx|Tirana|F
+What is titanium ?|DESC|NN|nsubj|NON|xxxx|titanium|F
+Who do Herb and Tootsie live next door to ?|HUM|VBP|aux|NON|xx|do|NF
+Who do Herb and Tootsie live next door to ?|HUM|NNP|nsubj|PERSON|Xxxx|Herb|F
+Who do Herb and Tootsie live next door to ?|HUM|NNP|conj|PERSON|Xxxxx|Tootsie|F
+Who do Herb and Tootsie live next door to ?|HUM|JJ|amod|NON|xxxx|next|F
+Who do Herb and Tootsie live next door to ?|HUM|NN|npadvmod|NON|xxxx|door|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|NN|nsubj|NON|xxxx|city|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|JJS|amod|NON|xxxx|oldest|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|NN|dobj|NON|xxxx|relationship|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|NN|pobj|NON|xxxx�xxxx|sister�city|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|NNP|compound|GPE|Xxx|Los|F
+Which city has the oldest relationship as a sister�city with Los Angeles ?|LOC|NNP|pobj|GPE|Xxxxx|Angeles|F
+What is a caldera ?|DESC|NN|attr|NON|xxxx|caldera|F
+Why do people get calluses ?|DESC|VBP|aux|NON|xx|do|NF
+Why do people get calluses ?|DESC|NNS|nsubj|NON|xxxx|people|F
+Why do people get calluses ?|DESC|NNS|dobj|NON|xxxx|calluses|F
+What are the names of the tourist attractions in Reims ?|LOC|NNS|attr|NON|xxxx|names|F
+What are the names of the tourist attractions in Reims ?|LOC|NN|compound|NON|xxxx|tourist|F
+What are the names of the tourist attractions in Reims ?|LOC|NNS|pobj|NON|xxxx|attractions|F
+What are the names of the tourist attractions in Reims ?|LOC|NNP|pobj|GPE|Xxxxx|Reims|F
+What are Cushman and Wakefield known for ?|DESC|JJ|acomp|NORP|Xxxxx|Cushman|F
+What are Cushman and Wakefield known for ?|DESC|NNP|conj|NON|Xxxxx|Wakefield|F
+What are Cushman and Wakefield known for ?|DESC|VBN|acomp|NON|xxxx|known|F
+What body of water does the Danube River flow into ?|LOC|NN|nsubj|NON|xxxx|body|F
+What body of water does the Danube River flow into ?|LOC|NN|pobj|NON|xxxx|water|F
+What body of water does the Danube River flow into ?|LOC|NNP|compound|LOC|Xxxxx|Danube|F
+What body of water does the Danube River flow into ?|LOC|NNP|compound|LOC|Xxxxx|River|F
+What body of water does the Danube River flow into ?|LOC|NN|dobj|NON|xxxx|flow|F
+Who is the founder of Scientology ?|HUM|NN|attr|NON|xxxx|founder|F
+Who is the founder of Scientology ?|HUM|NN|pobj|NON|Xxxxx|Scientology|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|VBZ|aux|NON|xxxx|does|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|CD|npadvmod|NON|xxx|six|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|VBN|amod|NON|xxxx|footed|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|NNP|compound|LOC|Xxxxx|Musca|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|NN|nsubj|NON|xxxx|domestica|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|VBZ|advcl|NON|xxxx|enters|F
+What does the six-footed Musca domestica become when it enters a house ?|ENTY|NN|dobj|NON|xxxx|house|F
+What is the history of skateboarding ?|DESC|NN|nsubj|NON|xxxx|history|F
+What is the history of skateboarding ?|DESC|VBG|pcomp|NON|xxxx|skateboarding|F
+Who starred in Singing in the Rain and The Singing Nun ?|HUM|VBG|pcomp|NON|Xxxxx|Singing|F
+Who starred in Singing in the Rain and The Singing Nun ?|HUM|NN|pobj|NON|Xxxx|Rain|F
+Who starred in Singing in the Rain and The Singing Nun ?|HUM|NNP|compound|WORK_OF_ART|Xxxxx|Singing|F
+Who starred in Singing in the Rain and The Singing Nun ?|HUM|NNP|conj|WORK_OF_ART|Xxx|Nun|F
+How do I make fuel bricks from recycled newspaper ?|DESC|VBP|aux|NON|xx|do|NF
+How do I make fuel bricks from recycled newspaper ?|DESC|NN|compound|NON|xxxx|fuel|F
+How do I make fuel bricks from recycled newspaper ?|DESC|NNS|dobj|NON|xxxx|bricks|F
+How do I make fuel bricks from recycled newspaper ?|DESC|VBN|amod|NON|xxxx|recycled|F
+How do I make fuel bricks from recycled newspaper ?|DESC|NN|pobj|NON|xxxx|newspaper|F
+What 19th-century painter died in the Marquesas Islands ?|HUM|JJ|amod|DATE|ddxx|19th|F
+What 19th-century painter died in the Marquesas Islands ?|HUM|NN|compound|DATE|xxxx|century|F
+What 19th-century painter died in the Marquesas Islands ?|HUM|NN|nsubj|NON|xxxx|painter|F
+What 19th-century painter died in the Marquesas Islands ?|HUM|NNP|compound|LOC|Xxxxx|Marquesas|F
+What 19th-century painter died in the Marquesas Islands ?|HUM|NNPS|pobj|LOC|Xxxxx|Islands|F
+The corpus callosum is in what part of the body ?|ENTY|NN|compound|NON|xxxx|corpus|F
+The corpus callosum is in what part of the body ?|ENTY|NN|nsubj|NON|xxxx|callosum|F
+The corpus callosum is in what part of the body ?|ENTY|NN|pobj|NON|xxxx|part|F
+The corpus callosum is in what part of the body ?|ENTY|NN|pobj|NON|xxxx|body|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|VBP|aux|NON|xx|do|NF
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NN|compound|NON|xxxx|home|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NN|pobj|NON|xxxx|page|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NNPS|compound|NON|Xxxxx|Headquarters|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NNP|compound|ORG|X.X.|U.S.|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NNP|compound|ORG|Xxxxx|European|F
+How do I log on to home page at Headquarters U.S. European Command ?|DESC|NNP|pobj|ORG|Xxxxx|Command|F
+What is Nebraska's most valuable resource ?|ENTY|NNP|poss|GPE|Xxxxx|Nebraska|F
+What is Nebraska's most valuable resource ?|ENTY|RBS|advmod|NON|xxxx|most|NF
+What is Nebraska's most valuable resource ?|ENTY|JJ|amod|NON|xxxx|valuable|F
+What is Nebraska's most valuable resource ?|ENTY|NN|nsubj|NON|xxxx|resource|F
+How many species of the Great White shark are there ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many species of the Great White shark are there ?|NUM|NNS|nsubj|NON|xxxx|species|F
+How many species of the Great White shark are there ?|NUM|NNP|compound|NON|Xxxxx|Great|F
+How many species of the Great White shark are there ?|NUM|NNP|compound|NON|Xxxxx|White|F
+How many species of the Great White shark are there ?|NUM|NN|pobj|NON|xxxx|shark|F
+How many species of the Great White shark are there ?|NUM|RB|advmod|NON|xxxx|there|NF
+What is the origin of head lice ?|DESC|NN|nsubj|NON|xxxx|origin|F
+What is the origin of head lice ?|DESC|NN|compound|NON|xxxx|head|F
+What is the origin of head lice ?|DESC|NNS|pobj|NON|xxxx|lice|F
+What is the nickname for the state of Mississippi ?|LOC|NN|nsubj|NON|xxxx|nickname|F
+What is the nickname for the state of Mississippi ?|LOC|NN|pobj|NON|xxxx|state|F
+What is the nickname for the state of Mississippi ?|LOC|NNP|pobj|GPE|Xxxxx|Mississippi|F
+What was the first domesticated bird ?|ENTY|JJ|amod|ORDINAL|xxxx|first|F
+What was the first domesticated bird ?|ENTY|VBN|amod|NON|xxxx|domesticated|F
+What was the first domesticated bird ?|ENTY|NN|nsubj|NON|xxxx|bird|F
+How many villi are found in the small intestine ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many villi are found in the small intestine ?|NUM|NNS|nsubjpass|NON|xxxx|villi|F
+How many villi are found in the small intestine ?|NUM|VBP|auxpass|NON|xxx|are|NF
+How many villi are found in the small intestine ?|NUM|JJ|amod|NON|xxxx|small|F
+How many villi are found in the small intestine ?|NUM|NN|pobj|NON|xxxx|intestine|F
+What country did King Wenceslas rule ?|LOC|NN|dobj|NON|xxxx|country|F
+What country did King Wenceslas rule ?|LOC|VBD|aux|NON|xxx|did|NF
+What country did King Wenceslas rule ?|LOC|NNP|compound|LOC|Xxxx|King|F
+What country did King Wenceslas rule ?|LOC|NNP|compound|LOC|Xxxxx|Wenceslas|F
+What is a fear of shadows ?|ENTY|NN|attr|NON|xxxx|fear|F
+What is a fear of shadows ?|ENTY|NNS|pobj|NON|xxxx|shadows|F
+Who were the five Marx brothers ?|HUM|CD|nummod|CARDINAL|xxxx|five|F
+Who were the five Marx brothers ?|HUM|NNP|compound|PERSON|Xxxx|Marx|F
+Who were the five Marx brothers ?|HUM|NNS|attr|NON|xxxx|brothers|F
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|NN|npadvmod|NON|xxxx|year|F
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|VBD|auxpass|NON|xxx|was|NF
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|NNP|compound|GPE|Xxx|New|F
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|NNP|nsubj|GPE|Xxxxx|Zealand|F
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|NNP|compound|ORG|XXXX|ANZUS|F
+In which year was New Zealand excluded from the ANZUS alliance ?|NUM|NN|pobj|NON|xxxx|alliance|F
+When did CNN begin broadcasting ?|NUM|VBD|aux|NON|xxx|did|NF
+When did CNN begin broadcasting ?|NUM|NNP|nsubj|ORG|XXX|CNN|F
+When did CNN begin broadcasting ?|NUM|VBG|xcomp|NON|xxxx|broadcasting|F
+What causes the body to shiver in cold temperatures ?|DESC|NN|nsubj|NON|xxxx|body|F
+What causes the body to shiver in cold temperatures ?|DESC|VB|ccomp|NON|xxxx|shiver|F
+What causes the body to shiver in cold temperatures ?|DESC|JJ|amod|NON|xxxx|cold|F
+What causes the body to shiver in cold temperatures ?|DESC|NNS|pobj|NON|xxxx|temperatures|F
+What are bear and bull markets ?|DESC|JJ|acomp|NON|xxxx|bear|F
+What are bear and bull markets ?|DESC|NN|conj|NON|xxxx|bull|F
+What are bear and bull markets ?|DESC|NNS|attr|NON|xxxx|markets|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NNP|compound|NON|X.X.X.|J.R.R.|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NNP|compound|PERSON|Xxxxx|Tolkien|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NN|nsubj|NON|xxxx|book|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NNP|compound|PERSON|Xxxxx|Bilbo|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NNP|dobj|PERSON|Xxxxx|Baggins|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|JJ|amod|NON|xxxx|central|F
+What J.R.R. Tolkien book features Bilbo Baggins as the central character ?|ENTY|NN|pobj|NON|xxxx|character|F
+What is '' dew point '' ?|DESC|NN|compound|NON|xxx|dew|F
+What is '' dew point '' ?|DESC|NN|nsubj|NON|xxxx|point|F
+What is the meaning of Jesus ?|DESC|NN|nsubj|NON|xxxx|meaning|F
+What is the meaning of Jesus ?|DESC|NNP|pobj|NON|Xxxxx|Jesus|F
+What company's logo is a '' W '' in a circle ?|HUM|NN|poss|NON|xxxx|company|F
+What company's logo is a '' W '' in a circle ?|HUM|NN|nsubj|NON|xxxx|logo|F
+What company's logo is a '' W '' in a circle ?|HUM|NNP|attr|NON|X|W|F
+What company's logo is a '' W '' in a circle ?|HUM|NN|pobj|NON|xxxx|circle|F
+What is the definition of a cascade ?|DESC|NN|nsubj|NON|xxxx|definition|F
+What is the definition of a cascade ?|DESC|NN|pobj|NON|xxxx|cascade|F
+When did Rococo painting and architecture flourish ?|NUM|VBD|aux|NON|xxx|did|NF
+When did Rococo painting and architecture flourish ?|NUM|NNP|nsubj|ORG|Xxxxx|Rococo|F
+When did Rococo painting and architecture flourish ?|NUM|NN|nmod|NON|xxxx|painting|F
+When did Rococo painting and architecture flourish ?|NUM|NN|conj|NON|xxxx|architecture|F
+What country's national passenger rail system is called Via ?|LOC|NN|poss|NON|xxxx|country|F
+What country's national passenger rail system is called Via ?|LOC|JJ|amod|NON|xxxx|national|F
+What country's national passenger rail system is called Via ?|LOC|NN|compound|NON|xxxx|passenger|F
+What country's national passenger rail system is called Via ?|LOC|NN|compound|NON|xxxx|rail|F
+What country's national passenger rail system is called Via ?|LOC|NN|nsubjpass|NON|xxxx|system|F
+What country's national passenger rail system is called Via ?|LOC|VBZ|auxpass|NON|xx|is|F
+What country's national passenger rail system is called Via ?|LOC|NNP|oprd|FAC|Xxx|Via|F
+Who invented Make-up ?|HUM|VB|xcomp|NON|Xxxx|Make|F
+What is the origin of the word '' attic '' ?|DESC|NN|nsubj|NON|xxxx|origin|F
+What is the origin of the word '' attic '' ?|DESC|NN|pobj|NON|xxxx|word|F
+What is the origin of the word '' attic '' ?|DESC|NN|appos|NON|xxxx|attic|F
+What did Delilah do to Samson's hair ?|DESC|VBD|aux|NON|xxx|did|NF
+What did Delilah do to Samson's hair ?|DESC|NNP|nsubj|PERSON|Xxxxx|Delilah|F
+What did Delilah do to Samson's hair ?|DESC|NNP|poss|PERSON|Xxxxx|Samson|F
+What did Delilah do to Samson's hair ?|DESC|NN|pobj|NON|xxxx|hair|F
+What kind of animals were in the Paleozoic era ?|ENTY|NN|attr|NON|xxxx|kind|F
+What kind of animals were in the Paleozoic era ?|ENTY|NNS|pobj|NON|xxxx|animals|F
+What kind of animals were in the Paleozoic era ?|ENTY|NNP|compound|GPE|Xxxxx|Paleozoic|F
+What kind of animals were in the Paleozoic era ?|ENTY|NN|pobj|NON|xxx|era|F
+Which of the following was Rhodes Scholar ?|HUM|VBG|pobj|NON|xxxx|following|F
+Which of the following was Rhodes Scholar ?|HUM|NNP|compound|PERSON|Xxxxx|Rhodes|F
+Which of the following was Rhodes Scholar ?|HUM|NNP|attr|PERSON|Xxxxx|Scholar|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|RB|advmod|NON|xxx|now|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|JJ|amod|NON|xxxx|defunct|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|JJ|amod|NON|xxxx|comic|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|NN|compound|NON|xxxx|book|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|NN|dobj|NON|xxxx|team|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|VBN|acl|NON|xxxx|known|F
+Who comprised the now-defunct comic book team known as the Champions ?|HUM|NNPS|pobj|NON|Xxxxx|Champions|F
+How do you make a paintball ?|DESC|VBP|aux|NON|xx|do|NF
+How do you make a paintball ?|DESC|NN|dobj|NON|xxxx|paintball|F
+What U.S. state is Fort Knox in ?|LOC|NNP|compound|GPE|X.X.|U.S.|F
+What U.S. state is Fort Knox in ?|LOC|NN|nsubj|NON|xxxx|state|F
+What U.S. state is Fort Knox in ?|LOC|NNP|compound|FAC|Xxxx|Fort|F
+What U.S. state is Fort Knox in ?|LOC|NNP|nsubj|FAC|Xxxx|Knox|F
+What is a female rabbit called ?|ENTY|JJ|amod|NON|xxxx|female|F
+What is a female rabbit called ?|ENTY|NN|attr|NON|xxxx|rabbit|F
+What is a female rabbit called ?|ENTY|VBN|acl|NON|xxxx|called|F
+Where is the highest point in Japan ?|LOC|JJS|amod|NON|xxxx|highest|F
+Where is the highest point in Japan ?|LOC|NN|nsubj|NON|xxxx|point|F
+Where is the highest point in Japan ?|LOC|NNP|pobj|GPE|Xxxxx|Japan|F
+Where do chihuahuas come from ?|DESC|VBP|aux|NON|xx|do|NF
+Where do chihuahuas come from ?|DESC|VB|nsubj|NON|xxxx|chihuahuas|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|VBZ|aux|NON|xxxx|does|NF
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NNP|compound|PERSON|Xxxxx|Barney|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NNP|nsubj|PERSON|Xxxxx|Rubble|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NN|pobj|NON|xxxx|work|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|VBZ|advcl|NON|xxxx|drops|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NNP|dobj|PERSON|Xxxx|Fred|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NNP|pobj|NON|Xxxxx|Flintstones|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NN|compound|NON|xxxx|cartoon|F
+Where does Barney Rubble go to work after he drops Fred off in the '' Flintstones '' cartoon series ?|LOC|NN|npadvmod|NON|xxxx|series|F
+What are the world's four oceans ?|LOC|NN|poss|NON|xxxx|world|F
+What are the world's four oceans ?|LOC|CD|nummod|CARDINAL|xxxx|four|F
+What are the world's four oceans ?|LOC|NNS|nsubj|NON|xxxx|oceans|F
+What's the only work by Michelangelo that bears his signature ?|ENTY|JJ|amod|NON|xxxx|only|F
+What's the only work by Michelangelo that bears his signature ?|ENTY|NN|nsubj|NON|xxxx|work|F
+What's the only work by Michelangelo that bears his signature ?|ENTY|NNP|pobj|GPE|Xxxxx|Michelangelo|F
+What's the only work by Michelangelo that bears his signature ?|ENTY|VBZ|relcl|NON|xxxx|bears|F
+What's the only work by Michelangelo that bears his signature ?|ENTY|PRP$|poss|NON|xxx|his|NF
+What's the only work by Michelangelo that bears his signature ?|ENTY|NN|dobj|NON|xxxx|signature|F
+What is the largest snake in the world ?|ENTY|JJS|amod|NON|xxxx|largest|F
+What is the largest snake in the world ?|ENTY|NN|nsubj|NON|xxxx|snake|F
+What is the largest snake in the world ?|ENTY|NN|pobj|NON|xxxx|world|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|NN|nsubj|NON|xxxx|medium|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|VBZ|auxpass|NON|xx|is|NF
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|NNP|compound|PERSON|Xxxxx|Stuart|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|NNP|nsubj|PERSON|Xxxxx|Hamblen|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|VB|xcomp|NON|xx|be|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|JJ|amod|ORDINAL|xxxx|first|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|NN|compound|NON|xxxx|singing|F
+In what medium is Stuart Hamblen considered to be the first singing cowboy ?|ENTY|NN|attr|NON|xxxx|cowboy|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NN|pobj|NON|Xxxxx|Internet|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|MD|aux|NON|xxx|can|NF
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NN|compound|NON|xxxx|song|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NNS|nsubj|NON|xxxx|lyrics|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|VBP|ccomp|NON|xxxx|database|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|JJ|amod|NON|xxxx|similar|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NNP|compound|ORG|Xxxxx|International|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NNP|compound|ORG|Xxxxx|Lyrics|F
+Where on the Internet can I find a song lyrics database similar to the International Lyrics Server ?|LOC|NNP|pobj|ORG|Xxxxx|Server|F
+How much money does a back injury lawsuit get ?|NUM|JJ|amod|NON|xxxx|much|NF
+How much money does a back injury lawsuit get ?|NUM|NN|nsubj|NON|xxxx|money|F
+How much money does a back injury lawsuit get ?|NUM|VBZ|aux|NON|xxxx|does|NF
+How much money does a back injury lawsuit get ?|NUM|RB|amod|NON|xxxx|back|F
+How much money does a back injury lawsuit get ?|NUM|NN|compound|NON|xxxx|injury|F
+How much money does a back injury lawsuit get ?|NUM|NN|dobj|NON|xxxx|lawsuit|F
+What's the common name for acetylsalicylic acid ?|ENTY|JJ|amod|NON|xxxx|common|F
+What's the common name for acetylsalicylic acid ?|ENTY|NN|nsubj|NON|xxxx|name|F
+What's the common name for acetylsalicylic acid ?|ENTY|NN|amod|NON|xxxx|acetylsalicylic|F
+What's the common name for acetylsalicylic acid ?|ENTY|NN|pobj|NON|xxxx|acid|F
+What does the Georgetown '' Hoya '' mean ?|DESC|VBZ|aux|NON|xxxx|does|NF
+What does the Georgetown '' Hoya '' mean ?|DESC|NNP|nmod|NON|Xxxxx|Georgetown|F
+What does the Georgetown '' Hoya '' mean ?|DESC|NNP|nsubj|NON|Xxxx|Hoya|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|MD|aux|NON|xxx|can|NF
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|NN|dobj|NON|xxxx|list|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|JJ|amod|NON|xxxx|classic|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|NNS|pobj|NON|xxxx|books|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|JJ|amod|ORDINAL|dxx|5th|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|JJ|conj|ORDINAL|dxx|6th|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|NNS|npadvmod|NON|xxxx|graders|F
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|MD|aux|NON|xxxx|should|NF
+Where can I find a list of '' classic '' books 5th and 6th graders should read ?|LOC|VB|conj|NON|xxxx|read|NF
+Which two products use a tiger as their symbol ?|ENTY|CD|nummod|CARDINAL|xxx|two|F
+Which two products use a tiger as their symbol ?|ENTY|NNS|nsubj|NON|xxxx|products|F
+Which two products use a tiger as their symbol ?|ENTY|NN|dobj|NON|xxxx|tiger|F
+Which two products use a tiger as their symbol ?|ENTY|PRP$|poss|NON|xxxx|their|NF
+Which two products use a tiger as their symbol ?|ENTY|NN|pobj|NON|xxxx|symbol|F
+How is the election of a new Pope announced to the world ?|DESC|NN|nsubj|NON|xxxx|election|F
+How is the election of a new Pope announced to the world ?|DESC|JJ|amod|NON|xxx|new|F
+How is the election of a new Pope announced to the world ?|DESC|NNP|pobj|NON|Xxxx|Pope|F
+How is the election of a new Pope announced to the world ?|DESC|VBD|acl|NON|xxxx|announced|F
+How is the election of a new Pope announced to the world ?|DESC|NN|pobj|NON|xxxx|world|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|JJ|advmod|NON|xxxx|long|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|VBZ|aux|NON|xxxx|does|NF
+How long does it take for your blood to make one complete trip through the body ?|NUM|PRP$|poss|NON|xxxx|your|NF
+How long does it take for your blood to make one complete trip through the body ?|NUM|NN|pobj|NON|xxxx|blood|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|VB|advcl|NON|xxxx|make|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|CD|nummod|NON|xxx|one|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|JJ|amod|NON|xxxx|complete|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|NN|dobj|NON|xxxx|trip|F
+How long does it take for your blood to make one complete trip through the body ?|NUM|NN|pobj|NON|xxxx|body|F
+How do chickens have baby chicks ?|DESC|VBP|aux|NON|xx|do|NF
+How do chickens have baby chicks ?|DESC|NNS|nsubj|NON|xxxx|chickens|F
+How do chickens have baby chicks ?|DESC|NN|compound|NON|xxxx|baby|F
+How do chickens have baby chicks ?|DESC|NNS|dobj|NON|xxxx|chicks|F
+What is the historical relationship of Catholic Church and bingo ?|DESC|JJ|amod|NON|xxxx|historical|F
+What is the historical relationship of Catholic Church and bingo ?|DESC|NN|nsubj|NON|xxxx|relationship|F
+What is the historical relationship of Catholic Church and bingo ?|DESC|NNP|compound|ORG|Xxxxx|Catholic|F
+What is the historical relationship of Catholic Church and bingo ?|DESC|NNP|pobj|ORG|Xxxxx|Church|F
+What is the historical relationship of Catholic Church and bingo ?|DESC|NN|conj|NON|xxxx|bingo|F
+How was the element calcium named ?|DESC|NN|compound|NON|xxxx|element|F
+How was the element calcium named ?|DESC|NN|nsubj|NON|xxxx|calcium|F
+How was the element calcium named ?|DESC|VBN|acl|NON|xxxx|named|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NN|nsubj|NON|xxxx|crooner|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NNP|compound|ORG|Xxxxx|Andrews|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NNPS|dobj|ORG|Xxxxx|Sisters|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NNP|compound|ORG|Xxxxx|Pistol|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NNP|compound|ORG|Xxxxx|Packin|F
+What crooner joined The Andrews Sisters for Pistol Packin Mama ?|HUM|NNP|pobj|ORG|Xxxx|Mama|F
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|NN|compound|NON|xxxx|piano|F
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|NN|nsubj|NON|xxxx|company|F
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|PRP$|poss|NON|xxx|its|NF
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|NN|nsubj|NON|xxxx|product|F
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|VBZ|ccomp|NON|xx|is|NF
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|NNP|attr|NON|Xxxxx|Instrument|F
+What piano company claims its product is the '' Instrument of the immortals '' ?|HUM|NNS|pobj|NON|xxxx|immortals|F
+When did the Bounty mutiny take place ?|NUM|VBD|aux|NON|xxx|did|NF
+When did the Bounty mutiny take place ?|NUM|NNP|compound|NON|Xxxxx|Bounty|F
+When did the Bounty mutiny take place ?|NUM|NN|nsubj|NON|xxxx|mutiny|F
+When did the Bounty mutiny take place ?|NUM|NN|dobj|NON|xxxx|place|F
+What novel inspired the movie BladeRunner ?|ENTY|NN|nsubj|NON|xxxx|novel|F
+What novel inspired the movie BladeRunner ?|ENTY|NN|dobj|NON|xxxx|movie|F
+What novel inspired the movie BladeRunner ?|ENTY|NNP|npadvmod|PRODUCT|XxxxxXxxxx|BladeRunner|F
+What is a transistor ?|DESC|NN|nsubj|NON|xxxx|transistor|F
+What is a film starring Jude Law ?|ENTY|NN|attr|NON|xxxx|film|F
+What is a film starring Jude Law ?|ENTY|VBG|acl|NON|xxxx|starring|F
+What is a film starring Jude Law ?|ENTY|NNP|compound|PERSON|Xxxx|Jude|F
+What is a film starring Jude Law ?|ENTY|NNP|dobj|PERSON|Xxx|Law|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|NNP|compound|GPE|Xxxxx|Hollywood|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|NN|nsubj|NON|xxx|dog|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|NNS|pobj|NON|xxxx|arms|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|NNP|compound|PERSON|Xxxx|Jean|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|NNP|pobj|PERSON|Xxxxx|Harlow|F
+What Hollywood dog died in the arms of Jean Harlow in 1932 ?|ENTY|CD|pobj|DATE|dddd|1932|F
+What are the most common elements in the Earth's crust ?|ENTY|RBS|advmod|NON|xxxx|most|NF
+What are the most common elements in the Earth's crust ?|ENTY|JJ|amod|NON|xxxx|common|F
+What are the most common elements in the Earth's crust ?|ENTY|NNS|attr|NON|xxxx|elements|F
+What are the most common elements in the Earth's crust ?|ENTY|NNP|poss|LOC|Xxxxx|Earth|F
+What are the most common elements in the Earth's crust ?|ENTY|NN|pobj|NON|xxxx|crust|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|JJ|dobj|NON|xxxx|much|NF
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|MD|aux|NON|xxxx|would|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|VB|xcomp|NON|xxxx|purchase|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|CD|advmod|NON|d-xxxx|2-foot|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|JJ|amod|NON|xxxx|square|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|NN|compound|NON|xxxx|party|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|NN|dobj|NON|xxxx|tent|F
+How much would it cost to purchase a 2-foot-square party tent , with sides , ?|NUM|NNS|pobj|NON|xxxx|sides|F
+What actress has received the most Oscar nominations ?|HUM|NN|nsubj|NON|xxxx|actress|F
+What actress has received the most Oscar nominations ?|HUM|VBZ|aux|NON|xxx|has|NF
+What actress has received the most Oscar nominations ?|HUM|RBS|advmod|NON|xxxx|most|F
+What actress has received the most Oscar nominations ?|HUM|JJ|amod|LOC|Xxxxx|Oscar|F
+What actress has received the most Oscar nominations ?|HUM|NNS|dobj|NON|xxxx|nominations|F
+What are equity securities ?|DESC|NN|compound|NON|xxxx|equity|F
+What are equity securities ?|DESC|NNS|nsubj|NON|xxxx|securities|F
+What is gymnophobia ?|DESC|JJ|acomp|NON|xxxx|gymnophobia|F
+How many years do fossils take to form ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many years do fossils take to form ?|NUM|NNS|npadvmod|NON|xxxx|years|F
+How many years do fossils take to form ?|NUM|VBP|aux|NON|xx|do|NF
+How many years do fossils take to form ?|NUM|NNS|nsubj|NON|xxxx|fossils|F
+How many years do fossils take to form ?|NUM|VB|advcl|NON|xxxx|form|F
+Where is the Orinoco ?|LOC|NNP|nsubj|NON|Xxxxx|Orinoco|F
+What was the name of the '' Little Rascals '' dog ?|ENTY|NN|nsubj|NON|xxxx|name|F
+What was the name of the '' Little Rascals '' dog ?|ENTY|NNP|compound|NON|Xxxxx|Little|F
+What was the name of the '' Little Rascals '' dog ?|ENTY|NNP|nmod|NON|Xxxxx|Rascals|F
+What was the name of the '' Little Rascals '' dog ?|ENTY|NN|pobj|NON|xxx|dog|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NN|nsubj|NON|xxxx|city|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NNP|poss|ORG|Xxxx|Penn|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NNP|dobj|ORG|Xxxxx|Landing|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NNS|pobj|NON|xxxx|banks|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NNP|compound|GPE|Xxxxx|Delaware|F
+What city boasts Penn's Landing , on the banks of the Delaware river ?|LOC|NN|pobj|NON|xxxx|river|F
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|NNP|compound|FAC|Xxxxx|Broadway|F
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|NN|nsubjpass|NON|xxxx|musical|F
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|VBD|auxpass|NON|xxx|was|NF
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|NNP|poss|ORG|Xxxxx|Cervantes|F
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|NNP|compound|PERSON|Xxx|Don|F
+What Broadway musical was inspired by Cervantes's Don Quixote ?|ENTY|NNP|pobj|PERSON|Xxxxx|Quixote|F
+How many hostages were killed in the Entebbe raid ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many hostages were killed in the Entebbe raid ?|NUM|NNS|nsubjpass|NON|xxxx|hostages|F
+How many hostages were killed in the Entebbe raid ?|NUM|VBD|auxpass|NON|xxxx|were|NF
+How many hostages were killed in the Entebbe raid ?|NUM|NNP|compound|ORG|Xxxxx|Entebbe|F
+How many hostages were killed in the Entebbe raid ?|NUM|NN|pobj|NON|xxxx|raid|F
+How you can raise your IQ ?|DESC|MD|aux|NON|xxx|can|NF
+How you can raise your IQ ?|DESC|PRP$|poss|NON|xxxx|your|NF
+How you can raise your IQ ?|DESC|NN|dobj|NON|XX|IQ|F
+What does INRI stand for when used on Jesus ' cross ?|ABBR|VBZ|aux|NON|xxxx|does|NF
+What does INRI stand for when used on Jesus ' cross ?|ABBR|NNP|nsubj|ORG|XXXX|INRI|F
+What does INRI stand for when used on Jesus ' cross ?|ABBR|VBN|advcl|NON|xxxx|used|NF
+What does INRI stand for when used on Jesus ' cross ?|ABBR|NNP|poss|PERSON|Xxxxx|Jesus|F
+What does INRI stand for when used on Jesus ' cross ?|ABBR|NN|pobj|NON|xxxx|cross|F
+Who produces Spumante ?|HUM|NNP|dobj|LOC|Xxxxx|Spumante|F
+Who earns their money the hard way ?|HUM|PRP$|poss|NON|xxxx|their|NF
+Who earns their money the hard way ?|HUM|NN|dobj|NON|xxxx|money|F
+Who earns their money the hard way ?|HUM|JJ|amod|NON|xxxx|hard|F
+Who earns their money the hard way ?|HUM|NN|npadvmod|NON|xxx|way|F
+Who founded the People's Temple Commune ?|HUM|NNPS|poss|ORG|Xxxxx|People|F
+Who founded the People's Temple Commune ?|HUM|NNP|compound|ORG|Xxxxx|Temple|F
+Who founded the People's Temple Commune ?|HUM|NNP|dobj|ORG|Xxxxx|Commune|F
+What athlete makes the most money from sports merchandise sales ?|HUM|NN|nsubj|NON|xxxx|athlete|F
+What athlete makes the most money from sports merchandise sales ?|HUM|JJS|amod|NON|xxxx|most|F
+What athlete makes the most money from sports merchandise sales ?|HUM|NN|dobj|NON|xxxx|money|F
+What athlete makes the most money from sports merchandise sales ?|HUM|NNS|compound|NON|xxxx|sports|F
+What athlete makes the most money from sports merchandise sales ?|HUM|NN|compound|NON|xxxx|merchandise|F
+What athlete makes the most money from sports merchandise sales ?|HUM|NNS|pobj|NON|xxxx|sales|F
+How many bends are there in a standard paper clip ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many bends are there in a standard paper clip ?|NUM|NNS|nsubj|NON|xxxx|bends|F
+How many bends are there in a standard paper clip ?|NUM|RB|advmod|NON|xxxx|there|F
+How many bends are there in a standard paper clip ?|NUM|JJ|amod|NON|xxxx|standard|F
+How many bends are there in a standard paper clip ?|NUM|NN|compound|NON|xxxx|paper|F
+How many bends are there in a standard paper clip ?|NUM|NN|pobj|NON|xxxx|clip|F
+Who discovered electricity ?|HUM|NN|dobj|NON|xxxx|electricity|F
+What part of your body contains the corpus callosum ?|ENTY|NN|nsubj|NON|xxxx|part|F
+What part of your body contains the corpus callosum ?|ENTY|PRP$|poss|NON|xxxx|your|NF
+What part of your body contains the corpus callosum ?|ENTY|NN|pobj|NON|xxxx|body|F
+What part of your body contains the corpus callosum ?|ENTY|NN|compound|NON|xxxx|corpus|F
+What part of your body contains the corpus callosum ?|ENTY|NN|dobj|NON|xxxx|callosum|F
+Who was the first American in space ?|HUM|JJ|amod|ORDINAL|xxxx|first|F
+Who was the first American in space ?|HUM|JJ|attr|NORP|Xxxxx|American|F
+Who was the first American in space ?|HUM|NN|pobj|NON|xxxx|space|F
+What two South American countries do n't border Brazil ?|LOC|CD|nummod|CARDINAL|xxx|two|F
+What two South American countries do n't border Brazil ?|LOC|JJ|amod|NORP|Xxxxx|South|F
+What two South American countries do n't border Brazil ?|LOC|JJ|amod|NORP|Xxxxx|American|F
+What two South American countries do n't border Brazil ?|LOC|NNS|nsubj|NON|xxxx|countries|F
+What two South American countries do n't border Brazil ?|LOC|VBP|aux|NON|xx|do|NF
+What two South American countries do n't border Brazil ?|LOC|RB|neg|NON|x'x|n't|NF
+What two South American countries do n't border Brazil ?|LOC|NNP|dobj|GPE|Xxxxx|Brazil|F
+What album put The Beatles on the cover of Time in 1967 ?|ENTY|NN|nsubj|NON|xxxx|album|F
+What album put The Beatles on the cover of Time in 1967 ?|ENTY|NNPS|dobj|WORK_OF_ART|Xxxxx|Beatles|F
+What album put The Beatles on the cover of Time in 1967 ?|ENTY|NN|pobj|WORK_OF_ART|xxxx|cover|F
+What album put The Beatles on the cover of Time in 1967 ?|ENTY|NNP|pobj|WORK_OF_ART|Xxxx|Time|F
+What album put The Beatles on the cover of Time in 1967 ?|ENTY|CD|pobj|DATE|dddd|1967|F
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|NN|nsubj|NON|xxxx|poem|F
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|NN|dobj|NON|xxxx|line|F
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|VB|ccomp|NON|xxxx|grow|NF
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|JJ|acomp|NON|xxx|old|F
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|JJS|nsubj|NON|xxxx|best|NF
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|VBZ|conj|NON|xx|is|NF
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|RB|advmod|NON|xxx|yet|NF
+What poem contains the line , '' grow old with me the best is yet to be '' .|ENTY|VB|xcomp|NON|xx|be|NF
+What is a dental root canal ?|DESC|JJ|amod|NON|xxxx|dental|F
+What is a dental root canal ?|DESC|NN|compound|NON|xxxx|root|F
+What is a dental root canal ?|DESC|NN|attr|NON|xxxx|canal|F
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|NN|dobj|NON|xxx|war|F
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|VBD|aux|NON|xxx|did|NF
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|NNP|compound|NON|Xxxxx|Wanna|F
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|NNP|compound|NON|Xx|Go|F
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|NNP|compound|NON|Xxxx|Home|F
+What war did the Wanna-Go-Home Riots occur after ?|ENTY|NNS|nsubj|NON|Xxxxx|Riots|F
+What is the busiest air travel season ?|NUM|JJS|amod|NON|xxxx|busiest|F
+What is the busiest air travel season ?|NUM|NN|compound|NON|xxx|air|F
+What is the busiest air travel season ?|NUM|NN|compound|NON|xxxx|travel|F
+What is the busiest air travel season ?|NUM|NN|nsubj|NON|xxxx|season|F
+What's the colored part of the eye called ?|ENTY|JJ|amod|NON|xxxx|colored|F
+What's the colored part of the eye called ?|ENTY|NN|attr|NON|xxxx|part|F
+What's the colored part of the eye called ?|ENTY|NN|pobj|NON|xxx|eye|F
+What's the colored part of the eye called ?|ENTY|VBN|acl|NON|xxxx|called|NF
+What are hook worms ?|DESC|JJ|compound|NON|xxxx|hook|F
+What are hook worms ?|DESC|NNS|attr|NON|xxxx|worms|F
+Where is the Rose Bowl played ?|LOC|VBZ|advmod|NON|xx|is|NF
+Where is the Rose Bowl played ?|LOC|NNP|compound|NON|Xxxx|Rose|F
+Where is the Rose Bowl played ?|LOC|NNP|nsubj|NON|Xxxx|Bowl|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|JJ|amod|NORP|Xxxxx|Japanese|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|NN|compound|NON|xxx|car|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|NN|nsubj|NON|xxxx|maker|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|PRP$|poss|NON|xxx|its|NF
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|JJS|amod|NON|xxxx|biggest|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|NN|dobj|NON|xxxx|percentage|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|NN|pobj|NON|xxxx|sale|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|JJ|amod|NON|xxxx|domestic|F
+Which Japanese car maker had its biggest percentage of sale in the domestic market ?|HUM|NN|pobj|NON|xxxx|market|F
+Who is the mayor of Marbella ?|HUM|NN|nsubj|NON|xxxx|mayor|F
+Who is the mayor of Marbella ?|HUM|NNP|pobj|GPE|Xxxxx|Marbella|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|NN|npadvmod|NON|xxx|sun|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|VBN|csubj|NON|xxxx|blasted|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|CD|nummod|CARDINAL|dd-xxxx|14-mile|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|JJ|amod|NON|xxxx|wide|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|NN|nsubj|NON|xxxx|valley|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|RB|advmod|NON|xxxx|just|NF
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|NN|attr|NON|xxxx|north|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|NNP|compound|NON|Xxxxx|Mojave|F
+What sun-blasted , 14-mile wide valley is just north of the Mojave desert ?|LOC|NN|pobj|NON|xxxx|desert|F
+In what year did Thatcher become prime minister ?|NUM|NN|pcomp|NON|xxxx|year|F
+In what year did Thatcher become prime minister ?|NUM|VBD|aux|NON|xxx|did|NF
+In what year did Thatcher become prime minister ?|NUM|NNP|nsubj|PERSON|Xxxxx|Thatcher|F
+In what year did Thatcher become prime minister ?|NUM|JJ|amod|NON|xxxx|prime|F
+In what year did Thatcher become prime minister ?|NUM|NN|attr|NON|xxxx|minister|F
+How many months does it take the moon to revolve around the Earth ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many months does it take the moon to revolve around the Earth ?|NUM|NNS|npadvmod|NON|xxxx|months|F
+How many months does it take the moon to revolve around the Earth ?|NUM|VBZ|aux|NON|xxxx|does|NF
+How many months does it take the moon to revolve around the Earth ?|NUM|NN|dobj|NON|xxxx|moon|F
+How many months does it take the moon to revolve around the Earth ?|NUM|VB|advcl|NON|xxxx|revolve|F
+How many months does it take the moon to revolve around the Earth ?|NUM|NNP|pobj|LOC|Xxxxx|Earth|F
+Where are the 49 steps ?|LOC|CD|nummod|CARDINAL|dd|49|F
+Where are the 49 steps ?|LOC|NNS|nsubj|NON|xxxx|steps|F
+In what year was De Gaulle elected president of France ?|NUM|NN|pcomp|NON|xxxx|year|F
+In what year was De Gaulle elected president of France ?|NUM|NNP|compound|PERSON|Xx|De|F
+In what year was De Gaulle elected president of France ?|NUM|NNP|nsubj|PERSON|Xxxxx|Gaulle|F
+In what year was De Gaulle elected president of France ?|NUM|VBD|ccomp|NON|xxxx|elected|F
+In what year was De Gaulle elected president of France ?|NUM|NN|oprd|NON|xxxx|president|F
+In what year was De Gaulle elected president of France ?|NUM|NNP|pobj|GPE|Xxxxx|France|F
+Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?|HUM|NNS|dobj|NON|xxxx|themes|F
+Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?|HUM|NNP|poss|NON|Xxxxx|Dawson|F
+Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?|HUM|NNP|pobj|NON|Xxxxx|Creek|F
+Who sings the themes for '' Dawson's Creek '' and '' Felicity '' ?|HUM|NNP|conj|NON|Xxxxx|Felicity|F
+On what T.V. show could Tom Terrific be found ?|ENTY|NNP|compound|NON|X.X.|T.V.|F
+On what T.V. show could Tom Terrific be found ?|ENTY|VBP|pcomp|NON|xxxx|show|F
+On what T.V. show could Tom Terrific be found ?|ENTY|MD|aux|NON|xxxx|could|NF
+On what T.V. show could Tom Terrific be found ?|ENTY|NNP|compound|PERSON|Xxx|Tom|F
+On what T.V. show could Tom Terrific be found ?|ENTY|NNP|nsubjpass|PERSON|Xxxxx|Terrific|F
+On what T.V. show could Tom Terrific be found ?|ENTY|VB|auxpass|NON|xx|be|NF
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|JJ|amod|NORP|Xxxxx|Indian|F
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|NN|nsubj|NON|xxxx|tribe|F
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|NNP|compound|NON|X|F|F
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|NNP|nsubj|NON|Xxxxx|Troop|F
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|RB|advmod|NON|xxxx|perpetually|F
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|VBG|ccomp|NON|xxxx|doing|NF
+What Indian tribe is F Troop perpetually doing battle with ?|HUM|NN|dobj|NON|xxxx|battle|F
+Where did Indian Pudding come from ?|DESC|VBD|aux|NON|xxx|did|NF
+Where did Indian Pudding come from ?|DESC|JJ|compound|NORP|Xxxxx|Indian|F
+Where did Indian Pudding come from ?|DESC|NNP|nsubj|NON|Xxxxx|Pudding|F
+Why do some clothing labels say '' Use a nonchlorine bleach '' ?|DESC|VBP|aux|NON|xx|do|NF
+Why do some clothing labels say '' Use a nonchlorine bleach '' ?|DESC|NN|compound|NON|xxxx|clothing|F
+Why do some clothing labels say '' Use a nonchlorine bleach '' ?|DESC|NNS|nsubj|NON|xxxx|labels|F
+How many colonies were involved in the American Revolution ?|NUM|JJ|amod|NON|xxxx|many|NF
+How many colonies were involved in the American Revolution ?|NUM|NNS|nsubjpass|NON|xxxx|colonies|F
+How many colonies were involved in the American Revolution ?|NUM|VBD|auxpass|NON|xxxx|were|NF
+How many colonies were involved in the American Revolution ?|NUM|NNP|compound|NON|Xxxxx|American|F
+How many colonies were involved in the American Revolution ?|NUM|NNP|pobj|NON|Xxxxx|Revolution|F
+What is the name of the city that Maurizio Pellegrin lives in ?|LOC|NN|nsubj|NON|xxxx|name|F
+What is the name of the city that Maurizio Pellegrin lives in ?|LOC|NN|pobj|NON|xxxx|city|F
+What is the name of the city that Maurizio Pellegrin lives in ?|LOC|NNP|compound|PERSON|Xxxxx|Maurizio|F
+What is the name of the city that Maurizio Pellegrin lives in ?|LOC|NNP|nsubj|PERSON|Xxxxx|Pellegrin|F
+What is the name of the city that Maurizio Pellegrin lives in ?|LOC|VBZ|relcl|NON|xxxx|lives|F
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|MD|aux|NON|xxx|can|NF
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|JJ|amod|NON|xxxx|pictorial|F
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|NNS|dobj|NON|xxxx|directions|F
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|VB|pcomp|NON|xxxx|build|F
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|RB|advmod|NON|xxxx|very|NF
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|JJ|amod|NON|xxxx|simple|F
+Where can I find pictorial directions on how to build a very simple treehouse ?|LOC|NN|dobj|NON|xxxx|treehouse|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NN|poss|NON|xxxx|game|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NN|nsubj|NON|xxxx|board|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NNS|dobj|NON|xxxx|territories|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NNP|pobj|GPE|Xxxxx|Irkutsk|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NNP|conj|GPE|Xxxxx|Yakutsk|F
+What game's board shows the territories of Irkutsk , Yakutsk and Kamchatka ?|ENTY|NNP|conj|GPE|Xxxxx|Kamchatka|F
+What is the name of the managing director of Apricot Computer ?|HUM|NN|nsubj|NON|xxxx|name|F
+What is the name of the managing director of Apricot Computer ?|HUM|VBG|amod|NON|xxxx|managing|F
+What is the name of the managing director of Apricot Computer ?|HUM|NN|pobj|NON|xxxx|director|F
+What is the name of the managing director of Apricot Computer ?|HUM|NNP|compound|ORG|Xxxxx|Apricot|F
+What is the name of the managing director of Apricot Computer ?|HUM|NNP|pobj|ORG|Xxxxx|Computer|F
+What is the occupation of Nicholas Cage ?|HUM|NN|nsubj|NON|xxxx|occupation|F
+What is the occupation of Nicholas Cage ?|HUM|NNP|compound|PERSON|Xxxxx|Nicholas|F
+What is the occupation of Nicholas Cage ?|HUM|NNP|pobj|PERSON|Xxxx|Cage|F
+Why do horseshoes bring luck ?|DESC|VBP|aux|NON|xx|do|NF
+Why do horseshoes bring luck ?|DESC|NNS|nsubj|NON|xxxx|horseshoes|F
+Why do horseshoes bring luck ?|DESC|NN|dobj|NON|xxxx|luck|F
+What is the 401 , K , plan ?|DESC|CD|attr|NON|ddd|401|F
+What is the 401 , K , plan ?|DESC|NNP|nmod|NON|X|K|F
+What is the 401 , K , plan ?|DESC|NN|nsubj|NON|xxxx|plan|F
+What causes pneumonia ?|DESC|NNS|dobj|NON|xxxx|pneumonia|F
+What are the three winter months in the southern hemisphere ?|NUM|CD|nummod|DATE|xxxx|three|F
+What are the three winter months in the southern hemisphere ?|NUM|NN|compound|DATE|xxxx|winter|F
+What are the three winter months in the southern hemisphere ?|NUM|NNS|nsubj|DATE|xxxx|months|F
+What are the three winter months in the southern hemisphere ?|NUM|JJ|amod|NON|xxxx|southern|F
+What are the three winter months in the southern hemisphere ?|NUM|NN|pobj|NON|xxxx|hemisphere|F
+What does gringo mean ?|DESC|VBZ|aux|NON|xxxx|does|NF
+What does gringo mean ?|DESC|NN|nsubj|NON|xxxx|gringo|F
+What country contains Africa's northernmost point ?|LOC|NN|nsubj|NON|xxxx|country|F
+What country contains Africa's northernmost point ?|LOC|NNP|poss|LOC|Xxxxx|Africa|F
+What country contains Africa's northernmost point ?|LOC|JJS|amod|NON|xxxx|northernmost|F
+What country contains Africa's northernmost point ?|LOC|NN|dobj|NON|xxxx|point|F
+What therapy attempts to elicit the '' primal scream '' ?|ENTY|NN|compound|NON|xxxx|therapy|F
+What therapy attempts to elicit the '' primal scream '' ?|ENTY|VB|acl|NON|xxxx|elicit|F
+What therapy attempts to elicit the '' primal scream '' ?|ENTY|JJ|amod|NON|xxxx|primal|F
+What therapy attempts to elicit the '' primal scream '' ?|ENTY|NN|dobj|NON|xxxx|scream|F
+Where is the Kalahari desert ?|LOC|NNP|compound|ORG|Xxxxx|Kalahari|F
+Where is the Kalahari desert ?|LOC|NN|nsubj|NON|xxxx|desert|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NNP|compound|GPE|Xxxxx|Ventura|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NNP|compound|GPE|Xxxxx|County|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NN|compound|NON|xxxx|police|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NN|nsubj|NON|xxxx|department|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|JJS|amod|NON|xxxx|largest|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NN|compound|NON|xxxx|cocaine|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NN|neg|NON|xxxx|shipment|F
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|VBZ|ccomp|NON|'x|'s|NF
+Which Ventura County police department seized the largest cocaine shipment in it's history ?|HUM|NN|attr|NON|xxxx|history|NF
+What city is sometimes called Gotham ?|LOC|NN|nsubjpass|NON|xxxx|city|F
+What city is sometimes called Gotham ?|LOC|VBZ|auxpass|NON|xx|is|NF
+What city is sometimes called Gotham ?|LOC|RB|advmod|NON|xxxx|sometimes|F
+What city is sometimes called Gotham ?|LOC|NNP|oprd|GPE|Xxxxx|Gotham|F
+What dangles over the tongue from the palate ?|ENTY|NN|pobj|NON|xxxx|tongue|F
+What dangles over the tongue from the palate ?|ENTY|NN|pobj|NON|xxxx|palate|F
+Who created Dennis the Menace ?|HUM|NNP|dobj|PERSON|Xxxxx|Dennis|F
+Who created Dennis the Menace ?|HUM|NNP|intj|FAC|Xxxxx|Menace|F
+What dummy received an honorary degree from Northwestern University ?|HUM|VBD|aux|NON|xxxx|dummy|F
+What dummy received an honorary degree from Northwestern University ?|HUM|JJ|amod|NON|xxxx|honorary|F
+What dummy received an honorary degree from Northwestern University ?|HUM|NN|dobj|NON|xxxx|degree|F
+What dummy received an honorary degree from Northwestern University ?|HUM|NNP|compound|ORG|Xxxxx|Northwestern|F
+What dummy received an honorary degree from Northwestern University ?|HUM|NNP|pobj|ORG|Xxxxx|University|F
+When was the first Wall Street Journal published ?|NUM|JJ|amod|NON|xxxx|first|F
+When was the first Wall Street Journal published ?|NUM|NNP|compound|NON|Xxxx|Wall|F
+When was the first Wall Street Journal published ?|NUM|NNP|compound|NON|Xxxxx|Street|F
+When was the first Wall Street Journal published ?|NUM|NNP|attr|NON|Xxxxx|Journal|F
+When was the first Wall Street Journal published ?|NUM|VBN|acl|NON|xxxx|published|F
