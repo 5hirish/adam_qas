@@ -102,7 +102,6 @@ corpus, dictionary = doc2vec(sentences)
 query_corpus = query2vec(keywords_query, dictionary)
 
 
-
 corpus_lsidf, query_lsidf = transform_vec(corpus, query_corpus)
 
 simi_sorted = similariy(corpus_lsidf, query_lsidf)
