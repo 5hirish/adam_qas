@@ -1,13 +1,15 @@
 import spacy
 import requests
 from pprint import pprint
-
+from collections import OrderedDict
 
 def get_named_entities(en_doc):
     prop_noun_entities = {}
+    prop_noun_entities_pos = {}
     payload = {}
     i = 0
     for ent in en_doc.ents:
+        prop_noun_entities_pos[ent.text] = ent.start
         if i < 10:
             payload["name["+str(i)+"]"] = ent.text
             print(ent.label_, ent.text)
@@ -18,7 +20,7 @@ def get_named_entities(en_doc):
     pprint(payload)
     if i < 10:
         prop_noun_entities = get_gender(payload, prop_noun_entities)
-    return prop_noun_entities
+    return prop_noun_entities, prop_noun_entities_pos
 
 
 def get_noun_chunks(en_doc, prop_noun_entities):
@@ -70,7 +72,7 @@ def map_entity_pronoun(prop_noun_entities, entity, anaphora_mappings):
     return anaphora_mappings
 
 
-def propogate_anaphora(en_doc, anaphora_mappings, sentence):
+def propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos):
     anaphora_pronouns = list(anaphora_mappings.values())
     anaphora_pnouns = list(anaphora_mappings.keys())
     doc_list = [str(tok) for tok in en_doc]
@@ -79,9 +81,11 @@ def propogate_anaphora(en_doc, anaphora_mappings, sentence):
         for token in sent:
             if token.tag_ == "PRP" or token.tag_ == "PRP$":
                 for pos in range(len(anaphora_pronouns)):
-                    if token.text in anaphora_pronouns[pos]:
+                    if str(token.text).lower() in anaphora_pronouns[pos]:
                         resolve_noun = anaphora_pnouns[pos]
-                        doc_list[token.i] = resolve_noun
+                        res_pos = prop_noun_entities_pos[resolve_noun]
+                        if res_pos < token.i:
+                            doc_list[token.i] = resolve_noun
 
     return doc_list
 
@@ -90,15 +94,17 @@ sentence = "Louie is a quite fellow." \
            " But that doesn't mean he will endure anything." \
            " Samantha loves this about him." \
            " Why wouldn't she?" \
-           " Her whole childhood was under his shadow."
+           " Her whole childhood was under his shadow." \
+           " John admired him, but he didn't know him like she knew him."
 
 en_nlp = spacy.load('en_core_web_md')
-
+# sentence = sentence.lower()
+print(sentence)
 en_doc = en_nlp(u'' + sentence)
 prop_noun = ""
 anaphora_mappings = {}
 
-prop_noun_entities = get_named_entities(en_doc)
+prop_noun_entities, prop_noun_entities_pos = get_named_entities(en_doc)
 # prop_noun_entities = get_noun_chunks(en_doc, prop_noun_entities)
 
 for entity in prop_noun_entities.keys():
@@ -118,17 +124,19 @@ for sent in en_doc.sents:
                 prop_noun = token.text
                 payload = {"name[0]": token.text}
                 prop_noun_entities = get_gender(payload, prop_noun_entities)
+                prop_noun_entities_pos[token.text] = token.i
                 prop_noun_gender = prop_noun_entities[token.text]
                 anaphora_mappings = map_entity_pronoun(prop_noun_entities, prop_noun, anaphora_mappings)
                 print(token.text, token.tag_, token.dep_, token.ent_type_, prop_noun, prop_noun_gender)  # NNP / NNPS
 
             elif token.tag_ == "NNPS":
-                prop_noun = token.text
                 print(token.text, token.tag_, token.dep_, token.ent_type_)  # NNP / NNPS
         else:
             print(token.text, token.tag_, token.dep_, token.ent_type_)
 
 pprint(anaphora_mappings)
 
-resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, sentence)
+resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos)
 print(' '.join(resolved_sent))
+
+# Jhon admired Louie, but John didn't know Louie like Samantha knew Louie
