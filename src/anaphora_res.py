@@ -1,16 +1,39 @@
 import spacy
 import requests
+from pprint import pprint
+
+def get_named_entities(en_doc):
+
+    prop_noun_entities = {}
+    payload = {}
+    i = 0
+    for ent in en_doc.ents:
+        if i < 10:
+            payload["name["+str(i)+"]"] = ent.text
+            print(ent.label_, ent.text)
+        if i == 9:
+            prop_noun_entities = get_gender(payload, prop_noun_entities)
+            i = 0
+        i += 1
+    pprint(payload)
+    if i < 10:
+        prop_noun_entities = get_gender(payload, prop_noun_entities)
+    return prop_noun_entities
 
 
-def get_gender(prop_noun):
-    gender_req = requests.get("https://api.genderize.io/?name="+prop_noun)
+def get_gender(payload, prop_noun_entities):
+    gender_req = requests.get("https://api.genderize.io/", params=payload)
     json_gen = gender_req.json()
-    return json_gen['gender']
+
+    for ji in range(len(json_gen)):
+        prop_noun_entities[json_gen[ji]['name']] = json_gen[ji]['gender']
+
+    return prop_noun_entities
 
 
 sentence = "Louie is a quite fellow." \
            " But that didn't mean he will endure anything." \
-           " Google loves this about him." \
+           " Samantha loves this about him." \
            " Why wouldn't she?"
 
 pronouns = ["i", "you", "he", "she", "it", "we", "they", "me", "him", "her", "us", "them"]
@@ -28,7 +51,8 @@ en_nlp = spacy.load('en_core_web_md')
 en_doc = en_nlp(u'' + sentence)
 prop_noun = ""
 
-
+prop_noun_entities = get_named_entities(en_doc)
+pprint(prop_noun_entities)
 
 for sent in en_doc.sents:
     for token in sent:
@@ -39,12 +63,14 @@ for sent in en_doc.sents:
 
             if token.tag_ == "NNP" and token.ent_type_ == "PERSON":
                 prop_noun = token.text
-                prop_noun_gender = get_gender(prop_noun)
+                prop_noun_gender = prop_noun_entities[token.text]
                 print(token.text, token.tag_, token.dep_, token.ent_type_, prop_noun, prop_noun_gender)  # NNP / NNPS
 
             elif token.tag_ == "NNP":
                 prop_noun = token.text
-                prop_noun_gender = get_gender(prop_noun)
+                payload = {"name[0]": token.text}
+                prop_noun_entities = get_gender(payload, prop_noun_entities)
+                prop_noun_gender = prop_noun_entities[token.text]
                 print(token.text, token.tag_, token.dep_, token.ent_type_, prop_noun, prop_noun_gender)  # NNP / NNPS
 
             elif token.tag_ == "NNPS":
