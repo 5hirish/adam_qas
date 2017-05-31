@@ -70,6 +70,22 @@ def map_entity_pronoun(prop_noun_entities, entity, anaphora_mappings):
     return anaphora_mappings
 
 
+def propogate_anaphora(en_doc, anaphora_mappings, sentence):
+    anaphora_pronouns = list(anaphora_mappings.values())
+    anaphora_pnouns = list(anaphora_mappings.keys())
+    doc_list = [str(tok) for tok in en_doc]
+
+    for sent in en_doc.sents:
+        for token in sent:
+            if token.tag_ == "PRP" or token.tag_ == "PRP$":
+                for pos in range(len(anaphora_pronouns)):
+                    if token.text in anaphora_pronouns[pos]:
+                        resolve_noun = anaphora_pnouns[pos]
+                        doc_list[token.i] = resolve_noun
+
+    return doc_list
+
+
 sentence = "Louie is a quite fellow." \
            " But that doesn't mean he will endure anything." \
            " Samantha loves this about him." \
@@ -112,5 +128,7 @@ for sent in en_doc.sents:
         else:
             print(token.text, token.tag_, token.dep_, token.ent_type_)
 
-
 pprint(anaphora_mappings)
+
+resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, sentence)
+print(' '.join(resolved_sent))
