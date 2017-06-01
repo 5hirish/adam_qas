@@ -60,8 +60,10 @@ print("Pages Fetched:", len(wiki_pages))
 ranked_wiki_docs = rank_docs(question_keywords)
 print("Ranked Pages:", ranked_wiki_docs)
 
-result_answer = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
-print("Answer:", result_answer)
+candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
+print("Candidate Answer:", "("+str(len(candidate_answers))+")", candidate_answers)
+
+print("Answer:", " ".join(candidate_answers))
 
 end_time = time()
 print("Total time :", end_time - start_time)
