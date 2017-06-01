@@ -124,6 +124,8 @@ def score_docs(documents, keywords):
 
     pre_process_doc(documents)
 
+    print("Documents pre-processed")
+
     corpus, dictionary = doc2vec(documents)
     query_corpus = query2vec(keywords_splits, dictionary)
 

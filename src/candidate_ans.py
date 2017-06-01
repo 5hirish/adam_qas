@@ -76,6 +76,8 @@ def pre_query(question_query):
     keywords = question_query[0]
     keywords_conjunct = question_query[1]
 
+    print(keywords)
+
     keywords = [keywords[feat].lower() for feat in range(0, len(keywords) - 1)]
     whitespace = ' '
     keywords_splits = whitespace.join(keywords).split()
@@ -86,10 +88,28 @@ def pre_query(question_query):
     return keywords_splits
 
 
-def get_candidate_answers(question_query, en_doc):
+def get_processed_document(ranked_wiki_docs):
+
+    with open('corpus/know_corp.txt', 'r') as fp:
+        documents = fp.read().split("\n")
+        del documents[len(documents) - 1]
+
+        processed_documents = ""
+
+        for rank_tuple in ranked_wiki_docs:
+            processed_documents += documents[rank_tuple[0]]
+
+    return processed_documents
+
+
+def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
 
     keywords_query = pre_query(question_query)
     # print(keywords_query)
+
+    document = get_processed_document(ranked_wiki_docs)
+
+    en_doc = en_nlp(u'' + document)
 
     sentences = list(en_doc.sents)
 
@@ -106,4 +126,6 @@ def get_candidate_answers(question_query, en_doc):
     result_ans = ""
     for sent in simi_sorted:
         sent_id = sent[0]
-        result_ans += sentences[sent_id]
+        result_ans += str(sentences[sent_id])
+
+    return result_ans

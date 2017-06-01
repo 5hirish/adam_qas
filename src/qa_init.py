@@ -50,10 +50,12 @@ print("Fetching Knowledge source...")
 wiki_pages = fetch_wiki(question_keywords, number_of_search=3)
 print("Pages Fetched:", len(wiki_pages))
 
+# Anaphora Resolution
+
 ranked_wiki_docs = rank_docs(question_keywords)
 print("Ranked Pages:", ranked_wiki_docs)
 
-result_answer = get_candidate_answers(question_query, en_doc)
+result_answer = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
 print("Answer:", result_answer)
 
 end_time = time()

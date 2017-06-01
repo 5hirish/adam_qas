@@ -18,7 +18,8 @@ def search_wiki(keywords, number_of_search, wiki_pages):
                 wiki_pages[page_title] = page_content
 
             except wikipedia.exceptions.DisambiguationError as error:
-                print(error.options)
+                pass
+                #print(error.options)
 
             # print(page_title, len(page_content), type(page_content))
 
