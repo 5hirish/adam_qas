@@ -95,7 +95,7 @@ sentence = "Louie is a quite fellow." \
            " Samantha loves this about him." \
            " Why wouldn't she?" \
            " Her whole childhood was under his shadow." \
-           " John admired him, but he didn't know him like she knew him."
+           " John admired him, but he didn't know him, like she knew him."
 
 en_nlp = spacy.load('en_core_web_md')
 # sentence = sentence.lower()
@@ -139,4 +139,4 @@ pprint(anaphora_mappings)
 resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos)
 print(' '.join(resolved_sent))
 
-# Jhon admired Louie, but John didn't know Louie like Samantha knew Louie
+# Jhon admired Louie, but John didn't know Louie, like Samantha knew Louie
