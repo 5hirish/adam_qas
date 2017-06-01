@@ -14,7 +14,7 @@ def query2vec(query, dictionary):
 def doc2vec(documents):
     with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
-    texts = [[word for word in doc.text.lower().split() if word not in stop_list]for doc in documents]
+    texts = [[word for word in doc.lemma_.split() if word not in stop_list]for doc in documents]
 
     frequency = Counter()
     for sent in texts:

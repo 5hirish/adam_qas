@@ -14,9 +14,10 @@ def query2vec(query, dictionary):
 
 
 def doc2vec(documents):
+
     with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
-    texts = [[word for word in doc.text.lower().split() if word not in stop_list]for doc in documents]
+    texts = [[word for word in doc.lemma_.split() if word not in stop_list]for doc in documents]
 
     frequency = Counter()
     for sent in texts:
@@ -75,7 +76,7 @@ def keywords_splitter(keywords, keywords_splits):
 
 
 def pre_query(keywords):
-    keywords = [keywords[feat].lower() for feat in range(0, len(keywords) - 1)]
+    keywords = [keywords[feat].lower() for feat in range(0, len(keywords))]
     whitespace = ' '
     keywords_splits = whitespace.join(keywords).split()
 
@@ -118,9 +119,6 @@ document = "From 1969 to 1971, Cash starred in his own television show, The John
 ranked_pages = [(0, 0.22592135), (3, 0.21375993), (2, 0.14056443)]
 
 en_nlp = spacy.load('en_core_web_md')
-
-# document = utils.lemmatize(document)
-# print(document)
 
 en_doc = en_nlp(u'' + document)
 
