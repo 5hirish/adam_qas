@@ -1,4 +1,5 @@
 import gensim
+from gensim import utils
 import re
 import spacy
 from collections import Counter, OrderedDict
@@ -83,7 +84,7 @@ def pre_query(keywords):
 
     return keywords_splits
 
-keywords_ip = ['stage', 'color Johnny Cash', 'wears']
+keywords_ip = ['stage', 'color Johnny Cash', 'wear']
 document = "From 1969 to 1971, Cash starred in his own television show, The Johnny Cash Show, on the ABC network. " \
            "The Statler Brothers opened up for him in every episode; the Carter Family and rockabilly legend Carl Perkins were also part of the regular show entourage. " \
            "Cash also enjoyed booking mainstream performers as guests; including Neil Young, Louis Armstrong, Neil Diamond, Kenny Rogers and The First Edition (who appeared four times), James Taylor, Ray Charles, Roger Miller, Roy Orbison, Derek and the Dominos, and Bob Dylan. " \
@@ -117,6 +118,9 @@ document = "From 1969 to 1971, Cash starred in his own television show, The John
 ranked_pages = [(0, 0.22592135), (3, 0.21375993), (2, 0.14056443)]
 
 en_nlp = spacy.load('en_core_web_md')
+
+# document = utils.lemmatize(document)
+# print(document)
 
 en_doc = en_nlp(u'' + document)
 

@@ -32,14 +32,14 @@ def get_adj_phrase(token, token_text):
     for child in token.children:
         if child.dep_ == "amod" or child.dep_ == "acomp" or child.dep_ == "ccomp":  # not for how many
             if child.text != "much" and child.text != "many":
-                token_text = child.text + " " + token_text
+                token_text = child.lemma_ + " " + token_text
     return token_text
 
 
 def get_root_phrase(token, keywords):
     for child in token.children:
         if child.dep_ == "acomp" or child.dep_ == "xcomp" or child.dep_ == "ccomp":
-            keywords.append(child.text)
+            keywords.append(child.lemma_)
     return keywords
 
 
@@ -63,7 +63,7 @@ def get_noun_chunk(sent, en_doc, keywords):
             keywords.append(token_text)
 
         if token.dep_ == "ROOT":
-            root = token.text
+            root = token.lemma_
             keywords = get_root_phrase(token, keywords)
 
     return root, keywords

@@ -5,6 +5,7 @@ from pprint import pprint
 
 def query2vec(query, dictionary):
 
+    print("Searching: ", query)
     corpus = dictionary.doc2bow(query)
 
     return corpus
@@ -76,9 +77,7 @@ def pre_query(question_query):
     keywords = question_query[0]
     keywords_conjunct = question_query[1]
 
-    print(keywords)
-
-    keywords = [keywords[feat].lower() for feat in range(0, len(keywords) - 1)]
+    keywords = [keywords[feat].lower() for feat in range(0, len(keywords))]
     whitespace = ' '
     keywords_splits = whitespace.join(keywords).split()
 

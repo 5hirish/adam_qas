@@ -73,17 +73,19 @@ def pre_process_doc(list_docs):
     # (\\n)+
     # (=+[a-zA-Z0-9\s]+=+([a-zA-Z0-9\s]+=+)*)
 
-    regex_newline = re.compile(r'(\n)+')
-    regex_apostrophe = re.compile(r'(\')')
+    regex_newline = re.compile(r'(\\n)+')
+    regex_apostrophe = re.compile(r"(\\')")
     regex_or = re.compile(r'(?<=[A-Za-z.]\s)+/(?=\s+[A-Za-z])')
     regex_sections = re.compile(r'(=+[a-zA-Z0-9\s]+=+([a-zA-Z0-9\s]+=+)*)')
+    regex_whitespace = re.compile(r"(\s)+")
 
     for doc in range(len(list_docs)):
         snip = list_docs[doc]
-        snip = regex_newline.sub("", snip)
-        snip = regex_apostrophe.sub(" ", snip)
+        snip = regex_newline.sub(" ", snip)
+        snip = regex_apostrophe.sub("'", snip)
         snip = regex_or.sub("or", snip)
         snip = regex_sections.sub("", snip)
+        snip = regex_whitespace.sub(" ", snip)
 
         list_docs[doc] = snip
 
