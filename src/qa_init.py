@@ -1,4 +1,6 @@
 import spacy
+import warnings
+
 from enchant import Dict
 from autocorrect import spell
 from re import compile
@@ -24,6 +26,9 @@ def spell_check(input_question):
             correct_word = spell(input_question_word_list[word_index])
             input_question_word_list[word_index] = correct_word
     return " ".join(input_question_word_list)
+
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # input_question = input("Q:>")
 input_question = "What's the only color Johnny Cash wears on stage ?"
