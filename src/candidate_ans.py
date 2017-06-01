@@ -121,7 +121,8 @@ def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
 
     simi_sorted = similariy(corpus_lsidf, query_lsidf)
 
-    simi_sorted = simi_sorted[0:5]
+    if len(simi_sorted) > 5:
+        simi_sorted = simi_sorted[0:5]
 
     result_ans = ""
     for sent in simi_sorted:

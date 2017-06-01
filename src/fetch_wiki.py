@@ -19,6 +19,8 @@ def search_wiki(keywords, number_of_search, wiki_pages):
 
             except wikipedia.exceptions.DisambiguationError as error:
                 pass
+            except wikipedia.exceptions.PageError as error:
+                pass
                 #print(error.options)
 
             # print(page_title, len(page_content), type(page_content))
