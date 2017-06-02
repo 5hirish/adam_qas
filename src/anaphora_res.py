@@ -3,6 +3,7 @@ import requests
 from pprint import pprint
 from collections import OrderedDict
 
+
 def get_named_entities(en_doc):
     prop_noun_entities = {}
     prop_noun_entities_pos = {}

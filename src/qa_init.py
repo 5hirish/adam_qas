@@ -14,6 +14,40 @@ from src.doc_scorer import rank_docs
 from src.candidate_ans import get_candidate_answers
 
 
+def answer_question(input_question):
+
+    en_nlp = spacy.load('en_core_web_md')
+
+    en_doc = en_nlp(u'' + input_question)
+
+    question_class = classify_question(en_doc)
+    print("Class:", question_class)
+
+    question_keywords = extract_features(question_class, en_doc)
+    print("Question Features:", question_keywords)
+
+    question_query = construct_query(question_keywords, en_doc)
+    print("Question Query:", question_query)
+
+    print("Fetching Knowledge source...")
+    wiki_pages = fetch_wiki(question_keywords, number_of_search=3)
+    print("Pages Fetched:", len(wiki_pages))
+
+    # Anaphora Resolution
+
+    ranked_wiki_docs = rank_docs(question_keywords)
+    print("Ranked Pages:", ranked_wiki_docs)
+
+    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
+    print("Candidate Answer:", "(" + str(len(candidate_answers)) + ")", candidate_answers)
+
+    print("Answer:", " ".join(candidate_answers))
+
+    answer = " ".join(candidate_answers)
+
+    return answer
+
+
 def spell_check(input_question):
 
     pattern = "\W"
@@ -38,32 +72,7 @@ print("Question:", input_question_c)
 
 start_time = time()
 
-en_nlp = spacy.load('en_core_web_md')
-
-en_doc = en_nlp(u'' + input_question_c)
-
-question_class = classify_question(en_doc)
-print("Class:", question_class)
-
-question_keywords = extract_features(question_class, en_doc)
-print("Question Features:", question_keywords)
-
-question_query = construct_query(question_keywords, en_doc)
-print("Question Query:", question_query)
-
-print("Fetching Knowledge source...")
-wiki_pages = fetch_wiki(question_keywords, number_of_search=3)
-print("Pages Fetched:", len(wiki_pages))
-
-# Anaphora Resolution
-
-ranked_wiki_docs = rank_docs(question_keywords)
-print("Ranked Pages:", ranked_wiki_docs)
-
-candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
-print("Candidate Answer:", "("+str(len(candidate_answers))+")", candidate_answers)
-
-print("Answer:", " ".join(candidate_answers))
+answer_output = answer_question(input_question)
 
 end_time = time()
 print("Total time :", end_time - start_time)
