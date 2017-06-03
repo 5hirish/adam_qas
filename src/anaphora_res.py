@@ -74,19 +74,31 @@ def map_entity_pronoun(prop_noun_entities, entity, anaphora_mappings):
 
 
 def propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos):
+    first_person_pron = ["i", "me", "my", "mine"]
+
     anaphora_pronouns = list(anaphora_mappings.values())
     anaphora_pnouns = list(anaphora_mappings.keys())
     doc_list = [str(tok) for tok in en_doc]
 
     for sent in en_doc.sents:
+        prev_noun = ""
         for token in sent:
+            print(token.text)
+            if token.tag_ == "NNP" or token.tag_ == "NNPS":
+                prev_noun = token.text
             if token.tag_ == "PRP" or token.tag_ == "PRP$":
                 for pos in range(len(anaphora_pronouns)):
                     if str(token.text).lower() in anaphora_pronouns[pos]:
                         resolve_noun = anaphora_pnouns[pos]
+                        print(resolve_noun, prev_noun, token.text)
                         res_pos = prop_noun_entities_pos[resolve_noun]
-                        if res_pos < token.i:
+                        if res_pos < token.i and str(token.text).lower in first_person_pron:
+                            doc_list[token.i] = prev_noun
+                            break
+                        elif res_pos < token.i and resolve_noun != prev_noun:
                             doc_list[token.i] = resolve_noun
+                            prev_noun = resolve_noun
+                            break
 
     return doc_list
 
@@ -96,7 +108,9 @@ sentence = "Louie is a quite fellow." \
            " Samantha loves this about him." \
            " Why wouldn't she?" \
            " Her whole childhood was under his shadow." \
-           " John admired him, but he didn't know him, like she knew him."
+           " John admired him, but he didn't know him, like she knew him." \
+           " Louie used to say 'I know life'." \
+           " He did."
 
 en_nlp = spacy.load('en_core_web_md')
 # sentence = sentence.lower()
