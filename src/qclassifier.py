@@ -2,8 +2,10 @@ from sklearn import datasets
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
+from scipy.sparse import csr_matrix
 import pandas
 import spacy
+from time import time
 
 
 def get_data_info(dta):
@@ -33,6 +35,7 @@ def transform_data_matrix(X_train, X_predict):
             trans_data_train[col] = list(X_train[col])
 
     XT_train = pandas.DataFrame(trans_data_train)
+    XT_train = csr_matrix(XT_train)
     # get_data_info(XT_train)
 
     trans_data_predict = {}
@@ -44,6 +47,7 @@ def transform_data_matrix(X_train, X_predict):
             trans_data_predict[col] = list(X_predict[col])  # KeyError
 
     XT_predict = pandas.DataFrame(trans_data_predict)
+    XT_predict = csr_matrix(XT_predict)
     # get_data_info(XT_predict)
 
     return XT_train, XT_predict
@@ -106,12 +110,13 @@ def classify_question(en_doc):
     return str(support_vector_machine(X_train, y, X_predict))
 
 """
+start_time = time()
 en_nlp = spacy.load("en_core_web_md")
 dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
 # get_data_info(dta)
 
 y = dta.pop('Class')
-dta.pop('Question')
+dta.pop('#Question')
 dta.pop('WH-Bigram')
 
 X_train = pre_process(dta)
@@ -124,7 +129,7 @@ question = 'Who is Linus Torvalds ?'
 # question = 'What is the colour of apple ?'
 en_doc = en_nlp(u'' + question)
 
-question_data = get_question_predict_data(question, en_doc)
+question_data = get_question_predict_data(en_doc)
 X_predict = pre_process(question_data)
 # print(X_predict)
 # print(X_train)
@@ -133,4 +138,6 @@ X_train, X_predict = transform_data_matrix(X_train, X_predict)
 
 # print(naive_bayes_classifier(X_train, y, X_predict))
 print(support_vector_machine(X_train, y, X_predict))
+end_time = time()
+print("Total time :", end_time - start_time)
 """
