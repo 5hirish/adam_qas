@@ -16,8 +16,6 @@ from src.candidate_ans import get_candidate_answers
 
 def answer_question(input_question):
 
-    en_nlp = spacy.load('en_core_web_md')
-
     en_doc = en_nlp(u'' + input_question)
 
     question_class = classify_question(en_doc)
@@ -71,6 +69,8 @@ input_question_c = input_question
 print("Question:", input_question_c)
 
 start_time = time()
+
+en_nlp = spacy.load('en_core_web_md')
 
 answer_output = answer_question(input_question)
 

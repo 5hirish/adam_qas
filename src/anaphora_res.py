@@ -154,4 +154,4 @@ pprint(anaphora_mappings)
 resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos)
 print(' '.join(resolved_sent))
 
-# Jhon admired Louie, but John didn't know Louie, like Samantha knew Louie
+# John admired Louie, but John didn't know Louie, like Samantha knew Louie
