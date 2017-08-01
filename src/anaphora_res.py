@@ -2,6 +2,7 @@ import spacy
 import requests
 from pprint import pprint
 from collections import OrderedDict
+from neuralcoref import Coref
 
 
 def get_named_entities(en_doc):
@@ -112,7 +113,13 @@ sentence = "Louie is a quite fellow." \
            " Louie used to say 'I know life'." \
            " He did."
 
-en_nlp = spacy.load('en_core_web_md')
+coref = Coref()
+cluster = coref.continuous_coref(utterances=sentence)
+resolved_sentence = coref.get_resolved_utterances()
+print(resolved_sentence)
+
+
+"""en_nlp = spacy.load('en_core_web_md')
 # sentence = sentence.lower()
 print(sentence)
 en_doc = en_nlp(u'' + sentence)
@@ -152,6 +159,6 @@ for sent in en_doc.sents:
 pprint(anaphora_mappings)
 
 resolved_sent = propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos)
-print(' '.join(resolved_sent))
+print(' '.join(resolved_sent))"""
 
 # John admired Louie, but John didn't know Louie, like Samantha knew Louie
