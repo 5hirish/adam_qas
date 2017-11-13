@@ -2,6 +2,7 @@ import gensim
 import re
 from collections import Counter, OrderedDict
 from pprint import pprint
+from src.neuralcoref import Coref
 
 
 def query2vec(query, dictionary):
@@ -96,6 +97,15 @@ def pre_process_doc(list_docs):
             fp.write(str(op_doc) + "\n")
 
 
+def coref_doc(list_docs):
+
+    coref = Coref()
+
+    for doc in range(len(list_docs)):
+        cluster = coref.continuous_coref(utterances=list_docs[doc])
+        list_docs[doc] = coref.get_resolved_utterances()
+
+
 def combine(sub_keys, keywords_splits, lb, mb, ub):
     whitespace = ' '
     while mb != ub:
@@ -127,6 +137,8 @@ def score_docs(documents, keywords):
     # print(keywords_splits)
 
     pre_process_doc(documents)
+
+    # coref_doc(documents)
 
     print("Documents pre-processed")
 
@@ -162,8 +174,7 @@ def rank_docs(keywords):
     return ranked_docs
 
 
-"""
-keywords_ip = ['species', 'Great White shark', 'are']
+
+keywords_ip = ['Jhon Cash', 'clothes', 'color']
 rank_docs = rank_docs(keywords_ip)
 print(rank_docs)
-"""

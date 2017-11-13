@@ -1,6 +1,7 @@
 import gensim
 from collections import Counter, OrderedDict
 from pprint import pprint
+from src.neuralcoref import Coref
 
 
 def query2vec(query, dictionary):
@@ -101,12 +102,23 @@ def get_processed_document(ranked_wiki_docs):
     return processed_documents
 
 
+def coref_doc(list_docs):
+
+    coref = Coref()
+
+    cluster = coref.continuous_coref(utterances=list_docs)
+    list_docs = coref.get_resolved_utterances()
+    return list_docs
+
+
 def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
 
     keywords_query = pre_query(question_query)
     # print(keywords_query)
 
     document = get_processed_document(ranked_wiki_docs)
+
+    # document = coref_doc(document)
 
     en_doc = en_nlp(u'' + document)
 
@@ -129,3 +141,8 @@ def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
         candidate_ans.append(str(sentences[sent_id]))
 
     return candidate_ans, keywords_query
+
+
+"""
+
+"""

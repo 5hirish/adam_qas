@@ -2,7 +2,7 @@ import spacy
 import requests
 from pprint import pprint
 from collections import OrderedDict
-from neuralcoref import Coref
+from src.neuralcoref import Coref
 
 
 def get_named_entities(en_doc):
