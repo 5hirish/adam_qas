@@ -1,45 +1,48 @@
-# ADAM - A Question Answering System
+# ADAM : Question Answering System
+A question answering system that extracts answers questions in natural language from Wikipedia. Currently the answers 
+extracted by the system are of an average to above average accuracy. I have identified the issues and I am working on 
+improving the accuracy. Please checkout the road-map of this project to know more about the status of this project.
+You can also follow by blog [shirishkadam.com](https://www.shirishkadam.com/)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361)](https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger)
 
-## *Alleviate*
+## Developed & Maintained by team Alleviate
 Inspired by *IBM Watson* and *START*
+
+### Features :
+* Wikipedia as knowledge source
+* Question Classification using Support Vector Classifier (Currently not used in Question Analysis flow)
+* A 2 step Vector Space model used for Answer Extraction
+* Merges top 5 answers to form final answer
+
+### Documentation:
+Find more in depth documentation about the system with its research paper and system architecture here: [ARCHI.md](/doc/ARCHI.md)
 
 ### Requirements :
 ###### Python3 - [Python v3.5](https://docs.python.org/3/)
-* [spaCy v1.8.2](https://spacy.io/)
-* [scikit-learn v0.18](http://scikit-learn.org/)
-* [gensim v2.1](https://radimrehurek.com/gensim/)
-* [pandas v0.20](http://pandas.pydata.org/)
+* [spaCy v2.0.3](https://spacy.io/)
+* [scikit-learn v0.19.1](http://scikit-learn.org/)
+* [gensim v3.0.1](https://radimrehurek.com/gensim/)
+* [pandas v0.21](http://pandas.pydata.org/)
 * [wikipedia v1.10](https://pypi.python.org/pypi/wikipedia/)
 
-    * spaCy model - en_core_web_md v1.2
-
-## System Architecture :
-![alt text](adam_arch.png "ADAM Architecture")
-> (c) 2016-17, Shirish Kadam;
-> (c) 2016-17, Amit Gunjal
-
-## Work FLow
-![alt text](adam_qa_pipeline.png "ADAM Architecture")
-> (c) 2016-17, Shirish Kadam;
-> (c) 2016-17, Amit Gunjal
-## Reference Material
-1. [ADAM Reference](https://drive.google.com/open?id=0B7Paai6yoeuHNHpOT01IaGZzYlE)
-2. [Research Papers](https://drive.google.com/open?id=0B7Paai6yoeuHcmYtaS1tNWJ6U1k)
-> Restricted Access
+To execute adam qas `python qa_init.py` at `adam/src`
 
 ##### Development Environment :
-* OS - Linux Mint 18.1 (64 bit)
+* OS - Linux Mint 18.3 (64 bit)
 * IDE - Intellij IDEA 2017 / PyCharm 2017
 
-## Branches :
-1. master - Production Branch
-2. experimental - Experimental Branch
+### Road-Map :
+- [ ] Replace Wikipedia APIs with in house scraper
+- [ ] Anaphora resolution
+- [ ] Replace the rule based query constructor
+- [ ] Improve the VSM for answer extraction
 
-###### Coding Standards : 
-Follow these coding style for [Python](http://docs.python-guide.org/en/latest/writing/style/)
-Appropriate comments necessary at that relevant code
+### Branches :
+1. master - Master Branch
+2. dev - Development Branch
+
+__Coding Standards__ : Follow these coding style for [Python](http://docs.python-guide.org/en/latest/writing/style/)
 
 ## Copyright License :
 ![alt text](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png "CC BY-NC-ND")
