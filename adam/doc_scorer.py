@@ -2,7 +2,7 @@ import gensim
 import re
 from collections import Counter, OrderedDict
 from pprint import pprint
-from src.neuralcoref import Coref
+from adam.neuralcoref import Coref
 
 
 def query2vec(query, dictionary):

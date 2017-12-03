@@ -6,12 +6,12 @@ from autocorrect import spell
 from re import compile
 from time import time
 
-from src.qclassifier import classify_question
-from src.feature_extractor import extract_features
-from src.query_const import construct_query
-from src.fetch_wiki import fetch_wiki
-from src.doc_scorer import rank_docs
-from src.candidate_ans import get_candidate_answers
+from adam.qclassifier import classify_question
+from adam.feature_extractor import extract_features
+from adam.query_const import construct_query
+from adam.fetch_wiki import fetch_wiki
+from adam.doc_scorer import rank_docs
+from adam.candidate_ans import get_candidate_answers
 
 
 def answer_question(input_question):
