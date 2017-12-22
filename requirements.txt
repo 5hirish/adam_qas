@@ -1,0 +1,5 @@
+spaCy>=2.0.3
+scikit-learn>=v0.19.1
+gensim>=3.0.1
+pandas>=0.21
+wikipedia>=1.10
