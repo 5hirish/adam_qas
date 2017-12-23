@@ -1,10 +1,9 @@
-import os
 from time import time
 import warnings
 from re import compile
 
-import spacy
-from enchant import Dict
+import numpy as np
+import enchant
 from autocorrect import spell
 
 from qas.qclassifier import classify_question
@@ -14,10 +13,12 @@ from qas.fetch_wiki import fetch_wiki
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 
+from qas.constants import nlp, EXAMPLE_QUESTIONS
+
 
 def answer_question(input_question):
 
-    en_doc = en_nlp(u'' + input_question)
+    en_doc = nlp(u'' + input_question)
 
     question_class = classify_question(en_doc)
     print("Class:", question_class)
@@ -37,7 +38,7 @@ def answer_question(input_question):
     ranked_wiki_docs = rank_docs(question_keywords)
     print("Ranked Pages:", ranked_wiki_docs)
 
-    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
+    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, nlp)
     print("Candidate Answer:", "(" + str(len(candidate_answers)) + ")", candidate_answers)
 
     print("Answer:", " ".join(candidate_answers))
@@ -53,27 +54,27 @@ def spell_check(input_question):
     prog = compile(pattern)
 
     input_question_word_list = input_question.split()
-    en_dict = Dict("en_US")
+    en_dict = enchant.Dict("en_US")
     for word_index in range(len(input_question_word_list)):
-        if not en_dict.check(input_question_word_list[word_index]) and prog.match(input_question_word_list[word_index]) is None:
+        if (not en_dict.check(input_question_word_list[word_index]) and
+                prog.match(input_question_word_list[word_index]) is None):
             correct_word = spell(input_question_word_list[word_index])
             input_question_word_list[word_index] = correct_word
     return " ".join(input_question_word_list)
 
 
-warnings.filterwarnings("ignore", category=UserWarning)
+if __name__ == '__main__':
+    warnings.filterwarnings("ignore", category=UserWarning)
 
-# input_question = input("Q:>")
-input_question = "What's the only color Johnny Cash wears on stage ?"
-# input_question_c = spell_check(input_question)
-input_question_c = input_question
-print("Question:", input_question_c)
+    # input_question = input("Q:>")
+    q = EXAMPLE_QUESTIONS[np.random.randint(len(EXAMPLE_QUESTIONS))]
+    q = spell_check(q)
+    # input_question_c = spell_check(input_question)
+    print("Question:", q)
 
-start_time = time()
+    start_time = time()
 
-en_nlp = spacy.load('en_core_web_md')
+    answer_output = answer_question(q)
 
-answer_output = answer_question(input_question)
-
-end_time = time()
-print("Total time :", end_time - start_time)
+    end_time = time()
+    print("Total time :", end_time - start_time)
