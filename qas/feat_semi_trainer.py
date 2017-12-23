@@ -1,9 +1,11 @@
-from sklearn import datasets
-from sklearn.multiclass import OneVsRestClassifier
+import os
+
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
 import pandas
 import spacy
+
+from qas.constants import CORPUS_DIR
 
 
 def get_data_info(dta):
@@ -74,7 +76,8 @@ def get_feat_predict_data(token, qclass):
     if feat_ent_label == "":
         feat_ent_label = "NON"
 
-    fdata_frame = [{'QType': qclass, 'F-POS': feat_pos, 'F-DEP': feat_dep, 'F-ENT': feat_ent_label, 'F-SHAPE': feat_shape}]
+    fdata_frame = [{'QType': qclass, 'F-POS': feat_pos, 'F-DEP': feat_dep,
+                    'F-ENT': feat_ent_label, 'F-SHAPE': feat_shape}]
 
     dta = pandas.DataFrame(fdata_frame)
     return dta
@@ -82,7 +85,7 @@ def get_feat_predict_data(token, qclass):
 
 def classify_question(en_doc):
 
-    dta = pandas.read_csv('corpus/semi_feature_trainer.csv', sep='|')
+    dta = pandas.read_csv(os.path.join(CORPUS_DIR, 'semi_feature_trainer.csv'), sep='|')
     # get_data_info(dta)
 
     y = dta.pop('Class')
@@ -100,7 +103,7 @@ def classify_question(en_doc):
 
 
 en_nlp = spacy.load("en_core_web_md")
-dta = pandas.read_csv('corpus/semi_feature_trainer.csv', sep='|')
+dta = pandas.read_csv(os.path.join(CORPUS_DIR, 'semi_feature_trainer.csv'), sep='|')
 # get_data_info(dta)
 
 y = dta.pop('Class')

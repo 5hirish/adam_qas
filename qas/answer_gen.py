@@ -1,7 +1,9 @@
+import os
+from collections import Counter
+
 import gensim
-from collections import Counter, OrderedDict
-import spacy
-from pprint import pprint
+
+from qas.constants import CORPUS_DIR
 
 
 def query2vec(query, dictionary):
@@ -12,7 +14,7 @@ def query2vec(query, dictionary):
 
 
 def doc2vec(documents):
-    with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
+    with open(os.path.join(CORPUS_DIR, 'stop_words.txt'), 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
     texts = [[word for word in doc.lemma_.split() if word not in stop_list]for doc in documents]
 
@@ -86,6 +88,7 @@ def get_candidate_answers(split_keywords, candidate_answer, en_nlp):
 en_nlp = spacy.load('en_core_web_md')
 
 keywords = ['color johnny cash', 'cash', 'johnny', 'johnny cash', 'color johnny', 'stage', 'color', 'wear']
-document = ['He recorded Johnny Cash Reads.', 'He wore other colors on stage early in his career, but he claimed to like wearing black both on and off stage.', 'Theatre technique Theatre "Johnny Cash and His Woman is an album by American country singer Johnny Cash and features his wife, June Carter Cash.', 'The Johnny Cash Trail features art selected by a committee that included Cindy Cash, a 2-acre (0.81 ha)', "The Johnny Cash Museum, located in one of Cash's properties in Hendersonville until 2006, dubbed the House of Cash, was sold based on Cash's will."]
+document = ['He recorded Johnny Cash Reads.', 'He wore other colors on stage early in his career, but he claimed to like wearing black both on and off stage.', 'Theatre technique Theatre "Johnny Cash and His Woman is an album by American country singer Johnny Cash and features his wife, June Carter Cash.',
+            'The Johnny Cash Trail features art selected by a committee that included Cindy Cash, a 2-acre (0.81 ha)', "The Johnny Cash Museum, located in one of Cash's properties in Hendersonville until 2006, dubbed the House of Cash, was sold based on Cash's will."]
 
 get_candidate_answers(keywords, document, en_nlp)

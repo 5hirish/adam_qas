@@ -1,5 +1,9 @@
-import wikipedia
+import os
+
 from collections import OrderedDict
+import wikipedia
+
+from qas.constants import CORPUS_DIR
 
 
 def search_wiki(keywords, number_of_search, wiki_pages):
@@ -21,7 +25,7 @@ def search_wiki(keywords, number_of_search, wiki_pages):
                 pass
             except wikipedia.exceptions.PageError as error:
                 pass
-                #print(error.options)
+                # print(error.options)
 
             # print(page_title, len(page_content), type(page_content))
 
@@ -36,7 +40,7 @@ def fetch_wiki(keywords, number_of_search):
 
     # print(wiki_pages)
 
-    with open('corpus/know_corp_raw.txt', 'w') as fp:
+    with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'w') as fp:
         for src_doc in wiki_pages.values():
             split_wiki_docs = [src_doc]
             fp.write(str(split_wiki_docs) + "\n")

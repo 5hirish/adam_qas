@@ -1,7 +1,10 @@
-import gensim
+import os
 import re
-from collections import Counter, OrderedDict
-from pprint import pprint
+from collections import Counter
+
+import gensim
+
+from qas.constants import CORPUS_DIR
 
 
 def query2vec(query, dictionary):
@@ -19,7 +22,7 @@ def query2vec(query, dictionary):
 
 
 def doc2vec(documents):
-    with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
+    with open(os.path.join(CORPUS_DIR, 'stop_words.txt'), 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
     texts = [[word for word in doc.lower().split() if word not in stop_list]for doc in documents]
     frequency = Counter()
@@ -91,7 +94,7 @@ def pre_process_doc(list_docs):
 
         list_docs[doc] = snip
 
-    with open('corpus/know_corp.txt', 'w') as fp:
+    with open(os.path.join(CORPUS_DIR, 'know_corp.txt'), 'w') as fp:
         for op_doc in list_docs:
             fp.write(str(op_doc) + "\n")
 
@@ -144,7 +147,7 @@ def score_docs(documents, keywords):
 
 def rank_docs(keywords):
 
-    with open('corpus/know_corp_raw.txt', 'r') as fp:
+    with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'r') as fp:
         documents_raw = fp.read().split("\n")
         del documents_raw[len(documents_raw) - 1]
 
