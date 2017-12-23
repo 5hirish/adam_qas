@@ -34,19 +34,29 @@ Find more in depth documentation about the system with its research paper and sy
 
 Requirements listed in `requirements.txt`
 
-##### Python3 - [Python v3.5](https://docs.python.org/3/)
+## Requirements.txt
 
-* [spaCy v2.0.3](https://spacy.io/)
-* [scikit-learn v0.19.1](http://scikit-learn.org/)
-* [gensim v3.0.1](https://radimrehurek.com/gensim/)
-* [pandas v0.21](http://pandas.pydata.org/)
-* [wikipedia v1.10](https://pypi.python.org/pypi/wikipedia/)
+[Python 3](https://docs.python.org/3/)
 
-To execute adam qas `python qa_init.py` at `/src`
+* [spaCy>=2.0.3](https://spacy.io/)
+* [scikit-learn>=0.19.1](http://scikit-learn.org/)
+* [gensim>=3.0.1](https://radimrehurek.com/gensim/)
+* [pandas>=0.21](http://pandas.pydata.org/)
+* [wikipedia>=1.4.0](https://pypi.python.org/pypi/wikipedia/)
+* [pyenchant>=2.0.0](https://pypi.python.org/pypi/pyenchant/)
+* [autocorrect>=0.3.0](https://pypi.python.org/pypi/autocorrect/)
 
-##### Development Environment :
-* OS - Linux Mint 18.3 (64 bit)
-* IDE - Intellij IDEA 2017 / PyCharm 2017
+## Getting Started
+
+```bash
+$ git clone https://github.com/totalgood/adam_qas.git
+$ cd adam_qas
+$ pip install -r requirements.txt
+$ python -m spacy download en_core_web_md
+$ pip install -e .
+$ python qas/qa_init.py
+```
+
 
 ### Branches :
 1. master - Master Branch

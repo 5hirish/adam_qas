@@ -1,11 +1,44 @@
-from sklearn import datasets
-from sklearn.multiclass import OneVsRestClassifier
+"""
+start_time = time()
+en_nlp = spacy.load("en_core_web_md")
+dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
+# get_data_info(dta)
+
+y = dta.pop('Class')
+dta.pop('#Question')
+dta.pop('WH-Bigram')
+
+X_train = pre_process(dta)
+
+# print(X_train.shape)
+
+# print(len(column_list))
+
+question = 'Who is Linus Torvalds ?'
+# question = 'What is the colour of apple ?'
+en_doc = en_nlp(u'' + question)
+
+question_data = get_question_predict_data(en_doc)
+X_predict = pre_process(question_data)
+# print(X_predict)
+# print(X_train)
+
+X_train, X_predict = transform_data_matrix(X_train, X_predict)
+
+# print(naive_bayes_classifier(X_train, y, X_predict))
+print(support_vector_machine(X_train, y, X_predict))
+end_time = time()
+print("Total time :", end_time - start_time)
+"""
+import os
+
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
 from scipy.sparse import csr_matrix
 import pandas
-import spacy
-from time import time
+
+
+CORPUS_DIR = os.path.join(os.path.dirname(__file__), 'corpus')
 
 
 def get_data_info(dta):
@@ -84,7 +117,7 @@ def get_question_predict_data(en_doc):
             wh_nbor_pos = en_doc[token.i + 1].tag_
         if token.dep_ == "ROOT":
             root_token = token.tag_
-    qdata_frame = [{'WH':wh_word, 'WH-POS':wh_pos, 'WH-NBOR-POS':wh_nbor_pos, 'Root-POS':root_token}]
+    qdata_frame = [{'WH': wh_word, 'WH-POS': wh_pos, 'WH-NBOR-POS': wh_nbor_pos, 'Root-POS': root_token}]
     # qdata_list = [wh_word, wh_pos, wh_nbor_pos, root_token]
     # dta = pandas.DataFrame(qdata_list, columns=column_list)
     dta = pandas.DataFrame(qdata_frame)
@@ -92,8 +125,9 @@ def get_question_predict_data(en_doc):
 
 
 def classify_question(en_doc):
+    """ Determine whether this is a who, what, when, where or why question """
 
-    dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
+    dta = pandas.read_csv(os.path.join(CORPUS_DIR, 'qclassifier_trainer.csv'), sep='|')
     # get_data_info(dta)
 
     y = dta.pop('Class')
@@ -108,36 +142,3 @@ def classify_question(en_doc):
     X_train, X_predict = transform_data_matrix(X_train, X_predict)
 
     return str(support_vector_machine(X_train, y, X_predict))
-
-"""
-start_time = time()
-en_nlp = spacy.load("en_core_web_md")
-dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
-# get_data_info(dta)
-
-y = dta.pop('Class')
-dta.pop('#Question')
-dta.pop('WH-Bigram')
-
-X_train = pre_process(dta)
-
-# print(X_train.shape)
-
-# print(len(column_list))
-
-question = 'Who is Linus Torvalds ?'
-# question = 'What is the colour of apple ?'
-en_doc = en_nlp(u'' + question)
-
-question_data = get_question_predict_data(en_doc)
-X_predict = pre_process(question_data)
-# print(X_predict)
-# print(X_train)
-
-X_train, X_predict = transform_data_matrix(X_train, X_predict)
-
-# print(naive_bayes_classifier(X_train, y, X_predict))
-print(support_vector_machine(X_train, y, X_predict))
-end_time = time()
-print("Total time :", end_time - start_time)
-"""

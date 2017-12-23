@@ -1,17 +1,18 @@
-import spacy
+import os
+from time import time
 import warnings
+from re import compile
 
+import spacy
 from enchant import Dict
 from autocorrect import spell
-from re import compile
-from time import time
 
-from src.qclassifier import classify_question
-from src.feature_extractor import extract_features
-from src.query_const import construct_query
-from src.fetch_wiki import fetch_wiki
-from src.doc_scorer import rank_docs
-from src.candidate_ans import get_candidate_answers
+from qas.qclassifier import classify_question
+from qas.feature_extractor import extract_features
+from qas.query_const import construct_query
+from qas.fetch_wiki import fetch_wiki
+from qas.doc_scorer import rank_docs
+from qas.candidate_ans import get_candidate_answers
 
 
 def answer_question(input_question):
