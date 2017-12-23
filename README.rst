@@ -43,22 +43,30 @@ Requirements
 
 Requirements listed in ``requirements.txt``
 
-Python3 - `Python v3.5 <https://docs.python.org/3/>`__
-''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Requirements.txt
+----------------
 
--  `spaCy v2.0.3 <https://spacy.io/>`__
--  `scikit-learn v0.19.1 <http://scikit-learn.org/>`__
--  `gensim v3.0.1 <https://radimrehurek.com/gensim/>`__
--  `pandas v0.21 <http://pandas.pydata.org/>`__
--  `wikipedia v1.10 <https://pypi.python.org/pypi/wikipedia/>`__
+`Python 3 <https://docs.python.org/3/>`__
 
-To execute adam qas ``python qa_init.py`` at ``/src``
+-  `spaCy>=2.0.3 <https://spacy.io/>`__
+-  `scikit-learn>=0.19.1 <http://scikit-learn.org/>`__
+-  `gensim>=3.0.1 <https://radimrehurek.com/gensim/>`__
+-  `pandas>=0.21 <http://pandas.pydata.org/>`__
+-  `wikipedia>=1.4.0 <https://pypi.python.org/pypi/wikipedia/>`__
+-  `pyenchant>=2.0.0 <https://pypi.python.org/pypi/pyenchant/>`__
+-  `autocorrect>=0.3.0 <https://pypi.python.org/pypi/autocorrect/>`__
 
-Development Environment :
-'''''''''''''''''''''''''
+Getting Started
+---------------
 
--  OS - Linux Mint 18.3 (64 bit)
--  IDE - Intellij IDEA 2017 / PyCharm 2017
+.. code:: bash
+
+    $ git clone https://github.com/totalgood/adam_qas.git
+    $ cd adam_qas
+    $ pip install -r requirements.txt
+    $ python -m spacy download en_core_web_md
+    $ pip install -e .
+    $ python qas/qa_init.py
 
 Branches :
 ~~~~~~~~~~
