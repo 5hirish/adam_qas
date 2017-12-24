@@ -50,7 +50,7 @@ def answer_question(input_question):
 
 def spell_check(input_question):
 
-    pattern = "\W"
+    pattern = "\w"
     prog = compile(pattern)
 
     input_question_word_list = input_question.split()
