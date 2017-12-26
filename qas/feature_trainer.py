@@ -1,6 +1,3 @@
-import spacy
-import csv
-
 """
 Question Type
 Part of Speech
@@ -10,6 +7,12 @@ Shape
 
 Class - F / NF
 """
+import os
+import csv
+
+import spacy
+
+from qas.constants import CORPUS_DIR
 
 
 def process_question(question, qclass, en_nlp):
@@ -33,9 +36,10 @@ def process_question(question, qclass, en_nlp):
 
                 # print(token.text, "-", feat_pos, token.pos_, feat_dep, feat_ent_label, feat_shape)
 
-                with open('corpus/feature_trainer.csv', 'a', newline='') as csv_fp:
+                with open(os.path.join(CORPUS_DIR, 'feature_trainer.csv'), 'a', newline='') as csv_fp:
                     csv_fp_writer = csv.writer(csv_fp, delimiter='|')
-                    csv_fp_writer.writerow([question, qclass, feat_pos, feat_dep, feat_ent_label, feat_shape, feat, feat_class])
+                    csv_fp_writer.writerow([question, qclass, feat_pos, feat_dep,
+                                            feat_ent_label, feat_shape, feat, feat_class])
                     csv_fp.close()
 
 
@@ -55,7 +59,7 @@ def read_input_file(fp, en_nlp):
 
 
 def clean_old_data():
-    with open('corpus/feature_trainer.csv', 'w', newline='') as csv_fp:
+    with open(os.path.join(CORPUS_DIR, 'feature_trainer.csv'), 'w', newline='') as csv_fp:
         csv_fp_writer = csv.writer(csv_fp, delimiter='|')
         csv_fp_writer.writerow(['#Question', 'QType', 'F-POS', 'F-DEP', 'F-ENT', 'F-SHAPE', 'F-TXT', 'Class'])
         csv_fp.close()
@@ -64,7 +68,7 @@ def clean_old_data():
 clean_old_data()
 en_nlp = spacy.load("en_core_web_md")
 
-with open('corpus/qclassifier_trainer.csv', 'r') as fp:
+with open(os.path.join(CORPUS_DIR, 'qclassifier_trainer.csv'), 'r') as fp:
     read_input_file(fp, en_nlp)
     fp.close()
     print("CSV Data Trained...")

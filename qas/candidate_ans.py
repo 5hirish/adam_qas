@@ -1,6 +1,9 @@
+import os
+from collections import Counter
+
 import gensim
-from collections import Counter, OrderedDict
-from pprint import pprint
+
+from qas.constants import CORPUS_DIR
 
 
 def query2vec(query, dictionary):
@@ -12,7 +15,7 @@ def query2vec(query, dictionary):
 
 
 def doc2vec(documents):
-    with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
+    with open(os.path.join(CORPUS_DIR, 'stop_words.txt'), 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
     texts = [[word for word in doc.lemma_.split() if word not in stop_list]for doc in documents]
 
@@ -75,7 +78,7 @@ def keywords_splitter(keywords, keywords_splits):
 def pre_query(question_query):
 
     keywords = question_query[0]
-    keywords_conjunct = question_query[1]
+    # keywords_conjunct = question_query[1]
 
     keywords = [keywords[feat].lower() for feat in range(0, len(keywords))]
     whitespace = ' '
@@ -89,7 +92,7 @@ def pre_query(question_query):
 
 def get_processed_document(ranked_wiki_docs):
 
-    with open('corpus/know_corp.txt', 'r') as fp:
+    with open(os.path.join(CORPUS_DIR, 'know_corp.txt'), 'r') as fp:
         documents = fp.read().split("\n")
         del documents[len(documents) - 1]
 
