@@ -11,7 +11,7 @@ Follow the creator's blog at [shirishkadam.com](https://www.shirishkadam.com/) f
 ## Getting Started
 
 ```bash
-$ git clone https://github.com/totalgood/adam_qas.git
+$ git clone https://github.com/5hirish/adam_qas.git
 $ cd adam_qas
 $ pip install -r requirements.txt
 $ python -m spacy download en_core_web_md
@@ -50,8 +50,8 @@ Package dependencies listed in `requirements.txt`
 
 ### TODO
 
-[ ] Replace Wikipedia APIs with custom scraper
-[ ] Anaphora resolution in both questions and answers
-[ ] Machine learning query constructor rather than rule-based
-[ ] Improve vector space language model for answer extraction
+- [ ] Replace Wikipedia APIs with custom scraper
+- [ ] Anaphora resolution in both questions and answers
+- [ ] Machine learning query constructor rather than rule-based
+- [ ] Improve vector space language model for answer extraction
 

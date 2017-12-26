@@ -14,7 +14,7 @@ Getting Started
 
 .. code:: bash
 
-    $ git clone https://github.com/totalgood/adam_qas.git
+    $ git clone https://github.com/5hirish/adam_qas.git
     $ cd adam_qas
     $ pip install -r requirements.txt
     $ python -m spacy download en_core_web_md
@@ -58,10 +58,10 @@ Features
 TODO
 ~~~~
 
-[ ] Replace Wikipedia APIs with custom scraper [ ] Anaphora resolution
-in both questions and answers [ ] Machine learning query constructor
-rather than rule-based [ ] Improve vector space language model for
-answer extraction
+- [ ] Replace Wikipedia APIs with custom scraper
+- [ ] Anaphora resolution in both questions and answers
+- [ ] Machine learning query constructor rather than rule-based
+- [ ] Improve vector space language model for answer extraction
 
 .. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361
    :target: https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger

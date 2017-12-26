@@ -34,9 +34,9 @@ from qas.candidate_ans import get_candidate_answers
 from qas.constants import nlp, EXAMPLE_QUESTIONS
 from qas import __version__
 
-__author__ = "Hobson Lane"
-__copyright__ = "Hobson Lane"
-__license__ = "none"
+__author__ = "Shirish Kadam"
+__copyright__ = "Copyright (C) 2017  Shirish Kadam"
+__license__ = "GNU General Public License v3 (GPLv3)"
 
 _logger = logging.getLogger(__name__)
 
@@ -101,7 +101,7 @@ def parse_args(args):
       :obj:`argparse.Namespace`: command line parameters namespace
     """
     parser = argparse.ArgumentParser(
-        description="Just a Fibonnaci demonstration")
+        description="Adam a question answering system")
     parser.add_argument(
         '--version',
         action='version',

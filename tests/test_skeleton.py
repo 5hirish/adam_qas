@@ -4,9 +4,9 @@
 import pytest
 from qas.skeleton import fib
 
-__author__ = "Hobson Lane"
-__copyright__ = "Hobson Lane"
-__license__ = "none"
+__author__ = "Shirish Kadam"
+__copyright__ = "Copyright (C) 2017  Shirish Kadam"
+__license__ = "GNU General Public License v3 (GPLv3)"
 
 
 def test_fib():

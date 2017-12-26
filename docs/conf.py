@@ -61,8 +61,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'qas'
-copyright = u'2017, Hobson Lane'
+project = u'Adam - Question Answering System'
+copyright = u'2017, Shirish Kadam'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -213,7 +213,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'user_guide.tex', u'qas Documentation',
-   u'Hobson Lane', 'manual'),
+   u'Shirish Kadam', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
