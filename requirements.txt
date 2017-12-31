@@ -1,3 +1,4 @@
+requests
 autocorrect>=0.3.0
 gensim>=3.0.1
 pandas>=0.21
