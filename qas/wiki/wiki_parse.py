@@ -4,6 +4,11 @@ from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 """
 Parsing with XPath 1.0 query
 XPath Documentation : https://developer.mozilla.org/en-US/docs/Web/XPath
+
+The '.' at the beginning means, that the current processing starts at the current node. 
+Your xpath starts with a slash '/' and is therefore absolute.
+The '*' selects all element nodes descending from this current node with the @id-attribute-value or @class value'.
+The '//' identifies any descendant designation element of element 
 """
 
 
@@ -18,17 +23,22 @@ class XPathExtractor:
     references_list_pattern = '''/div/div[@class="reflist"]'''
     meta_data_box_pattern = '''/div/div[starts-with(@class, "metadata")]'''
     nav_boxes_pattern = '''/div/div[@class="navbox"]'''
-    vertical_nav_boxes_pattern = '''/div/div[starts-with(@class, "vertical-navbox")]'''
+    vertical_nav_boxes_pattern = '''/div/table[starts-with(@class, "vertical-navbox")]'''
     no_print_metadata_pattern = '''/div/div[starts-with(@class, "noprint")]'''
 
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
+
+    img_pattern = '''/div/div[starts-with(@class, "thumb")]'''
+    img_href = '''./div//a/@href'''
+    img_caption = '''.//div[@class="thumbcaption"]/text()'''
 
     irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
                             '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
                             '''//*[@id="Further_reading"]''', '''//*[@id="External_links"]''']
 
     html_data = ''
+    extracted_img = []
     html_tree = None
     isFile = False
 
@@ -90,8 +100,26 @@ class XPathExtractor:
 
     def strip_headings(self):
         for heading in self.irrelevant_headlines:
-            heading_parent = self.html_tree.xpath(heading)[0].getparent()
-            heading_parent.getparent().remove(heading_parent)
+            heading_parent_list = self.html_tree.xpath(heading)
+            if len(heading_parent_list) > 0:
+                heading_parent = heading_parent_list[0].getparent()
+                heading_parent.getparent().remove(heading_parent)
+
+    def img_extract(self):
+        img_list = self.html_tree.xpath(self.img_pattern)
+        for img in img_list:
+            img_url, img_caption = "", ""
+            img_url_list = img.xpath(self.img_href)
+            if len(img_url_list) > 0:
+                img_url = str(img_url_list[0])
+            img_caption_list = img.xpath(self.img_caption)
+            if len(img_caption_list) > 0:
+                img_caption = ''.join(img_caption_list).strip()
+            img.getparent().remove(img)
+            if img_url != "":
+                wikii = WikiImg(img_url, img_caption)
+                self.extracted_img.append(wikii)
+        return self.extracted_img
 
     def save_html(self):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
@@ -99,10 +127,20 @@ class XPathExtractor:
             fp.write(html_str)
 
 
+class WikiImg:
+    img_url = ""
+    img_caption = ""
+
+    def __init__(self, img_url, img_caption):
+        self.img_url = img_url
+        self.img_caption = img_caption
+
+
 if __name__ == "__main__":
     with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
         xpe = XPathExtractor(fp, True)
         xpe.strip_tag()
         xpe.strip_headings()
+        xpe.img_extract()
         if SAVE_OUTPUTS:
             xpe.save_html()
