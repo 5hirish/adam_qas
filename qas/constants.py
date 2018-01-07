@@ -7,6 +7,7 @@ import spacy
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CORPUS_DIR = os.path.join(os.path.dirname(__file__), 'corpus')
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'output')
+SAVE_OUTPUTS = True
 EXAMPLE_QUESTIONS = [
     "What's Eddie Vedder's most famous song?",
     "Who's Barak Obama?",

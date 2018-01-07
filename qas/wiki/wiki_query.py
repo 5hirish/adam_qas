@@ -2,7 +2,6 @@ import requests
 import urllib.parse
 import sys
 import logging
-from qas.wiki.wiki_constants import base_url
 
 """
 https://en.wikipedia.org/w/api.php [EndPoint] [User-Agent header]
@@ -23,33 +22,43 @@ https://en.wikipedia.org/w/api.php [EndPoint] [User-Agent header]
 """
 
 
-def fetch_wiki_pages(search_term):
+class WikiQuery:
 
-    logging.basicConfig(level=logging.DEBUG)
-    logger = logging.getLogger(__name__)
-
-    search_term = urllib.parse.quote(search_term)
-    logger.debug("Querying: %s", search_term)
-
+    base_url = 'https://en.wikipedia.org/w/api.php'
     # noinspection PyDictCreation
     wiki_query_payload = {'action': 'query', 'format': 'json', 'list': 'search'}
     wiki_query_payload['srwhat'] = 'text'
-    wiki_query_payload['srsearch'] = search_term
+    search_term = ""
 
-    wiki_query_req = requests.get(base_url, params=wiki_query_payload)
-    wiki_query_response = wiki_query_req.json()
+    def __init__(self, search_term):
+        self.search_term = search_term
 
-    if 'errors' not in wiki_query_response:
-        wiki_page_list = wiki_query_response.get('query').get('search')
-        pages_list = [pages.get('pageid') for pages in wiki_page_list]
-        logger.debug("Fetched %d : %s", len(pages_list), str(pages_list))
+    def fetch_wiki_pages(self):
+
+        logging.basicConfig(level=logging.DEBUG)
+        logger = logging.getLogger(__name__)
+
+        search_term = urllib.parse.quote(self.search_term)
+        logger.debug("Querying: %s", search_term)
+
+        self.wiki_query_payload['srsearch'] = search_term
+
+        wiki_query_req = requests.get(self.base_url, params=self.wiki_query_payload)
+        wiki_query_response = wiki_query_req.json()
+
+        if 'errors' not in wiki_query_response:
+            wiki_page_list = wiki_query_response.get('query').get('search')
+            pages_list = [pages.get('pageid') for pages in wiki_page_list]
+            logger.debug("Fetched %d : %s", len(pages_list), str(pages_list))
+        else:
+            logger.error(wiki_query_req.text)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        search_term_cmd = " ".join(sys.argv[1:])
+        wikiq = WikiQuery(search_term_cmd)
+        wikiq.fetch_wiki_pages()
+
     else:
-        logger.error(wiki_query_req.text)
-
-
-if len(sys.argv) > 1:
-    search_term_cmd = " ".join(sys.argv[1:])
-    fetch_wiki_pages(search_term_cmd)
-
-else:
-    raise ValueError('No search term provided for Wiki query')
+        raise ValueError('No search term provided for Wiki query')

@@ -1,7 +1,9 @@
 from lxml import etree
-from qas.constants import OUTPUT_DIR
+
+from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 """
 Parsing with XPath 1.0 query
+XPath Documentation : https://developer.mozilla.org/en-US/docs/Web/XPath
 """
 
 
@@ -22,13 +24,21 @@ class XPathExtractor:
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
 
+    irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
+                            '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
+                            '''//*[@id="Further_reading"]''', '''//*[@id="External_links"]''']
+
     html_data = ''
     html_tree = None
+    isFile = False
 
-    def __init__(self, html_file):
-        self.html_data = html_file
+    def __init__(self, html_data, isFile):
+        self.html_data = html_data
         parser = etree.XMLParser(ns_clean=True, remove_comments=True)
-        self.html_tree = etree.parse(self.html_data, parser)
+        if isFile:
+            self.html_tree = etree.parse(self.html_data, parser)
+        else:
+            self.html_tree = etree.fromstring(self.html_data, parser)
 
     def strip_tag(self):
 
@@ -78,8 +88,10 @@ class XPathExtractor:
             external_link_data = external_link.getparent().getnext()
             external_link_data.getparent().remove(external_link_data)
 
-
-
+    def strip_headings(self):
+        for heading in self.irrelevant_headlines:
+            heading_parent = self.html_tree.xpath(heading)[0].getparent()
+            heading_parent.getparent().remove(heading_parent)
 
     def save_html(self):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
@@ -87,7 +99,10 @@ class XPathExtractor:
             fp.write(html_str)
 
 
-with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
-    xpe = XPathExtractor(fp)
-    xpe.strip_tag()
-    xpe.save_html()
+if __name__ == "__main__":
+    with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
+        xpe = XPathExtractor(fp, True)
+        xpe.strip_tag()
+        xpe.strip_headings()
+        if SAVE_OUTPUTS:
+            xpe.save_html()
