@@ -25,6 +25,7 @@ class XPathExtractor:
     nav_boxes_pattern = '''/div/div[@class="navbox"]'''
     vertical_nav_boxes_pattern = '''/div/table[starts-with(@class, "vertical-navbox")]'''
     no_print_metadata_pattern = '''/div/div[starts-with(@class, "noprint")]'''
+    subscript_pattern = '''//sup[@class="reference"]'''
 
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
@@ -33,12 +34,18 @@ class XPathExtractor:
     img_href = '''./div//a/@href'''
     img_caption = '''.//div[@class="thumbcaption"]/text()'''
 
+    info_box_pattern = '''/div/table[starts-with(@class, "infobox")]'''
+    info_box_item = '''./tr'''
+    info_key_pattern = '''./th//text()'''
+    info_value_pattern = '''./td//text()'''
+
     irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
                             '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
                             '''//*[@id="Further_reading"]''', '''//*[@id="External_links"]''']
 
     html_data = ''
     extracted_img = []
+    extract_data = []
     html_tree = None
     isFile = False
 
@@ -88,6 +95,10 @@ class XPathExtractor:
         for no_print in no_print_list:
             no_print.getparent().remove(no_print)
 
+        sub_ref_list = self.html_tree.xpath(self.subscript_pattern)
+        for sub_ref in sub_ref_list:
+            sub_ref.getparent().remove(sub_ref)
+
         see_also_list = self.html_tree.xpath(self.see_also_pattern)
         for see_also in see_also_list:
             see_also_data = see_also.getparent().getnext()
@@ -121,6 +132,21 @@ class XPathExtractor:
                 self.extracted_img.append(wikii)
         return self.extracted_img
 
+    def extract_info(self):
+        info_box = self.html_tree.xpath(self.info_box_pattern)
+        for info in info_box:
+            info_key = info.xpath(self.info_box_item)
+            for ikey in info_key:
+                info_key = ''.join(ikey.xpath(self.info_key_pattern)).strip()
+                info_value = ''.join(ikey.xpath(self.info_value_pattern)).strip()
+                info_value = info_value.split('\n')
+                info_value = [item.strip() for item in info_value]
+                if info_key != "" and len(info_value) >= 1:
+                    if info_value[0] != '':
+                        wikii = WikiInfo(info_key, info_value)
+                        self.extract_data.append(wikii)
+        return self.extract_data
+
     def save_html(self):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
         with open(OUTPUT_DIR+'/wiki_content_cleaned.html', 'wb') as fp:
@@ -135,12 +161,28 @@ class WikiImg:
         self.img_url = img_url
         self.img_caption = img_caption
 
+    def __str__(self):
+        return "%s: %s" % (self.img_url, self.img_caption)
+
+
+class WikiInfo:
+    info_key = None
+    info_value = None
+
+    def __init__(self, info_key, info_value):
+        self.info_key = info_key
+        self.info_value = info_value
+
+    def __str__(self):
+        return "%s: %s" % (self.info_key, self.info_value)
+
 
 if __name__ == "__main__":
     with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
         xpe = XPathExtractor(fp, True)
         xpe.strip_tag()
         xpe.strip_headings()
-        xpe.img_extract()
+        print("Extracted Images:", len(xpe.img_extract()))
+        print([str(item) for item in xpe.extract_info()])
         if SAVE_OUTPUTS:
             xpe.save_html()
