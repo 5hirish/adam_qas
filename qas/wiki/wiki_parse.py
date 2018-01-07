@@ -26,6 +26,7 @@ class XPathExtractor:
     vertical_nav_boxes_pattern = '''/div/table[starts-with(@class, "vertical-navbox")]'''
     no_print_metadata_pattern = '''/div/div[starts-with(@class, "noprint")]'''
     subscript_pattern = '''//sup[@class="reference"]'''
+    edit_pattern = '''//span[@class="mw-editsection"]'''
 
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
@@ -99,6 +100,10 @@ class XPathExtractor:
         for sub_ref in sub_ref_list:
             sub_ref.getparent().remove(sub_ref)
 
+        edit_list = self.html_tree.xpath(self.edit_pattern)
+        for edit in edit_list:
+            edit.getparent().remove(edit)
+
         see_also_list = self.html_tree.xpath(self.see_also_pattern)
         for see_also in see_also_list:
             see_also_data = see_also.getparent().getnext()
@@ -145,6 +150,7 @@ class XPathExtractor:
                     if info_value[0] != '':
                         wikii = WikiInfo(info_key, info_value)
                         self.extract_data.append(wikii)
+            info.getparent().remove(info)
         return self.extract_data
 
     def save_html(self):
