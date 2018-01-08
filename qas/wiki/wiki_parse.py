@@ -1,4 +1,5 @@
 from lxml import etree
+from pprint import pprint
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 """
@@ -39,6 +40,12 @@ class XPathExtractor:
     info_box_item = '''./tr'''
     info_key_pattern = '''./th//text()'''
     info_value_pattern = '''./td//text()'''
+
+    table_pattern = '''/div/table[@class="wikitable"]'''
+    table_row_pattern = '''./tr'''
+    table_key_pattern = '''./th'''
+    table_value_pattern = '''./td'''
+    table_text = '''.//text()'''
 
     irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
                             '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
@@ -153,6 +160,23 @@ class XPathExtractor:
             info.getparent().remove(info)
         return self.extract_data
 
+    def extract_tables(self):
+        table_list = self.html_tree.xpath(self.table_pattern)
+        wikit = WikiTable()
+        for table in table_list:
+            table_row_list = table.xpath(self.table_row_pattern)
+            for table_row in table_row_list:
+                table_head_list = table_row.xpath(self.table_key_pattern)
+                for table_head in table_head_list:
+                    wikit.add_header(''.join(table_head.xpath(self.table_text)))
+                tab_data = []
+                table_data_list = table_row.xpath(self.table_value_pattern)
+                for table_data in table_data_list:
+                    tab_data.append(''.join(table_data.xpath(self.table_text)))
+                wikit.set_values(tab_data)
+            table.getparent().remove(table)
+        return wikit.tab_data
+
     def save_html(self):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
         with open(OUTPUT_DIR+'/wiki_content_cleaned.html', 'wb') as fp:
@@ -183,12 +207,27 @@ class WikiInfo:
         return "%s: %s" % (self.info_key, self.info_value)
 
 
+class WikiTable:
+    description = ""
+    tab_header = []
+    tab_data = []
+
+    def add_header(self, tab_header):
+        self.tab_header.append(tab_header)
+
+    def set_values(self, tab_values):
+        zipped_list = list(zip(self.tab_header, tab_values))
+        if len(zipped_list) > 0:
+            self.tab_data.append(zipped_list)
+
+
 if __name__ == "__main__":
     with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
         xpe = XPathExtractor(fp, True)
         xpe.strip_tag()
         xpe.strip_headings()
         print("Extracted Images:", len(xpe.img_extract()))
-        print([str(item) for item in xpe.extract_info()])
+        pprint([str(item) for item in xpe.extract_info()])
+        pprint(xpe.extract_tables())
         if SAVE_OUTPUTS:
             xpe.save_html()
