@@ -45,7 +45,7 @@ class XPathExtractor:
     table_row_pattern = '''./tr'''
     table_key_pattern = '''./th'''
     table_value_pattern = '''./td'''
-    table_text = '''.//text()'''
+    all_text_pattern = '''.//text()'''
 
     irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
                             '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
@@ -168,14 +168,18 @@ class XPathExtractor:
             for table_row in table_row_list:
                 table_head_list = table_row.xpath(self.table_key_pattern)
                 for table_head in table_head_list:
-                    wikit.add_header(''.join(table_head.xpath(self.table_text)))
+                    wikit.add_header(''.join(table_head.xpath(self.all_text_pattern)))
                 tab_data = []
                 table_data_list = table_row.xpath(self.table_value_pattern)
                 for table_data in table_data_list:
-                    tab_data.append(''.join(table_data.xpath(self.table_text)))
+                    tab_data.append(''.join(table_data.xpath(self.all_text_pattern)))
                 wikit.set_values(tab_data)
             table.getparent().remove(table)
         return wikit.tab_data
+
+    def extract_text(self):
+        text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
+        return text_data
 
     def save_html(self):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
@@ -229,5 +233,6 @@ if __name__ == "__main__":
         print("Extracted Images:", len(xpe.img_extract()))
         pprint([str(item) for item in xpe.extract_info()])
         pprint(xpe.extract_tables())
+        print(xpe.extract_text())
         if SAVE_OUTPUTS:
             xpe.save_html()
