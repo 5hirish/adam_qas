@@ -25,9 +25,12 @@ https://en.wikipedia.org/w/api.php [EndPoint] [User-Agent header]
 class WikiQuery:
 
     base_url = 'https://en.wikipedia.org/w/api.php'
+    wiki_max_results = 10
+
     # noinspection PyDictCreation
     wiki_query_payload = {'action': 'query', 'format': 'json', 'list': 'search'}
     wiki_query_payload['srwhat'] = 'text'
+    wiki_query_payload['srlimit'] = str(wiki_max_results)
     search_term = ""
 
     def __init__(self, search_term):
@@ -50,15 +53,18 @@ class WikiQuery:
             wiki_page_list = wiki_query_response.get('query').get('search')
             pages_list = [pages.get('pageid') for pages in wiki_page_list]
             logger.debug("Fetched %d : %s", len(pages_list), str(pages_list))
+            return pages_list
+
         else:
             logger.error(wiki_query_req.text)
+            return None
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         search_term_cmd = " ".join(sys.argv[1:])
         wikiq = WikiQuery(search_term_cmd)
-        wikiq.fetch_wiki_pages()
+        print(wikiq.fetch_wiki_pages())
 
     else:
         raise ValueError('No search term provided for Wiki query')

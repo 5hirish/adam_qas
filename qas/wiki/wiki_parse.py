@@ -158,7 +158,7 @@ class XPathExtractor:
             info_list = []
             info_title = ""
             for ikey in info_key:
-                info_key = ''.join(ikey.xpath(self.info_key_pattern)).strip()           # issues with &nbsp;
+                info_key = ''.join(ikey.xpath(self.info_key_pattern)).strip()           # issues with &nbsp;    // https://stackoverflow.com/a/33829869/8646414
                 info_value = ''.join(ikey.xpath(self.info_value_pattern)).strip()
                 info_value = info_value.split('\n')
                 info_value = [item.strip() for item in info_value]

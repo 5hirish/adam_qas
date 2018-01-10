@@ -47,6 +47,8 @@ class WikiFetch:
             if SAVE_OUTPUTS:
                 WikiFetch.save_html(wiki_html_text, page)
 
+            return wiki_html_text
+
     @staticmethod
     def save_html(content, page):
         parser = etree.XMLParser(ns_clean=True, remove_comments=True)
