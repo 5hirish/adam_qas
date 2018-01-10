@@ -45,14 +45,14 @@ class WikiFetch:
             wiki_html_text = wiki_query_response.get('parse').get('text').get('*')
 
             if SAVE_OUTPUTS:
-                WikiFetch.save_html(wiki_html_text)
+                WikiFetch.save_html(wiki_html_text, page)
 
     @staticmethod
-    def save_html(content):
+    def save_html(content, page):
         parser = etree.XMLParser(ns_clean=True, remove_comments=True)
         html_tree = etree.fromstring(content, parser)
         html_str = etree.tostring(html_tree, pretty_print=True)
-        with open(OUTPUT_DIR + '/wiki_content.html', 'wb') as fp:
+        with open(OUTPUT_DIR + '/wiki_content_'+str(page)+'.html', 'wb') as fp:
             fp.write(html_str)
 
 

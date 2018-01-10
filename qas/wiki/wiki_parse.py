@@ -1,5 +1,6 @@
 from lxml import etree
 from pprint import pprint
+import sys
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 """
@@ -16,23 +17,25 @@ The '//' identifies any descendant designation element of element
 class XPathExtractor:
 
     regexpNS = "http://exslt.org/regular-expressions"
+    nonBreakSpace = u'\xa0'
 
     toc_pattern = '''//*[@id="toc"]'''
     non_searchable_pattern = '''/div/div[starts-with(@class, "hatnote")]'''
     description_list_pattern = '''/div/dl'''
     references_pattern = '''/div/div[starts-with(@class, "refbegin")]'''
-    references_list_pattern = '''/div/div[@class="reflist"]'''
+    references_list_pattern = '''/div/div[starts-with(@class, "reflist")]'''
     meta_data_box_pattern = '''/div/div[starts-with(@class, "metadata")]'''
     nav_boxes_pattern = '''/div/div[@class="navbox"]'''
     vertical_nav_boxes_pattern = '''/div/table[starts-with(@class, "vertical-navbox")]'''
     no_print_metadata_pattern = '''/div/div[starts-with(@class, "noprint")]'''
     subscript_pattern = '''//sup[@class="reference"]'''
     edit_pattern = '''//span[@class="mw-editsection"]'''
+    meta_data_table = '''/div/table[contains(@class, "metadata")]'''
 
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
 
-    img_pattern = '''/div/div[starts-with(@class, "thumb")]'''
+    img_pattern = '''/div//div[starts-with(@class, "thumb")]'''
     img_href = '''./div//a/@href'''
     img_caption = '''.//div[@class="thumbcaption"]/text()'''
 
@@ -49,11 +52,11 @@ class XPathExtractor:
 
     irrelevant_headlines = ['''//*[@id="See_also"]''', '''//*[@id="Notes_and_references"]''',
                             '''//*[@id="Explanatory_notes"]''', '''//*[@id="Citations"]''',
-                            '''//*[@id="Further_reading"]''', '''//*[@id="External_links"]''']
+                            '''//*[@id="Further_reading"]''', '''//*[@id="External_links"]''',
+                            '''//*[@id="References"]''']
 
     html_data = ''
     extracted_img = []
-    extract_data = []
     html_tree = None
     isFile = False
 
@@ -89,6 +92,10 @@ class XPathExtractor:
 
         meta_data_list = self.html_tree.xpath(self.meta_data_box_pattern)
         for meta_data in meta_data_list:
+            meta_data.getparent().remove(meta_data)
+
+        meta_data_table = self.html_tree.xpath(self.meta_data_table)
+        for meta_data in meta_data_table:
             meta_data.getparent().remove(meta_data)
 
         nav_box_list = self.html_tree.xpath(self.nav_boxes_pattern)
@@ -146,19 +153,25 @@ class XPathExtractor:
 
     def extract_info(self):
         info_box = self.html_tree.xpath(self.info_box_pattern)
+        wikii = WikiInfo()
         for info in info_box:
             info_key = info.xpath(self.info_box_item)
+            info_list = []
+            info_title = ""
             for ikey in info_key:
-                info_key = ''.join(ikey.xpath(self.info_key_pattern)).strip()
+                info_key = ''.join(ikey.xpath(self.info_key_pattern)).strip()           # issues with &nbsp;
                 info_value = ''.join(ikey.xpath(self.info_value_pattern)).strip()
                 info_value = info_value.split('\n')
                 info_value = [item.strip() for item in info_value]
                 if info_key != "" and len(info_value) >= 1:
+                    if info_title == "":
+                        info_title = info_key
                     if info_value[0] != '':
-                        wikii = WikiInfo(info_key, info_value)
-                        self.extract_data.append(wikii)
+                        info_pair = {info_key: info_value}
+                        info_list.append(info_pair)
+            wikii.add_info(info_title, info_list)
             info.getparent().remove(info)
-        return self.extract_data
+        return wikii.info_data
 
     def extract_tables(self):
         table_list = self.html_tree.xpath(self.table_pattern)
@@ -181,9 +194,9 @@ class XPathExtractor:
         text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
         return text_data
 
-    def save_html(self):
+    def save_html(self, page=0):
         html_str = etree.tostring(self.html_tree, pretty_print=True)
-        with open(OUTPUT_DIR+'/wiki_content_cleaned.html', 'wb') as fp:
+        with open(OUTPUT_DIR+'/wiki_content_cleaned_'+str(page)+'.html', 'wb') as fp:
             fp.write(html_str)
 
 
@@ -200,15 +213,14 @@ class WikiImg:
 
 
 class WikiInfo:
-    info_key = None
-    info_value = None
+    info_data = []
 
-    def __init__(self, info_key, info_value):
-        self.info_key = info_key
-        self.info_value = info_value
+    # def __str__(self):
+    #     return "%s: %s" % (self.info_key, self.info_value)
 
-    def __str__(self):
-        return "%s: %s" % (self.info_key, self.info_value)
+    def add_info(self, key, value):
+        info_tuple = (key, value)
+        self.info_data.append(info_tuple)
 
 
 class WikiTable:
@@ -226,13 +238,18 @@ class WikiTable:
 
 
 if __name__ == "__main__":
-    with open(OUTPUT_DIR+'/wiki_content.html', 'r') as fp:
-        xpe = XPathExtractor(fp, True)
-        xpe.strip_tag()
-        xpe.strip_headings()
-        print("Extracted Images:", len(xpe.img_extract()))
-        pprint([str(item) for item in xpe.extract_info()])
-        pprint(xpe.extract_tables())
-        print(xpe.extract_text())
-        if SAVE_OUTPUTS:
-            xpe.save_html()
+    if len(sys.argv) > 1:
+        parse_pageId = sys.argv[1:]
+        for page in parse_pageId:
+            with open(OUTPUT_DIR+'/wiki_content_'+page+'.html', 'r') as fp:
+                xpe = XPathExtractor(fp, True)
+                xpe.strip_tag()
+                xpe.strip_headings()
+                print("Extracted Images:", [str(item) for item in xpe.img_extract()])
+                pprint([str(item) for item in xpe.extract_info()])
+                pprint(xpe.extract_tables())
+                print(xpe.extract_text())
+                if SAVE_OUTPUTS:
+                    xpe.save_html(page)
+    else:
+        raise ValueError('No page id provided for Wiki parse')
