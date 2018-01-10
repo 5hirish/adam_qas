@@ -35,7 +35,7 @@ class XPathExtractor:
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
 
-    img_pattern = '''/div//div[starts-with(@class, "thumb")]'''
+    img_pattern = '''/div//div[starts-with(@class, "thumb ")]'''
     img_href = '''./div//a/@href'''
     img_caption = '''.//div[@class="thumbcaption"]/text()'''
 
@@ -56,7 +56,7 @@ class XPathExtractor:
                             '''//*[@id="References"]''']
 
     html_data = ''
-    extracted_img = []
+    extracted_img = {}
     html_tree = None
     isFile = False
 
@@ -147,8 +147,7 @@ class XPathExtractor:
                 img_caption = ''.join(img_caption_list).strip()
             img.getparent().remove(img)
             if img_url != "":
-                wikii = WikiImg(img_url, img_caption)
-                self.extracted_img.append(wikii)
+                self.extracted_img[img_url] = img_caption
         return self.extracted_img
 
     def extract_info(self):
@@ -200,18 +199,6 @@ class XPathExtractor:
             fp.write(html_str)
 
 
-class WikiImg:
-    img_url = ""
-    img_caption = ""
-
-    def __init__(self, img_url, img_caption):
-        self.img_url = img_url
-        self.img_caption = img_caption
-
-    def __str__(self):
-        return "%s: %s" % (self.img_url, self.img_caption)
-
-
 class WikiInfo:
     info_data = []
 
@@ -245,7 +232,7 @@ if __name__ == "__main__":
                 xpe = XPathExtractor(fp, True)
                 xpe.strip_tag()
                 xpe.strip_headings()
-                print("Extracted Images:", [str(item) for item in xpe.img_extract()])
+                print("Extracted Images:", xpe.img_extract())
                 pprint([str(item) for item in xpe.extract_info()])
                 pprint(xpe.extract_tables())
                 print(xpe.extract_text())
