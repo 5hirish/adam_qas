@@ -3,6 +3,7 @@ language: python
 
 python:
   - '3.5'
+  - '3.5_with_system_site_packages'
 
 os:
   - linux
@@ -15,6 +16,10 @@ before_install:
 
 install:
   - pip install -r requirements.txt
+
+afterinstall:
+  - python -m spacy download en
+  - python -m spacy download en_core_web_md
 
 script:
   - python setup.py test
