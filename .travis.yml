@@ -2,14 +2,13 @@ sudo: false
 language: python
 
 python:
-  - '3.5'
-  - '3.5_with_system_site_packages'
+  - "3.5"
 
 os:
   - linux
 
-virtualenv:
-  system_site_packages: true
+#virtualenv:
+#  system_site_packages: true
 
 before_install:
   - pip install -r requirements-test.txt
@@ -22,7 +21,7 @@ afterinstall:
   - python -m spacy download en_core_web_md
 
 script:
-  - python setup.py test
+  - pytest
 
 notifications:
   slack:
