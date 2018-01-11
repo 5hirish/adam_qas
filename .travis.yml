@@ -12,6 +12,7 @@ os:
 
 before_install:
   - pip install -r requirements-test.txt
+  - sudo apt-get install python-enchant
 
 install:
   - pip install -r requirements.txt

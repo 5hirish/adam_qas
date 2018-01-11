@@ -13,7 +13,8 @@ from qas.fetch_wiki import fetch_wiki
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 
-from qas.constants import nlp, EXAMPLE_QUESTIONS
+from qas.constants import EXAMPLE_QUESTIONS
+from qas.nlp import nlp
 
 
 def answer_question(input_question):
