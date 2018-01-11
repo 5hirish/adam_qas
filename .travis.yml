@@ -10,6 +10,11 @@ os:
 #virtualenv:
 #  system_site_packages: true
 
+branches:
+  only:
+  - master
+  - dev
+
 before_install:
   - pip install -r requirements-test.txt
   - sudo apt-get install python-enchant
