@@ -1,9 +1,9 @@
-lxml
-requests
 autocorrect>=0.3.0
 gensim>=3.0.1
+lxml>=4.1.0
 pandas>=0.21
 pyenchant>=2.0.0
+requests>=2.18.0
 spaCy>=2.0.3
 scikit-learn>=v0.19.1
 wikipedia>=1.4.0
