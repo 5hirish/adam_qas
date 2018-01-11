@@ -65,5 +65,7 @@ TODO
 
 .. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361
    :target: https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger
+.. |Travis CI| image:: https://travis-ci.org/5hirish/adam_qas.svg?branch=master
+   :target: https://travis-ci.org/5hirish/adam_qas
 .. |Twitter| image:: https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow
    :target: https://twitter.com/intent/follow?screen_name=5hirish

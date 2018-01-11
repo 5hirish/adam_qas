@@ -1,6 +1,7 @@
 # ADAM -- Question Answering System
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361)](https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger)
+[![Build Status](https://travis-ci.org/5hirish/adam_qas.svg?branch=master)](https://travis-ci.org/5hirish/adam_qas)
 [![Twitter](https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=5hirish)
 
 A question answering system that extracts answers questions in natural language from Wikipedia.

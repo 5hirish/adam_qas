@@ -1,8 +1,6 @@
 """ Package Global Constants """
 import os
 
-import spacy
-
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CORPUS_DIR = os.path.join(os.path.dirname(__file__), 'corpus')
@@ -25,4 +23,3 @@ EXAMPLE_QUESTIONS = [
     "How many blind or visually impaired people live in Europe?"]
 
 
-# nlp = spacy.load('en_core_web_md')
