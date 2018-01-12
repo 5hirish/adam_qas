@@ -1,21 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-This is a skeleton file that can serve as a starting point for a Python
-console script. To run this script uncomment the following line in the
-entry_points section in setup.cfg:
-
-    console_scripts =
-     fibonacci = qas.skeleton:run
-
-Then run `python setup.py install` which will install the command `fibonacci`
-inside your current environment.
-Besides console scripts, the header (i.e. until _logger...) of this file can
-also be used as template for Python modules.
-
-Note: This skeleton file can be safely removed if not needed!
-"""
-from __future__ import division, print_function, absolute_import
 
 import argparse
 import re
@@ -24,6 +8,7 @@ import logging
 
 import enchant
 import autocorrect
+import spacy
 
 from qas.qclassifier import classify_question
 from qas.feature_extractor import extract_features
@@ -32,7 +17,6 @@ from qas.fetch_wiki import fetch_wiki
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 from qas.constants import EXAMPLE_QUESTIONS
-from qas.nlp import nlp
 from qas import __version__
 
 __author__ = "Shirish Kadam"
@@ -42,77 +26,193 @@ __license__ = "GNU General Public License v3 (GPLv3)"
 _logger = logging.getLogger(__name__)
 
 
-def answer_question(q, num_sentences):
+def get_nlp(language, lite, lang_model=""):
 
-    q = nlp(u'' + q)
+    err_msg = "Language model {0} not found. Please, refer https://spacy.io/usage/models"
 
-    question_class = classify_question(q)
-    _logger.info("Question Class: {}".format(question_class))
+    nlp = None
 
-    question_keywords = extract_features(question_class, q)
-    _logger.debug("Question Features: {}".format(question_keywords))
+    if not lang_model == "" and not lang_model == "en":
 
-    query = construct_query(question_keywords, q)
-    _logger.debug("Query: {}".format(query))
+        try:
+            nlp = spacy.load(lang_model)
+        except ImportError:
+            print(err_msg.format(lang_model))
+            raise
 
-    _logger.info("Retrieving {} wikipedia pages...".format(num_sentences))
-    wiki_pages = fetch_wiki(question_keywords, number_of_search=num_sentences)
-    _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
+    elif language == 'en':
 
-    # Anaphora Resolution
+        if lite:
+            nlp = spacy.load('en')
+        else:
 
-    ranked_wiki_docs = rank_docs(question_keywords)
-    _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
+            try:
+                nlp = spacy.load('en_core_web_md')
 
-    candidate_answers, keywords = get_candidate_answers(query, ranked_wiki_docs, nlp)
-    _logger.info("Candidate answers ({}):\n{}".format(len(candidate_answers), '\n'.join(candidate_answers)))
+            except ImportError:
+                print(err_msg.format('en_core_web_md'))
+                print('Using default language model')
+                nlp = spacy.load('en')
 
-    return " ".join(candidate_answers)
+    elif not language == 'en':
+        print('Currently only English language is supported. '
+              'Please contribute to https://github.com/5hirish/adam_qas to add your language.')
+        sys.exit(0)
 
-
-en_dict = enchant.Dict("en_US")
-
-
-def is_spelled_correctly(word):
-    return re.match(r'\w', word) is None or en_dict.check(word)
-
-
-def correct_spelling(s):
-    return " ".join([(autocorrect.spell(w) if not is_spelled_correctly(w) else w) for w in s.split()])
+    return nlp
 
 
-def answer(q):
-    """ Find the answer to a natural language query in Wikipedia, etc
+class QasInit:
 
-    Args:
-      q (str): Quetsion to be answered by searching Wikipedia
+    nlp = None
+    language = "en"
+    lang_model = None
+    search_depth = 3
+    lite = False
 
-    Returns:
-      str: Answer to the question posed
-    """
+    question_doc = None
+
+    question_class = ""
+    question_keywords = None
+    query = None
+
+    candidate_answers = None
+
+    def __init__(self, language, search_depth, lite, lang_model=""):
+        self.language = language
+        self.search_depth = search_depth
+        self.lite = lite
+        self.lang_model = lang_model
+        self.nlp = get_nlp(self.language, self.lite, self.lang_model)
+
+    def get_question_doc(self, question):
+
+        self.question_doc = self.nlp(u'' + question)
+
+        return self.question_doc
+
+    def process_question(self):
+
+        self.question_class = classify_question(self.question_doc)
+        _logger.info("Question Class: {}".format(self.question_class))
+
+        self.question_keywords = extract_features(self.question_class, self.question_doc)
+        _logger.debug("Question Features: {}".format(self.question_keywords))
+
+        self.query = construct_query(self.question_keywords, self.question_doc)
+        _logger.debug("Query: {}".format(self.query))
+
+    def process_answer(self):
+
+        _logger.info("Retrieving {} wikipedia pages...".format(self.search_depth))
+        wiki_pages = fetch_wiki(self.question_keywords, number_of_search=self.search_depth)
+        _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
+
+        # Anaphora Resolution
+
+        ranked_wiki_docs = rank_docs(self.question_keywords)
+        _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
+
+        self.candidate_answers, keywords = get_candidate_answers(self.query, ranked_wiki_docs, self.nlp)
+        _logger.info("Candidate answers ({}):\n{}".format(len(self.candidate_answers), '\n'.join(self.candidate_answers)))
+
+        return " ".join(self.candidate_answers)
+
+# def answer_question(question, num_sentences):
+#
+#     question_doc = en_nlp(u'' + question)
+#
+#     question_class = classify_question(question_doc)
+#     _logger.info("Question Class: {}".format(question_class))
+#
+#     question_keywords = extract_features(question_class, question_doc)
+#     _logger.debug("Question Features: {}".format(question_keywords))
+#
+#     query = construct_query(question_keywords, question_doc)
+#     _logger.debug("Query: {}".format(query))
+#
+#     _logger.info("Retrieving {} wikipedia pages...".format(num_sentences))
+#     wiki_pages = fetch_wiki(question_keywords, number_of_search=num_sentences)
+#     _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
+#
+#     # Anaphora Resolution
+#
+#     ranked_wiki_docs = rank_docs(question_keywords)
+#     _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
+#
+#     candidate_answers, keywords = get_candidate_answers(query, ranked_wiki_docs, en_nlp)
+#     _logger.info("Candidate answers ({}):\n{}".format(len(candidate_answers), '\n'.join(candidate_answers)))
+#
+#     return " ".join(candidate_answers)
+
+
+# def get_spell_check(language="en_US"):
+#     en_dict = enchant.Dict(language)
+#
+#
+# def is_spelled_correctly(word):
+#     return re.match(r'\w', word) is None or en_dict.check(word)
+#
+#
+# def correct_spelling(s):
+#     return " ".join([(autocorrect.spell(w) if not is_spelled_correctly(w) else w) for w in s.split()])
 
 
 def parse_args(args):
-    """Parse command line parameters
 
-    Args:
-      args ([str]): command line parameters as list of strings
-
-    Returns:
-      :obj:`argparse.Namespace`: command line parameters namespace
-    """
     parser = argparse.ArgumentParser(
         description="Adam a question answering system")
+
     parser.add_argument(
         '--version',
         action='version',
+        help="show version",
         version='qas {ver}'.format(ver=__version__))
+
     parser.add_argument(
         dest="question",
         help="Question for the Know It All Adam to answer",
         type=str,
         default='',
-        metavar="STR")
+        metavar='"QUESTION"')
+
+    parser.add_argument(
+        '-l',
+        '--lang',
+        dest="language",
+        help="set language according to ISO codes",
+        default='en',
+        type=str,
+        metavar="XX"
+    )
+
+    parser.add_argument(
+        '-n',
+        dest="search_limit",
+        help="set limit for pages fetched from Wikipedia. Default is 3 and max is 10",
+        default=3,
+        type=int,
+        metavar="Y"
+    )
+
+    parser.add_argument(
+        '--lite',
+        action='store_const',
+        dest="lite",
+        default=False,
+        const=True,
+        help="set qas to use lighter version of language model"
+    )
+
+    parser.add_argument(
+        '--model',
+        dest="lang_model",
+        default="en",
+        type=str,
+        help="set spaCy language model",
+        metavar="XXX_XX"
+    )
+
     parser.add_argument(
         '-v',
         '--verbose',
@@ -120,6 +220,7 @@ def parse_args(args):
         help="set loglevel to INFO",
         action='store_const',
         const=logging.INFO)
+
     parser.add_argument(
         '-vv',
         '--very-verbose',
@@ -127,35 +228,38 @@ def parse_args(args):
         help="set loglevel to DEBUG",
         action='store_const',
         const=logging.DEBUG)
+
+    # parser.print_help()
+
     return parser.parse_args(args)
 
 
 def setup_logging(loglevel):
-    """Setup basic logging
 
-    Args:
-      loglevel (int): minimum loglevel for emitting messages
-    """
     logformat = "[%(asctime)s] %(levelname)s:%(name)s:%(message)s"
     logging.basicConfig(level=loglevel, stream=sys.stdout,
                         format=logformat, datefmt="%Y-%m-%d %H:%M:%S")
 
 
 def main(args):
-    """Main entry point allowing external calls
 
-    Args:
-      args ([str]): command line parameter list
-    """
     args = parse_args(args)
     setup_logging(args.loglevel)
     _logger.debug("Thinking...")
-    print("I think what you want to know is {}".format((args.question)))
+    print("I think what you want to know is: {}".format(args.question))
+
+    # print(args)
+
+    # qas = QasInit(language=args.language, search_depth=args.search_limit, lite=args.lite, lang_model=args.lang_model)
+    # qas.question_doc(args.question)
+    # qas.process_question()
+    # answer = qas.process_answer()
+    #
+    # print("Your answer:\n {}".format(answer))
 
 
 def run():
-    """Entry point for console_scripts
-    """
+
     main(sys.argv[1:])
 
 

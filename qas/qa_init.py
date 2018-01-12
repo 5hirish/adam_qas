@@ -14,12 +14,11 @@ from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 
 from qas.constants import EXAMPLE_QUESTIONS
-from qas.nlp import nlp
 
 
 def answer_question(input_question):
 
-    en_doc = nlp(u'' + input_question)
+    en_doc = en_nlp(u'' + input_question)
 
     question_class = classify_question(en_doc)
     print("Class:", question_class)
@@ -39,7 +38,7 @@ def answer_question(input_question):
     ranked_wiki_docs = rank_docs(question_keywords)
     print("Ranked Pages:", ranked_wiki_docs)
 
-    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, nlp)
+    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
     print("Candidate Answer:", "(" + str(len(candidate_answers)) + ")", candidate_answers)
 
     print("Answer:", " ".join(candidate_answers))
