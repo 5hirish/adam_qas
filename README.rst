@@ -61,8 +61,12 @@ TODO
 - [ ] Machine learning query constructor rather than rule-based
 - [ ] Improve vector space language model for answer extraction
 
+.. |License: GPL v3| image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+   :target: https://www.gnu.org/licenses/gpl-3.0
 .. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361
    :target: https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger
+.. |Codecov Badge| image:: https://codecov.io/gh/5hirish/adam_qas/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/5hirish/adam_qas
 .. |Travis CI| image:: https://travis-ci.org/5hirish/adam_qas.svg?branch=master
    :target: https://travis-ci.org/5hirish/adam_qas
 .. |Twitter| image:: https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow

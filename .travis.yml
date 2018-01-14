@@ -27,7 +27,10 @@ afterinstall:
   - python -m spacy download en_core_web_md
 
 script:
-  - pytest
+  - pytest --cov=codecov
+
+after_success:
+  - codecov
 
 notifications:
   slack:
