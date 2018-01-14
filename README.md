@@ -16,8 +16,7 @@ $ git clone https://github.com/5hirish/adam_qas.git
 $ cd adam_qas
 $ pip install -r requirements.txt
 $ python -m spacy download en_core_web_md
-$ pip install -e .
-$ python qas/qa_init.py
+$ python qas/adam.py "When was linux kernel version 4.0 released ?"
 ```
 
 ## References
@@ -35,8 +34,6 @@ Package dependencies listed in `requirements.txt`
 * [gensim>=3.0.1](https://radimrehurek.com/gensim/)
 * [pandas>=0.21](http://pandas.pydata.org/)
 * [wikipedia>=1.4.0](https://pypi.python.org/pypi/wikipedia/)
-* [pyenchant>=2.0.0](https://pypi.python.org/pypi/pyenchant/)
-* [autocorrect>=0.3.0](https://pypi.python.org/pypi/autocorrect/)
 
 ## Developed & Maintained by team Alleviate
 
@@ -52,6 +49,7 @@ Package dependencies listed in `requirements.txt`
 ### TODO
 
 - [ ] Replace Wikipedia APIs with custom scraper
+- [ ] Storing extracted data in database
 - [ ] Anaphora resolution in both questions and answers
 - [ ] Machine learning query constructor rather than rule-based
 - [ ] Improve vector space language model for answer extraction

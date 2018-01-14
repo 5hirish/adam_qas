@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import re
 import sys
 import logging
 
-import enchant
-import autocorrect
+# import enchant # pyenchant>=2.0
 import spacy
 
 from qas.qclassifier import classify_question
@@ -250,12 +248,12 @@ def main(args):
 
     # print(args)
 
-    # qas = QasInit(language=args.language, search_depth=args.search_limit, lite=args.lite, lang_model=args.lang_model)
-    # qas.question_doc(args.question)
-    # qas.process_question()
-    # answer = qas.process_answer()
+    qas = QasInit(language=args.language, search_depth=args.search_limit, lite=args.lite, lang_model=args.lang_model)
+    qas.get_question_doc(args.question)
+    qas.process_question()
+    answer = qas.process_answer()
     #
-    # print("Your answer:\n {}".format(answer))
+    print("Your answer:\n {}".format(answer))
 
 
 def run():

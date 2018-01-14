@@ -4,6 +4,7 @@ from re import compile
 
 import numpy as np
 import enchant
+import spacy
 from autocorrect import spell
 
 from qas.qclassifier import classify_question
@@ -16,7 +17,15 @@ from qas.candidate_ans import get_candidate_answers
 from qas.constants import EXAMPLE_QUESTIONS
 
 
+"""
+This script is Deprecated
+"""
+
+
 def answer_question(input_question):
+    warnings.warn("This method is now deprecated.", DeprecationWarning)
+
+    en_nlp = spacy.load('en_core_web_md')
 
     en_doc = en_nlp(u'' + input_question)
 
@@ -64,7 +73,6 @@ def spell_check(input_question):
 
 
 if __name__ == '__main__':
-    warnings.filterwarnings("ignore", category=UserWarning)
 
     # input_question = input("Q:>")
     q = EXAMPLE_QUESTIONS[np.random.randint(len(EXAMPLE_QUESTIONS))]
