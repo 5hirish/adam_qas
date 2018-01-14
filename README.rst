@@ -69,5 +69,7 @@ TODO
    :target: https://codecov.io/gh/5hirish/adam_qas
 .. |Travis CI| image:: https://travis-ci.org/5hirish/adam_qas.svg?branch=master
    :target: https://travis-ci.org/5hirish/adam_qas
+.. |Slack| image:: https://img.shields.io/badge/slack-adam__qas-red.svg
+   :target: https://join.slack.com/t/alleviatenlp/shared_invite/enQtMjk4NzEwNjI0MTc4LTA0MmQ3NWIyNjIwYjYwNDVlZGU3NzkwN2RiZWJjNDlhY2Y1YmQ5ZGUxMjRkYjE5NTVlZWZhYjY5MWNhY2QzNjM
 .. |Twitter| image:: https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow
    :target: https://twitter.com/intent/follow?screen_name=5hirish
