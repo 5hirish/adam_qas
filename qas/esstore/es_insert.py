@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
-from qas.esstore.es_connect import __hostname__, __port__
+from qas.esstore.es_connect import ElasticSearchConn
 
 
 class ElasticSearchInsert:
-
-    es = Elasticsearch([{'host': __hostname__, 'port': __port__}])
+    es = ElasticSearchConn()
+    es_conn = es.get_db_connection()
