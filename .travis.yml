@@ -17,7 +17,10 @@ branches:
 
 before_install:
   - pip install -r requirements-test.txt
-  - sudo apt-get install python-enchant
+  - wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.deb
+  - sudo dpkg -i --force-confnew elasticsearch-6.1.2.deb
+  - sudo service elasticsearch restart
+  - until curl --silent -XGET --fail http://localhost:9200; do printf '.'; sleep 1; done
 
 install:
   - pip install -r requirements.txt
@@ -25,6 +28,12 @@ install:
 afterinstall:
   - python -m spacy download en
   - python -m spacy download en_core_web_md
+
+services:
+  - elasticsearch
+
+before_script:
+  - sleep 10
 
 script:
   - pytest --cov=codecov
