@@ -32,9 +32,6 @@ afterinstall:
 services:
   - elasticsearch
 
-before_script:
-  - sleep 10
-
 script:
   - pytest --cov=codecov
 

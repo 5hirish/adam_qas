@@ -25,7 +25,7 @@ class WikiFetch:
     base_url = 'https://en.wikipedia.org/w/api.php'
     # noinspection PyDictCreation
     wiki_query_payload = {'action': 'parse', 'format': 'json'}
-    wiki_query_payload['prop'] = 'text|links|images|externallinks|sections|displaytitle|iwlinks'
+    wiki_query_payload['prop'] = 'text|links|images|externallinks|sections|revid|displaytitle|iwlinks'
     page_list = []
 
     def __init__(self, page_list):
@@ -42,6 +42,8 @@ class WikiFetch:
 
             wiki_query_req = requests.get(self.base_url, params=self.wiki_query_payload)
             wiki_query_response = wiki_query_req.json()
+            wiki_revid = wiki_query_response.get('parse').get('revid')
+            wiki_title = wiki_query_response.get('parse').get('title')
             wiki_html_text = wiki_query_response.get('parse').get('text').get('*')
 
             if SAVE_OUTPUTS:
