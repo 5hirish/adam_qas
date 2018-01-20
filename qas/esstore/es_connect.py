@@ -48,9 +48,6 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         },
                         __wiki_revision__: {
                             "type": "long"
-                        },
-                        __wiki_pageid__: {
-                            "type": "long"
                         }
                     }
                 }

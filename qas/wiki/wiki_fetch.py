@@ -4,7 +4,7 @@ import logging
 from lxml import etree
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
-
+from qas.esstore.es_operate import ElasticSearchOperate
 """
 https://en.wikipedia.org/w/api.php [EndPoint] [User-Agent header]
  > format:json
@@ -26,10 +26,12 @@ class WikiFetch:
     # noinspection PyDictCreation
     wiki_query_payload = {'action': 'parse', 'format': 'json'}
     wiki_query_payload['prop'] = 'text|links|images|externallinks|sections|revid|displaytitle|iwlinks'
+    es_ops = None
     page_list = []
 
     def __init__(self, page_list):
         self.page_list = page_list
+        self.es_ops = ElasticSearchOperate()
 
     def parse_wiki_page(self):
 
@@ -45,6 +47,12 @@ class WikiFetch:
             wiki_revid = wiki_query_response.get('parse').get('revid')
             wiki_title = wiki_query_response.get('parse').get('title')
             wiki_html_text = wiki_query_response.get('parse').get('text').get('*')
+
+            res = self.es_ops.insert_wiki_article(page, wiki_revid, wiki_title, wiki_html_text)
+            if res:
+                logger.info("Wiki article "+page+" inserted.")
+            else:
+                logger.info("Wiki article insertion failed")
 
             if SAVE_OUTPUTS:
                 WikiFetch.save_html(wiki_html_text, page)
