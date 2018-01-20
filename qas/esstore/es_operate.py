@@ -36,8 +36,11 @@ class ElasticSearchOperate:
     def update_wiki_article(self, pagid, content):
         wiki_body = {
             "script": {
-                "source": "ctx._source."+__wiki_content__+"='"+content+"'",
-                "lang": "painless"
+                "source": "ctx._source."+__wiki_content__+" = params."+__wiki_content__,
+                "lang": "painless",
+                "params": {
+                    __wiki_content__: content
+                }
              }
         }
         res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)

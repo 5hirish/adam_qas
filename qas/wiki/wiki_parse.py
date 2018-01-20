@@ -1,8 +1,12 @@
 from lxml import etree
 from pprint import pprint
 import sys
+import re
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
+from qas.esstore.es_operate import ElasticSearchOperate
+from qas.esstore.es_config import __wiki_raw__
+
 """
 Parsing with XPath 1.0 query
 XPath Documentation : https://developer.mozilla.org/en-US/docs/Web/XPath
@@ -18,6 +22,7 @@ class XPathExtractor:
 
     regexpNS = "http://exslt.org/regular-expressions"
     nonBreakSpace = u'\xa0'
+    newLine_nonBreak_regex = r'(\n+)|(\xa0)'
 
     toc_pattern = '''//*[@id="toc"]'''
     non_searchable_pattern = '''/div/div[starts-with(@class, "hatnote")]'''
@@ -59,13 +64,28 @@ class XPathExtractor:
     extracted_img = {}
     html_tree = None
     isFile = False
+    pageid = None
+    es_ops = None
+    newLine_nonBreak_pattern = None
 
     def __init__(self, html_data, isFile):
+        self.es_ops = ElasticSearchOperate()
         self.html_data = html_data
+        self.newLine_nonBreak_pattern = re.compile(self.newLine_nonBreak_regex)
         parser = etree.XMLParser(ns_clean=True, remove_comments=True)
         if isFile:
             self.html_tree = etree.parse(self.html_data, parser)
         else:
+            self.html_tree = etree.fromstring(self.html_data, parser)
+
+    def __init__(self, pageid):
+        self.pageid = pageid
+        self.newLine_nonBreak_pattern = re.compile(self.newLine_nonBreak_regex)
+        self.es_ops = ElasticSearchOperate()
+        wiki_data = self.es_ops.get_wiki_article(pageid)
+        if wiki_data is not None and __wiki_raw__ in wiki_data:
+            self.html_data = wiki_data[__wiki_raw__]
+            parser = etree.XMLParser(ns_clean=True, remove_comments=True)
             self.html_tree = etree.fromstring(self.html_data, parser)
 
     def strip_tag(self):
@@ -191,6 +211,12 @@ class XPathExtractor:
 
     def extract_text(self):
         text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
+        text_data = re.sub(self.newLine_nonBreak_pattern, ' ', text_data)
+        res = self.es_ops.update_wiki_article(self.pageid, text_data)
+        if res:
+            print("Updated")
+        else:
+            print("Failed")
         return text_data
 
     def save_html(self, page=0):
@@ -229,7 +255,8 @@ if __name__ == "__main__":
         parse_pageId = sys.argv[1:]
         for page in parse_pageId:
             with open(OUTPUT_DIR+'/wiki_content_'+page+'.html', 'r') as fp:
-                xpe = XPathExtractor(fp, True)
+                # xpe = XPathExtractor(fp, True)
+                xpe = XPathExtractor(page)
                 xpe.strip_tag()
                 xpe.strip_headings()
                 print("Extracted Images:", xpe.img_extract())
