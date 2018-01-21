@@ -19,6 +19,8 @@ https://en.wikipedia.org/w/api.php [EndPoint] [User-Agent header]
 
 """
 
+logger = logging.getLogger(__name__)
+
 
 class WikiFetch:
 
@@ -35,9 +37,6 @@ class WikiFetch:
 
     def parse_wiki_page(self):
 
-        logging.basicConfig(level=logging.DEBUG)
-        logger = logging.getLogger(__name__)
-
         for page in self.page_list:
 
             self.wiki_query_payload['pageid'] = page
@@ -50,9 +49,9 @@ class WikiFetch:
 
             res = self.es_ops.insert_wiki_article(page, wiki_revid, wiki_title, wiki_html_text)
             if res:
-                logger.info("Wiki article "+page+" inserted.")
+                logger.info("Wiki article {0} inserted.".format(page))
             else:
-                logger.info("Wiki article insertion failed")
+                logger.error("Wiki article insertion failed")
 
             if SAVE_OUTPUTS:
                 WikiFetch.save_html(wiki_html_text, page)
@@ -69,6 +68,7 @@ class WikiFetch:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) > 1:
         parse_pageId = sys.argv[1:]
         wikif = WikiFetch(parse_pageId)

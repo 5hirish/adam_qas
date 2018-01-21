@@ -1,5 +1,6 @@
 from lxml import etree
 from pprint import pprint
+import logging
 import sys
 import re
 
@@ -16,6 +17,8 @@ Your xpath starts with a slash '/' and is therefore absolute.
 The '*' selects all element nodes descending from this current node with the @id-attribute-value or @class value'.
 The '//' identifies any descendant designation element of element 
 """
+
+logger = logging.getLogger(__name__)
 
 
 class XPathExtractor:
@@ -168,6 +171,7 @@ class XPathExtractor:
             img.getparent().remove(img)
             if img_url != "":
                 self.extracted_img[img_url] = img_caption
+        logger.debug("Extracted Images:", len(self.extracted_img))
         return self.extracted_img
 
     def extract_info(self):
@@ -190,6 +194,7 @@ class XPathExtractor:
                         info_list.append(info_pair)
             wikii.add_info(info_title, info_list)
             info.getparent().remove(info)
+        logger.debug("Extracted Bios:", len(wikii.info_data))
         return wikii.info_data
 
     def extract_tables(self):
@@ -207,16 +212,18 @@ class XPathExtractor:
                     tab_data.append(''.join(table_data.xpath(self.all_text_pattern)))
                 wikit.set_values(tab_data)
             table.getparent().remove(table)
+        logger.debug("Extracted Tables:", len(wikit.tab_data))
         return wikit.tab_data
 
     def extract_text(self):
         text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
         text_data = re.sub(self.newLine_nonBreak_pattern, ' ', text_data)
         res = self.es_ops.update_wiki_article(self.pageid, text_data)
+        logger.debug("Parsed content length:", len(text_data))
         if res:
-            print("Updated")
+            logger.info("Inserted parsed content for:", self.pageid)
         else:
-            print("Failed")
+            logger.error("Inserted of parsed content failed")
         return text_data
 
     def save_html(self, page=0):
@@ -251,6 +258,7 @@ class WikiTable:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) > 1:
         parse_pageId = sys.argv[1:]
         for page in parse_pageId:
