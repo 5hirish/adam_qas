@@ -261,17 +261,26 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) > 1:
         parse_pageId = sys.argv[1:]
+        # for page in parse_pageId:
+        #     with open(OUTPUT_DIR+'/wiki_content_'+page+'.html', 'r') as fp:
+        #         xpe = XPathExtractor(fp, True)
+        #         xpe.strip_tag()
+        #         xpe.strip_headings()
+        #         print("Extracted Images:", xpe.img_extract())
+        #         pprint([str(item) for item in xpe.extract_info()])
+        #         pprint(xpe.extract_tables())
+        #         print(xpe.extract_text())
+        #         if SAVE_OUTPUTS:
+        #             xpe.save_html(page)
         for page in parse_pageId:
-            with open(OUTPUT_DIR+'/wiki_content_'+page+'.html', 'r') as fp:
-                # xpe = XPathExtractor(fp, True)
-                xpe = XPathExtractor(page)
-                xpe.strip_tag()
-                xpe.strip_headings()
-                print("Extracted Images:", xpe.img_extract())
-                pprint([str(item) for item in xpe.extract_info()])
-                pprint(xpe.extract_tables())
-                print(xpe.extract_text())
-                if SAVE_OUTPUTS:
-                    xpe.save_html(page)
+            xpe = XPathExtractor(page)
+            xpe.strip_tag()
+            xpe.strip_headings()
+            print("Extracted Images:", xpe.img_extract())
+            pprint([str(item) for item in xpe.extract_info()])
+            pprint(xpe.extract_tables())
+            print(xpe.extract_text())
+            if SAVE_OUTPUTS:
+                xpe.save_html(page)
     else:
         raise ValueError('No page id provided for Wiki parse')

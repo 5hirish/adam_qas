@@ -53,9 +53,6 @@ class WikiFetch:
             else:
                 logger.error("Wiki article insertion failed")
 
-            if SAVE_OUTPUTS:
-                WikiFetch.save_html(wiki_html_text, page)
-
             return wiki_html_text
 
     @staticmethod
@@ -72,7 +69,10 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         parse_pageId = sys.argv[1:]
         wikif = WikiFetch(parse_pageId)
-        wikif.parse_wiki_page()
+        html_text = wikif.parse_wiki_page()
+
+        if SAVE_OUTPUTS:
+            WikiFetch.save_html(html_text, parse_pageId)
 
     else:
         raise ValueError('No page id provided for Wiki parse')
