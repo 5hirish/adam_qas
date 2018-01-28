@@ -3,8 +3,8 @@ from qas.wiki.wiki_query import WikiQuery
 from qas.wiki.wiki_fetch import WikiFetch
 from qas.wiki.wiki_parse import XPathExtractor
 
-from esstore.es_operate import ElasticSearchOperate
-from esstore.es_config import __wiki_title__, __wiki_raw__, __wiki_revision__
+from qas.esstore.es_operate import ElasticSearchOperate
+from qas.esstore.es_config import __wiki_title__, __wiki_raw__, __wiki_revision__
 
 
 class TestWikiScraper(TestCase):

@@ -14,31 +14,32 @@ Follow the creator's blog at [shirishkadam.com](https://www.shirishkadam.com/) f
 
 ## Getting Started
 
+Elasticsearch is being used to store and index the scrapped and parsed texts from Wikipedia.
+`Elasticsearch 6.X` installation guide can be found at [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html). 
+You might have to start the elasticsearch search service.
+
 ```bash
 $ git clone https://github.com/5hirish/adam_qas.git
 $ cd adam_qas
 $ pip install -r requirements.txt
-$ python -m spacy download en_core_web_md
 $ python qas/adam.py "When was linux kernel version 4.0 released ?"
 ```
 
+_Note:_ The above installation downloads the best-matching default english language model for spaCy. But to improve the model's accuracy you can install other models too. Read more at [spaCy docs](https://spacy.io/usage/models).
+
+```bash
+$ python -m spacy download en_core_web_md
+```
 ## References
 
 Find more in depth documentation about the system with its research paper and system architecture [here](docs/ARCHI.md)
 
 ## Requirements
 
-[Python 3](https://docs.python.org/3/)
+* [Python 3.X](https://docs.python.org/3/)
+* [Elasticsearch 6.X](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
 
-Package dependencies listed in `requirements.txt`
-
-* [spaCy>=2.0.3](https://spacy.io/)
-* [scikit-learn>=0.19.1](http://scikit-learn.org/)
-* [gensim>=3.0.1](https://radimrehurek.com/gensim/)
-* [pandas>=0.21](http://pandas.pydata.org/)
-* [wikipedia>=1.4.0](https://pypi.python.org/pypi/wikipedia/)
-
-## Developed & Maintained by team Alleviate
+Python Package dependencies listed in [requirements.txt](requirements.txt)
 
 ### Features
 
@@ -51,9 +52,14 @@ Package dependencies listed in `requirements.txt`
 
 ### TODO
 
-- [ ] Replace Wikipedia APIs with custom scraper
-- [ ] Storing extracted data in database
+- [x] Replace Wikipedia APIs with custom scraper
+- [x] Storing extracted data in database (elasticsearch)
 - [ ] Anaphora resolution in both questions and answers
 - [ ] Machine learning query constructor rather than rule-based
 - [ ] Improve vector space language model for answer extraction
 
+### Contributions
+Please see our [contributing documentation](docs/CONTRIBUTING.md) for some tips on getting started.
+
+### Maintainers
+* [@5hirish](https://github.com/5hirish) - Shirish Kadam

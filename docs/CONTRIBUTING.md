@@ -1,7 +1,24 @@
 # CONTIRUBING
 
-* `git checkout develop -b feature/my-new-feature && git pull origin master`
-* Follow [PEP8](http://docs.python-guide.org/en/latest/writing/style/)
-* run tests with pytest
-* manually run and qa code affected by your changes
-* PR to `develop`
+Adam QAS is a community-maintained project and we happily accept contributions.
+
+If you wish to add a new feature or fix a bug:
+
+1. Check for [open issues](https://github.com/5hirish/adam_qas/issues) or open a fresh issue to start a discussion around a feature idea or a bug.
+2. Fork the [Adam QAS](https://github.com/5hirish/adam_qas) repository on Github to start making your changes.
+3. Write a test which shows that the bug was fixed or that the feature works as expected.
+4. Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to [AUTHORS.rst](/AUTHORS.rst).
+
+```bash 
+$ git checkout dev -b feature/my-new-feature 
+$ git pull origin master
+```
+_Note:_ Follow [PEP8](http://docs.python-guide.org/en/latest/writing/style/) codding style.
+
+## Running the tests
+
+We use some external dependencies, multiple interpreters and code coverage analysis while running test suite. Our Makefile handles much of this for you as long as you’re running it inside of a virtualenv:
+```bash
+$ pytest tests
+```
+Our test suite runs continuously on Travis CI with every pull request to `master`.
