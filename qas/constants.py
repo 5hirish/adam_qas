@@ -1,26 +1,18 @@
 """ Package Global Constants """
 import os
 
-import spacy
-
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CORPUS_DIR = os.path.join(os.path.dirname(__file__), 'corpus')
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'output')
+SAVE_OUTPUTS = True
 EXAMPLE_QUESTIONS = [
-    "What's Eddie Vedder's most famous song?",
-    "Who's Barak Obama?",
-    "Where is Pascagoula?",
-    'Which states have a city called "Hot Coffee"?',
-    "Is Santa Claus real?",
-    "Is ice hot or cold?",
-    "Who was a better baseball player, Johny Cash or Babe Ruth?"
-    "How many states are in the US?",
-    "How old is Hillary Clinton?",
-    "Where do babies come from?",
-    "How often is the moon full in a year?",
-    "How far is Mars from Earth?",
-    "How many people are in China?",
-    "How many blind or visually impaired people live in Europe?"]
+    "When was linux kernel version 4.0 released ?",
+    "How to compile linux kernel ?",
+    "Who is Linus Torvalds ?",
+    "What's the only color Johnny Cash wears on stage ?",
+    "What are the four applications bundled with Windows Vista ?",
+    "How do you use a seismograph ?",
+    "What is Facebook Spaces ?"]
 
 
-nlp = spacy.load('en_core_web_md')

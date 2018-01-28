@@ -2579,7 +2579,7 @@ HUM:ind Who owns the St. Louis Rams ?
 LOC:other Where is former Pro wrestler Johnny '' Rubber Man '' Walker ?
 ENTY:food What beer tells us , '' Grab all the gusto you can get . '' ?
 LOC:other What is the geographical center of the US including Alaska and Hawaii ?
-ENTY:other Which side of the face do most artists tend to show more of in self-portraits ?
+ENTY:other Which side of the face do most artists tend to show more of in cls-portraits ?
 DESC:def What is diabetes ?
 ENTY:event What phenomenon would you expect to read about in the monthly publication The Bigfoot News ?
 NUM:date When do MORMONS believe Christ was born ?
@@ -3418,7 +3418,7 @@ NUM:money What is the price for tuberculosis drugs ?
 NUM:money What was the first minimum wage ?
 DESC:desc What is the difference between a college and a university ?
 ENTY:substance What substance did Joseph Priestley name for its ability to erase pencil marks ?
-DESC:desc What are the limits to '' self-defense ? ''
+DESC:desc What are the limits to '' cls-defense ? ''
 DESC:manner How can I get my product licensed by the NBA ?
 ENTY:food What fast food is prepared with a '' secret blend of 11 herbs and spices ? ''
 DESC:desc What effect does a prism have on light ?

@@ -613,7 +613,7 @@ hurls
 pelton
 doyline
 archer
-self-serve
+cls-serve
 collegians
 courtside
 alderman
@@ -1384,7 +1384,7 @@ accurately
 btw
 collide
 penh
-self-defense
+cls-defense
 virtua
 critical
 drinkers
@@ -2095,7 +2095,7 @@ amstel
 warsame
 jaret
 sidestep
-self-reported
+cls-reported
 temaru
 mazda
 ranches
@@ -3031,7 +3031,7 @@ cord
 pubescent
 boyle
 farhat
-self-produced
+cls-produced
 tb
 pp
 static
@@ -3122,7 +3122,7 @@ lures
 padres
 cambridgeshire
 stocker
-self-portrait
+cls-portrait
 booty
 heloise
 headline
@@ -5375,7 +5375,7 @@ barricading
 disrupting
 pleiades
 seven-step
-self-satisfied
+cls-satisfied
 topper
 simulator
 graham
@@ -5727,7 +5727,7 @@ liberally
 submariners
 interacting
 fm
-self-righteous
+cls-righteous
 denuclearisation
 xps
 treasury
@@ -6247,7 +6247,7 @@ w0c
 ahl-uh-dahl
 gb
 guardedly
-self-belief
+cls-belief
 villar
 hatcher
 stalking
@@ -6406,7 +6406,7 @@ log
 delightfully
 lightman
 unseen
-self-confident
+cls-confident
 lazlo
 operatic
 schemers
@@ -7162,7 +7162,7 @@ missoni
 flatly
 deductibles
 gergen
-self-indulgence
+cls-indulgence
 simonton
 galeria
 mpfa
@@ -8210,7 +8210,7 @@ rested
 capella
 bremerton
 zang
-self-congratulatory
+cls-congratulatory
 dabengwa
 pomposity
 executive-led
@@ -9119,7 +9119,7 @@ pythons
 britpop
 grondona
 attendants
-self-flagellation
+cls-flagellation
 swahr
 mushfiqur
 mythos
@@ -9200,7 +9200,7 @@ outdoorsman
 answers
 farmington
 unconstrained
-self-financed
+cls-financed
 detention
 libere
 fixated
@@ -9790,7 +9790,7 @@ judging
 fabricating
 handal
 genocidal
-self-sacrifice
+cls-sacrifice
 unique
 intercom
 end-all
@@ -9855,7 +9855,7 @@ md-00
 abhishek
 blandford
 hanbo
-self-parody
+cls-parody
 halmi
 lothian
 marmaduke
@@ -13133,7 +13133,7 @@ saga
 minimum-wage
 busoni
 macaw
-self-destructive
+cls-destructive
 gpa
 check-cashing
 suitability
@@ -15428,7 +15428,7 @@ kwasniewski
 gynecologists
 homestand
 richard
-self-referential
+cls-referential
 pasok
 hay
 tagg
@@ -16867,7 +16867,7 @@ sandomierz
 leuenberger
 britons
 raghunath
-self-governing
+cls-governing
 farish
 suggested
 urination
@@ -17262,7 +17262,7 @@ spam
 strings
 medulla
 ao
-self-portraits
+cls-portraits
 remo
 gazed
 stratification
@@ -17293,7 +17293,7 @@ off-peak
 woodpeckers
 turncoats
 brucellosis
-self-employed
+cls-employed
 manny
 aguiar
 manifesting
@@ -17626,7 +17626,7 @@ lovingly
 addicks
 copycat
 disclaimer
-self-styled
+cls-styled
 wangfujing
 aubin
 griped
@@ -19723,7 +19723,7 @@ sle
 nonpublic
 potala
 conservation
-self-government
+cls-government
 beograd
 lineups
 ect
@@ -19937,7 +19937,7 @@ sugarcoat
 prachuab
 maida
 asam
-self-criticism
+cls-criticism
 springtime
 beverly
 mannequins
@@ -20715,7 +20715,7 @@ alexandrov
 madama
 hide-out
 luscombe
-self-determination
+cls-determination
 valedictory
 ader
 stand-alone
@@ -21783,7 +21783,7 @@ minolta
 botany
 neeman
 roars
-self-defence
+cls-defence
 hrs
 half-sister
 jan/00/00
@@ -22185,7 +22185,7 @@ chromium
 irbid
 arch-rival
 stretching
-self-explanatory
+cls-explanatory
 buffers
 baker-finch
 brun
@@ -23993,7 +23993,7 @@ meenakshi
 ramazan
 toumani
 saline
-self-mutilation
+cls-mutilation
 rehab
 mcilvaine
 synthesizing
@@ -27672,7 +27672,7 @@ kinsmen
 tribunes
 zant
 coggins
-self-exiled
+cls-exiled
 perks
 belli
 kourou
@@ -29986,7 +29986,7 @@ remorse
 slant
 oohs
 chelmsford
-self-defensive
+cls-defensive
 greetings-nyt
 sherron
 encouragingly
@@ -30452,7 +30452,7 @@ gunderson
 frantisek
 half-naked
 abizaid
-self-regulatory
+cls-regulatory
 amaral
 miringoff
 sturrock
@@ -32232,7 +32232,7 @@ fenty
 howling
 priesthood
 dicey
-self-help
+cls-help
 yiannis
 sprague
 tendrils
@@ -33272,7 +33272,7 @@ unsaturated
 disembark
 bombardments
 lellouche
-self-assurance
+cls-assurance
 ingredient
 lent
 antigua
@@ -35366,7 +35366,7 @@ vidmar
 outdueled
 terrifies
 upstage
-self-centered
+cls-centered
 rubiaceae
 centrally
 imagery
@@ -36008,7 +36008,7 @@ pasteurized
 taheri-azar
 impeded
 furt
-self-knowledge
+cls-knowledge
 fabric
 witold
 radwanska
@@ -36259,7 +36259,7 @@ modernize
 calyx
 hl
 bse
-self-respect
+cls-respect
 briggs
 taylors
 jacquet
@@ -36464,7 +36464,7 @@ cutbacks
 liechtenstein
 liens
 xufeng
-self-rule
+cls-rule
 harwell
 pro-british
 coconut
@@ -37531,7 +37531,7 @@ devalue
 foschi
 esthetics
 colletti
-self-taught
+cls-taught
 pharrell
 stateless
 fortuna
@@ -38057,7 +38057,7 @@ chinanews
 coefficient
 hedgehogs
 capdeville
-self-made
+cls-made
 banxquote
 planning
 post
@@ -38229,7 +38229,7 @@ tunb
 bide
 zug
 furloughed
-self-interested
+cls-interested
 hooked
 plagues
 cr-v
@@ -38700,7 +38700,7 @@ glazed
 boca
 alban
 likeness
-self-consciously
+cls-consciously
 helper
 escorted
 tastes
@@ -39749,7 +39749,7 @@ salon.com
 sociopathic
 jma
 eldest
-self-reflection
+cls-reflection
 exacerbates
 truces
 humors
@@ -40424,7 +40424,7 @@ body
 contractions
 shahab-0
 grazer
-self-guided
+cls-guided
 a/00/l.0
 restorations
 thrilled
@@ -41088,7 +41088,7 @@ scathing
 lebedev
 usmanov
 undid
-self-contained
+cls-contained
 al-ruh-heem
 apeldoorn
 voiceless
@@ -44653,7 +44653,7 @@ correspondingly
 cndp
 hodson
 eliza
-self-evaluation
+cls-evaluation
 smits
 mainstays
 gallimard
@@ -46003,7 +46003,7 @@ debunked
 waleed
 cooney
 furor
-self-absorption
+cls-absorption
 realaudio
 agence
 squaw
@@ -49262,7 +49262,7 @@ non-whites
 semanal
 festered
 winans
-self-pity
+cls-pity
 experimented
 keystrokes
 tel
@@ -50035,7 +50035,7 @@ voelker
 motorbikes
 generales
 toy
-self-reliant
+cls-reliant
 liver
 minden
 polk
@@ -51069,7 +51069,7 @@ right-to-life
 onslow
 ang-gwil
 guia
-self-supporting
+cls-supporting
 restaurants
 realm
 brunei
@@ -52612,7 +52612,7 @@ internet-access
 dawa
 jinmen
 neiss
-self-discovery
+cls-discovery
 nugroho
 zuh-yahng
 cribs
@@ -56739,7 +56739,7 @@ scottsdale
 counsels
 kiloliters
 murcia
-self-funded
+cls-funded
 messaggero
 mcsorley
 honeycomb
@@ -56834,7 +56834,7 @@ hickie
 assigns
 pilings
 bmo
-self-described
+cls-described
 lrc
 see-ahn
 spouse
@@ -57233,7 +57233,7 @@ pickled
 fiftieth
 two-on-one
 montagu
-self-policing
+cls-policing
 killington
 munshi
 productively
@@ -58286,7 +58286,7 @@ in-person
 despairing
 sequencing
 kennedys
-self-indulgent
+cls-indulgent
 x-note
 kicker
 wirthlin
@@ -59066,7 +59066,7 @@ bronx
 norberto
 anti-money
 departures
-self-governance
+cls-governance
 0000,0000
 kilogramme
 hayman
@@ -59800,7 +59800,7 @@ catastrophically
 brake
 kahn-yah
 restlessness
-self-pitying
+cls-pitying
 gadzuric
 misfit
 hijaz
@@ -61101,7 +61101,7 @@ truths
 harel
 johndroe
 multi
-self-deprecating
+cls-deprecating
 interstate/johnson
 lessen
 aon
@@ -61623,7 +61623,7 @@ al-arab
 preschoolers
 welders
 farnsworth
-self-directed
+cls-directed
 runners
 runaround
 grossberg
@@ -61745,7 +61745,7 @@ animator
 primitives
 welts
 blunt
-self-examination
+cls-examination
 holed
 sinker
 valuation
@@ -62052,7 +62052,7 @@ lenton
 witnesses
 jayden
 hunter-gatherers
-self-aware
+cls-aware
 traverses
 sse-00
 forgo
@@ -62545,7 +62545,7 @@ hepatitis
 intricacy
 germination
 higher-end
-self-reliance
+cls-reliance
 amersfoort
 boogeyman
 die-off
@@ -62789,7 +62789,7 @@ usisl
 emplacement
 camejo
 meow
-self-confidence
+cls-confidence
 lukovic
 them
 kickstart
@@ -63241,7 +63241,7 @@ unmatched
 prowled
 earthenware
 meares
-self-discipline
+cls-discipline
 snazzy
 gbp
 fusses
@@ -63601,7 +63601,7 @@ kageyama
 unintelligible
 swaps
 loma
-self-expression
+cls-expression
 bragging
 fasted
 jsf
@@ -63730,7 +63730,7 @@ tahar
 chg
 ramen
 chroniclers
-self-preservation
+cls-preservation
 vanity
 brough
 non-league
@@ -63908,7 +63908,7 @@ le
 gorman
 antibiotic
 reconstructing
-self-service
+cls-service
 bagheri
 mashrafe
 basseterre
@@ -66000,7 +66000,7 @@ jitendra
 oration
 denison
 three-storey
-self-confessed
+cls-confessed
 formulations
 kapisa
 djohar
@@ -66047,7 +66047,7 @@ bolelli
 sporadically
 territories
 paroxysmal
-self-inflicted
+cls-inflicted
 fayez
 the
 pansy
@@ -66501,7 +66501,7 @@ curriculums
 el-sheik
 pal
 lortie
-self-deception
+cls-deception
 grubby
 matiur
 cockroaches
@@ -69104,7 +69104,7 @@ mahoning
 industry
 harshly
 bramall
-self-destructed
+cls-destructed
 duopoly
 thickens
 fmc
@@ -69159,7 +69159,7 @@ deathmatch
 paulsen
 luminary
 asner
-self-sustaining
+cls-sustaining
 bouncing
 tillman
 yavlinsky
@@ -69511,7 +69511,7 @@ neutrons
 celebici
 birthright
 grubbs
-self-employment
+cls-employment
 cuddle
 refurbishing
 ripplewood
@@ -70626,7 +70626,7 @@ howard
 third-party
 judgment
 soapy
-self-ruled
+cls-ruled
 massed
 ashtray
 bindings
@@ -70640,7 +70640,7 @@ helguera
 houseplants
 sebastopol
 firebombing
-self-destruction
+cls-destruction
 subgroup
 undercutting
 stubble
@@ -70844,7 +70844,7 @@ northeasterly
 mendes
 dictators
 ramped
-self-doubt
+cls-doubt
 mournful
 racist
 drummond
@@ -71594,7 +71594,7 @@ deteriorated
 amoruso
 float
 ittf
-self-possessed
+cls-possessed
 hokkaido
 healthily
 meld
@@ -72245,7 +72245,7 @@ sheehan
 punch-drunk
 phillippe
 schaefer
-self-fulfilling
+cls-fulfilling
 mensch
 caudal
 depositing
@@ -72591,7 +72591,7 @@ doomsday
 luu
 chilies
 zionism
-self-conscious
+cls-conscious
 roving
 cheong
 romberg
@@ -74443,7 +74443,7 @@ u.s.-educated
 mowing
 roeder
 negativity
-self-destruct
+cls-destruct
 tracheotomy
 trinkets
 re-release
@@ -75027,7 +75027,7 @@ surface-to-surface
 anglos
 jarmusch
 mainland
-self-image
+cls-image
 discontinuity
 gleam
 amidships
@@ -75042,7 +75042,7 @@ mils
 gesturing
 concedes
 stacks
-self-imposed
+cls-imposed
 suppressant
 rohan
 leman
@@ -75598,7 +75598,7 @@ pandemonium
 shank
 rapprochement
 limbic
-self-financing
+cls-financing
 eisenstadt
 haruo
 asti
@@ -75632,7 +75632,7 @@ taliaferro
 nobles
 rives
 madd
-self-appointed
+cls-appointed
 heaviest
 thoreau
 bailiwick
@@ -76191,7 +76191,7 @@ nonfarm
 by-elections
 seiji
 adzharia
-self-serving
+cls-serving
 naming
 supremely
 entertainer
@@ -76412,7 +76412,7 @@ orangutans
 usac
 paraguay
 indulge
-self-denial
+cls-denial
 bask
 kwong
 medina
@@ -76749,7 +76749,7 @@ fellow
 dank
 timescale
 outrunning
-self-titled
+cls-titled
 rework
 enhancers
 mikulski
@@ -76891,7 +76891,7 @@ vellu
 biscotti
 ginsburg
 articulate
-self-improvement
+cls-improvement
 kwazulu-natal
 sion
 airlines
@@ -77011,7 +77011,7 @@ abell
 elevator
 tribal
 dvds
-self-immolation
+cls-immolation
 usages
 d.t.
 feliz
@@ -77882,7 +77882,7 @@ kaiser
 alison
 mid-april
 copland
-self-promotion
+cls-promotion
 mazarin
 venezia
 oct
@@ -78217,7 +78217,7 @@ aguas
 introduces
 capitalizes
 pronk
-self-management
+cls-management
 mortification
 lass
 roleplaying
@@ -79614,7 +79614,7 @@ courier
 awaken
 hollers
 suggestions
-self-assured
+cls-assured
 replayed
 farooqi
 waves
@@ -79862,7 +79862,7 @@ macaskill
 http://nytsyn.com/syndicate/pageex
 dependency
 abrasion
-self-proclaimed
+cls-proclaimed
 metallurgical
 horno
 annexes
@@ -81384,7 +81384,7 @@ gulls
 solange
 re-entering
 influencing
-self-propelled
+cls-propelled
 avi
 u.n.-run
 mcduffie
@@ -82118,7 +82118,7 @@ mid-table
 synth
 hombre
 violators
-self-sufficient
+cls-sufficient
 itsekiri
 government-sponsored
 signalman
@@ -83671,7 +83671,7 @@ kanazawa
 lahs
 olivas
 accuracy
-self-sufficiency
+cls-sufficiency
 ellsbury
 mekong
 pradeep
@@ -83874,7 +83874,7 @@ belaying
 ruddock
 selenium
 styx
-self-regulation
+cls-regulation
 roberto
 beefed-up
 kinshasa
@@ -84528,7 +84528,7 @@ astute
 epitomized
 crystal
 rutland
-self-dealing
+cls-dealing
 ifs
 newsmaker
 plaintext
@@ -85616,7 +85616,7 @@ hibernating
 redolent
 changeup
 khatib
-self-released
+cls-released
 solicit
 drape
 geostationary
@@ -86815,7 +86815,7 @@ wallis
 dunmore
 art-house
 late-morning
-self-effacing
+cls-effacing
 oxidizes
 morphin
 jeffers
@@ -86905,7 +86905,7 @@ globe
 scattershot
 alternative-fuel
 bar
-self-righteousness
+cls-righteousness
 trimester
 metrology
 cel
@@ -87288,7 +87288,7 @@ ipod
 searches
 guilt
 seville
-self-loathing
+cls-loathing
 cap-and-trade
 greyhounds
 look-alikes
@@ -87833,7 +87833,7 @@ co-head
 ballistics
 prudent
 grievous
-self-respecting
+cls-respecting
 frontpage
 maryville
 chey
@@ -88239,7 +88239,7 @@ millenniums
 high-impact
 al-waleed
 agadir
-self-published
+cls-published
 michaud
 ground-up
 informally
@@ -88520,7 +88520,7 @@ tambien
 picnic
 career-long
 keck
-self-censorship
+cls-censorship
 five-mile
 palestinian-israeli
 nilsmark
@@ -89216,7 +89216,7 @@ gay-friendly
 percussive
 rappers
 postures
-self-awareness
+cls-awareness
 outran
 qpr
 karyn
@@ -89886,7 +89886,7 @@ paternalistic
 soften
 proactively
 computes
-self-important
+cls-important
 perfumed
 surrey
 mckee
@@ -91351,7 +91351,7 @@ dogwoods
 jafari
 anglo
 cancels
-self-addressed
+cls-addressed
 shabana
 picked
 fastball
@@ -92013,7 +92013,7 @@ lengthy
 karna
 jew
 manoa
-self-professed
+cls-professed
 invalides
 qorei
 sit-in
@@ -92829,7 +92829,7 @@ wyvern
 h-0
 jamboree
 selectman
-self-consciousness
+cls-consciousness
 deposits
 aikido
 shriners
@@ -92853,7 +92853,7 @@ gladwin
 widescale
 air-to-air
 wus
-self
+cls
 cynic
 verdonk
 keeled
@@ -93544,7 +93544,7 @@ person
 bylines
 uppercase
 cybertimes
-self-deprecation
+cls-deprecation
 disseminate
 hashing
 streak
@@ -93857,7 +93857,7 @@ votaw
 heedless
 daylight
 bartle
-self-declared
+cls-declared
 wants
 canaria
 crispus
@@ -94236,7 +94236,7 @@ asiad
 abdallah
 transferable
 zhenyu
-self-incrimination
+cls-incrimination
 airasia
 colleen
 fertilisers
@@ -94800,7 +94800,7 @@ cracker
 snowmass
 asuncion
 vpn
-self-absorbed
+cls-absorbed
 wiretapping
 tilapia
 seminars
@@ -96082,7 +96082,7 @@ treachery
 monoplane
 agnes
 shambles
-self-identified
+cls-identified
 hamas-dominated
 sportage
 odds-on
@@ -96478,7 +96478,7 @@ disconsolate
 crosstown
 url
 largent
-self-delusion
+cls-delusion
 jarmila
 catamarans
 guus
@@ -96874,7 +96874,7 @@ gashed
 belozoglu
 barret
 ghanim
-self-perpetuating
+cls-perpetuating
 smorgasbord
 ilyumzhinov
 duhalde
@@ -99681,7 +99681,7 @@ zachary
 bros
 kondo
 torrijos
-self-interest
+cls-interest
 larkins
 regaled
 koller
@@ -100579,7 +100579,7 @@ omitted
 week
 pq
 remedying
-self-esteem
+cls-esteem
 puig
 talaja
 shinji
@@ -100719,7 +100719,7 @@ ping
 krick
 bengals
 emanated
-self-exile
+cls-exile
 colonizing
 moby
 janey
@@ -100921,7 +100921,7 @@ ethicists
 bari
 throw-in
 swapped
-self-control
+cls-control
 landmark
 unabashedly
 hallowell
@@ -101347,7 +101347,7 @@ curled
 leverkusen
 doge
 oily
-self-importance
+cls-importance
 aviles
 sandusky
 pop-up

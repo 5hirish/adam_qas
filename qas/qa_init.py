@@ -4,6 +4,7 @@ from re import compile
 
 import numpy as np
 import enchant
+import spacy
 from autocorrect import spell
 
 from qas.qclassifier import classify_question
@@ -13,12 +14,20 @@ from qas.fetch_wiki import fetch_wiki
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 
-from qas.constants import nlp, EXAMPLE_QUESTIONS
+from qas.constants import EXAMPLE_QUESTIONS
+
+
+"""
+This script is Deprecated
+"""
 
 
 def answer_question(input_question):
+    warnings.warn("This method is now deprecated.", DeprecationWarning)
 
-    en_doc = nlp(u'' + input_question)
+    en_nlp = spacy.load('en_core_web_md')
+
+    en_doc = en_nlp(u'' + input_question)
 
     question_class = classify_question(en_doc)
     print("Class:", question_class)
@@ -38,7 +47,7 @@ def answer_question(input_question):
     ranked_wiki_docs = rank_docs(question_keywords)
     print("Ranked Pages:", ranked_wiki_docs)
 
-    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, nlp)
+    candidate_answers, split_keywords = get_candidate_answers(question_query, ranked_wiki_docs, en_nlp)
     print("Candidate Answer:", "(" + str(len(candidate_answers)) + ")", candidate_answers)
 
     print("Answer:", " ".join(candidate_answers))
@@ -64,7 +73,6 @@ def spell_check(input_question):
 
 
 if __name__ == '__main__':
-    warnings.filterwarnings("ignore", category=UserWarning)
 
     # input_question = input("Q:>")
     q = EXAMPLE_QUESTIONS[np.random.randint(len(EXAMPLE_QUESTIONS))]

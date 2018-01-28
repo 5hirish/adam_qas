@@ -18,8 +18,7 @@ Getting Started
     $ cd adam_qas
     $ pip install -r requirements.txt
     $ python -m spacy download en_core_web_md
-    $ pip install -e .
-    $ python qas/qa_init.py
+    $ python qas/adam.py "When was linux kernel version 4.0 released ?"
 
 References
 ----------
@@ -39,8 +38,6 @@ Package dependencies listed in ``requirements.txt``
 -  `gensim>=3.0.1 <https://radimrehurek.com/gensim/>`__
 -  `pandas>=0.21 <http://pandas.pydata.org/>`__
 -  `wikipedia>=1.4.0 <https://pypi.python.org/pypi/wikipedia/>`__
--  `pyenchant>=2.0.0 <https://pypi.python.org/pypi/pyenchant/>`__
--  `autocorrect>=0.3.0 <https://pypi.python.org/pypi/autocorrect/>`__
 
 Developed & Maintained by team Alleviate
 ----------------------------------------
@@ -59,11 +56,20 @@ TODO
 ~~~~
 
 - [ ] Replace Wikipedia APIs with custom scraper
+- [ ] Storing extracted data in database
 - [ ] Anaphora resolution in both questions and answers
 - [ ] Machine learning query constructor rather than rule-based
 - [ ] Improve vector space language model for answer extraction
 
+.. |License: GPL v3| image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+   :target: https://www.gnu.org/licenses/gpl-3.0
 .. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361
    :target: https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger
+.. |Codecov Badge| image:: https://codecov.io/gh/5hirish/adam_qas/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/5hirish/adam_qas
+.. |Travis CI| image:: https://travis-ci.org/5hirish/adam_qas.svg?branch=master
+   :target: https://travis-ci.org/5hirish/adam_qas
+.. |Slack| image:: https://img.shields.io/badge/slack-adam__qas-red.svg
+   :target: https://join.slack.com/t/alleviatenlp/shared_invite/enQtMjk4NzEwNjI0MTc4LTA0MmQ3NWIyNjIwYjYwNDVlZGU3NzkwN2RiZWJjNDlhY2Y1YmQ5ZGUxMjRkYjE5NTVlZWZhYjY5MWNhY2QzNjM
 .. |Twitter| image:: https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow
    :target: https://twitter.com/intent/follow?screen_name=5hirish

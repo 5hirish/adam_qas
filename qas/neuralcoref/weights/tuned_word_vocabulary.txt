@@ -17867,7 +17867,7 @@ implementer
 example
 antonovich
 bulletproof
-self-control
+cls-control
 whistle
 espousal
 tseh
@@ -22451,7 +22451,7 @@ sect
 precursor
 intrusion
 gushed
-self
+cls
 triumph
 preliminarily
 evaporates
