@@ -30,6 +30,7 @@ class WikiFetch:
     wiki_query_payload['prop'] = 'text|links|images|externallinks|sections|revid|displaytitle|iwlinks'
     es_ops = None
     page_list = []
+    wiki_text = []
 
     def __init__(self, page_list):
         self.page_list = page_list
@@ -53,7 +54,8 @@ class WikiFetch:
             else:
                 logger.error("Wiki article insertion failed")
 
-            return wiki_html_text
+            self.wiki_text.append(wiki_html_text)
+        return self.wiki_text
 
     @staticmethod
     def save_html(content, page):
@@ -72,7 +74,8 @@ if __name__ == "__main__":
         html_text = wikif.parse_wiki_page()
 
         if SAVE_OUTPUTS:
-            WikiFetch.save_html(html_text, parse_pageId)
+            for text in html_text:
+                WikiFetch.save_html(html_text, parse_pageId)
 
     else:
         raise ValueError('No page id provided for Wiki parse')

@@ -1,10 +1,18 @@
 import os
 import re
+import logging
 from collections import Counter
 
 import gensim
 
 from qas.constants import CORPUS_DIR
+from esstore.es_operate import ElasticSearchOperate
+from esstore.es_config import __wiki_content__
+
+logger = logging.getLogger(__name__)
+
+# Document scoring should be done on elasticsearch and not with this
+# search terms [....] where document id is [...or...]
 
 
 def query2vec(query, dictionary):
@@ -24,7 +32,7 @@ def query2vec(query, dictionary):
 def doc2vec(documents):
     with open(os.path.join(CORPUS_DIR, 'stop_words.txt'), 'r', newline='') as stp_fp:
         stop_list = (stp_fp.read()).lower().split("\n")
-    texts = [[word for word in doc.lower().split() if word not in stop_list]for doc in documents]
+    texts = [[word for word in doc.lower().split() if word not in stop_list]for doc in documents.values()]
     frequency = Counter()
     for sent in texts:
         for token in sent:
@@ -129,9 +137,7 @@ def score_docs(documents, keywords):
     keywords_splits = list(set(keywords_splits + keywords))
     # print(keywords_splits)
 
-    pre_process_doc(documents)
-
-    print("Documents pre-processed")
+    # pre_process_doc(documents)
 
     corpus, dictionary = doc2vec(documents)
     query_corpus = query2vec(keywords_splits, dictionary)
@@ -145,28 +151,36 @@ def score_docs(documents, keywords):
     return simi_sorted
 
 
-def rank_docs(keywords):
+def rank_docs(keywords, page_ids):
 
-    with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'r') as fp:
-        documents_raw = fp.read().split("\n")
-        del documents_raw[len(documents_raw) - 1]
+    doc_dictionary = {}
 
-        # print(len(documents_raw))
-        documents = []
+    es_conn = ElasticSearchOperate()
+    for page in page_ids:
+        doc_data = es_conn.get_wiki_article(page)
+        doc_dictionary[page] = doc_data[__wiki_content__]
 
-        for docs in documents_raw:
-            docs = docs[1:len(docs) - 1]
-            documents.append(docs)
+    # with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'r') as fp:
+    #     documents_raw = fp.read().split("\n")
+    #     del documents_raw[len(documents_raw) - 1]
+    #
+    #     # print(len(documents_raw))
+    #     documents = []
+    #
+    #     for docs in documents_raw:
+    #         docs = docs[1:len(docs) - 1]
+    #         documents.append(docs)
 
-    ranked_docs = score_docs(documents, keywords)
+    ranked_docs = score_docs(doc_dictionary, keywords)
 
     # pprint(ranked_docs)
 
     return ranked_docs
 
 
-"""
-keywords_ip = ['species', 'Great White shark', 'are']
-rank_docs = rank_docs(keywords_ip)
-print(rank_docs)
-"""
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
+    keywords_ip = ['albert einstein', 'birth']
+    page_ids = [736, 18742711, 12738235, 83443, 18978770, 79449]
+    rank_docs = rank_docs(keywords_ip, page_ids)
+    print(rank_docs)
