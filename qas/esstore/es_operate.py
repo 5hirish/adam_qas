@@ -25,6 +25,20 @@ class ElasticSearchOperate:
         logger.debug("Article Inserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated'
 
+    def upsert_wiki_article(self, pageid, revid, title, raw):
+        wiki_body = {
+            "doc": {
+                __wiki_revision__: revid,
+                __wiki_title__: title,
+                __wiki_raw__: raw,
+                __wiki_updated_date__: datetime.now()
+            },
+            "doc_as_upsert": True
+        }
+        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        logger.debug("Article Inserted:{0}".format(res['result']))
+        return res['result'] == 'created' or res['result'] == 'updated'
+
     # def update_wiki_article(self, pageid, content):
     #     wiki_body = {
     #         "script": {
