@@ -1,0 +1,44 @@
+sudo: false
+language: python
+
+python:
+  - "3.5"
+
+os:
+  - linux
+
+#virtualenv:
+#  system_site_packages: true
+
+branches:
+  only:
+  - master
+  - dev
+
+before_install:
+  - pip install -r requirements-test.txt
+  - wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.deb
+  - sudo dpkg -i --force-confnew elasticsearch-6.1.2.deb
+  - sudo service elasticsearch restart
+  - until curl --silent -XGET --fail http://localhost:9200; do printf '.'; sleep 1; done
+
+install:
+  - pip install -r requirements.txt
+
+afterinstall:
+  - python -m spacy download en
+  - python -m spacy download en_core_web_md
+
+services:
+  - elasticsearch
+
+script:
+  - pytest --cov=codecov
+
+after_success:
+  - codecov
+
+notifications:
+  slack:
+    secure: Az9G4l3zoYYTDLkEUJj/t0wqacM/ApCrr9RWWfP0PEinwBy7WlRxFUGrg3dhJ8rnfHBWmfndgQUvFqX7V3A9++85eqvj3Ik2y0bs/xcgundJRGpiEKKu2dvrfXP3uuvPrQI014Tbm3ZvA0aCTA1zz/iJTT8TUtm1pEAXRlbWUAzyfvqrNaMlfw0xFZ4nbIYwF8Fv+Q9TZ8cbAcgSOz9naMsYv/YOHSpviFOw6kMSNHoASP7vUrsxpCBqucJVXTlDdBz2IePUbbizZ5aEvRxQMKMCDFUb+j4K9prRvDJykCgYIkbGRwv3TNNjoingbtK2uC2awELUHwI+zg6Muyzc/xY1ngl3RPY7y71grLukzYSrY9T5onYtgU+4g42ioCebjlTbR5XsCqOLZS75cTqDPiU2lBca0nszAkQd+XzTz6nPPabnXY3ye9YNrutwsG6KFPppCFbuND8WzqmRIKH5yL7yviCW1jJrQIfk+ln3F6MyuFPt7Iqbse3U6tOsEr9usiGzrhbaRalc+QpJWZvF15DUgafbpVxAP31157Wxrz2bHPSJKbfPs4dGhY0VVd/IiCyhEe2IWWwQg04yLcLItZh80sthMkKu9WgLrPLlZ//0Zo5AgNduO50tyKKv+/Hk56bvcXSRFUK7jNxEnH4rKTGTBhjhJZ95N5uMlwOZDwE=
+  email: false

@@ -1,0 +1,13 @@
+elasticsearch>=6.1.1
+gensim>=3.0.1
+lxml>=4.1.0
+pandas>=0.21
+requests>=2.18.0
+spaCy>=2.0.3
+scikit-learn>=v0.19.1
+wikipedia>=1.4.0
+
+############## spaCy language models ################
+
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
+# https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz

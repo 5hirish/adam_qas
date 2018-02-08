@@ -1,49 +1,65 @@
-# ADAM - A Question Answering System
-## *Alleviate*
-Inspired by *IBM Watson* and *START*
+# ADAM -- Question Answering System
 
-### Requirements :
-###### Python3 - [Python v3.5](https://docs.python.org/3/)
-* [spaCy v1.8.2](https://spacy.io/)
-* [scikit-learn v0.18](http://scikit-learn.org/)
-* [gensim v2.1](https://radimrehurek.com/gensim/)
-* [pandas v0.20](http://pandas.pydata.org/)
-* [wikipedia v1.10](https://pypi.python.org/pypi/wikipedia/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361)](https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger)
+[![Codecov](https://codecov.io/gh/5hirish/adam_qas/branch/master/graph/badge.svg)](https://codecov.io/gh/5hirish/adam_qas)
+[![Build Status](https://travis-ci.org/5hirish/adam_qas.svg?branch=master)](https://travis-ci.org/5hirish/adam_qas)
+[![Slack](https://img.shields.io/badge/slack-adam__qas-red.svg)](https://join.slack.com/t/alleviatenlp/shared_invite/enQtMjk4NzEwNjI0MTc4LTA0MmQ3NWIyNjIwYjYwNDVlZGU3NzkwN2RiZWJjNDlhY2Y1YmQ5ZGUxMjRkYjE5NTVlZWZhYjY5MWNhY2QzNjM)
+[![Twitter](https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=5hirish)
 
-    * spaCy model - en_core_web_md v1.2
+A question answering system that extracts answers questions in natural language from Wikipedia.
+Inspired by *IBM Watson* and *START*.
+Currently the answers extracted by the system are moderately accurate.
+Follow the creator's blog at [shirishkadam.com](https://www.shirishkadam.com/) for updates on progress.
 
-## System Architecture :
-![alt text](adam_arch.png "ADAM Architecture")
-> (c) 2016-17, Shirish Kadam;
-> (c) 2016-17, Amit Gunjal
+## Getting Started
 
-## Work FLow
-![alt text](adam_qa_pipeline.png "ADAM Architecture")
-> (c) 2016-17, Shirish Kadam;
-> (c) 2016-17, Amit Gunjal
-## Reference Material
-1. [ADAM Reference](https://drive.google.com/open?id=0B7Paai6yoeuHNHpOT01IaGZzYlE)
-2. [Research Papers](https://drive.google.com/open?id=0B7Paai6yoeuHcmYtaS1tNWJ6U1k)
-> Restricted Access
+Elasticsearch is being used to store and index the scrapped and parsed texts from Wikipedia.
+`Elasticsearch 6.X` installation guide can be found at [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html). 
+You might have to start the elasticsearch search service.
 
-##### Development Environment :
-* OS - Linux Mint 18.1 (64 bit)
-* IDE - Intellij IDEA 2017 / PyCharm 2017
+```bash
+$ git clone https://github.com/5hirish/adam_qas.git
+$ cd adam_qas
+$ pip install -r requirements.txt
+$ python -m qas.adam "When was linux kernel version 4.0 released ?"
+```
 
-## Branches :
-1. master - Production Branch
-2. experimental - Experimental Branch
+_Note:_ The above installation downloads the best-matching default english language model for spaCy. But to improve the model's accuracy you can install other models too. Read more at [spaCy docs](https://spacy.io/usage/models).
 
-###### Coding Standards : 
-Follow these coding style for [Python](http://docs.python-guide.org/en/latest/writing/style/)
-Appropriate comments necessary at that relevant code
+```bash
+$ python -m spacy download en_core_web_md
+```
+## References
 
-## Copyright License :
-![alt text](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png "CC BY-NC-ND")
+Find more in depth documentation about the system with its research paper and system architecture [here](docs/ARCHI.md)
 
-Attribution-NonCommercial-NoDerivs 
+## Requirements
 
-CC BY-NC-ND
+* [Python 3.X](https://docs.python.org/3/)
+* [Elasticsearch 6.X](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
 
-Visit [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+Python Package dependencies listed in [requirements.txt](requirements.txt)
 
+### Features
+
+* Extract information from Wikipedia
+* Classify questions with regular expression (default)
+* Classify questions with a SVM (optional)
+* Vector space model used for answer extraction
+* Rank candidate answers
+* Merge top 5 answers into one response
+
+### TODO
+
+- [x] Replace Wikipedia APIs with custom scraper
+- [x] Storing extracted data in database (elasticsearch)
+- [ ] Anaphora resolution in both questions and answers
+- [ ] Machine learning query constructor rather than rule-based
+- [ ] Improve vector space language model for answer extraction
+
+### Contributions
+Please see our [contributing documentation](docs/CONTRIBUTING.md) for some tips on getting started.
+
+### Maintainers
+* [@5hirish](https://github.com/5hirish) - Shirish Kadam
