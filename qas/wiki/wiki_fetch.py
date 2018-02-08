@@ -48,7 +48,7 @@ class WikiFetch:
             wiki_title = wiki_query_response.get('parse').get('title')
             wiki_html_text = wiki_query_response.get('parse').get('text').get('*')
 
-            res = self.es_ops.upsert_wiki_article(page, wiki_revid, wiki_title, wiki_html_text)
+            res = self.es_ops.insert_wiki_article(page, wiki_revid, wiki_title, wiki_html_text)
             if res:
                 logger.info("Wiki article {0} inserted.".format(page))
             else:
@@ -74,8 +74,8 @@ if __name__ == "__main__":
         html_text = wikif.parse_wiki_page()
 
         if SAVE_OUTPUTS:
-            for text in html_text:
-                WikiFetch.save_html(text, parse_pageId)
+            for pageId, text in zip(parse_pageId, html_text):
+                WikiFetch.save_html(text, pageId)
 
     else:
         raise ValueError('No page id provided for Wiki parse')

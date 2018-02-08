@@ -2,7 +2,6 @@ import spacy
 import requests
 from pprint import pprint
 from collections import OrderedDict
-from neuralcoref import Coref
 
 
 def get_named_entities(en_doc):
@@ -113,10 +112,6 @@ sentence = "Louie is a quite fellow." \
            " Louie used to say 'I know life'." \
            " He did."
 
-coref = Coref()
-cluster = coref.continuous_coref(utterances=sentence)
-resolved_sentence = coref.get_resolved_utterances()
-print(resolved_sentence)
 
 
 """en_nlp = spacy.load('en_core_web_md')
