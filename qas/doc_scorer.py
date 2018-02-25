@@ -158,7 +158,8 @@ def rank_docs(keywords, page_ids):
     es_conn = ElasticSearchOperate()
     for page in page_ids:
         doc_data = es_conn.get_wiki_article(page)
-        doc_dictionary[page] = doc_data[__wiki_content__]
+        if __wiki_content__ in doc_data:
+            doc_dictionary[page] = doc_data[__wiki_content__]
 
     # with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'r') as fp:
     #     documents_raw = fp.read().split("\n")
