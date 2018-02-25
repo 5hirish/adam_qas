@@ -1,56 +1,61 @@
 import os
+import logging
 import pandas
 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
+from sklearn.externals import joblib
 from scipy.sparse import csr_matrix
 
-from qas.constants import CORPUS_DIR
+from qas.constants import CORPUS_DIR, EN_MODEL_MD
+from qas.corpus.data import QUESTION_CLASSIFICATION_TRAINING_DATA, QUESTION_CLASSIFICATION_MODEL
 
-
-def get_data_info(dta):
-    print(dta.head())
-    print(dta.info())
-    print(dta.describe())
-    print(dta.columns)
+logger = logging.getLogger(__name__)
 
 
 def pre_process(dta):
     return pandas.get_dummies(dta)
 
 
-def transform_data_matrix(X_train, X_predict):
-    X_train_columns = list(X_train.columns)
-    X_predict_columns = list(X_predict.columns)
+def remove_irrelevant_features(df_question):
+    df_question_class = df_question.pop('Class')
 
-    X_trans_columns = list(set(X_train_columns + X_predict_columns))
-    # print(X_trans_columns, len(X_trans_columns))
+    df_question.pop('Question')
+    df_question.pop('WH-Bigram')
+
+    return df_question_class
+
+
+def transform_data_matrix(df_question_train, df_question_predict):
+
+    df_question_train_columns = list(df_question_train.columns)
+    df_question_predict_columns = list(df_question_predict.columns)
+
+    df_question_trans_columns = list(set(df_question_train_columns + df_question_predict_columns))
 
     trans_data_train = {}
 
-    for col in X_trans_columns:
-        if col not in X_train:
-            trans_data_train[col] = [0 for i in range(len(X_train.index))]
+    for feature in df_question_trans_columns:
+        if feature not in df_question_train:
+            trans_data_train[feature] = [0 for i in range(len(df_question_train.index))]
         else:
-            trans_data_train[col] = list(X_train[col])
+            trans_data_train[feature] = list(df_question_train[feature])
 
-    XT_train = pandas.DataFrame(trans_data_train)
-    XT_train = csr_matrix(XT_train)
-    # get_data_info(XT_train)
+    df_question_train = pandas.DataFrame(trans_data_train)
+    df_question_train = csr_matrix(df_question_train)
 
     trans_data_predict = {}
 
-    for col in X_trans_columns:
-        if col not in X_predict:
-            trans_data_predict[col] = 0
+    for feature in trans_data_train:
+        if feature not in df_question_predict:
+            trans_data_predict[feature] = 0
         else:
-            trans_data_predict[col] = list(X_predict[col])  # KeyError
+            trans_data_predict[feature] = list(df_question_predict[feature])  # KeyError
 
-    XT_predict = pandas.DataFrame(trans_data_predict)
-    XT_predict = csr_matrix(XT_predict)
-    # get_data_info(XT_predict)
+    df_question_predict = pandas.DataFrame(trans_data_predict)
+    df_question_predict = csr_matrix(df_question_predict)
 
-    return XT_train, XT_predict
+    return df_question_train, df_question_predict
 
 
 def naive_bayes_classifier(X_train, y, X_predict):
@@ -60,11 +65,16 @@ def naive_bayes_classifier(X_train, y, X_predict):
     return prediction
 
 
-def support_vector_machine(X_train, y, X_predict):
-    lin_clf = LinearSVC()
-    lin_clf.fit(X_train, y)
-    prediction = lin_clf.predict(X_predict)
-    return prediction
+def support_vector_machine(question_clf, X_predict):
+    return question_clf.predict(X_predict)
+
+
+def load_classifier_model(model_type="linearSVC"):
+
+    training_model_path = os.path.join(CORPUS_DIR, QUESTION_CLASSIFICATION_MODEL)
+
+    if model_type == "linearSVC":
+        return joblib.load(training_model_path)
 
 
 def get_question_predict_data(en_doc):
@@ -94,21 +104,22 @@ def get_question_predict_data(en_doc):
 def classify_question(en_doc):
     """ Determine whether this is a who, what, when, where or why question """
 
-    dta = pandas.read_csv(os.path.join(CORPUS_DIR, 'qclassifier_trainer.csv'), sep='|')
-    # get_data_info(dta)
+    training_data_path = os.path.join(CORPUS_DIR, QUESTION_CLASSIFICATION_TRAINING_DATA)
+    df_question = pandas.read_csv(training_data_path, sep='|', header=0)
 
-    y = dta.pop('Class')
-    dta.pop('#Question')
-    dta.pop('WH-Bigram')
-
-    X_train = pre_process(dta)
-
+    df_question_class = remove_irrelevant_features(df_question)
     question_data = get_question_predict_data(en_doc)
-    X_predict = pre_process(question_data)
 
-    X_train, X_predict = transform_data_matrix(X_train, X_predict)
+    df_question_train = pre_process(df_question)
+    df_question_predict = pre_process(question_data)
 
-    return str(support_vector_machine(X_train, y, X_predict))
+    df_question_train, df_question_predict = transform_data_matrix(df_question_train, df_question_predict)
+
+    question_clf = load_classifier_model()
+
+    predicted_class = support_vector_machine(question_clf, df_question_predict)
+
+    return str(predicted_class)
 
 
 if __name__ == "__main__":
@@ -116,33 +127,16 @@ if __name__ == "__main__":
     import spacy
     from time import time
 
+    logging.basicConfig(level=logging.DEBUG)
     start_time = time()
-    en_nlp = spacy.load("en_core_web_md")
-    dta = pandas.read_csv('corpus/qclassifier_trainer.csv', sep='|')
-    # get_data_info(dta)
-
-    y = dta.pop('Class')
-    dta.pop('#Question')
-    dta.pop('WH-Bigram')
-
-    X_train = pre_process(dta)
-
-    # print(X_train.shape)
-
-    # print(len(column_list))
+    en_nlp = spacy.load(EN_MODEL_MD)
 
     question = 'Who is Linus Torvalds ?'
-    # question = 'What is the colour of apple ?'
-    en_doc = en_nlp(u'' + question)
+    en_doc_l = en_nlp(u'' + question)
 
-    question_data = get_question_predict_data(en_doc)
-    X_predict = pre_process(question_data)
-    # print(X_predict)
-    # print(X_train)
+    question_class = classify_question(en_doc_l)
 
-    X_train, X_predict = transform_data_matrix(X_train, X_predict)
+    logger.info("Class: {0}".format(question_class))
 
-    # print(naive_bayes_classifier(X_train, y, X_predict))
-    print(support_vector_machine(X_train, y, X_predict))
     end_time = time()
-    print("Total time :", end_time - start_time)
+    logger.info("Total training time : {0}".format(end_time - start_time))

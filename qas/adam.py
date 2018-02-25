@@ -14,7 +14,7 @@ from qas.query_const import construct_query
 from qas.fetch_wiki import fetch_wiki
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
-from qas.constants import EXAMPLE_QUESTIONS
+from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT
 from qas import __version__
 
 __author__ = "Shirish Kadam"
@@ -41,16 +41,16 @@ def get_nlp(language, lite, lang_model=""):
     elif language == 'en':
 
         if lite:
-            nlp = spacy.load('en')
+            nlp = spacy.load(EN_MODEL_DEFAULT)
         else:
 
             try:
-                nlp = spacy.load('en_core_web_md')
+                nlp = spacy.load(EN_MODEL_MD)
 
             except ImportError:
-                print(err_msg.format('en_core_web_md'))
+                print(err_msg.format(EN_MODEL_MD))
                 print('Using default language model')
-                nlp = spacy.load('en')
+                nlp = spacy.load(EN_MODEL_DEFAULT)
 
     elif not language == 'en':
         print('Currently only English language is supported. '
