@@ -33,6 +33,7 @@ def transform_data_matrix(df_question_train):
 
     # Generate Compressed Sparse Row matrix:
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html
+    logger.debug("Training data: {0}".format(df_question_train.shape))
     df_question_train = csr_matrix(df_question_train)
 
     return df_question_train

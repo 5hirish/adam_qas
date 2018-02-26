@@ -8,7 +8,7 @@ import logging
 # import enchant # pyenchant>=2.0
 import spacy
 
-from qas.qclassifier import classify_question
+from classifier.question_classifier import classify_question
 from qas.feature_extractor import extract_features
 from qas.query_const import construct_query
 from qas.fetch_wiki import fetch_wiki
