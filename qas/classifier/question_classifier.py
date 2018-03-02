@@ -62,9 +62,9 @@ def transform_data_matrix(df_question_train, df_question_predict):
     return df_question_train, df_question_predict
 
 
-def transform_data_matrix_temp(df_question_predict):
-    df_question_predict = csr_matrix(df_question_predict)
-    return df_question_predict
+# def transform_data_matrix_temp(df_question_predict):
+#     df_question_predict = csr_matrix(df_question_predict)
+#     return df_question_predict
 
 
 def naive_bayes_classifier(X_train, y, X_predict):
@@ -74,10 +74,10 @@ def naive_bayes_classifier(X_train, y, X_predict):
     return prediction
 
 
-def support_vector_machine(X_train, y, X_predict):
+def support_vector_machine(df_question_train, df_question_class, df_question_predict):
     lin_clf = LinearSVC()
-    lin_clf.fit(X_train, y)
-    prediction = lin_clf.predict(X_predict)
+    lin_clf.fit(df_question_train, df_question_class)
+    prediction = lin_clf.predict(df_question_predict)
     return prediction, lin_clf
 
 

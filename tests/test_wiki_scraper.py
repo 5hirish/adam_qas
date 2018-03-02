@@ -36,11 +36,16 @@ class TestWikiScraper(TestCase):
 
     def test_parse_wiki_pages(self):
         query_set = [736]
+
+        html_tag_expr = '<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>(.*?)</\1>'
+
         for page in query_set:
-            xpe = XPathExtractor(page)
-            xpe.strip_tag()
-            xpe.strip_headings()
-            img = xpe.img_extract()
-            info = xpe.extract_info()
-            table = xpe.extract_tables()
-            xpe.extract_text()
+            with self.subTest(page):
+                xpe = XPathExtractor(page)
+                xpe.strip_tag()
+                xpe.strip_headings()
+                img = xpe.img_extract()
+                info = xpe.extract_info()
+                table = xpe.extract_tables()
+                text = xpe.extract_text()
+                self.assertRegex(text, html_tag_expr)
