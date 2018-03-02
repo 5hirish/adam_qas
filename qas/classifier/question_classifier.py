@@ -87,6 +87,9 @@ def predict_question_class(question_clf, df_question_predict):
 
 def load_classifier_model(model_type="linearSVC"):
 
+    # HELP: Not using the persistent classifier. SVC fails when it encounters previously unseen features at training.
+    # Refer the comment in query_container
+
     training_model_path = os.path.join(CORPUS_DIR, QUESTION_CLASSIFICATION_MODEL)
 
     if model_type == "linearSVC":

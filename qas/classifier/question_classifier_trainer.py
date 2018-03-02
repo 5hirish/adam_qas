@@ -56,6 +56,11 @@ def support_vector_machine(df_question_train, df_question_class):
 
 
 def save_classifier_model(df_question_train, df_question_class, model_type="linearSVC"):
+    
+    """
+    FIXME: Although the classifier is being saved in Pickle file. It is not being used to predict.
+    Since, Support Vector Classifier, fails when it encounters new features it failed to see while training.
+    """
 
     classifier_model = None
     training_model_path = os.path.join(CORPUS_DIR, QUESTION_CLASSIFICATION_MODEL)

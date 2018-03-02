@@ -98,16 +98,16 @@ def construct_query(features_list, en_doc):
 if __name__ == "__main__":
 
     import spacy
+    from constants import EN_MODEL_MD
 
     logging.basicConfig(level=logging.DEBUG)
     question = "What are Cushman or Wakefield known for ?"
     features = ['Cushman', 'known', 'Wakefield', 'are']
 
-    en_nlp = spacy.load('en_core_web_md')
+    en_nlp = spacy.load(EN_MODEL_MD)
     en_doc = en_nlp(u'' + question)
 
     query = []
-    print(type(query))
 
     for sent in en_doc.sents:
         get_detail(sent)
