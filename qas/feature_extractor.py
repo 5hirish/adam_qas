@@ -9,7 +9,8 @@ Penn Tree-bank : https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treeb
 
 def get_detail(sentence):
     for token in sentence:
-        logger.debug(token.text, token.lemma_, token.tag_, token.ent_type_, token.dep_, token.head)
+        logger.debug("{0} -- Lemma:{1}, Tag:{2}, EntType:{3}, Dep:{4}, Head:{5}"
+                     .format(token.text, token.lemma_, token.tag_, token.ent_type_, token.dep_, token.head))
 
 
 def get_compound_nouns(en_doc, token, token_text):
@@ -20,12 +21,14 @@ def get_compound_nouns(en_doc, token, token_text):
 
     parent_token = token
 
-    logger.debug("Compound Nouns of:{0} DEP {1}".format(token.text, token.dep_))
+    logger.debug("Compound Noun:{0} DEP {1}".format(token.text, token.dep_))
 
     # If previous token is a compound noun
     while token.i > 0 and en_doc[token.i - 1].dep_ == "compound":
         token_text = en_doc[token.i - 1].text + " " + token_text
         token = en_doc[token.i - 1]
+        # if the compound noun has any adjective modifier
+        token_text = get_adj_phrase(token, token_text)
 
     token = parent_token
 
@@ -33,6 +36,8 @@ def get_compound_nouns(en_doc, token, token_text):
     while token.i < len(en_doc) - 1 and en_doc[token.i + 1].dep_ == "compound":
         token_text = token_text + " " + en_doc[token.i + 1].text
         token = en_doc[token.i + 1]
+        # if the compound noun has any adjective modifier
+        token_text = get_adj_phrase(token, token_text)
 
     # NOTE: Can token.shape_ == Xxxx... or XXXX... token.ent_iob_ help us here ...?
 
@@ -79,8 +84,12 @@ def get_noun_chunk(sentence, en_doc, keywords):
             # If the Noun itself is not a compound Noun then we can find its compound Nouns
             if token.dep_ != "compound":
                 token_text = get_compound_nouns(en_doc, token, token.text)
-                token_text = get_adj_phrase(token, token_text)
                 keywords.append(token_text)
+
+        if token.tag_ == "JJ" and token.dep_ == "attr":
+            token_text = get_compound_nouns(en_doc, token, token.text)
+            token_text = get_adj_phrase(token, token_text)
+            keywords.append(token_text)
 
         # If is a Cardinal Number & dependency is numeric modifier
         # nummod : A numeric modifier of a noun is any number phrase that
@@ -127,6 +136,8 @@ if __name__ == "__main__":
 
     import spacy
     from constants import EN_MODEL_MD
+
+    logging.basicConfig(level=logging.DEBUG)
 
     question = "What's the American dollar equivalent for 8 pounds in the U.K. ?"
 
