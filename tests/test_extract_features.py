@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 import spacy
+import json
 from unittest import TestCase
 
 from qas.constants import EN_MODEL_MD
@@ -18,15 +19,20 @@ class TestExtractFeatures(TestCase):
         sql_man = SqLiteManager()
         en_nlp_l = spacy.load(EN_MODEL_MD)
 
-        result = sql_man.get_random_questions(3)
+        # result = sql_man.get_random_questions(3)
+        result = sql_man.get_questions_between(5, 7)
 
         for row in result:
-            with self.subTest(row[0]):
+            qid = row[0]
+            with self.subTest(qid):
                 question = row[1]
                 question_type = row[2]
 
                 en_doc = en_nlp_l(u'' + question)
 
                 features = extract_features(question_type, en_doc, True)
-                print("{0} :\nExtracted: {1}".format(question, features))
+                print("{0}){1} :\nExtracted: {2}".format(qid, question, features))
+                js_feat = json.dumps(features)
+                sql_man.update_feature(qid, js_feat)
                 assert features is not None
+        sql_man.close_db_()

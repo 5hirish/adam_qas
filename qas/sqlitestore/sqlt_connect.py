@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 import sqlite3
+import json
 
 from qas.corpus.data import QA_TEST_DATA
 from constants import CORPUS_DIR
@@ -85,6 +86,16 @@ class SqLiteManager(metaclass=SqLiteMeta):
             fetch_all_question = """SELECT * FROM """+self.table_name+""" ORDER BY RANDOM()"""
         self.get_db_cursor().execute(fetch_all_question)
         return self.get_db_cursor().fetchall()
+
+    def get_questions_between(self, start, end):
+        fetch_range_question = """SELECT * FROM """+self.table_name+""" WHERE Qid BETWEEN """+str(start)+""" AND """+str(end)
+        self.get_db_cursor().execute(fetch_range_question)
+        return self.get_db_cursor().fetchall()
+
+    def update_feature(self, qid, features):
+        update_feature = """UPDATE """+self.table_name+""" SET Features = ? WHERE Qid = """+str(qid)
+        self.get_db_cursor().execute(update_feature, (features,))
+        self.commit_db()
 
     def remove_all_data(self):
         delete_all = """DELETE FROM """+self.table_name
