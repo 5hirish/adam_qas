@@ -70,6 +70,22 @@ class SqLiteManager(metaclass=SqLiteMeta):
         result = self.get_db_cursor().fetchone()
         return result[0]
 
+    def get_all_questions(self, limit=0):
+        if limit > 0:
+            fetch_all_question = """SELECT * FROM """+self.table_name+""" LIMIT """+str(limit)
+        else:
+            fetch_all_question = """SELECT * FROM """+self.table_name
+        self.get_db_cursor().execute(fetch_all_question)
+        return self.get_db_cursor().fetchall()
+
+    def get_random_questions(self, limit=0):
+        if limit > 0:
+            fetch_all_question = """SELECT * FROM """+self.table_name+""" ORDER BY RANDOM() LIMIT """+str(limit)
+        else:
+            fetch_all_question = """SELECT * FROM """+self.table_name+""" ORDER BY RANDOM()"""
+        self.get_db_cursor().execute(fetch_all_question)
+        return self.get_db_cursor().fetchall()
+
     def remove_all_data(self):
         delete_all = """DELETE FROM """+self.table_name
         self.get_db_cursor().execute(delete_all)

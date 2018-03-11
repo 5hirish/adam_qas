@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 # Dataset from WikiQA.tsv. Beware this file is of type TSV
+# Warning: This will remove old results and give you a fresh start.
 
 def insert_question_to_sqlt():
     question_set = []
