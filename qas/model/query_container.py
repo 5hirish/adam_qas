@@ -31,9 +31,7 @@ class QueryContainer:
         return self.__constructed_query__
 
     def __repr__(self):
-        return "\nFeatures: {0}" \
-               "\nConjunction: {1}" \
-               "\nNegations: {2}" \
-               "\nMarker: {3}"\
-            .format(self.__constructed_query__[0], self.__constructed_query__[1],
-                    self.__constructed_query__[2], self.__constructed_query__[3])
+        return "{Features: "+str(self.__constructed_query__[0])+"," \
+               "Conjunction: "+str(self.__constructed_query__[1])+"" \
+               "Negations: "+str(self.__constructed_query__[2])+ \
+               "Marker: "+str(self.__constructed_query__[3])+"}"

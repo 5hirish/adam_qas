@@ -1,6 +1,3 @@
-import os
-import sys
-import logging
 import spacy
 import json
 from unittest import TestCase
@@ -8,6 +5,7 @@ from unittest import TestCase
 from qas.constants import EN_MODEL_MD
 from qas.sqlitestore.sqlt_connect import SqLiteManager
 from qas.feature_extractor import extract_features
+
 """
 Created by felix on 11/3/18 at 7:21 PM
 """

@@ -2,7 +2,6 @@ import os
 import sys
 import logging
 import sqlite3
-import json
 
 from qas.corpus.data import QA_TEST_DATA
 from constants import CORPUS_DIR
@@ -95,6 +94,11 @@ class SqLiteManager(metaclass=SqLiteMeta):
     def update_feature(self, qid, features):
         update_feature = """UPDATE """+self.table_name+""" SET Features = ? WHERE Qid = """+str(qid)
         self.get_db_cursor().execute(update_feature, (features,))
+        self.commit_db()
+
+    def update_search_query(self, qid, query):
+        update_feature = """UPDATE """+self.table_name+""" SET Query = ? WHERE Qid = """+str(qid)
+        self.get_db_cursor().execute(update_feature, (query,))
         self.commit_db()
 
     def remove_all_data(self):
