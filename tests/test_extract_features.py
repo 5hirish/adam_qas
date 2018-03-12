@@ -33,4 +33,4 @@ class TestExtractFeatures(TestCase):
                 js_feat = json.dumps(features)
                 sql_man.update_feature(qid, js_feat)
                 assert features is not None
-        sql_man.close_db_()
+        sql_man.close_db()

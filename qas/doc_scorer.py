@@ -91,7 +91,7 @@ def pre_process_doc(list_docs):
     regex_sections = re.compile(r'(=+[a-zA-Z0-9\s]+=+([a-zA-Z0-9\s]+=+)*)')
     regex_whitespace = re.compile(r"(\s)+")
 
-    for doc in range(len(list_docs)):
+    for doc in list_docs:
         snip = list_docs[doc]
         snip = regex_newline.sub(" ", snip)
         snip = regex_references.sub("", snip)

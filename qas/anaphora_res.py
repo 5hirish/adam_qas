@@ -1,7 +1,6 @@
-import spacy
 import requests
 from pprint import pprint
-from collections import OrderedDict
+# from collections import OrderedDict
 
 
 def get_named_entities(en_doc):
@@ -45,7 +44,7 @@ def get_gender(payload, prop_noun_entities):
     gender_req = requests.get("https://api.genderize.io/", params=payload)
     json_gen = gender_req.json()
 
-    for ji in range(len(json_gen)):
+    for ji in json_gen:
         prop_noun_entities[json_gen[ji]['name']] = json_gen[ji]['gender']
 
     return prop_noun_entities
@@ -87,7 +86,7 @@ def propogate_anaphora(en_doc, anaphora_mappings, prop_noun_entities_pos):
             if token.tag_ == "NNP" or token.tag_ == "NNPS":
                 prev_noun = token.text
             if token.tag_ == "PRP" or token.tag_ == "PRP$":
-                for pos in range(len(anaphora_pronouns)):
+                for pos in anaphora_pronouns:
                     if str(token.text).lower() in anaphora_pronouns[pos]:
                         resolve_noun = anaphora_pnouns[pos]
                         print(resolve_noun, prev_noun, token.text)

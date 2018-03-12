@@ -1,9 +1,9 @@
 import gensim
-from gensim import utils
-import re
+# from gensim import utils
+# import re
 import spacy
-from collections import Counter, OrderedDict
-from pprint import pprint
+from collections import Counter
+# from pprint import pprint
 
 
 def query2vec(query, dictionary):

@@ -15,7 +15,8 @@ class TestWikiScraper(TestCase):
         super(TestWikiScraper, self).__init__(*args, **kwargs)
         self.es_ops = ElasticSearchOperate()
 
-    def test_query_wiki_pages(self):
+    @classmethod
+    def test_query_wiki_pages(cls):
         query_set = ["Alan Turing", "Harry Potter and the Deathly Hallows", "Tiger", "Melbourne"]
         for query in query_set:
             wikiq = WikiQuery(query)

@@ -4,9 +4,9 @@ import pandas
 
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
-from scipy.sparse import csr_matrix
+# from scipy.sparse import csr_matrix
 
-from constants import CORPUS_DIR
+from qas.constants import CORPUS_DIR
 from qas.corpus.data import QUESTION_CLASSIFICATION_TRAINING_DATA
 from qas.classifier.question_classifier import classify_question
 

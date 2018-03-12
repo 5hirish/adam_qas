@@ -36,4 +36,4 @@ class TestConstructQuery(TestCase):
                     js_query = json.dumps(repr(query))
                     sql_man.update_search_query(qid, js_query)
                     assert query is not None
-        sql_man.close_db_()
+        sql_man.close_db()

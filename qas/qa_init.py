@@ -1,7 +1,6 @@
 from time import time
 import warnings
-from re import compile
-
+import re
 import numpy as np
 import enchant
 import spacy
@@ -60,11 +59,11 @@ def answer_question(input_question):
 def spell_check(input_question):
 
     pattern = "\w"
-    prog = compile(pattern)
+    prog = re.compile(pattern)
 
     input_question_word_list = input_question.split()
     en_dict = enchant.Dict("en_US")
-    for word_index in range(len(input_question_word_list)):
+    for word_index in input_question_word_list:
         if (not en_dict.check(input_question_word_list[word_index]) and
                 prog.match(input_question_word_list[word_index]) is None):
             correct_word = spell(input_question_word_list[word_index])

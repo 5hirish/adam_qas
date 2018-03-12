@@ -1,10 +1,9 @@
-import os
 import sys
 import logging
 import sqlite3
 
 from qas.corpus.data import QA_TEST_DATA
-from constants import CORPUS_DIR
+from qas.constants import CORPUS_DIR
 
 """
 Created by felix on 8/3/18 at 1:40 AM
@@ -41,7 +40,8 @@ class SqLiteManager(metaclass=SqLiteMeta):
     def commit_db(self):
         self.__sqlt_conn__.commit()
 
-    def close_db_(self):
+    def close_db(self):
+        # Since here the connection is a singleton, closing the db will close the db but will not delete the object.
         self.__sqlt_conn__.close()
 
     def create_table(self):
