@@ -115,7 +115,7 @@ def get_question_predict_data(en_doc=None, df_question_test=None):
         wh_bi_gram = []
         root_token, wh_pos, wh_nbor_pos, wh_word = [""] * 4
 
-        if en_nlp is not None and df_question_test is not None:
+        if df_question_test is not None:
             en_doc = en_nlp(u'' + sentence)
             sentence = list(en_doc.sents)[0]
 

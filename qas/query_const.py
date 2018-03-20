@@ -27,6 +27,9 @@ def get_conjuncts(token):
     A conjunct is the relation between two elements connected by a coordinating conjunction, such as and, or, etc.
      We treat conjunctions asymmetrically: The head of the relation is the first conjunct and all the other conjuncts
       depend on it via the conj relation.
+
+    Coordinating Conjunction: and, or, but, yet, so, nor, for.
+    Correlative Conjunctions: either...or, whether...or, not only...but also
     """
 
     parent = token.head
@@ -46,7 +49,8 @@ def get_query(sentence, feature_list):
     This function sequentially adds the query components to the structured query.
     """
 
-    query_container = QueryContainer(feature_list)
+    query_container = QueryContainer()
+    query_container.add_features(feature_list)
 
     conjunct_list = []
     neg_list = []
@@ -111,5 +115,5 @@ if __name__ == "__main__":
 
     for sent in en_doc.sents:
         get_detail(sent)
-        query = get_query(sent, features)
+        query.append(get_query(sent, features))
         logger.info("Query: {0}".format(repr(query)))

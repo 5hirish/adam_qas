@@ -108,7 +108,7 @@ class QasInit:
 
         # Anaphora Resolution
 
-        ranked_wiki_docs = rank_docs(self.question_keywords)
+        ranked_wiki_docs = rank_docs(self.question_keywords, wiki_pages)
         _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
 
         self.candidate_answers, keywords = get_candidate_answers(self.query, ranked_wiki_docs, self.nlp)
