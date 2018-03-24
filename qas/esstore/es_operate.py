@@ -5,6 +5,7 @@ from qas.esstore.es_connect import ElasticSearchConn
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_pageid__, __wiki_revision__, __wiki_title__, \
     __wiki_content__, __wiki_updated_date__, __wiki_raw__
 from qas.model.query_container import QueryContainer
+from qas.model.es_document import ElasticSearchDocument
 
 logger = logging.getLogger(__name__)
 
@@ -107,6 +108,8 @@ class ElasticSearchOperate:
         When this filter is used, the parser creates a phrase query for each multi-terms synonyms.
         """
 
+        search_res = []
+
         for query in search_query:
             query_cont = QueryContainer(query)
             if isinstance(query_cont, QueryContainer):
@@ -180,23 +183,31 @@ class ElasticSearchOperate:
                     }
                 }
 
-                print(search_body)
+                logger.debug(search_body)
 
-                res = self.es_conn.search(index=__index_name__, doc_type=__doc_type__, body=search_body)
-                if res['hits']['hits'] is not None:
-                    search_res = res['hits']['hits']
-                    if len(search_res) > 0:
-                        return search_res
-                    else:
-                        return None
-                return None
+                es_result = self.es_conn.search(index=__index_name__, doc_type=__doc_type__, body=search_body)
+                if es_result['hits']['hits'] is not None:
+                    es_result_hits = es_result['hits']['hits']
+                    for result in es_result_hits:
+                        article_id = result['_id']
+                        article_source = result['_source']
+                        es_document = ElasticSearchDocument(article_id, article_source)
+                        search_res.append(es_document)
 
             else:
                 raise ValueError("Incorrect Query Type")
 
+        return search_res
+
 
 if __name__ == "__main__":
-    mquery = list([[['Cushman', 'known', 'Wakefield', 'are'], [['Cushman', 'Wakefield'], 'or'], [], []]])
+
+    logging.basicConfig(level=logging.DEBUG)
+
+    # mquery = list([[['Cushman', 'known', 'Wakefield', 'are'], [['Cushman', 'Wakefield'], 'or'], [], []]])
+    mquery = list([[['Albert', 'Einstein', 'birth'], [], [], []]])
 
     es = ElasticSearchOperate()
-    es.search_wiki_article(mquery)
+    res_all = es.search_wiki_article(mquery)
+    for res in res_all:
+        print(res.get_wiki_title())
