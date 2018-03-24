@@ -190,8 +190,9 @@ class ElasticSearchOperate:
                     es_result_hits = es_result['hits']['hits']
                     for result in es_result_hits:
                         article_id = result['_id']
+                        article_score = result['_score']
                         article_source = result['_source']
-                        es_document = ElasticSearchDocument(article_id, article_source)
+                        es_document = ElasticSearchDocument(article_id, article_source, article_score)
                         search_res.append(es_document)
 
             else:

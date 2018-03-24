@@ -13,9 +13,10 @@ class ElasticSearchDocument:
 
     _source = None
 
-    def __init__(self, article_id, source):
+    def __init__(self, article_id, source, score=0):
         self._source = dict()
         self._source[__wiki_pageid__] = article_id
+        self._source['score'] = score
         self._source[__wiki_revision__] = source[__wiki_revision__]
         self._source[__wiki_updated_date__] = source[__wiki_updated_date__]
         self._source[__wiki_raw__] = source[__wiki_raw__]

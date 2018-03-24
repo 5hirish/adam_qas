@@ -11,7 +11,8 @@ import spacy
 from classifier.question_classifier import classify_question
 from qas.feature_extractor import extract_features
 from qas.query_const import construct_query
-from qas.fetch_wiki import fetch_wiki
+# from qas.fetch_wiki import fetch_wiki
+from qas.wiki.wiki_search import search_wikipedia
 from qas.doc_scorer import rank_docs
 from qas.candidate_ans import get_candidate_answers
 from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT
@@ -102,8 +103,9 @@ class QasInit:
 
     def process_answer(self):
 
-        _logger.info("Retrieving {} wikipedia pages...".format(self.search_depth))
-        wiki_pages = fetch_wiki(self.question_keywords, number_of_search=self.search_depth)
+        _logger.info("Retrieving {} Wikipedia pages...".format(self.search_depth))
+        wiki_pages = search_wikipedia(self.question_keywords, self.search_depth)
+        # wiki_pages = fetch_wiki(self.question_keywords, number_of_search=self.search_depth)
         _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
 
         # Anaphora Resolution
