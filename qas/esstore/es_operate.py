@@ -126,16 +126,16 @@ class ElasticSearchOperate:
                 must_not_match = []
 
                 if conjunct is not None and len(conjunct) > 0:
-                    for i in range(len(conjunct)):
-                        if type(conjunct[i]) is list:
-                            features = [feat for feat in features if feat not in conjunct[i]]
-                            if i < len(conjunct) - 1:
-                                conj_op = conjunct[i + 1]
+                    for index, conj in enumerate(conjunct):
+                        if isinstance(conj, list):
+                            features = [feat for feat in features if feat not in conj]
+                            if index < len(conjunct) - 1:
+                                conj_op = conjunct[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_match_query = {
                                     "match": {
                                         __wiki_content__: {
-                                            "query": " ".join(conjunct[i]),
+                                            "query": " ".join(conj),
                                             "operator": es_operator
                                         }
                                     }
@@ -145,15 +145,15 @@ class ElasticSearchOperate:
                 # FIXME: No support for negations with conjunctions
 
                 if negations is not None and len(negations) > 0:
-                    for i in range(len(negations)):
-                        if type(negations[i]) is list:
-                            features = [feat for feat in features if feat not in negations[i]]
-                            if i < len(conjunct) - 1:
-                                conj_op = conjunct[i + 1]
+                    for index, negate in enumerate(negations):
+                        if isinstance(negate, list):
+                            features = [feat for feat in features if feat not in negate]
+                            if index < len(negations) - 1:
+                                conj_op = negations[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_not_match_term = {
                                     __wiki_content__: {
-                                        "query": " ".join(conjunct[i]),
+                                        "query": " ".join(negations[index]),
                                         "operator": es_operator
                                     }
                                 }

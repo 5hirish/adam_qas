@@ -1,6 +1,3 @@
-import os
-import sys
-import logging
 
 from qas.esstore.es_config import __wiki_content__, __wiki_raw__, __wiki_title__, __wiki_pageid__, __wiki_revision__, __wiki_updated_date__
 
