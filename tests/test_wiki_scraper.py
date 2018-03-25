@@ -49,4 +49,4 @@ class TestWikiScraper(TestCase):
                 info = xpe.extract_info()
                 table = xpe.extract_tables()
                 text = xpe.extract_text()
-                self.assertRegex(text, html_tag_expr)
+                self.assertNotRegex(text, html_tag_expr)
