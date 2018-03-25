@@ -111,7 +111,10 @@ class ElasticSearchOperate:
         search_res = []
 
         for query in search_query:
-            query_cont = QueryContainer(query)
+            if not isinstance(query, QueryContainer):
+                query_cont = QueryContainer(query)
+            else:
+                query_cont = query
             if isinstance(query_cont, QueryContainer):
                 features = query_cont.get_features()
                 conjunct = query_cont.get_conjunctions()

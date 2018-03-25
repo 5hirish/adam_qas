@@ -8,12 +8,13 @@ import logging
 # import enchant # pyenchant>=2.0
 import spacy
 
-from classifier.question_classifier import classify_question
+from qas.classifier.question_classifier import classify_question
 from qas.feature_extractor import extract_features
 from qas.query_const import construct_query
 # from qas.fetch_wiki import fetch_wiki
 from qas.wiki.wiki_search import search_wikipedia
-from qas.doc_scorer import rank_docs
+# from qas.doc_scorer import rank_docs
+from qas.doc_search_rank import search_rank
 from qas.candidate_ans import get_candidate_answers
 from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT
 from qas import __version__
@@ -96,24 +97,25 @@ class QasInit:
         _logger.info("Question Class: {}".format(self.question_class))
 
         self.question_keywords = extract_features(self.question_class, self.question_doc)
-        _logger.debug("Question Features: {}".format(self.question_keywords))
+        _logger.info("Question Features: {}".format(self.question_keywords))
 
         self.query = construct_query(self.question_keywords, self.question_doc)
-        _logger.debug("Query: {}".format(self.query))
+        _logger.info("Query: {}".format(self.query))
 
     def process_answer(self):
 
         _logger.info("Retrieving {} Wikipedia pages...".format(self.search_depth))
-        wiki_pages = search_wikipedia(self.question_keywords, self.search_depth)
+        search_wikipedia(self.question_keywords, self.search_depth)
         # wiki_pages = fetch_wiki(self.question_keywords, number_of_search=self.search_depth)
-        _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
 
         # Anaphora Resolution
 
-        ranked_wiki_docs = rank_docs(self.question_keywords, wiki_pages)
-        _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
+        # ranked_wiki_docs = rank_docs(self.question_keywords, wiki_pages)
+        wiki_pages = search_rank(self.query)
+        _logger.info("Pages retrieved: {}".format(len(wiki_pages)))
+        # _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
 
-        self.candidate_answers, keywords = get_candidate_answers(self.query, ranked_wiki_docs, self.nlp)
+        self.candidate_answers, keywords = get_candidate_answers(self.query, wiki_pages, self.nlp)
         _logger.info("Candidate answers ({}):\n{}".format(len(self.candidate_answers), '\n'.join(self.candidate_answers)))
 
         return " ".join(self.candidate_answers)
@@ -239,6 +241,10 @@ def setup_logging(loglevel):
     logformat = "[%(asctime)s] %(levelname)s:%(name)s:%(message)s"
     logging.basicConfig(level=loglevel, stream=sys.stdout,
                         format=logformat, datefmt="%Y-%m-%d %H:%M:%S")
+
+    logging.getLogger('urllib3').setLevel(logging.CRITICAL)
+    logging.getLogger('elasticsearch').setLevel(logging.CRITICAL)
+    logging.getLogger('gensim').setLevel(logging.CRITICAL)
 
 
 def main(args):
