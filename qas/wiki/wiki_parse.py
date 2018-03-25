@@ -257,6 +257,17 @@ class WikiTable:
             self.tab_data.append(zipped_list)
 
 
+def extract_wiki_pages(wiki_page_ids):
+    for page in wiki_page_ids:
+        xpe = XPathExtractor(page)
+        xpe.strip_tag()
+        xpe.strip_headings()
+        # xpe.img_extract()     # TODO: Save with Elasticsearch
+        xpe.extract_info()      # TODO: Save with Elasticsearch
+        xpe.extract_tables()    # TODO: Save with Elasticsearch
+        xpe.extract_text()
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) > 1:
@@ -272,15 +283,15 @@ if __name__ == "__main__":
         #         print(xpe.extract_text())
         #         if SAVE_OUTPUTS:
         #             xpe.save_html(page)
-        for page in parse_pageId:
-            xpe = XPathExtractor(page)
-            xpe.strip_tag()
-            xpe.strip_headings()
-            print("Extracted Images:", xpe.img_extract())
-            pprint([str(item) for item in xpe.extract_info()])
-            pprint(xpe.extract_tables())
-            print(xpe.extract_text())
+        for lpage in parse_pageId:
+            lxpe = XPathExtractor(lpage)
+            lxpe.strip_tag()
+            lxpe.strip_headings()
+            print("Extracted Images:", lxpe.img_extract())
+            pprint([str(item) for item in lxpe.extract_info()])
+            pprint(lxpe.extract_tables())
+            print(lxpe.extract_text())
             if SAVE_OUTPUTS:
-                xpe.save_html(page)
+                lxpe.save_html(lpage)
     else:
         raise ValueError('No page id provided for Wiki parse')

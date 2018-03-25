@@ -32,17 +32,18 @@ class WikiQuery:
     # noinspection PyDictCreation
     wiki_query_payload = {'action': 'query', 'format': 'json', 'list': 'search'}
     wiki_query_payload['srwhat'] = 'text'
-    wiki_query_payload['srlimit'] = str(wiki_max_results)
     search_term = ""
 
-    def __init__(self, search_term):
+    def __init__(self, search_term, wiki_max_results=10):
         self.search_term = search_term
+        self.wiki_max_results = wiki_max_results
 
     def fetch_wiki_pages(self):
 
         search_term = urllib.parse.quote(self.search_term)
         logger.debug("Querying: %s", search_term)
 
+        self.wiki_query_payload['srlimit'] = str(self.wiki_max_results)
         self.wiki_query_payload['srsearch'] = search_term
 
         wiki_query_req = requests.get(self.base_url, params=self.wiki_query_payload)

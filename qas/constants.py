@@ -15,4 +15,9 @@ EXAMPLE_QUESTIONS = [
     "How do you use a seismograph ?",
     "What is Facebook Spaces ?"]
 
+EN_MODEL_DEFAULT = "en"
+EN_MODEL_SM = "en_core_web_sm"
+EN_MODEL_MD = "en_core_web_md"
+EN_MODEL_LG = "en_core_web_lg"
+
 

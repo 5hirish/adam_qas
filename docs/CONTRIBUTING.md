@@ -22,3 +22,12 @@ We use some external dependencies, multiple interpreters and code coverage analy
 $ pytest tests
 ```
 Our test suite runs continuously on Travis CI with every pull request to `master`.
+
+## HELP REQUIRED
+
+To find where you can help, search for the following tags:
+* `#TODO:` The tasks which are pending or yet not taken up
+* `#FIXME:` The tasks which require some attending to do
+* `#HELP:` The tasks which are require some help
+
+You can also help in making the Wikipedia parser more robust by adding more XPath filters that remove irrelevant information or extract and format relevant information.

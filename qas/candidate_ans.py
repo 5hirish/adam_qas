@@ -1,14 +1,17 @@
 import os
+import logging
 from collections import Counter
-
 import gensim
 
 from qas.constants import CORPUS_DIR
 
 
+logger = logging.getLogger(__name__)
+
+
 def query2vec(query, dictionary):
 
-    print("Searching: ", query)
+    logging.info("Searching: {0}".format(query))
     corpus = dictionary.doc2bow(query)
 
     return corpus
@@ -77,10 +80,10 @@ def keywords_splitter(keywords, keywords_splits):
 
 def pre_query(question_query):
 
-    keywords = question_query[0]
+    keywords = question_query.get_features()
     # keywords_conjunct = question_query[1]
 
-    keywords = [keywords[feat].lower() for feat in range(0, len(keywords))]
+    keywords = [feat.lower() for feat in keywords]
     whitespace = ' '
     keywords_splits = whitespace.join(keywords).split()
 
@@ -106,12 +109,17 @@ def get_processed_document(ranked_wiki_docs):
 
 def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
 
-    keywords_query = pre_query(question_query)
+    # NOTE: Currently this project doesn't support multiple questions.
+    keywords_query = pre_query(question_query[0])
     # print(keywords_query)
 
-    document = get_processed_document(ranked_wiki_docs)
+    # document = get_processed_document(ranked_wiki_docs)
+    combined_document = []
+    for wiki_doc in ranked_wiki_docs:
+        combined_document.append(wiki_doc.get_wiki_content())
 
-    en_doc = en_nlp(u'' + document)
+    combined_document_str = ' '.join(combined_document)
+    en_doc = en_nlp(u'' + combined_document_str)
 
     sentences = list(en_doc.sents)
 
@@ -132,3 +140,27 @@ def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
         candidate_ans.append(str(sentences[sent_id]))
 
     return candidate_ans, keywords_query
+
+
+if __name__ == "__main__":
+
+    import spacy
+    from qas.constants import EN_MODEL_MD
+    from qas.model.query_container import QueryContainer
+    from qas.wiki.wiki_search import search_wikipedia
+    from qas.doc_search_rank import search_rank
+
+    logging.basicConfig(level=logging.DEBUG)
+
+    lquestion_keywords = ['Albert Einstein', 'birth']
+    lquery_raw = list([[['Albert Einstein', 'birth'], [], [], []]])
+    lquery = []
+    for qr in lquery_raw:
+        lquery.append(QueryContainer(qr))
+    search_wikipedia(lquestion_keywords, 3)
+    lwiki_pages = search_rank(lquery_raw)
+
+    len_nlp = spacy.load(EN_MODEL_MD)
+
+    candidate_answers, keywords = get_candidate_answers(lquery, lwiki_pages, len_nlp)
+    print(' '.join(candidate_answers))
