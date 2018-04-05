@@ -28,31 +28,31 @@ class XPathExtractor:
     newLine_nonBreak_regex = r'(\n+)|(\xa0)'
 
     toc_pattern = '''//*[@id="toc"]'''
-    non_searchable_pattern = '''/div/div[starts-with(@class, "hatnote")]'''
-    description_list_pattern = '''/div/dl'''
-    references_pattern = '''/div/div[starts-with(@class, "refbegin")]'''
-    references_list_pattern = '''/div/div[starts-with(@class, "reflist")]'''
-    meta_data_box_pattern = '''/div/div[starts-with(@class, "metadata")]'''
-    nav_boxes_pattern = '''/div/div[@class="navbox"]'''
-    vertical_nav_boxes_pattern = '''/div/table[starts-with(@class, "vertical-navbox")]'''
-    no_print_metadata_pattern = '''/div/div[starts-with(@class, "noprint")]'''
+    non_searchable_pattern = '''/html/body/div/div[starts-with(@class, "hatnote")]'''
+    description_list_pattern = '''/html/body/div/dl'''
+    references_pattern = '''/html/body/div/div[starts-with(@class, "refbegin")]'''
+    references_list_pattern = '''/html/body/div/div[starts-with(@class, "reflist")]'''
+    meta_data_box_pattern = '''/html/body/div/div[starts-with(@class, "metadata")]'''
+    nav_boxes_pattern = '''/html/body/div/div[@class="navbox"]'''
+    vertical_nav_boxes_pattern = '''/html/body/div/table[starts-with(@class, "vertical-navbox")]'''
+    no_print_metadata_pattern = '''/html/body/div/div[starts-with(@class, "noprint")]'''
     subscript_pattern = '''//sup[@class="reference"]'''
     edit_pattern = '''//span[@class="mw-editsection"]'''
-    meta_data_table = '''/div/table[contains(@class, "metadata")]'''
+    meta_data_table = '''/html/body/div/table[contains(@class, "metadata")]'''
 
     see_also_pattern = '''//*[@id="See_also"]'''
     external_links_pattern = '''//*[@id="External_links"]'''
 
-    img_pattern = '''/div//div[starts-with(@class, "thumb ")]'''
+    img_pattern = '''/html/body/div//div[starts-with(@class, "thumb ")]'''
     img_href = '''./div//a/@href'''
     img_caption = '''.//div[@class="thumbcaption"]/text()'''
 
-    info_box_pattern = '''/div/table[starts-with(@class, "infobox")]'''
+    info_box_pattern = '''/html/body/div/table[starts-with(@class, "infobox")]'''
     info_box_item = '''./tr'''
     info_key_pattern = '''./th//text()'''
     info_value_pattern = '''./td//text()'''
 
-    table_pattern = '''/div/table[@class="wikitable"]'''
+    table_pattern = '''/html/body/div/table[@class="wikitable"]'''
     table_row_pattern = '''./tr'''
     table_key_pattern = '''./th'''
     table_value_pattern = '''./td'''
@@ -75,7 +75,8 @@ class XPathExtractor:
         self.es_ops = ElasticSearchOperate()
         self.html_data = html_data
         self.newLine_nonBreak_pattern = re.compile(self.newLine_nonBreak_regex)
-        parser = etree.XMLParser(ns_clean=True, remove_comments=True)
+        # parser = etree.XMLParser(ns_clean=True, remove_comments=True)
+        parser = etree.HTMLParser(remove_blank_text=True, remove_comments=True)
         if isFile:
             self.html_tree = etree.parse(self.html_data, parser)
         else:
@@ -88,7 +89,8 @@ class XPathExtractor:
         wiki_data = self.es_ops.get_wiki_article(pageid)
         if wiki_data is not None and __wiki_raw__ in wiki_data:
             self.html_data = wiki_data[__wiki_raw__]
-            parser = etree.XMLParser(ns_clean=True, remove_comments=True)
+            # parser = etree.XMLParser(ns_clean=True, remove_comments=True)
+            parser = etree.HTMLParser(remove_blank_text=True, remove_comments=True)
             self.html_tree = etree.fromstring(self.html_data, parser)
 
     def strip_tag(self):
