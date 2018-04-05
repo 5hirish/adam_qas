@@ -41,9 +41,8 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                             "type": "date"
                         },
                         __wiki_raw__: {
-                            "type": "text",
-                            "enabled": "false",
-                            "index": "false"
+                            "type": "object",
+                            "enabled": "false"
                         },
                         __wiki_content__: {
                             "type": "text",
