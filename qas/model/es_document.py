@@ -1,5 +1,6 @@
 
-from qas.esstore.es_config import __wiki_content__, __wiki_raw__, __wiki_title__, __wiki_pageid__, __wiki_revision__, __wiki_updated_date__
+from qas.esstore.es_config import __wiki_content__, __wiki_content_info__, __wiki_content_table__, \
+    __wiki_raw__, __wiki_title__, __wiki_pageid__, __wiki_revision__, __wiki_updated_date__
 
 """
 Created by felix on 24/3/18 at 10:26 PM
@@ -19,6 +20,8 @@ class ElasticSearchDocument:
         self._source[__wiki_raw__] = source[__wiki_raw__]
         self._source[__wiki_title__] = source[__wiki_title__]
         self._source[__wiki_content__] = source[__wiki_content__]
+        self._source[__wiki_content_info__] = source[__wiki_content_info__]
+        self._source[__wiki_content_table__] = source[__wiki_content_table__]
 
     def get_wiki_revision(self):
         return self._source[__wiki_revision__]
@@ -37,3 +40,9 @@ class ElasticSearchDocument:
 
     def get_wiki_content(self):
         return self._source[__wiki_content__]
+
+    def get_wiki_content_info(self):
+        return self._source[__wiki_content_info__]
+
+    def get_wiki_content_table(self):
+        return self._source[__wiki_content_table__]

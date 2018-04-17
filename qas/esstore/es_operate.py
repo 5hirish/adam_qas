@@ -3,7 +3,7 @@ import logging
 
 from qas.esstore.es_connect import ElasticSearchConn
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_pageid__, __wiki_revision__, __wiki_title__, \
-    __wiki_content__, __wiki_updated_date__, __wiki_raw__
+    __wiki_content__, __wiki_content_info__, __wiki_content_table__, __wiki_updated_date__, __wiki_raw__
 from qas.model.query_container import QueryContainer
 from qas.model.es_document import ElasticSearchDocument
 
@@ -64,19 +64,48 @@ class ElasticSearchOperate:
     #     res = self.es_conn.update_by_query(index=__index_name__, doc_type=__doc_type__, body=wiki_body)
     #     return res['updated']
 
-    def update_wiki_article(self, pagid, content):
-        wiki_body = {
-            "script": {
-                "source": "ctx._source." + __wiki_content__ + " = params." + __wiki_content__,
-                "lang": "painless",
-                "params": {
-                    __wiki_content__: content
+    def update_wiki_article(self, pagid, content=None, content_info=None, content_table=None):
+        wiki_body = None
+
+        if content is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content__ + " = params." + __wiki_content__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content__: content
+                    }
                 }
             }
-        }
-        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)
-        logger.debug("Article Updated:{0}".format(res['result']))
-        return res['result'] == 'updated'
+
+        elif content_info is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content_info__ + " = params." + __wiki_content_info__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content_info__: content_info
+                    }
+                }
+            }
+
+        elif content_table is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content_table__ + " = params." + __wiki_content_table__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content_table__: content_table
+                    }
+                }
+            }
+
+        if wiki_body is not None:
+            res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)
+            logger.debug("Article Updated:{0}".format(res['result']))
+            return res['result'] == 'updated'
+        else:
+            return None
 
     def get_wiki_article(self, pageid):
         res = self.es_conn.get(index=__index_name__, doc_type=__doc_type__, id=pageid)
@@ -213,5 +242,5 @@ if __name__ == "__main__":
 
     es = ElasticSearchOperate()
     res_all = es.search_wiki_article(mquery)
-    for res in res_all:
-        print(res.get_wiki_title())
+    for lres in res_all:
+        print(lres.get_wiki_title())

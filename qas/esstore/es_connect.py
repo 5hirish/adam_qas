@@ -1,7 +1,8 @@
 from elasticsearch import Elasticsearch
 import logging
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__,\
-    __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__, __num_replicas__, __analyzer_en__
+    __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__,\
+    __num_replicas__, __analyzer_en__
 """
 Meta Class for managing elasticsearch db connection. It also serves as an singleton
 """
@@ -47,6 +48,12 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         __wiki_content__: {
                             "type": "text",
                             "analyzer": __analyzer_en__
+                        },
+                        __wiki_content_info__: {
+                            "type": "object"
+                        },
+                        __wiki_content_table__: {
+                            "type": "object"
                         },
                         __wiki_revision__: {
                             "type": "long"
