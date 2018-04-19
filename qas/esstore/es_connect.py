@@ -26,7 +26,13 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
     es_index_config = None
 
     def __init__(self):
-        self.es_index_config = {
+        es_host = {'host': self.__hostname__, 'port': self.__port__}
+        self.__es_conn__ = Elasticsearch(hosts=[es_host])
+        self.set_up_index()
+
+    @staticmethod
+    def get_index_mapping():
+        return {
             "settings": {
                 "number_of_shards": __num_shards__,
                 "number_of_replicas": __num_replicas__
@@ -67,11 +73,10 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                 }
             }
         }
-        es_host = {'host': self.__hostname__, 'port': self.__port__}
-        self.__es_conn__ = Elasticsearch(hosts=[es_host])
 
     def create_index(self):
         # ignore 400 cause by IndexAlreadyExistsException when creating an index
+        self.es_index_config = ElasticSearchConn.get_index_mapping()
         res = self.__es_conn__.indices.create(index=__index_name__, body=self.es_index_config, ignore=400)
         if 'error' in res and res['status'] == 400:
             logger.debug("Index already exists")
@@ -104,7 +109,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
         if updated_mapping is not None:
             res = self.__es_conn__.indices.put_mapping(index=__index_name__, doc_type=__doc_type__, body=updated_mapping)
 
-    def get_db_connection(self):
+    def set_up_index(self):
         index_exists = self.__es_conn__.indices.exists(index=__index_name__)
         if not index_exists:
             self.create_index()
@@ -114,4 +119,5 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             if current_version < __index_version__:
                 self.update_index(current_version)
 
+    def get_db_connection(self):
         return self.__es_conn__
