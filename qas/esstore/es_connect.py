@@ -2,7 +2,7 @@ from elasticsearch import Elasticsearch
 import logging
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__,\
     __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__,\
-    __num_replicas__, __analyzer_en__
+    __num_replicas__, __analyzer_en__, __index_version__
 """
 Meta Class for managing elasticsearch db connection. It also serves as an singleton
 """
@@ -33,6 +33,9 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             },
             "mappings": {
                 __doc_type__: {
+                    "_meta": {
+                        "version": 1
+                    },
                     "properties": {
                         __wiki_title__: {
                             "type": "text",
@@ -67,7 +70,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
         es_host = {'host': self.__hostname__, 'port': self.__port__}
         self.__es_conn__ = Elasticsearch(hosts=[es_host])
 
-    def get_db_connection(self):
+    def create_index(self):
         # ignore 400 cause by IndexAlreadyExistsException when creating an index
         res = self.__es_conn__.indices.create(index=__index_name__, body=self.es_index_config, ignore=400)
         if 'error' in res and res['status'] == 400:
@@ -76,5 +79,39 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             logger.debug("Index Created")
         else:
             logger.error("Index creation failed")
+
+    def update_index(self, current_version):
+        updated_mapping = None
+
+        # Migrating from version 1 to version 2
+        if current_version == 1 and __index_version__ == 2:
+            updated_mapping = {
+                "_meta": {
+                        "version": __index_version__
+                    },
+                "properties": {
+                    __wiki_content_info__: {
+                        "type": "text",
+                        "analyzer": "standard"
+                    },
+                    __wiki_content_table__: {
+                        "type": "text",
+                        "analyzer": "standard"
+                    }
+                }
+            }
+
+        if updated_mapping is not None:
+            res = self.__es_conn__.indices.put_mapping(index=__index_name__, doc_type=__doc_type__, body=updated_mapping)
+
+    def get_db_connection(self):
+        index_exists = self.__es_conn__.indices.exists(index=__index_name__)
+        if not index_exists:
+            self.create_index()
+        else:
+            res = self.__es_conn__.indices.get_mapping(index=__index_name__, doc_type=__doc_type__)
+            current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
+            if current_version < __index_version__:
+                self.update_index(current_version)
 
         return self.__es_conn__

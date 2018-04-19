@@ -3,6 +3,7 @@ __index_name__ = "adam_qas"
 __num_shards__ = 1
 __num_replicas__ = 0
 __doc_type__ = "article"
+__index_version__ = 2
 
 __wiki_title__ = "title"
 __wiki_updated_date__ = "updated"
