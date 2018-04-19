@@ -162,11 +162,11 @@ class ElasticSearchOperate:
                                 conj_op = conjunct[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_match_query = {
-                                    "match": {
-                                        __wiki_content__: {
-                                            "query": " ".join(conj),
-                                            "operator": es_operator
-                                        }
+                                    "multi_match": {
+                                        "query": " ".join(conj),
+                                        "operator": es_operator,
+                                        "type": "most_fields",
+                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                                     }
                                 }
                                 must_match.append(must_match_query)
@@ -181,9 +181,11 @@ class ElasticSearchOperate:
                                 conj_op = negations[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_not_match_term = {
-                                    __wiki_content__: {
+                                    "multi_match": {
                                         "query": " ".join(negations[index]),
-                                        "operator": es_operator
+                                        "operator": es_operator,
+                                        "type": "most_fields",
+                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                                     }
                                 }
                                 must_not_match.append(must_not_match_term)
@@ -195,10 +197,10 @@ class ElasticSearchOperate:
                     #     must_match_term = {"term": {__wiki_content__: feat}}
                     #     must_match.append(must_match_term)
                     must_match_query = {
-                        "match": {
-                            __wiki_content__: {
-                                "query": " ".join(features)
-                            }
+                        "multi_match": {
+                            "query": " ".join(features),
+                            "type": "most_fields",
+                            "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                         }
                     }
                     must_match.append(must_match_query)

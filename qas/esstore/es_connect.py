@@ -50,10 +50,12 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                             "analyzer": __analyzer_en__
                         },
                         __wiki_content_info__: {
-                            "type": "object"
+                            "type": "text",
+                            "analyzer": "standard"
                         },
                         __wiki_content_table__: {
-                            "type": "object"
+                            "type": "text",
+                            "analyzer": "standard"
                         },
                         __wiki_revision__: {
                             "type": "long"

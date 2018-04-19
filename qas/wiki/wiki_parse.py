@@ -3,6 +3,7 @@ from pprint import pprint
 import logging
 import sys
 import re
+import json
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 from qas.esstore.es_operate import ElasticSearchOperate
@@ -196,7 +197,7 @@ class XPathExtractor:
                         info_list.append(info_pair)
             wikii.add_info(info_title, info_list)
             info.getparent().remove(info)
-        res = self.es_ops.update_wiki_article(self.pageid, content_info=wikii.info_data)
+        res = self.es_ops.update_wiki_article(self.pageid, content_info=json.dumps(wikii.info_data))
         if res:
             logger.info("Inserted parsed content info for: %d", self.pageid)
         else:
@@ -219,7 +220,7 @@ class XPathExtractor:
                     tab_data.append(''.join(table_data.xpath(self.all_text_pattern)))
                 wikit.set_values(tab_data)
             table.getparent().remove(table)
-        res = self.es_ops.update_wiki_article(self.pageid, content_table=wikit.tab_data)
+        res = self.es_ops.update_wiki_article(self.pageid, content_table=json.dumps(wikit.tab_data))
         if res:
             logger.info("Inserted parsed content table for: %d", self.pageid)
         else:
