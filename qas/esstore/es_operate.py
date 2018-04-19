@@ -46,7 +46,42 @@ class ElasticSearchOperate:
             "doc_as_upsert": True
         }
         res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
-        logger.debug("Article Inserted:{0}".format(res['result']))
+        logger.debug("Article Upserted:{0}".format(res['result']))
+        return res['result'] == 'created' or res['result'] == 'updated'
+
+    def upsert_wiki_article_if_updated(self, pageid, revid, title, raw):
+
+        """
+        Refer: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html
+        If the document does not already exist, the contents of the upsert element will be inserted as a new document.
+        If the document does exist, then the script will be executed instead
+        """
+
+        wiki_body = {
+            "script": {
+                "source": "if (ctx._source."+__wiki_revision__+" < params.new_revision) "
+                                                               "{ctx._source = params.new_article' } "
+                                                               "else {ctx.op = 'none' }",
+                "lang": "painless",
+                "params": {
+                    "new_revision": revid,
+                    "new_article": {
+                        __wiki_revision__: revid,
+                        __wiki_title__: title,
+                        __wiki_raw__: raw,
+                        __wiki_updated_date__: datetime.now()
+                    }
+                }
+            },
+            "upsert": {
+                __wiki_revision__: revid,
+                __wiki_title__: title,
+                __wiki_raw__: raw,
+                __wiki_updated_date__: datetime.now()
+            }
+        }
+        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        logger.debug("Article Upserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated'
 
     # def update_wiki_article(self, pageid, content):
@@ -135,6 +170,10 @@ class ElasticSearchOperate:
         
         The match query supports multi-terms synonym expansion with the synonym_graph token filter. 
         When this filter is used, the parser creates a phrase query for each multi-terms synonyms.
+        
+        The multi_match query builds on the match query to allow multi-field queries. We can sepcify the fields to be queried.
+        The way the multi_match query is executed internally depends on the type parameter.
+        The most_fields finds documents which match any field and combines the _score from each field.
         """
 
         search_res = []
