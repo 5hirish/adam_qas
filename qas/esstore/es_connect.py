@@ -86,6 +86,12 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             logger.error("Index creation failed")
 
     def update_index(self, current_version):
+
+        """
+        Existing type and field mappings cannot be updated. Changing the mapping would mean invalidating already indexed documents.
+        Instead, you should create a new index with the correct mappings and reindex your data into that index.
+        """
+
         updated_mapping = None
 
         # Migrating from version 1 to version 2
@@ -107,7 +113,9 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             }
 
         if updated_mapping is not None:
+            self.__es_conn__.indices.close(index=__index_name__)
             res = self.__es_conn__.indices.put_mapping(index=__index_name__, doc_type=__doc_type__, body=updated_mapping)
+            self.__es_conn__.indices.open(index=__index_name__)
 
     def set_up_index(self):
         index_exists = self.__es_conn__.indices.exists(index=__index_name__)
