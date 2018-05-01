@@ -4,12 +4,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361)](https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger)
 [![Codecov](https://codecov.io/gh/5hirish/adam_qas/branch/master/graph/badge.svg)](https://codecov.io/gh/5hirish/adam_qas)
 [![Build Status](https://travis-ci.org/5hirish/adam_qas.svg?branch=master)](https://travis-ci.org/5hirish/adam_qas)
-[![Slack](https://img.shields.io/badge/slack-adam__qas-red.svg)](https://join.slack.com/t/alleviatenlp/shared_invite/enQtMjk4NzEwNjI0MTc4LTA0MmQ3NWIyNjIwYjYwNDVlZGU3NzkwN2RiZWJjNDlhY2Y1YmQ5ZGUxMjRkYjE5NTVlZWZhYjY5MWNhY2QzNjM)
 [![Twitter](https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=5hirish)
 
-A question answering system that extracts answers questions in natural language from Wikipedia.
+A question answering system that extracts answers from Wikipedia to questions posed in natural language.
 Inspired by *IBM Watson* and *START*.
-Currently the answers extracted by the system are moderately accurate.
+We are currently focused on improving the accuracy of the extracted answers.
 Follow the creator's blog at [shirishkadam.com](https://www.shirishkadam.com/) for updates on progress.
 
 ## Getting Started
@@ -54,6 +53,7 @@ Python Package dependencies listed in [requirements.txt](requirements.txt)
 
 - [x] Replace Wikipedia APIs with custom scraper
 - [x] Storing extracted data in database (elasticsearch)
+- [x] SQLite test input data storage
 - [ ] Anaphora resolution in both questions and answers
 - [ ] Machine learning query constructor rather than rule-based
 - [ ] Improve vector space language model for answer extraction

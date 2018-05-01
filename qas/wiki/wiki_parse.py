@@ -3,6 +3,7 @@ from pprint import pprint
 import logging
 import sys
 import re
+import json
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
 from qas.esstore.es_operate import ElasticSearchOperate
@@ -196,6 +197,11 @@ class XPathExtractor:
                         info_list.append(info_pair)
             wikii.add_info(info_title, info_list)
             info.getparent().remove(info)
+        res = self.es_ops.update_wiki_article(self.pageid, content_info=json.dumps(wikii.info_data))
+        if res:
+            logger.info("Inserted parsed content info for: %d", self.pageid)
+        else:
+            logger.error("Inserted of parsed content info failed")
         logger.debug("Extracted Bios: %d", len(wikii.info_data))
         return wikii.info_data
 
@@ -214,13 +220,18 @@ class XPathExtractor:
                     tab_data.append(''.join(table_data.xpath(self.all_text_pattern)))
                 wikit.set_values(tab_data)
             table.getparent().remove(table)
+        res = self.es_ops.update_wiki_article(self.pageid, content_table=json.dumps(wikit.tab_data))
+        if res:
+            logger.info("Inserted parsed content table for: %d", self.pageid)
+        else:
+            logger.error("Inserted of parsed content table failed")
         logger.debug("Extracted Tables: %d", len(wikit.tab_data))
         return wikit.tab_data
 
     def extract_text(self):
         text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
         text_data = re.sub(self.newLine_nonBreak_pattern, ' ', text_data)
-        res = self.es_ops.update_wiki_article(self.pageid, text_data)
+        res = self.es_ops.update_wiki_article(self.pageid, content=text_data)
         logger.debug("Parsed content length: %d", len(text_data))
         if res:
             logger.info("Inserted parsed content for: %d", self.pageid)

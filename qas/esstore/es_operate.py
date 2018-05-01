@@ -3,7 +3,7 @@ import logging
 
 from qas.esstore.es_connect import ElasticSearchConn
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_pageid__, __wiki_revision__, __wiki_title__, \
-    __wiki_content__, __wiki_updated_date__, __wiki_raw__
+    __wiki_content__, __wiki_content_info__, __wiki_content_table__, __wiki_updated_date__, __wiki_raw__
 from qas.model.query_container import QueryContainer
 from qas.model.es_document import ElasticSearchDocument
 
@@ -46,7 +46,42 @@ class ElasticSearchOperate:
             "doc_as_upsert": True
         }
         res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
-        logger.debug("Article Inserted:{0}".format(res['result']))
+        logger.debug("Article Upserted:{0}".format(res['result']))
+        return res['result'] == 'created' or res['result'] == 'updated'
+
+    def upsert_wiki_article_if_updated(self, pageid, revid, title, raw):
+
+        """
+        Refer: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html
+        If the document does not already exist, the contents of the upsert element will be inserted as a new document.
+        If the document does exist, then the script will be executed instead
+        """
+
+        wiki_body = {
+            "script": {
+                "source": "if (ctx._source."+__wiki_revision__+" < params.new_revision) "
+                                                               "{ctx._source = params.new_article' } "
+                                                               "else {ctx.op = 'none' }",
+                "lang": "painless",
+                "params": {
+                    "new_revision": revid,
+                    "new_article": {
+                        __wiki_revision__: revid,
+                        __wiki_title__: title,
+                        __wiki_raw__: raw,
+                        __wiki_updated_date__: datetime.now()
+                    }
+                }
+            },
+            "upsert": {
+                __wiki_revision__: revid,
+                __wiki_title__: title,
+                __wiki_raw__: raw,
+                __wiki_updated_date__: datetime.now()
+            }
+        }
+        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        logger.debug("Article Upserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated'
 
     # def update_wiki_article(self, pageid, content):
@@ -64,19 +99,48 @@ class ElasticSearchOperate:
     #     res = self.es_conn.update_by_query(index=__index_name__, doc_type=__doc_type__, body=wiki_body)
     #     return res['updated']
 
-    def update_wiki_article(self, pagid, content):
-        wiki_body = {
-            "script": {
-                "source": "ctx._source." + __wiki_content__ + " = params." + __wiki_content__,
-                "lang": "painless",
-                "params": {
-                    __wiki_content__: content
+    def update_wiki_article(self, pagid, content=None, content_info=None, content_table=None):
+        wiki_body = None
+
+        if content is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content__ + " = params." + __wiki_content__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content__: content
+                    }
                 }
             }
-        }
-        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)
-        logger.debug("Article Updated:{0}".format(res['result']))
-        return res['result'] == 'updated'
+
+        elif content_info is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content_info__ + " = params." + __wiki_content_info__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content_info__: content_info
+                    }
+                }
+            }
+
+        elif content_table is not None:
+            wiki_body = {
+                "script": {
+                    "source": "ctx._source." + __wiki_content_table__ + " = params." + __wiki_content_table__,
+                    "lang": "painless",
+                    "params": {
+                        __wiki_content_table__: content_table
+                    }
+                }
+            }
+
+        if wiki_body is not None:
+            res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)
+            logger.debug("Article Updated:{0}".format(res['result']))
+            return res['result'] == 'updated'
+        else:
+            return None
 
     def get_wiki_article(self, pageid):
         res = self.es_conn.get(index=__index_name__, doc_type=__doc_type__, id=pageid)
@@ -106,6 +170,10 @@ class ElasticSearchOperate:
         
         The match query supports multi-terms synonym expansion with the synonym_graph token filter. 
         When this filter is used, the parser creates a phrase query for each multi-terms synonyms.
+        
+        The multi_match query builds on the match query to allow multi-field queries. We can sepcify the fields to be queried.
+        The way the multi_match query is executed internally depends on the type parameter.
+        The most_fields finds documents which match any field and combines the _score from each field.
         """
 
         search_res = []
@@ -133,11 +201,11 @@ class ElasticSearchOperate:
                                 conj_op = conjunct[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_match_query = {
-                                    "match": {
-                                        __wiki_content__: {
-                                            "query": " ".join(conj),
-                                            "operator": es_operator
-                                        }
+                                    "multi_match": {
+                                        "query": " ".join(conj),
+                                        "operator": es_operator,
+                                        "type": "most_fields",
+                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                                     }
                                 }
                                 must_match.append(must_match_query)
@@ -152,9 +220,11 @@ class ElasticSearchOperate:
                                 conj_op = negations[index + 1]
                                 es_operator = resolve_operator(conj_op)
                                 must_not_match_term = {
-                                    __wiki_content__: {
+                                    "multi_match": {
                                         "query": " ".join(negations[index]),
-                                        "operator": es_operator
+                                        "operator": es_operator,
+                                        "type": "most_fields",
+                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                                     }
                                 }
                                 must_not_match.append(must_not_match_term)
@@ -166,10 +236,10 @@ class ElasticSearchOperate:
                     #     must_match_term = {"term": {__wiki_content__: feat}}
                     #     must_match.append(must_match_term)
                     must_match_query = {
-                        "match": {
-                            __wiki_content__: {
-                                "query": " ".join(features)
-                            }
+                        "multi_match": {
+                            "query": " ".join(features),
+                            "type": "most_fields",
+                            "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
                         }
                     }
                     must_match.append(must_match_query)
@@ -213,5 +283,5 @@ if __name__ == "__main__":
 
     es = ElasticSearchOperate()
     res_all = es.search_wiki_article(mquery)
-    for res in res_all:
-        print(res.get_wiki_title())
+    for lres in res_all:
+        print(lres.get_wiki_title())

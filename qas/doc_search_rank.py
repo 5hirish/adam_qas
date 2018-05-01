@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def search_rank(query):
     es = ElasticSearchOperate()
     result_all = es.search_wiki_article(query)
-    logging.debug("Ranked Wiki Pages Title: {0}".format([result.get_wiki_title() for  result in result_all]))
+    logging.debug("Ranked Wiki Pages Title: {0}".format([result.get_wiki_title() for result in result_all]))
     return result_all
 
 
