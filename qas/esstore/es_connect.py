@@ -45,7 +45,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                     "properties": {
                         __wiki_title__: {
                             "type": "text",
-                            "analyzer": "standard"
+                            "analyzer": __analyzer_en__
                         },
                         __wiki_updated_date__: {
                             "type": "date"
@@ -60,11 +60,11 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         },
                         __wiki_content_info__: {
                             "type": "text",
-                            "analyzer": "standard"
+                            "analyzer": __analyzer_en__
                         },
                         __wiki_content_table__: {
                             "type": "text",
-                            "analyzer": "standard"
+                            "analyzer": __analyzer_en__
                         },
                         __wiki_revision__: {
                             "type": "long"
@@ -103,11 +103,11 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                 "properties": {
                     __wiki_content_info__: {
                         "type": "text",
-                        "analyzer": "standard"
+                        "analyzer": __analyzer_en__
                     },
                     __wiki_content_table__: {
                         "type": "text",
-                        "analyzer": "standard"
+                        "analyzer": __analyzer_en__
                     }
                 }
             }
