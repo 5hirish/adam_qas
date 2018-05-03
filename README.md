@@ -21,7 +21,7 @@ You might have to start the elasticsearch search service.
 $ git clone https://github.com/5hirish/adam_qas.git
 $ cd adam_qas
 $ pip install -r requirements.txt
-$ python -m qas.adam "When was linux kernel version 4.0 released ?"
+$ python -m qas.adam -vv "When was linux kernel version 4.0 released ?"
 ```
 
 _Note:_ The above installation downloads the best-matching default english language model for spaCy. But to improve the model's accuracy you can install other models too. Read more at [spaCy docs](https://spacy.io/usage/models).

@@ -16,7 +16,7 @@ from qas.wiki.wiki_search import search_wikipedia
 # from qas.doc_scorer import rank_docs
 from qas.doc_search_rank import search_rank
 from qas.candidate_ans import get_candidate_answers
-from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT
+from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT, EN_MODEL_SM
 from qas import __version__
 
 __author__ = "Shirish Kadam"
@@ -26,10 +26,21 @@ __license__ = "GNU General Public License v3 (GPLv3)"
 _logger = logging.getLogger(__name__)
 
 
-def get_nlp(language, lite, lang_model=""):
-
+def get_default_model(model_name):
     err_msg = "Language model {0} not found. Please, refer https://spacy.io/usage/models"
+    nlp = None
+    if model_name is not None:
+        try:
+            nlp = spacy.load(model_name)
+        except (ImportError, OSError):
+            print(err_msg.format(model_name))
+            print('Using default language model')
+            nlp = get_default_model(EN_MODEL_SM)
+        return nlp
 
+
+def get_nlp(language, lite, lang_model=""):
+    err_msg = "Language model {0} not found. Please, refer https://spacy.io/usage/models"
     nlp = None
 
     if not lang_model == "" and not lang_model == "en":
@@ -48,11 +59,10 @@ def get_nlp(language, lite, lang_model=""):
 
             try:
                 nlp = spacy.load(EN_MODEL_MD)
-
-            except ImportError:
+            except (ImportError, OSError):
                 print(err_msg.format(EN_MODEL_MD))
                 print('Using default language model')
-                nlp = spacy.load(EN_MODEL_DEFAULT)
+                nlp = get_default_model(EN_MODEL_DEFAULT)
 
     elif not language == 'en':
         print('Currently only English language is supported. '
@@ -261,7 +271,7 @@ def main(args):
     qas.process_question()
     answer = qas.process_answer()
     #
-    print("Your answer:\n {}".format(answer))
+    print("\n\n** Your answer:\n {}".format(answer))
 
 
 def run():
