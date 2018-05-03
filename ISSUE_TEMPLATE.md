@@ -9,6 +9,7 @@ If you're looking for help with your code, consider posting a question on StackO
 <!-- Include details of your environment. -->
 * Operating System: 
 * Python Version Used: 
+* Elasticsearch Version Used:
 * adam_qas Version Used: 
 * Environment Information: 
 * Question you were trying to ask:
