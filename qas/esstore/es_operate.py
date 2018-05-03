@@ -60,7 +60,7 @@ class ElasticSearchOperate:
         wiki_body = {
             "script": {
                 "source": "if (ctx._source."+__wiki_revision__+" < params.new_revision) "
-                                                               "{ctx._source = params.new_article' } "
+                                                               "{ctx._source = params.new_article } "
                                                                "else {ctx.op = 'none' }",
                 "lang": "painless",
                 "params": {
@@ -82,7 +82,7 @@ class ElasticSearchOperate:
         }
         res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
         logger.debug("Article Upserted:{0}".format(res['result']))
-        return res['result'] == 'created' or res['result'] == 'updated'
+        return res['result'] == 'created' or res['result'] == 'updated' or res['result'] == 'noop'
 
     # def update_wiki_article(self, pageid, content):
     #     wiki_body = {
