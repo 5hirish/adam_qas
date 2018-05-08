@@ -2,7 +2,7 @@ from elasticsearch import Elasticsearch
 import logging
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__,\
     __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__,\
-    __num_replicas__, __analyzer_en__, __index_version__
+    __num_replicas__, __analyzer_en__, __analyzer_adam__, __index_version__
 """
 Meta Class for managing elasticsearch db connection. It also serves as an singleton
 """
@@ -35,7 +35,30 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
         return {
             "settings": {
                 "number_of_shards": __num_shards__,
-                "number_of_replicas": __num_replicas__
+                "number_of_replicas": __num_replicas__,
+                "analysis": {
+                    "filter": {
+                        "english_stop": {
+                            "type": "stop",
+                            "stopwords": "_english_"
+                        },
+                        "english_porter2": {
+                            "type": "stemmer",
+                            "language": "porter2"
+                        }
+                    }
+                },
+                "analyzer": {
+                    __analyzer_adam__: {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "lowercase",
+                            "english_stop",
+                            "english_porter2"
+                        ]
+                    }
+                }
             },
             "mappings": {
                 __doc_type__: {
@@ -45,7 +68,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                     "properties": {
                         __wiki_title__: {
                             "type": "text",
-                            "analyzer": __analyzer_en__
+                            "analyzer": __analyzer_adam__
                         },
                         __wiki_updated_date__: {
                             "type": "date"
@@ -56,15 +79,15 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         },
                         __wiki_content__: {
                             "type": "text",
-                            "analyzer": __analyzer_en__
+                            "analyzer": __analyzer_adam__
                         },
                         __wiki_content_info__: {
                             "type": "text",
-                            "analyzer": __analyzer_en__
+                            "analyzer": __analyzer_adam__
                         },
                         __wiki_content_table__: {
                             "type": "text",
-                            "analyzer": __analyzer_en__
+                            "analyzer": __analyzer_adam__
                         },
                         __wiki_revision__: {
                             "type": "long"

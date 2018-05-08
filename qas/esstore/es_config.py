@@ -17,3 +17,4 @@ __wiki_pageid__ = "article_id"
 
 __analyzer_std__ = "standard"
 __analyzer_en__ = "english"
+__analyzer_adam__ = "adam_analyzer"
