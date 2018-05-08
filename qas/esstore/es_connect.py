@@ -1,5 +1,8 @@
 from elasticsearch import Elasticsearch
+from elasticsearch.exceptions import ConnectionError
+from urllib3.exceptions import NewConnectionError
 import logging
+import sys
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__,\
     __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__,\
     __num_replicas__, __analyzer_en__, __analyzer_adam__, __index_version__
@@ -141,14 +144,25 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
             self.__es_conn__.indices.open(index=__index_name__)
 
     def set_up_index(self):
-        index_exists = self.__es_conn__.indices.exists(index=__index_name__)
-        if not index_exists:
-            self.create_index()
-        else:
-            res = self.__es_conn__.indices.get_mapping(index=__index_name__, doc_type=__doc_type__)
-            current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
-            if current_version < __index_version__:
-                self.update_index(current_version)
+        try:
+            try:
+                try:
+                    index_exists = self.__es_conn__.indices.exists(index=__index_name__)
+                    if not index_exists:
+                        self.create_index()
+                    else:
+                        res = self.__es_conn__.indices.get_mapping(index=__index_name__, doc_type=__doc_type__)
+                        current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
+                        if current_version < __index_version__:
+                            self.update_index(current_version)
+                except ConnectionError as e:
+                    logger.error("Elasitcsearch is not installed or its service is not running. {0}".format(e))
+                    print("\n -- Elasitcsearch is not installed or its service is not running.--\n", e)
+                    sys.exit(1)
+            except NewConnectionError:
+                pass
+        except ConnectionRefusedError:
+            pass
 
     def get_db_connection(self):
         return self.__es_conn__

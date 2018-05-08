@@ -25,6 +25,7 @@ class ElasticSearchOperate:
         self.es_conn = es.get_db_connection()
 
     def insert_wiki_article(self, pageid, revid, title, raw):
+        logger.warning("Deprecated: This will insert the document without any checks.", DeprecationWarning)
         wiki_body = {
             __wiki_revision__: revid,
             __wiki_title__: title,
@@ -36,6 +37,9 @@ class ElasticSearchOperate:
         return res['result'] == 'created' or res['result'] == 'updated'
 
     def upsert_wiki_article(self, pageid, revid, title, raw):
+        logger.warning("Deprecated: This will upsert the complete document in any case, instead of upserting only if"
+                       "revision id changes.", DeprecationWarning)
+
         wiki_body = {
             "doc": {
                 __wiki_revision__: revid,
