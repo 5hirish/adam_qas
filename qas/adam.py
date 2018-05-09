@@ -262,6 +262,9 @@ def main(args):
     args = parse_args(args)
     setup_logging(args.loglevel)
     _logger.debug("Thinking...")
+    if args.question is None:
+        args.question = input("Ask your question:>")
+
     print("I think what you want to know is: {}".format(args.question))
 
     # print(args)
