@@ -7,9 +7,11 @@ If you're looking for help with your code, consider posting a question on StackO
 
 ## Your Environment
 <!-- Include details of your environment. -->
-* Operating System: 
-* Python Version Used: 
-* Elasticsearch Version Used:
-* adam_qas Version Used: 
-* Environment Information: 
+<!-- Past the output of the following command to fetch system info -->
+```bash 
+$ python -m qas.sys_info
+```
+```
+# To get the system info, past the output of the above command here
+```
 * Question you were trying to ask:

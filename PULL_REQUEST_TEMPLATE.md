@@ -17,3 +17,4 @@ tick off all the boxes. [] to [x] -->
 <!-- - [ ] I have submitted the Contributor Agreement. -->
 - [ ] I ran the tests, and all new and existing tests passed.
 - [ ] My changes don't require a change to the documentation, or if they do, I've added all required information.
+- [ ] My changes requires the reindexing of the current indexes.
