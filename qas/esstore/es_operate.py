@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+import warnings
 
 from qas.esstore.es_connect import ElasticSearchConn
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_pageid__, __wiki_revision__, __wiki_title__, \
@@ -25,7 +26,7 @@ class ElasticSearchOperate:
         self.es_conn = es.get_db_connection()
 
     def insert_wiki_article(self, pageid, revid, title, raw):
-        logger.warning("Deprecated: This will insert the document without any checks.", DeprecationWarning)
+        warnings.warn("Deprecated: This will insert the document without any checks.", DeprecationWarning)
         wiki_body = {
             __wiki_revision__: revid,
             __wiki_title__: title,
@@ -37,7 +38,7 @@ class ElasticSearchOperate:
         return res['result'] == 'created' or res['result'] == 'updated'
 
     def upsert_wiki_article(self, pageid, revid, title, raw):
-        logger.warning("Deprecated: This will upsert the complete document in any case, instead of upserting only if"
+        warnings.warn("Deprecated: This will upsert the complete document in any case, instead of upserting only if"
                        "revision id changes.", DeprecationWarning)
 
         wiki_body = {

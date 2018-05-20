@@ -2,7 +2,6 @@ import platform
 import elasticsearch
 
 from qas.esstore.es_connect import ElasticSearchConn
-from qas.esstore.es_config import __index_version__
 
 
 def get_system_info():

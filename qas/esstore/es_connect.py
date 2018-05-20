@@ -1,5 +1,5 @@
 from elasticsearch import Elasticsearch
-from elasticsearch.exceptions import ConnectionError
+from elasticsearch.exceptions import ConnectionError as ESConnectionError
 from urllib3.exceptions import NewConnectionError
 import logging
 import sys
@@ -155,7 +155,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
                         if current_version < __index_version__:
                             self.update_index(current_version)
-                except ConnectionError as e:
+                except ESConnectionError as e:
                     logger.error("Elasitcsearch is not installed or its service is not running. {0}".format(e))
                     print("\n -- Elasitcsearch is not installed or its service is not running.--\n", e)
                     sys.exit(1)
