@@ -4,7 +4,7 @@ from urllib3.exceptions import NewConnectionError
 import logging
 import sys
 from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__,\
-    __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_pageid__, __wiki_raw__, __num_shards__,\
+    __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_raw__, __num_shards__,\
     __num_replicas__, __analyzer_en__, __analyzer_adam__, __index_version__
 """
 Meta Class for managing elasticsearch db connection. It also serves as an singleton
@@ -49,24 +49,24 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                             "type": "stemmer",
                             "language": "porter2"
                         }
+                    },
+                    "analyzer": {
+                        __analyzer_adam__: {
+                            "type": "custom",
+                            "tokenizer": "standard",
+                            "filter": [
+                                "lowercase",
+                                "english_stop",
+                                "english_porter2"
+                            ]
+                        }
                     }
                 },
-                "analyzer": {
-                    __analyzer_adam__: {
-                        "type": "custom",
-                        "tokenizer": "standard",
-                        "filter": [
-                            "lowercase",
-                            "english_stop",
-                            "english_porter2"
-                        ]
-                    }
-                }
             },
             "mappings": {
                 __doc_type__: {
                     "_meta": {
-                        "version": 1
+                        "version": 2
                     },
                     "properties": {
                         __wiki_title__: {
@@ -105,11 +105,20 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
         self.es_index_config = ElasticSearchConn.get_index_mapping()
         res = self.__es_conn__.indices.create(index=__index_name__, body=self.es_index_config, ignore=400)
         if 'error' in res and res['status'] == 400:
-            logger.debug("Index already exists")
+            # NOTE: Illegal argument errors are also being masked here, so test the index creation
+            error_type = res['error']['root_cause'][0]['type']
+            if error_type == 'resource_already_exists_exception':
+                logger.debug("Index already exists")
+            else:
+                logger.error("Error Occurred in Index creation:{0}".format(res))
+                print("\n -- Unable to create Index:"+error_type+"--\n")
+                sys.exit(1)
         elif res['acknowledged'] and res['index'] == __index_name__:
             logger.debug("Index Created")
         else:
-            logger.error("Index creation failed")
+            logger.error("Index creation failed:{0}".format(res))
+            print("\n -- Unable to create Index--\n")
+            sys.exit(1)
 
     def update_index(self, current_version):
 
@@ -152,9 +161,19 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                         self.create_index()
                     else:
                         res = self.__es_conn__.indices.get_mapping(index=__index_name__, doc_type=__doc_type__)
-                        current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
-                        if current_version < __index_version__:
-                            self.update_index(current_version)
+                        try:
+                            current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
+                            if current_version < __index_version__:
+                                self.update_index(current_version)
+                            elif current_version is None:
+                                logger.error("Old Index Mapping. Manually reindex the index to persist your data.")
+                                print("\n -- Old Index Mapping. Manually reindex the index to persist your data.--\n")
+                                sys.exit(1)
+                        except KeyError:
+                            logger.error("Old Index Mapping. Manually reindex the index to persist your data.")
+                            print("\n -- Old Index Mapping. Manually reindex the index to persist your data.--\n")
+                            sys.exit(1)
+
                 except ESConnectionError as e:
                     logger.error("Elasitcsearch is not installed or its service is not running. {0}".format(e))
                     print("\n -- Elasitcsearch is not installed or its service is not running.--\n", e)
@@ -166,3 +185,8 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
 
     def get_db_connection(self):
         return self.__es_conn__
+
+
+if __name__ == "__main__":
+    es = ElasticSearchConn()
+    es_conn = es.get_db_connection()
