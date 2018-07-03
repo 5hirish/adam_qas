@@ -186,6 +186,7 @@ if __name__ == "__main__":
         raw_path = os.path.join(CORPUS_DIR, QUESTION_CLASSIFICATION_RAW_DATA)
 
         if should_extract:
+            logger.info("Cleaning enabled.")
             clean_old_data(training_path)
             en_nlp_l = spacy.load(EN_MODEL_MD)
 
