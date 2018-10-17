@@ -5,6 +5,8 @@ pandas>=0.21
 requests>=2.18.0
 spaCy>=2.0.3
 scikit-learn>=v0.19.1
+flatten_json
+fuzzywuzzy
 
 ############## spaCy language models ################
 

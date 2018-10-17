@@ -64,21 +64,10 @@ def get_nlp(language, lite, lang_model=""):
                 print('Using default language model')
                 nlp = get_default_model(EN_MODEL_DEFAULT)
 
-    elif not language == 'en':
-        print('Currently only English language is supported. '
-              'Please contribute to https://github.com/5hirish/adam_qas to add your language.')
-        sys.exit(0)
-
     return nlp
 
 
 class QasInit:
-
-    nlp = None
-    language = "en"
-    lang_model = None
-    search_depth = 3
-    lite = False
 
     question_doc = None
 
@@ -86,9 +75,7 @@ class QasInit:
     question_keywords = None
     query = None
 
-    candidate_answers = None
-
-    def __init__(self, language, search_depth, lite, lang_model=""):
+    def __init__(self, search_depth=3, lite=False, language="en", lang_model=""):
         self.language = language
         self.search_depth = search_depth
         self.lite = lite
@@ -125,10 +112,11 @@ class QasInit:
         _logger.info("Pages retrieved: {}".format(len(wiki_pages)))
         # _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
 
-        self.candidate_answers, keywords = get_candidate_answers(self.query, wiki_pages, self.nlp)
-        _logger.info("Candidate answers ({}):\n{}".format(len(self.candidate_answers), '\n'.join(self.candidate_answers)))
+        candidate_answers, keywords = get_candidate_answers(self.query, wiki_pages, self.nlp)
+        # structured_answers, keywords = get_structured_answers(self.query, wiki_pages, self.nlp)
+        _logger.info("Candidate answers ({}):\n{}".format(len(candidate_answers), '\n'.join(candidate_answers)))
 
-        return " ".join(self.candidate_answers)
+        return " ".join(candidate_answers)
 
 # def answer_question(question, num_sentences):
 #
@@ -269,7 +257,7 @@ def main(args):
 
     # print(args)
 
-    qas = QasInit(language=args.language, search_depth=args.search_limit, lite=args.lite, lang_model=args.lang_model)
+    qas = QasInit(search_depth=args.search_limit, lite=args.lite, language=args.language, lang_model=args.lang_model)
     qas.get_question_doc(args.question)
     qas.process_question()
     answer = qas.process_answer()
