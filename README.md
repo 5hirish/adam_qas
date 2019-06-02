@@ -4,6 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e669faacb12496f9d4e97f3a0cfc361)](https://www.codacy.com/app/5hirish/adam_qas?utm_source=github.com&utm_medium=referral&utm_content=5hirish/adam_qas&utm_campaign=badger)
 [![Codecov](https://codecov.io/gh/5hirish/adam_qas/branch/master/graph/badge.svg)](https://codecov.io/gh/5hirish/adam_qas)
 [![Build Status](https://travis-ci.org/5hirish/adam_qas.svg?branch=master)](https://travis-ci.org/5hirish/adam_qas)
+[![Gitter](https://badges.gitter.im/alleviatenlp/adam_qas.svg)](https://gitter.im/alleviatenlp/adam_qas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Twitter](https://img.shields.io/twitter/follow/openebs.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=5hirish)
 
 A question answering system that extracts answers from Wikipedia to questions posed in natural language.
@@ -48,6 +49,9 @@ Python Package dependencies listed in [requirements.txt](requirements.txt)
 * Vector space model used for answer extraction
 * Rank candidate answers
 * Merge top 5 answers into one response
+
+#### Current Project State ?
+[GitHub Issue #36: Invalid Answers](https://github.com/5hirish/adam_qas/issues/36)
 
 ### TODO
 
