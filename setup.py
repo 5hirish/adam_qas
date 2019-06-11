@@ -4,10 +4,11 @@
     Setup file for qas.
 """
 
-import sys
-import os
-import io
 import contextlib
+import io
+import os
+import sys
+
 from setuptools import setup, find_packages
 
 
@@ -44,6 +45,7 @@ def setup_package():
           author_email=about['__email__'],
           url=about['__uri__'],
           license=about['__license__'],
+          # TODO change the signs from '>=' to '==' like we did on adam_qas/requirements.txt
           install_requires=[
               "autocorrect>=0.3.0",
               "gensim>=3.0.1",

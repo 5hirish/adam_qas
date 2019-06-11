@@ -1,12 +1,12 @@
-from datetime import datetime
 import logging
 import warnings
+from datetime import datetime
 
-from qas.esstore.es_connect import ElasticSearchConn
-from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_pageid__, __wiki_revision__, __wiki_title__, \
+from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_revision__, __wiki_title__, \
     __wiki_content__, __wiki_content_info__, __wiki_content_table__, __wiki_updated_date__, __wiki_raw__
-from qas.model.query_container import QueryContainer
+from qas.esstore.es_connect import ElasticSearchConn
 from qas.model.es_document import ElasticSearchDocument
+from qas.model.query_container import QueryContainer
 
 logger = logging.getLogger(__name__)
 
@@ -89,21 +89,6 @@ class ElasticSearchOperate:
         logger.debug("Article Upserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated' or res['result'] == 'noop'
 
-    # def update_wiki_article(self, pageid, content):
-    #     wiki_body = {
-    #         "script": {
-    #             "source": "ctx._source."+__wiki_content__+"='"+content+"'",
-    #             "lang": "painless"
-    #         },
-    #         "query": {
-    #             "match": {
-    #                 __wiki_pageid__: pageid
-    #             }
-    #         }
-    #     }
-    #     res = self.es_conn.update_by_query(index=__index_name__, doc_type=__doc_type__, body=wiki_body)
-    #     return res['updated']
-
     def update_wiki_article(self, pagid, content=None, content_info=None, content_table=None):
         wiki_body = None
 
@@ -160,6 +145,23 @@ class ElasticSearchOperate:
         logger.debug("Article Deleted:{0}".format(res['result']))
         return res['result'] == 'deleted'
 
+    def extract_info_from_article(self, features, conjunct, conj, index):
+        if isinstance(conj, list):
+            features = [feat for feat in features if feat not in conj]
+            if index < len(conjunct) - 1:
+                conj_op = conjunct[index + 1]
+        return conj_op
+
+    # def extract_info_here(self, negations, features, conj_op, es_operator, must_nut_match):
+    #     if (negations is not None and len(negations) > 0:
+    #         for index, negate in enumerate(negations):
+    #             if isinstance(negate, list):
+    #                 features = [feat for feat in features if feat not in negate]
+    #                 if index < len(negations - 1)
+    #                     conj_op = negations[index + 1]
+    #                 es_operator = resolve_operator(conj_op)
+    #     return negations
+
     def search_wiki_article(self, search_query):
 
         """
@@ -200,46 +202,34 @@ class ElasticSearchOperate:
 
                 if conjunct is not None and len(conjunct) > 0:
                     for index, conj in enumerate(conjunct):
-                        if isinstance(conj, list):
-                            features = [feat for feat in features if feat not in conj]
-                            if index < len(conjunct) - 1:
-                                conj_op = conjunct[index + 1]
-                                es_operator = resolve_operator(conj_op)
-                                must_match_query = {
-                                    "multi_match": {
-                                        "query": " ".join(conj),
-                                        "operator": es_operator,
-                                        "type": "most_fields",
-                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
-                                    }
-                                }
-                                must_match.append(must_match_query)
-
+                        conj_op = self.extract_info_from_article(features, conjunct, conj, index)
+                        es_operator = resolve_operator(conj_op)
+                        must_match_query = {
+                            "multi_match": {
+                                "query": " ".join(conj),
+                                "operator": es_operator,
+                                "type": "most_fields",
+                                "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
+                            }
+                        }
+                        must_match.append(must_match_query)
                 # FIXME: No support for negations with conjunctions
 
                 if negations is not None and len(negations) > 0:
                     for index, negate in enumerate(negations):
-                        if isinstance(negate, list):
-                            features = [feat for feat in features if feat not in negate]
-                            if index < len(negations) - 1:
-                                conj_op = negations[index + 1]
-                                es_operator = resolve_operator(conj_op)
-                                must_not_match_term = {
-                                    "multi_match": {
-                                        "query": " ".join(negations[index]),
-                                        "operator": es_operator,
-                                        "type": "most_fields",
-                                        "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
-                                    }
-                                }
-                                must_not_match.append(must_not_match_term)
+                        conj_op = self.extract_info_from_article(features, negations, negate, index)
+                        es_operator = resolve_operator(conj_op)
+                        must_not_match_term = {
+                            "multi_match": {
+                                "query": " ".join(negations[index]),
+                                "operator": es_operator,
+                                "type": "most_fields",
+                                "fields": [__wiki_content__, __wiki_content_info__, __wiki_content_table__]
+                            }
+                        }
+                        must_not_match.append(must_not_match_term)
 
                 if features is not None and len(features) > 0:
-                    # must_match_query = {"terms": {__wiki_content__: features}}
-                    # must_match.append(must_match_query)
-                    # for feat in features:
-                    #     must_match_term = {"term": {__wiki_content__: feat}}
-                    #     must_match.append(must_match_term)
                     must_match_query = {
                         "multi_match": {
                             "query": " ".join(features),
@@ -249,17 +239,7 @@ class ElasticSearchOperate:
                     }
                     must_match.append(must_match_query)
 
-                # wiki_features = {"must": must_match_term}
-
-                search_body = {
-                    "query": {
-                        "bool": {
-                            "must": must_match,
-                            "should": should_match,
-                            "must_not": must_not_match,
-                        }
-                    }
-                }
+                search_body = self.build_body(must_match, must_not_match, should_match)
 
                 logger.debug(search_body)
 
@@ -278,12 +258,23 @@ class ElasticSearchOperate:
 
         return search_res
 
+    def build_body(self, must_match, must_not_match, should_match):
+        search_body = {
+            "query": {
+                "bool": {
+                    "must": must_match,
+                    "should": should_match,
+                    "must_not": must_not_match,
+                }
+            }
+        }
+        return search_body
+
 
 if __name__ == "__main__":
 
     logging.basicConfig(level=logging.DEBUG)
 
-    # mquery = list([[['Cushman', 'known', 'Wakefield', 'are'], [['Cushman', 'Wakefield'], 'or'], [], []]])
     mquery = list([[['Albert', 'Einstein', 'birth'], [], [], []]])
 
     es = ElasticSearchOperate()

@@ -1,13 +1,14 @@
-from lxml import etree
-from pprint import pprint
-import logging
-import sys
-import re
 import json
+import logging
+import re
+import sys
+from pprint import pprint
+
+from lxml import etree
 
 from qas.constants import OUTPUT_DIR, SAVE_OUTPUTS
-from qas.esstore.es_operate import ElasticSearchOperate
 from qas.esstore.es_config import __wiki_raw__
+from qas.esstore.es_operate import ElasticSearchOperate
 
 """
 Parsing with XPath 1.0 query
@@ -24,9 +25,9 @@ logger = logging.getLogger(__name__)
 
 class XPathExtractor:
 
-    regexpNS = "http://exslt.org/regular-expressions"
-    nonBreakSpace = u'\xa0'
-    newLine_nonBreak_regex = r'(\n+)|(\xa0)'
+    regex_expressions = "http://exslt.org/regular-expressions"
+    non_break_space = u'\xa0'
+    new_line_non_break_regex = r'(\n+)|(\xa0)'
 
     toc_pattern = '''//*[@id="toc"]'''
     non_searchable_pattern = '''/html/body/div/div[starts-with(@class, "hatnote")]'''
@@ -67,30 +68,28 @@ class XPathExtractor:
     html_data = ''
     extracted_img = {}
     html_tree = None
-    isFile = False
-    pageid = None
+    is_file = False
+    page_id = None
     es_ops = None
-    newLine_nonBreak_pattern = None
+    new_line_non_break_pattern = None
 
-    def __init__(self, html_data, isFile):
+    def __init__(self, html_data, is_file):
         self.es_ops = ElasticSearchOperate()
         self.html_data = html_data
-        self.newLine_nonBreak_pattern = re.compile(self.newLine_nonBreak_regex)
-        # parser = etree.XMLParser(ns_clean=True, remove_comments=True)
+        self.new_line_non_break_pattern = re.compile(self.new_line_non_break_regex)
         parser = etree.HTMLParser(remove_blank_text=True, remove_comments=True)
-        if isFile:
+        if is_file:
             self.html_tree = etree.parse(self.html_data, parser)
         else:
             self.html_tree = etree.fromstring(self.html_data, parser)
 
     def __init__(self, pageid):
-        self.pageid = pageid
-        self.newLine_nonBreak_pattern = re.compile(self.newLine_nonBreak_regex)
+        self.page_id = pageid
+        self.new_line_non_break_pattern = re.compile(self.new_line_non_break_regex)
         self.es_ops = ElasticSearchOperate()
         wiki_data = self.es_ops.get_wiki_article(pageid)
         if wiki_data is not None and __wiki_raw__ in wiki_data:
             self.html_data = wiki_data[__wiki_raw__]
-            # parser = etree.XMLParser(ns_clean=True, remove_comments=True)
             parser = etree.HTMLParser(remove_blank_text=True, remove_comments=True)
             self.html_tree = etree.fromstring(self.html_data, parser)
 
@@ -179,7 +178,7 @@ class XPathExtractor:
 
     def extract_info(self):
         info_box = self.html_tree.xpath(self.info_box_pattern)
-        wikii = WikiInfo()
+        wiki_info = WikiInfo()
         for info in info_box:
             info_key = info.xpath(self.info_box_item)
             info_list = []
@@ -195,15 +194,15 @@ class XPathExtractor:
                     if info_value[0] != '':
                         info_pair = {info_key: info_value}
                         info_list.append(info_pair)
-            wikii.add_info(info_title, info_list)
+            wiki_info.add_info(info_title, info_list)
             info.getparent().remove(info)
-        res = self.es_ops.update_wiki_article(self.pageid, content_info=json.dumps(wikii.info_data))
+        res = self.es_ops.update_wiki_article(self.page_id, content_info=json.dumps(wiki_info.info_data))
         if res:
-            logger.info("Inserted parsed content info for: %d", self.pageid)
+            logger.info("Inserted parsed content info for: %d", self.page_id)
         else:
             logger.error("Inserted of parsed content info failed")
-        logger.debug("Extracted Bios: %d", len(wikii.info_data))
-        return wikii.info_data
+        logger.debug("Extracted Bios: %d", len(wiki_info.info_data))
+        return wiki_info.info_data
 
     def extract_tables(self):
         table_list = self.html_tree.xpath(self.table_pattern)
@@ -220,9 +219,9 @@ class XPathExtractor:
                     tab_data.append(''.join(table_data.xpath(self.all_text_pattern)))
                 wikit.set_values(tab_data)
             table.getparent().remove(table)
-        res = self.es_ops.update_wiki_article(self.pageid, content_table=json.dumps(wikit.tab_data))
+        res = self.es_ops.update_wiki_article(self.page_id, content_table=json.dumps(wikit.tab_data))
         if res:
-            logger.info("Inserted parsed content table for: %d", self.pageid)
+            logger.info("Inserted parsed content table for: %d", self.page_id)
         else:
             logger.error("Inserted of parsed content table failed")
         logger.debug("Extracted Tables: %d", len(wikit.tab_data))
@@ -230,11 +229,11 @@ class XPathExtractor:
 
     def extract_text(self):
         text_data = ''.join(self.html_tree.xpath(self.all_text_pattern)).strip()
-        text_data = re.sub(self.newLine_nonBreak_pattern, ' ', text_data)
-        res = self.es_ops.update_wiki_article(self.pageid, content=text_data)
+        text_data = re.sub(self.new_line_non_break_pattern, ' ', text_data)
+        res = self.es_ops.update_wiki_article(self.page_id, content=text_data)
         logger.debug("Parsed content length: %d", len(text_data))
         if res:
-            logger.info("Inserted parsed content for: %d", self.pageid)
+            logger.info("Inserted parsed content for: %d", self.page_id)
         else:
             logger.error("Inserted of parsed content failed")
         return text_data
@@ -247,9 +246,6 @@ class XPathExtractor:
 
 class WikiInfo:
     info_data = []
-
-    # def __str__(self):
-    #     return "%s: %s" % (self.info_key, self.info_value)
 
     def add_info(self, key, value):
         info_tuple = (key, value)
@@ -285,17 +281,6 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) > 1:
         parse_pageId = sys.argv[1:]
-        # for page in parse_pageId:
-        #     with open(OUTPUT_DIR+'/wiki_content_'+page+'.html', 'r') as fp:
-        #         xpe = XPathExtractor(fp, True)
-        #         xpe.strip_tag()
-        #         xpe.strip_headings()
-        #         print("Extracted Images:", xpe.img_extract())
-        #         pprint([str(item) for item in xpe.extract_info()])
-        #         pprint(xpe.extract_tables())
-        #         print(xpe.extract_text())
-        #         if SAVE_OUTPUTS:
-        #             xpe.save_html(page)
         for lpage in parse_pageId:
             lxpe = XPathExtractor(lpage)
             lxpe.strip_tag()

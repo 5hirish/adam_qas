@@ -2,22 +2,22 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import sys
 import logging
+import sys
 
 # import enchant # pyenchant>=2.0
 import spacy
 
+from qas import __version__
+from qas.candidate_ans import get_candidate_answers
 from qas.classifier.question_classifier import classify_question
+from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT, EN_MODEL_SM
+# from qas.doc_scorer import rank_docs
+from qas.doc_search_rank import search_rank
 from qas.feature_extractor import extract_features
 from qas.query_const import construct_query
 # from qas.fetch_wiki import fetch_wiki
 from qas.wiki.wiki_search import search_wikipedia
-# from qas.doc_scorer import rank_docs
-from qas.doc_search_rank import search_rank
-from qas.candidate_ans import get_candidate_answers
-from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT, EN_MODEL_SM
-from qas import __version__
 
 __author__ = "Shirish Kadam"
 __copyright__ = "Copyright (C) 2017  Shirish Kadam"
