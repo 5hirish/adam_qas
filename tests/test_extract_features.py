@@ -1,10 +1,11 @@
-import spacy
 import json
 from unittest import TestCase
 
+import spacy
+
 from qas.constants import EN_MODEL_MD
-from qas.sqlitestore.sqlt_connect import SqLiteManager
 from qas.feature_extractor import extract_features
+from qas.sqlitestore.sqlt_connect import SqLiteManager
 
 """
 Created by felix on 11/3/18 at 7:21 PM
@@ -17,7 +18,6 @@ class TestExtractFeatures(TestCase):
         sql_man = SqLiteManager()
         en_nlp_l = spacy.load(EN_MODEL_MD)
 
-        # result = sql_man.get_random_questions(3)
         result = sql_man.get_questions_between(5, 7)
 
         for row in result:

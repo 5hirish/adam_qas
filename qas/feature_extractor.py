@@ -43,6 +43,8 @@ def get_compound_nouns(en_doc, token, token_text):
 
     return token_text
 
+def this_is_adjective(dep_):
+    return dep_ == "amod" or dep_ == "acomp" or dep_ == "ccomp"
 
 def get_adj_phrase(token, token_text):
 
@@ -56,9 +58,10 @@ def get_adj_phrase(token, token_text):
     # acomp: An adjectival complement of a verb is an adjectival phrase which functions as the complement
 
     for child in token.children:
-        if child.dep_ == "amod" or child.dep_ == "acomp" or child.dep_ == "ccomp":  # not for how many
-            if child.text != "much" and child.text != "many":
-                token_text = child.lemma_ + " " + token_text
+        if(this_is_adjective(child.dep_)) and child.text != "much" and child.text != "many":
+            # if child.dep_ == "amod" or child.dep_ == "acomp" or child.dep_ == "ccomp":  # not for how many
+            #     if child.text != "much" and child.text != "many":
+            token_text = child.lemma_ + " " + token_text
     return token_text
 
 
@@ -73,18 +76,21 @@ def get_root_phrase(token, keywords):
     return keywords
 
 
+def this_is_noun(tag_):
+    # If is Noun/Proper Noun, be it Singular or Plural
+    return tag_ == "NN" or tag_ == "NNP" or tag_ == "NNPS" or tag_ == "NNS"
+
+
 def get_noun_chunk(sentence, en_doc, keywords):
 
     root_word = ""
 
     for token in sentence:
 
-        # If is Noun/Proper Noun, be it Singular or Plural
-        if token.tag_ == "NN" or token.tag_ == "NNP" or token.tag_ == "NNPS" or token.tag_ == "NNS":
-            # If the Noun itself is not a compound Noun then we can find its compound Nouns
-            if token.dep_ != "compound":
-                token_text = get_compound_nouns(en_doc, token, token.text)
-                keywords.append(token_text)
+        # If the Noun itself is not a compound Noun then we can find its compound Nouns
+        if(this_is_noun(token.tag_)) and token.dep_ != "compound":
+            token_text = get_compound_nouns(en_doc, token, token.text)
+            keywords.append(token_text)
 
         if token.tag_ == "JJ" and token.dep_ == "attr":
             token_text = get_compound_nouns(en_doc, token, token.text)
@@ -97,15 +103,13 @@ def get_noun_chunk(sentence, en_doc, keywords):
         if token.dep_ == "nummod" or token.tag_ == "CD":
             token_text = token.text
 
-            if token.i > 0:
+            if token.i > 0 and en_doc[token.i - 1].tag_ == "JJ":
                 # If previous token is Adjective, the adjective is liked with the cardinal number
-                if en_doc[token.i - 1].tag_ == "JJ":
-                    token_text = en_doc[token.i - 1].text + " " + token.text
+                token_text = en_doc[token.i - 1].text + " " + token.text
 
-            if token.i < len(en_doc) - 1:
+            if token.i < len(en_doc) - 1 and en_doc[token.i + 1].tag_ == "JJ":
                 # If next token is Adjective
-                if en_doc[token.i + 1].tag_ == "JJ":
-                    token_text = token.text + " " + en_doc[token.i + 1].text
+                token_text = token.text + " " + en_doc[token.i + 1].text
 
             keywords.append(token_text)
 

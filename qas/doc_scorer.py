@@ -1,13 +1,13 @@
+import logging
 import os
 import re
-import logging
 from collections import Counter
 
 import gensim
+from esstore.es_config import __wiki_content__
+from esstore.es_operate import ElasticSearchOperate
 
 from qas.constants import CORPUS_DIR
-from esstore.es_operate import ElasticSearchOperate
-from esstore.es_config import __wiki_content__
 
 logger = logging.getLogger(__name__)
 
@@ -16,16 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def query2vec(query, dictionary):
-    """
-    with open('corpus/stop_words.txt', 'r', newline='') as stp_fp:
-        stop_list = (stp_fp.read()).lower().split("\n")
-    texts = [word for word in query.lower().split() if word not in stop_list]
-    """
-
     corpus = dictionary.doc2bow(query)
-    # print("Q:")
-    # print(corpus)
-
     return corpus
 
 
@@ -39,15 +30,10 @@ def doc2vec(documents):
             frequency[token] += 1
 
     texts = [[token for token in snipp if frequency[token] > 1]for snipp in texts]
-    # print(texts)
 
     dictionary = gensim.corpora.Dictionary(texts)
-    # print(dictionary)
-    # print(dictionary.token2id)
 
     corpus = [dictionary.doc2bow(snipp) for snipp in texts]
-    # print("C:")
-    # print(corpus)
 
     return corpus, dictionary
 
@@ -57,14 +43,6 @@ def transform_vec(corpus, query_corpus):
 
     corpus_tfidf = tfidf[corpus]
     query_tfidf = tfidf[query_corpus]
-
-    """
-    for doc in corpus_tfidf:
-        print("C:", doc)
-    for doc in query_tfidf:
-        print("Q:", doc)
-    """
-
     return corpus_tfidf, query_tfidf
 
 
@@ -74,15 +52,10 @@ def similariy(corpus_tfidf, query_tfidf):
     simi = index[query_tfidf]
 
     simi_sorted = sorted(enumerate(simi), key=lambda item: -item[1])
-    # print("Rank:")
-    # pprint(simi_sorted)
     return simi_sorted
 
 
 def pre_process_doc(list_docs):
-
-    # (\\n)+
-    # (=+[a-zA-Z0-9\s]+=+([a-zA-Z0-9\s]+=+)*)
 
     regex_newline = re.compile(r'(\\n)+')
     regex_references = re.compile(r'== References(.)+')
@@ -160,22 +133,7 @@ def rank_docs(keywords, page_ids):
         doc_data = es_conn.get_wiki_article(page)
         if __wiki_content__ in doc_data:
             doc_dictionary[page] = doc_data[__wiki_content__]
-
-    # with open(os.path.join(CORPUS_DIR, 'know_corp_raw.txt'), 'r') as fp:
-    #     documents_raw = fp.read().split("\n")
-    #     del documents_raw[len(documents_raw) - 1]
-    #
-    #     # print(len(documents_raw))
-    #     documents = []
-    #
-    #     for docs in documents_raw:
-    #         docs = docs[1:len(docs) - 1]
-    #         documents.append(docs)
-
     ranked_docs = score_docs(doc_dictionary, keywords)
-
-    # pprint(ranked_docs)
-
     return ranked_docs
 
 

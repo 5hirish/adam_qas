@@ -1,20 +1,19 @@
-from time import time
-import warnings
 import re
-import numpy as np
+import warnings
+from time import time
+
 import enchant
+import numpy as np
 import spacy
 from autocorrect import spell
-
 from classifier.question_classifier import classify_question
-from qas.feature_extractor import extract_features
-from qas.query_const import construct_query
-from qas.fetch_wiki import fetch_wiki
-from qas.doc_scorer import rank_docs
+
 from qas.candidate_ans import get_candidate_answers
-
 from qas.constants import EXAMPLE_QUESTIONS
-
+from qas.doc_scorer import rank_docs
+from qas.feature_extractor import extract_features
+from qas.fetch_wiki import fetch_wiki
+from qas.query_const import construct_query
 
 """
 This script is Deprecated
@@ -73,10 +72,8 @@ def spell_check(input_question):
 
 if __name__ == '__main__':
 
-    # input_question = input("Q:>")
     q = EXAMPLE_QUESTIONS[np.random.randint(len(EXAMPLE_QUESTIONS))]
     q = spell_check(q)
-    # input_question_c = spell_check(input_question)
     print("Question:", q)
 
     start_time = time()

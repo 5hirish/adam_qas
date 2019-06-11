@@ -1,10 +1,10 @@
-import os
 import logging
+import os
 from collections import Counter
+
 import gensim
 
 from qas.constants import CORPUS_DIR
-
 
 logger = logging.getLogger(__name__)
 
@@ -30,9 +30,6 @@ def doc2vec(documents):
     texts = [[token for token in snipp if frequency[token] > 1]for snipp in texts]
 
     dictionary = gensim.corpora.Dictionary(texts)
-    # print(dictionary)
-    # print(dictionary.token2id)
-
     corpus = [dictionary.doc2bow(snipp) for snipp in texts]
 
     return corpus, dictionary
@@ -53,8 +50,6 @@ def similariy(corpus_lsidf, query_lsidf):
     simi = index[query_lsidf]
 
     simi_sorted = sorted(enumerate(simi), key=lambda item: -item[1])
-    # print("Rank:")
-    # pprint(simi_sorted)
     return simi_sorted
 
 
@@ -81,7 +76,6 @@ def keywords_splitter(keywords, keywords_splits):
 def pre_query(question_query):
 
     keywords = question_query.get_features()
-    # keywords_conjunct = question_query[1]
 
     keywords = [feat.lower() for feat in keywords]
     whitespace = ' '
@@ -111,9 +105,7 @@ def get_candidate_answers(question_query, ranked_wiki_docs, en_nlp):
 
     # NOTE: Currently this project doesn't support multiple questions.
     keywords_query = pre_query(question_query[0])
-    # print(keywords_query)
 
-    # document = get_processed_document(ranked_wiki_docs)
     combined_document = []
     for wiki_doc in ranked_wiki_docs:
         combined_document.append(wiki_doc.get_wiki_content())

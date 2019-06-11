@@ -194,7 +194,7 @@ class ElasticSearchOperate:
                 features = query_cont.get_features()
                 conjunct = query_cont.get_conjunctions()
                 negations = query_cont.get_negations()
-                markers = query_cont.get_markers()
+                # markers = query_cont.get_markers()
 
                 must_match = []
                 should_match = []

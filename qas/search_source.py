@@ -1,8 +1,8 @@
-from wiki.wiki_query import WikiQuery
+import logging
+
 from wiki.wiki_fetch import WikiFetch
 from wiki.wiki_parse import XPathExtractor
-
-import logging
+from wiki.wiki_query import WikiQuery
 
 logger = logging.getLogger(__name__)
 
@@ -30,10 +30,10 @@ class SearchSources:
                     xpe = XPathExtractor(page)
                     xpe.strip_tag()
                     xpe.strip_headings()
-                    extracted_img = xpe.img_extract()
-                    extracted_info = xpe.extract_info()
-                    extracted_table = xpe.extract_tables()
-                    extracted_text = xpe.extract_text()
+                    # extracted_img = xpe.img_extract()
+                    # extracted_info = xpe.extract_info()
+                    # extracted_table = xpe.extract_tables()
+                    # extracted_text = xpe.extract_text()
         else:
             print("Source not supported")
 
