@@ -1,11 +1,11 @@
-import os
 import logging
-import pandas
+import os
 
+import pandas
+from scipy.sparse import csr_matrix
+from sklearn.externals import joblib
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
-from sklearn.externals import joblib
-from scipy.sparse import csr_matrix
 
 from qas.constants import CORPUS_DIR, EN_MODEL_MD
 from qas.corpus.data import QUESTION_CLASSIFICATION_TRAINING_DATA, QUESTION_CLASSIFICATION_MODEL
@@ -62,15 +62,10 @@ def transform_data_matrix(df_question_train, df_question_predict):
     return df_question_train, df_question_predict
 
 
-# def transform_data_matrix_temp(df_question_predict):
-#     df_question_predict = csr_matrix(df_question_predict)
-#     return df_question_predict
-
-
-def naive_bayes_classifier(X_train, y, X_predict):
+def naive_bayes_classifier(x_train, y, x_predict):
     gnb = GaussianNB()
-    gnb.fit(X_train, y)
-    prediction = gnb.predict(X_predict)
+    gnb.fit(x_train, y)
+    prediction = gnb.predict(x_predict)
     return prediction
 
 
@@ -159,13 +154,11 @@ def classify_question(en_doc=None, df_question_train=None, df_question_test=None
     df_question_predict = pre_process(df_question_predict)
 
     df_question_train, df_question_predict = transform_data_matrix(df_question_train, df_question_predict)
-    # df_question_predict = transform_data_matrix_temp(df_question_predict)
 
     question_clf = load_classifier_model()
 
     logger.debug("Classifier: {0}".format(question_clf))
 
-    # predicted_class, svc_clf = predict_question_class(question_clf, df_question_predict)
     predicted_class, svc_clf = support_vector_machine(df_question_train, df_question_class, df_question_predict)
 
     if df_question_test is not None:

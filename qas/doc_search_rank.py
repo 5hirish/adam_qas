@@ -1,4 +1,5 @@
 import logging
+
 from qas.esstore.es_operate import ElasticSearchOperate
 
 """
@@ -19,7 +20,6 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.DEBUG)
 
-    # mquery = list([[['Cushman', 'known', 'Wakefield', 'are'], [['Cushman', 'Wakefield'], 'or'], [], []]])
     mquery = list([[['Albert', 'Einstein', 'birth'], [], [], []]])
 
     les = ElasticSearchOperate()

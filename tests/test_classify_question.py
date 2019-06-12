@@ -1,14 +1,13 @@
-from unittest import TestCase
 import os
+from unittest import TestCase
+
 import pandas
-
-from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
-# from scipy.sparse import csr_matrix
+from sklearn.model_selection import train_test_split
 
+from qas.classifier.question_classifier import classify_question
 from qas.constants import CORPUS_DIR
 from qas.corpus.data import QUESTION_CLASSIFICATION_TRAINING_DATA
-from qas.classifier.question_classifier import classify_question
 
 
 class TestClassifyQuestion(TestCase):

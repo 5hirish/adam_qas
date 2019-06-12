@@ -1,6 +1,6 @@
-import requests
 from pprint import pprint
-# from collections import OrderedDict
+
+import requests
 
 
 def get_named_entities(en_doc):
