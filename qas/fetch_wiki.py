@@ -1,6 +1,6 @@
 import os
-
 from collections import OrderedDict
+
 import wikipedia
 
 from qas.constants import CORPUS_DIR
@@ -17,7 +17,7 @@ def search_wiki(keywords, number_of_search, wiki_pages):
             try:
                 page = wikipedia.page(term, preload=False)
                 page_title = page.title
-                page_summary = page.summary
+                # page_summary = page.summary
                 page_content = page.content
                 wiki_pages[page_title] = page_content
 

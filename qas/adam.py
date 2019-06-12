@@ -2,22 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import sys
 import logging
+import sys
 
-# import enchant # pyenchant>=2.0
 import spacy
 
+from qas import __version__
+from qas.candidate_ans import get_candidate_answers
 from qas.classifier.question_classifier import classify_question
+from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT, EN_MODEL_SM
+from qas.doc_search_rank import search_rank
 from qas.feature_extractor import extract_features
 from qas.query_const import construct_query
-# from qas.fetch_wiki import fetch_wiki
 from qas.wiki.wiki_search import search_wikipedia
-# from qas.doc_scorer import rank_docs
-from qas.doc_search_rank import search_rank
-from qas.candidate_ans import get_candidate_answers
-from qas.constants import EN_MODEL_MD, EN_MODEL_DEFAULT, EN_MODEL_SM
-from qas import __version__
 
 __author__ = "Shirish Kadam"
 __copyright__ = "Copyright (C) 2017  Shirish Kadam"
@@ -116,58 +113,15 @@ class QasInit:
 
         _logger.info("Retrieving {} Wikipedia pages...".format(self.search_depth))
         search_wikipedia(self.question_keywords, self.search_depth)
-        # wiki_pages = fetch_wiki(self.question_keywords, number_of_search=self.search_depth)
 
         # Anaphora Resolution
-
-        # ranked_wiki_docs = rank_docs(self.question_keywords, wiki_pages)
         wiki_pages = search_rank(self.query)
         _logger.info("Pages retrieved: {}".format(len(wiki_pages)))
-        # _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
 
         self.candidate_answers, keywords = get_candidate_answers(self.query, wiki_pages, self.nlp)
         _logger.info("Candidate answers ({}):\n{}".format(len(self.candidate_answers), '\n'.join(self.candidate_answers)))
 
         return " ".join(self.candidate_answers)
-
-# def answer_question(question, num_sentences):
-#
-#     question_doc = en_nlp(u'' + question)
-#
-#     question_class = classify_question(question_doc)
-#     _logger.info("Question Class: {}".format(question_class))
-#
-#     question_keywords = extract_features(question_class, question_doc)
-#     _logger.debug("Question Features: {}".format(question_keywords))
-#
-#     query = construct_query(question_keywords, question_doc)
-#     _logger.debug("Query: {}".format(query))
-#
-#     _logger.info("Retrieving {} wikipedia pages...".format(num_sentences))
-#     wiki_pages = fetch_wiki(question_keywords, number_of_search=num_sentences)
-#     _logger.debug("Pages retrieved: {}".format(len(wiki_pages)))
-#
-#     # Anaphora Resolution
-#
-#     ranked_wiki_docs = rank_docs(question_keywords)
-#     _logger.debug("Ranked pages: {}".format(ranked_wiki_docs))
-#
-#     candidate_answers, keywords = get_candidate_answers(query, ranked_wiki_docs, en_nlp)
-#     _logger.info("Candidate answers ({}):\n{}".format(len(candidate_answers), '\n'.join(candidate_answers)))
-#
-#     return " ".join(candidate_answers)
-
-
-# def get_spell_check(language="en_US"):
-#     en_dict = enchant.Dict(language)
-#
-#
-# def is_spelled_correctly(word):
-#     return re.match(r'\w', word) is None or en_dict.check(word)
-#
-#
-# def correct_spelling(s):
-#     return " ".join([(autocorrect.spell(w) if not is_spelled_correctly(w) else w) for w in s.split()])
 
 
 def parse_args(args):
