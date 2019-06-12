@@ -152,6 +152,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
 
         if updated_mapping is not None:
             self.__es_conn__.indices.close(index=__index_name__)
+            res = self.__es_conn__.indices.put_mapping(index=__index_name__, doc_type=__doc_type__, body=updated_mapping)
             self.__es_conn__.indices.open(index=__index_name__)
 
     def set_up_index(self):
