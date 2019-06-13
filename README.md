@@ -40,6 +40,7 @@ Find more in depth documentation about the system with its research paper and sy
 * [Elasticsearch 6.X](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
 
 Python Package dependencies listed in [requirements.txt](requirements.txt)
+Upgrading Elasticsearchc: [Elasticsearch Rolling updates](https://www.elastic.co/guide/en/elasticsearch/reference/current/rolling-upgrades.html)
 
 ### Features
 
