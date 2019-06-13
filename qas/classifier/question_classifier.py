@@ -2,8 +2,9 @@ import logging
 import os
 
 import pandas
+import joblib
+
 from scipy.sparse import csr_matrix
-from sklearn.externals import joblib
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import LinearSVC
 

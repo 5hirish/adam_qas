@@ -2,7 +2,7 @@ import logging
 import warnings
 from datetime import datetime
 
-from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_revision__, __wiki_title__, \
+from qas.esstore.es_config import __index_name__, __wiki_revision__, __wiki_title__, \
     __wiki_content__, __wiki_content_info__, __wiki_content_table__, __wiki_updated_date__, __wiki_raw__
 from qas.esstore.es_connect import ElasticSearchConn
 from qas.model.es_document import ElasticSearchDocument
@@ -33,7 +33,7 @@ class ElasticSearchOperate:
             __wiki_raw__: raw,
             __wiki_updated_date__: datetime.now()
         }
-        res = self.es_conn.index(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        res = self.es_conn.index(index=__index_name__, body=wiki_body, id=pageid)
         logger.debug("Article Inserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated'
 
@@ -50,7 +50,7 @@ class ElasticSearchOperate:
             },
             "doc_as_upsert": True
         }
-        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        res = self.es_conn.update(index=__index_name__, body=wiki_body, id=pageid)
         logger.debug("Article Upserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated'
 
@@ -85,7 +85,7 @@ class ElasticSearchOperate:
                 __wiki_updated_date__: datetime.now()
             }
         }
-        res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, body=wiki_body, id=pageid)
+        res = self.es_conn.update(index=__index_name__, body=wiki_body, id=pageid)
         logger.debug("Article Upserted:{0}".format(res['result']))
         return res['result'] == 'created' or res['result'] == 'updated' or res['result'] == 'noop'
 
@@ -126,14 +126,14 @@ class ElasticSearchOperate:
             }
 
         if wiki_body is not None:
-            res = self.es_conn.update(index=__index_name__, doc_type=__doc_type__, id=pagid, body=wiki_body)
+            res = self.es_conn.update(index=__index_name__, id=pagid, body=wiki_body)
             logger.debug("Article Updated:{0}".format(res['result']))
             return res['result'] == 'updated'
         else:
             return None
 
     def get_wiki_article(self, pageid):
-        res = self.es_conn.get(index=__index_name__, doc_type=__doc_type__, id=pageid)
+        res = self.es_conn.get(index=__index_name__, id=pageid)
         logger.debug("Article Fetched:{0}".format(res['found']))
         if res['found']:
             return res['_source']
@@ -141,7 +141,7 @@ class ElasticSearchOperate:
             return None
 
     def delete_wiki_article(self, pageid):
-        res = self.es_conn.delete(index=__index_name__, doc_type=__doc_type__, id=pageid)
+        res = self.es_conn.delete(index=__index_name__, id=pageid)
         logger.debug("Article Deleted:{0}".format(res['result']))
         return res['result'] == 'deleted'
 
@@ -243,7 +243,7 @@ class ElasticSearchOperate:
 
                 logger.debug(search_body)
 
-                es_result = self.es_conn.search(index=__index_name__, doc_type=__doc_type__, body=search_body)
+                es_result = self.es_conn.search(index=__index_name__, body=search_body)
                 if es_result['hits']['hits'] is not None:
                     es_result_hits = es_result['hits']['hits']
                     for result in es_result_hits:

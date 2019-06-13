@@ -2,5 +2,5 @@
 # They will be installed automatically when running `python setup.py test`.
 # ATTENTION: Don't remove pytest-cov and pytest as they are needed.
 pytest-cov==2.5.0
-pytest
-codecov
+pytest==4.6.3
+codecov==2.0.15
