@@ -1,7 +1,0 @@
-elasticsearch>=6.1.1
-gensim>=3.0.1
-lxml>=4.1.0
-pandas>=0.21
-requests>=2.18.0
-spaCy>=2.0.3
-scikit-learn>=v0.19.1

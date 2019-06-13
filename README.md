@@ -15,7 +15,7 @@ Follow the creator's blog at [shirishkadam.com](https://www.shirishkadam.com/) f
 ## Getting Started
 
 Elasticsearch is being used to store and index the scrapped and parsed texts from Wikipedia.
-`Elasticsearch 6.X` installation guide can be found at [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html). 
+`Elasticsearch 7.X` installation guide can be found at [Elasticsearch Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html). 
 You might have to start the elasticsearch search service.
 
 ```bash
