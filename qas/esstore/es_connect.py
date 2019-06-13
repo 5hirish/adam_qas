@@ -5,7 +5,7 @@ from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import ConnectionError as ESConnectionError
 from urllib3.exceptions import NewConnectionError
 
-from qas.esstore.es_config import __index_name__, __doc_type__, __wiki_title__, __wiki_updated_date__, __wiki_content__, \
+from qas.esstore.es_config import __index_name__, __wiki_title__, __wiki_updated_date__, __wiki_content__, \
     __wiki_content_info__, __wiki_content_table__, __wiki_revision__, __wiki_raw__, __num_shards__, \
     __num_replicas__, __analyzer_en__, __analyzer_adam__, __index_version__
 
@@ -67,37 +67,35 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                 },
             },
             "mappings": {
-                __doc_type__: {
-                    "_meta": {
-                        "version": 2
+                "_meta": {
+                    "version": 2
+                },
+                "properties": {
+                    __wiki_title__: {
+                        "type": "text",
+                        "analyzer": __analyzer_adam__
                     },
-                    "properties": {
-                        __wiki_title__: {
-                            "type": "text",
-                            "analyzer": __analyzer_adam__
-                        },
-                        __wiki_updated_date__: {
-                            "type": "date"
-                        },
-                        __wiki_raw__: {
-                            "type": "object",
-                            "enabled": "false"
-                        },
-                        __wiki_content__: {
-                            "type": "text",
-                            "analyzer": __analyzer_adam__
-                        },
-                        __wiki_content_info__: {
-                            "type": "text",
-                            "analyzer": __analyzer_adam__
-                        },
-                        __wiki_content_table__: {
-                            "type": "text",
-                            "analyzer": __analyzer_adam__
-                        },
-                        __wiki_revision__: {
-                            "type": "long"
-                        }
+                    __wiki_updated_date__: {
+                        "type": "date"
+                    },
+                    __wiki_raw__: {
+                        "type": "object",
+                        "enabled": "false"
+                    },
+                    __wiki_content__: {
+                        "type": "text",
+                        "analyzer": __analyzer_adam__
+                    },
+                    __wiki_content_info__: {
+                        "type": "text",
+                        "analyzer": __analyzer_adam__
+                    },
+                    __wiki_content_table__: {
+                        "type": "text",
+                        "analyzer": __analyzer_adam__
+                    },
+                    __wiki_revision__: {
+                        "type": "long"
                     }
                 }
             }
@@ -152,7 +150,7 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
 
         if updated_mapping is not None:
             self.__es_conn__.indices.close(index=__index_name__)
-            res = self.__es_conn__.indices.put_mapping(index=__index_name__, doc_type=__doc_type__, body=updated_mapping)
+            res = self.__es_conn__.indices.put_mapping(index=__index_name__, body=updated_mapping)
             self.__es_conn__.indices.open(index=__index_name__)
 
     def set_up_index(self):
@@ -163,9 +161,9 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                     if not index_exists:
                         self.create_index()
                     else:
-                        res = self.__es_conn__.indices.get_mapping(index=__index_name__, doc_type=__doc_type__)
+                        res = self.__es_conn__.indices.get_mapping(index=__index_name__)
                         try:
-                            current_version = res[__index_name__]['mappings'][__doc_type__]['_meta']['version']
+                            current_version = res[__index_name__]['mappings']['_meta']['version']
                             if current_version < __index_version__:
                                 self.update_index(current_version)
                             elif current_version is None:

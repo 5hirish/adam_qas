@@ -1,10 +1,12 @@
-elasticsearch==6.1.1
-gensim==3.0.1
-lxml==4.1.0
-pandas==0.21
+elasticsearch==7.0.2
+gensim==3.7.3
+lxml==4.3.4
+pandas==0.24.2
 requests==2.20.0
 spaCy==2.0.3
-scikit-learn==v0.19.1
+scikit-learn==0.21.2
+dill==0.2.9
+joblib==0.13.2
 
 ############## spaCy language models ################
 
