@@ -30,6 +30,24 @@ _Note:_ The above installation downloads the best-matching default english langu
 ```bash
 $ python -m spacy download en_core_web_md
 ```
+
+## Running with Docker
+
+```bash
+$ git clone https://github.com/5hirish/adam_qas.git
+$ cd adam_qas
+$ docker-compose up
+```
+
+Now both conntainers are up and running.
+Next step is to enter in the python container and run Adam:
+
+```bash
+$ docker exec -it $(docker ps -a -q  --filter ancestor=adam_qas_adam) bash
+$ python -m qas.adam -vv "When was linux kernel version 4.0 released ?"
+```
+
+
 ## References
 
 Find more in depth documentation about the system with its research paper and system architecture [here](docs/ARCHI.md)
