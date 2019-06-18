@@ -1,5 +1,6 @@
 import logging
 import sys
+from os.path import isfile
 
 from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import ConnectionError as ESConnectionError
@@ -26,7 +27,10 @@ class ElasticSearchMeta(type):
 
 
 class ElasticSearchConn(metaclass=ElasticSearchMeta):
-    __hostname__ = 'localhost'
+    if isfile('../.dockerenv'):
+        __hostname__ = 'elasticsearch'
+    else:
+        __hostname__ = 'localhost'
     __port__ = 9200
     __es_conn__ = None
     es_index_config = None
@@ -176,8 +180,8 @@ class ElasticSearchConn(metaclass=ElasticSearchMeta):
                             sys.exit(1)
 
                 except ESConnectionError as e:
-                    logger.error("Elasitcsearch is not installed or its service is not running. {0}".format(e))
-                    print("\n -- Elasitcsearch is not installed or its service is not running.--\n", e)
+                    logger.error("Elasticsearch is not installed or its service is not running. {0}".format(e))
+                    print("\n -- Elasticsearch is not installed or its service is not running.--\n", e)
                     sys.exit(1)
             except NewConnectionError:
                 pass
