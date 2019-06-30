@@ -43,7 +43,7 @@ Now both conntainers are up and running.
 Next step is to enter in the python container and run Adam:
 
 ```bash
-$ docker exec -it $(docker ps -a -q  --filter ancestor=adam_adam) bash
+$ docker exec -it $(docker ps -a -q  --filter ancestor=adam_qas_adam) bash
 $ python -m qas.adam -vv "When was linux kernel version 4.0 released ?"
 ```
 
