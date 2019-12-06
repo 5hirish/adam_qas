@@ -1,4 +1,4 @@
-# CONTIRUBING
+# CONTRIBUTING
 
 Adam QAS is a community-maintained project and we happily accept contributions.
 
