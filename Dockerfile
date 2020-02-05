@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:latest
+FROM python:3.6-stretch
 
 LABEL maintainer="ziggerzz@gmail.com"
 
